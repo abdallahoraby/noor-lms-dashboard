@@ -4,93 +4,146 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title> Noor World LMS </title>
-    <link rel='stylesheet prefetch' href="../assets/css/normalize.min.css">
-    <link rel='stylesheet prefetch' href="../assets/css/bootstrap.min.css">
-    <link rel='stylesheet prefetch' href="../assets/css/animate.min.css">
-    <link rel="stylesheet" href="../assets/css/fontawesome.min.css">
-    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link href="../assets/css/normalize.min.css" rel='stylesheet prefetch'>
+    <link href="../assets/css/bootstrap.min.css" rel='stylesheet prefetch'>
+    <link href="../assets/css/animate.min.css" rel='stylesheet prefetch'>
+    <link href="../assets/css/fontawesome.min.css" rel="stylesheet">
+    <link href="../assets/css/styles.css" rel="stylesheet">
 </head>
 
-    <body class="sidebar-is-reduced">
-        <header class="l-header">
-            <div class="l-header__inner clearfix">
-                <div class="c-header-icon js-hamburger">
-                    <div class="hamburger-toggle"><span class="bar-top"></span><span class="bar-mid"></span><span
-                            class="bar-bot"></span></div>
-                </div>
-                <div class="c-header-icon has-dropdown"><span
-                        class="c-badge c-badge--header-icon animated shake">87</span><i class="fa fa-bell"></i>
-                    <div class="c-dropdown c-dropdown--notifications">
-                        <div class="c-dropdown__header"></div>
-                        <div class="c-dropdown__content"></div>
+<body class="sidebar-is-reduced">
+<header class="l-header">
+    <div class="l-header__inner clearfix">
+        <div class="c-header-icon js-hamburger">
+            <div class="hamburger-toggle"><span class="bar-top"></span><span class="bar-mid"></span><span
+                    class="bar-bot"></span></div>
+        </div>
+        <div class="c-header-icon has-dropdown"><span
+                class="c-badge c-badge--header-icon animated shake">87</span>
+            <i class="fa-regular fa-bell"></i>
+            <div class="c-dropdown c-dropdown--notifications">
+                <div class="c-dropdown__header"></div>
+                <div class="c-dropdown__content"></div>
+            </div>
+        </div>
+        <div class="c-search">
+            <input class="c-search__input u-input" placeholder="Search..." type="text"/>
+        </div>
+        <div class="header-icons-group">
+            <div class="c-header-icon basket"><span
+                    class="c-badge c-badge--header-icon animated shake">12</span><i
+                    class="fa fa-shopping-basket"></i></div>
+            <div class="c-header-icon logout"><i class="fa fa-power-off"></i></div>
+        </div>
+    </div>
+</header>
+<div class="l-sidebar">
+    <div class="logo">
+        <div class="logo__txt">
+            <img alt="" src="../assets/images/logo.png">
+        </div>
+    </div>
+    <div class="l-sidebar__content">
+        <nav class="c-menu js-menu">
+            <ul class="u-list">
+                <li class="c-menu__item is-active" data-toggle="tooltip" title="Flights">
+                    <div class="c-menu__item__inner"><i class="fa fa-home"></i>
+                        <div class="c-menu-item__title"><span> Dashboard </span></div>
+                    </div>
+                </li>
+                <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Modules">
+                    <div class="c-menu__item__inner"><i class="fa fa-puzzle-piece"></i>
+                        <div class="c-menu-item__title"><span>Courses</span></div>
+                    </div>
+                </li>
+                <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Statistics">
+                    <div class="c-menu__item__inner"><i class="fa fa-bar-chart"></i>
+                        <div class="c-menu-item__title"><span>Classes</span></div>
+                    </div>
+                </li>
+                <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Gifts">
+                    <div class="c-menu__item__inner"><i class="fa fa-gift"></i>
+                        <div class="c-menu-item__title"><span>Gifts</span></div>
+                    </div>
+                </li>
+                <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Settings">
+                    <div class="c-menu__item__inner"><i class="fa fa-cogs"></i>
+                        <div class="c-menu-item__title"><span>Settings</span></div>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<main class="l-main">
+    <div class="content-wrapper content-wrapper--with-bg">
+        <h1 class="page-title">Dashboard</h1>
+        <div class="page-content page-template-dashboard">
+            <section class="dashboard-header dashboard-wrapper">
+
+                <div class="dashboard-user" bis_skin_checked="1">
+                    <div class="dashboard-user__profile" bis_skin_checked="1">
+
+                        <div class="avatar-container" bis_skin_checked="1">
+                            <a href="/avatar-store/"><img src="/wp-content/themes/buddyboss-theme-child/assets/img/dashboard/avatar-edit.png"></a>
+                            <img src="https://demo.journey2jannah.com/wp-content/plugins/pbdigital-api/avatars_full/17158.png?0.8429520254124236" class="avatar-full">
+                        </div>
+
+                        <div class="dashboard-user__welcome" bis_skin_checked="1">
+
+                            <div class="name-classroom" bis_skin_checked="1">
+                                <h1>Assalāmu ʿalaykum !</h1>
+
+                                <div class="classrooms" bis_skin_checked="1"><div class="dashboard-user__classrooms" bis_skin_checked="1"><a class="dashboard-user__classroom" href="https://demo.journey2jannah.com/groups/demo-users/">Demo Users</a></div></div>
+                            </div>
+
+                            <div class="divider" bis_skin_checked="1"></div>
+                            <div class="avatar-container mobile" bis_skin_checked="1">
+                                <a href="/avatar-store/"><img src="/wp-content/themes/buddyboss-theme-child/assets/img/dashboard/avatar-edit.png"></a>
+                                <img src="https://demo.journey2jannah.com/wp-content/plugins/pbdigital-api/avatars_full/17158.png?0.8429520254124236" class="avatar-full">
+                            </div>
+
+                            <div class="actions" bis_skin_checked="1">
+
+                                <div class="practice-log action btn-check" data-add="1" style="cursor:pointer" bis_skin_checked="1">
+                                    <img class="action-img" src="/wp-content/themes/buddyboss-theme-child/assets/img/dashboard/book.svg" alt="Practice Tracker">
+                                    <h3>Have you practiced reading today?</h3>
+                                    <button type="button">
+                                        <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="21" cy="21" r="20" stroke="#fff" stroke-width="2"></circle>
+                                            <path d="M29.052 15.286 17.624 26.714l-5.195-5.195" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                    </button>
+                                </div>
+
+                                <div class="assigned-tasks action" style="cursor:pointer;" onclick="window.location.href='/course-library/'" bis_skin_checked="1">
+                                    <img class="action-img" src="/wp-content/themes/buddyboss-theme-child/assets/img/dashboard/view-courses.svg" alt="View Courses">
+
+                                    <h3>View your courses.</h3>
+                                    <a class="btn-view-tasks" href="/course-library/">
+                                        <svg width="42" height="43" viewBox="0 0 42 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="21" cy="21.5" r="20" stroke="white" stroke-width="2"></circle>
+                                            <path d="M18.5 27.5L24.5 21.5L18.5 15.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+
+
+                            </div>
+
+                        </div>
                     </div>
                 </div>
-                <div class="c-search">
-                    <input class="c-search__input u-input" placeholder="Search..." type="text" />
-                </div>
-                <div class="header-icons-group">
-                    <div class="c-header-icon basket"><span
-                            class="c-badge c-badge--header-icon animated shake">12</span><i
-                            class="fa fa-shopping-basket"></i></div>
-                    <div class="c-header-icon logout"><i class="fa fa-power-off"></i></div>
-                </div>
-            </div>
-        </header>
-        <div class="l-sidebar">
-            <div class="logo">
-                <div class="logo__txt">D</div>
-            </div>
-            <div class="l-sidebar__content">
-                <nav class="c-menu js-menu">
-                    <ul class="u-list">
-                        <li class="c-menu__item is-active" data-toggle="tooltip" title="Flights">
-                            <div class="c-menu__item__inner"><i class="fa fa-plane"></i>
-                                <div class="c-menu-item__title"><span>Flights</span></div>
-                            </div>
-                        </li>
-                        <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Modules">
-                            <div class="c-menu__item__inner"><i class="fa fa-puzzle-piece"></i>
-                                <div class="c-menu-item__title"><span>Modules</span></div>
-                                <div class="c-menu-item__expand js-expand-submenu"><i class="fa fa-angle-down"></i>
-                                </div>
-                            </div>
-                            <ul class="c-menu__submenu u-list">
-                                <li>Payments</li>
-                                <li>Maps</li>
-                                <li>Notifications</li>
-                            </ul>
-                        </li>
-                        <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Statistics">
-                            <div class="c-menu__item__inner"><i class="fa fa-bar-chart"></i>
-                                <div class="c-menu-item__title"><span>Statistics</span></div>
-                            </div>
-                        </li>
-                        <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Gifts">
-                            <div class="c-menu__item__inner"><i class="fa fa-gift"></i>
-                                <div class="c-menu-item__title"><span>Gifts</span></div>
-                            </div>
-                        </li>
-                        <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Settings">
-                            <div class="c-menu__item__inner"><i class="fa fa-cogs"></i>
-                                <div class="c-menu-item__title"><span>Settings</span></div>
-                            </div>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
+
+            </section>
         </div>
-    
-    <main class="l-main">
-        <div class="content-wrapper content-wrapper--with-bg">
-            <h1 class="page-title">Dashboard</h1>
-            <div class="page-content">Content goes here</div>
-        </div>
-    </main>
-    <script src="../assets/js/jquery.min.js"></script>
-    <script src="../assets/js/bootstrap.min.js"></script>
-    <script src="../assets/js/scripts.js"></script>
+    </div>
+</main>
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/jquery-ui.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<script src="../assets/js/scripts.js"></script>
 
 
 </body>
