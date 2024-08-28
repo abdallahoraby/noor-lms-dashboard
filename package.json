@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "node-sass --include-path scss assets/scss/main.scss assets/css/styles.css",
-    "watch": "nodemon -e scss -x \"npm run build-css\" "
+    "watch": "npm run build && npm run build -- -w"
   },
   "author": "",
   "license": "ISC",
