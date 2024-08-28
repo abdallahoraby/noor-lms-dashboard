@@ -1,18 +1,33 @@
+/*** TEXT COLORS ***/
 $color_1: #102c58;
 $color_2: #c3c3c3;
 $color_3: #fff;
 $color_4: #f5642d;
 $color_5: #5f9cfd;
-$font-family_1: "Open Sans";
-$background-color_1: #ececec;
+$light_gray: #ececec;
+$purple: var(--brand-purple, #5D53C0);
+$orange: #ef746f;
+$white: var(--text-white, #FFF);
+
+/*** BG COLORS ***/
+$body_bg_color: #e4f1f999;
 $background-color_2: #f91605;
 $background-color_3: #051835;
 $background-color_4: #fff;
 $background-color_5: #5f9cfd;
 $background-color_6: #1e3e6f;
 $background-color_7: #f5642d;
+$primary_color: #5D53C0;
+$secondary_color: #2a428c;
+
+/*** BORDERS ***/
 $border-color_1: #cccccc;
 $border-color_2: #072048;
 $border-right-color_1: #051835;
 $border-left-color_1: #5f9cfd;
 $border-left-color_2: #f5642d;
+$all_radius: 100%;
+$button_radius: 20px;
+
+/**** SHADOW ***/
+$light_gray_shadow: 0 0 5px $light_gray;
