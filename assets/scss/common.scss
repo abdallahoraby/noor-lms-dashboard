@@ -7,7 +7,7 @@ body {
     width: 100%;
     margin: 0;
     padding: 0;
-    font-family: $font-family_1;
+    font-family: $main_font_family;
     font-size: 14px;
     font-weight: 400;
     overflow: hidden;
@@ -20,6 +20,8 @@ body {
     box-sizing: border-box;
     text-decoration: none !important;
     transition: all 0.3s ease-in-out;
+    margin: 0;
+    padding: 0;
 
     &::-webkit-input-placeholder {
         color: $color_2;
@@ -446,10 +448,14 @@ main.l-main {
     .content-wrapper {
         padding: 25px;
         height: 100%;
+        overflow: auto;
     }
     .content-wrapper--with-bg {
         .page-content {
             padding: 25px;
+            height: auto;
+            max-width: 1300px;
+            margin: 0 auto;
         }
     }
     .page-title {
@@ -470,12 +476,11 @@ main.l-main {
         display: grid;
         grid-template-columns: minmax(0, 1fr) 380px;
         grid-gap: 60px;
-        max-width: 1080px;
         margin: 0 auto;
         margin-top: 60px;
         padding-bottom: 80px;
         flex: initial;
-        width: calc(100% - 40px);
+        width: 100%;
     }
     .dashboard-user__profile {
         display: grid;
@@ -550,7 +555,7 @@ main.l-main {
             justify-content: end;
             h1 {
                 color: $purple;
-                font-family: $font-family_1;
+                font-family: $main_font_family;
                 font-size: 32px;
                 font-style: normal;
                 font-weight: 700;
@@ -576,14 +581,14 @@ main.l-main {
             .action {
                 h3 {
                     color: $white;
-                    font-family: $font-family_1;
+                    font-family: $main_font_family;
                     font-size: 20px;
                     font-style: normal;
                     font-weight: 500;
                     line-height: 140%;
                     margin-bottom: 0px;
                     color: $white;
-                    font-family: $font-family_1;
+                    font-family: $main_font_family;
                     font-size: 20px;
                     font-style: normal;
                     font-weight: 500;
@@ -640,7 +645,7 @@ main.l-main {
             background: #ffffff;
             box-shadow: 0px 4px 10px rgba(93, 83, 192, 0.05);
             border-radius: 100px;
-            font-family: $font-family_1;
+            font-family: $main_font_family;
             font-style: normal;
             font-weight: 500;
             font-size: 12px;
@@ -654,4 +659,338 @@ main.l-main {
         }
     }
 }
+
+.pickup-what-left{
+    img {
+        width: 3rem;
+    }
+
+    h3 {
+        font-weight: bold;
+        font-size: 1.5rem;
+        color: $purple;
+    }
+
+    .latest-course {
+        margin: 2rem 0 4rem 0;
+        position: relative;
+        width: fit-content;
+        min-width: 300px;
+
+        img {
+            width: 20rem;
+            height: 12rem;
+            border-radius: 15px;
+            object-fit: cover;
+            box-shadow: 0 0 5px #ececec;
+            margin-top: -1rem;
+            z-index: -1;
+            position: relative;
+        }
+
+        h4 {
+            background: #fff;
+            width: fit-content;
+            min-width: 70%;
+            text-align: center;
+            border-radius: 6px;
+            color: $orange;
+            margin: 0 auto;
+            z-index: 1;
+            padding: 0.3rem 2rem;
+        }
+
+    }
+}
+
+
+.heading-with-icon{
+    img {
+        width: 3rem;
+        height: auto;
+        object-fit: contain;
+    }
+
+    h3 {
+        font-weight: bold;
+        font-size: 1.5rem;
+        color: $purple;
+    }
+
+}
+
+.course-of-today {
+    flex: 50%;
+    background-color: $orange;
+    background-image: url('../images/islamic-studies.png');
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: right bottom;
+    padding: 2rem;
+    border-radius: 15px;
+    margin: 1rem 0;
+    min-height: 200px;
+
+    &:hover{
+
+    }
+
+    h3{
+        color: $white;
+        font-size: 1.4rem;
+    }
+
+    a{
+        color: $orange;
+        width: fit-content;
+        border-radius: $button_radius;
+        text-transform: uppercase;
+        padding: 0.5rem 2rem;
+        font-weight: bold;
+    }
+
+    &.light-blue{
+        background-color: $color_5;
+        background-image: url('../images/bookclose.png');
+        background-size: auto;
+        background-position: bottom 1rem right 1rem;
+    }
+}
+
+.btn-light{
+    background: $white;
+}
+
+.divider {
+    width: 100%;
+    height: 2px;
+    background: #ddd;
+}
+
+.practice-wrapper {
+    background: $white;
+    border-radius: $radius_15px;
+    margin: 2rem 0;
+    padding: 1rem 0;
+    box-shadow: $light_gray_shadow;
+
+    .practice-header {
+        padding: 2rem;
+
+        .day-progress{
+            h4{
+                font-size: 1rem;
+                text-align: center;
+            }
+
+            .has-practice {
+                background: $secondary_color;
+                width: 20px;
+                height: 20px;
+                border-radius: 100%;
+                margin-top: 1rem;
+                opacity: 0.3;
+                position: relative;
+
+                &.active{
+                    opacity: 1;
+                    &:before {
+                        content: '';
+                        width: 30px;
+                        height: 30px;
+                        border: 2px solid #2a428cc2;
+                        position: absolute;
+                        left: -5px;
+                        top: -5px;
+                        border-radius: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    .practice-log {
+        padding: 2rem;
+        display: flex;
+        flex-flow: column;
+        gap: 1rem;
+
+        .practice-score {
+            color: $light-green;
+            font-size: 1.2rem;
+        }
+
+        .progress {
+            border-radius: 25px;
+            height: 15px;
+            background: $body_bg_color;
+
+            .progress-bar {
+                background: $primary_color;
+                border-radius: inherit;
+            }
+        }
+
+        p{
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .log-practice-btn {
+            background: $light-green;
+            color: $white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border-radius: 100px;
+            width: fit-content;
+            margin: 0 auto;
+            padding: 0.5rem 2rem;
+        }
+
+        .view-practice-logs {
+            margin: 0 auto;
+            font-size: 1.2rem;
+            color: $primary_color;
+        }
+    }
+
+}
+
+.achievements-tracker {
+
+
+    .heading-with-icon{
+        h3{
+            margin: 0;
+        }
+    }
+
+    .achievements-score {
+        font-size: 1.3rem;
+        color: $secondary_color;
+    }
+
+    .achievements-wrapper{
+        background: $white;
+        box-shadow: $light_gray_shadow;
+        padding: 2rem;
+        border-radius: $radius_15px;
+        margin: 2rem 0;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            margin-bottom: 1rem;
+            cursor: pointer;
+
+            &:hover{
+                transform: scale(1.1);
+            }
+        }
+
+        .view-all-achievements {
+            font-size: 1.1rem;
+            margin: 0 auto;
+            width: fit-content;
+            display: block;
+            margin-top: 1.5rem;
+            color: $secondary_color;
+        }
+    }
+}
+
+.my-goals {
+
+    .heading-with-icon{
+        img {
+            width: 2.5rem;
+        }
+        h3{
+            margin: 0;
+        }
+    }
+
+    .goals-score {
+        font-size: 1.3rem;
+        color: $secondary_color;
+    }
+
+    .goals-wrapper {
+        margin: 2rem 0;
+        background: $white;
+        border-radius: $radius_15px;
+        padding: 2rem;
+
+        ul.goals-check {
+            list-style: none;
+            padding: 0;
+
+            li {
+                font-size: 1rem;
+                padding: 1rem 0;
+                border-bottom: 1px solid $light_gray;
+                margin: 0;
+
+                &>div{
+                    display: flex;
+                    flex-flow: row;
+                    gap: 1rem;
+                    align-items: center;
+                }
+
+                i{
+                    background: $light-green;
+                    color: $white;
+                    font-size: 1rem;
+                    border-radius: $all_radius;
+                    width: 30px;
+                    height: 30px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    opacity: 0.1;
+
+                    &.active{
+                        opacity: 1;
+                    }
+                }
+
+                span {
+                    min-width: 4rem;
+                    display: flex;
+                    gap: 0.7rem;
+                    font-size: 1.1rem;
+                    color: $secondary_color;
+                    img{
+                        width: 1.5rem;
+                        height: 1.5rem;
+                        object-fit: contain;
+                    }
+                }
+            }
+        }
+
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
