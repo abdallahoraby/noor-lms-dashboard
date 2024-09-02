@@ -3,6 +3,7 @@
 
 # ignore node dependency directories
 /node_modules/
+/temp/
 
 # ignore log files and databases
 *.log

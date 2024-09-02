@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300..700&display=swap");
 /*** TEXT COLORS ***/
 /*** BG COLORS ***/
 /*** BORDERS ***/
@@ -11,7 +12,7 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
-  font-family: "Open Sans";
+  font-family: "Signika Negative", sans-serif;
   font-size: 14px;
   font-weight: 400;
   overflow: hidden;
@@ -23,7 +24,9 @@ body {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   text-decoration: none !important;
-  transition: all 0.3s ease-in-out; }
+  transition: all 0.3s ease-in-out;
+  margin: 0;
+  padding: 0; }
   *::-webkit-input-placeholder {
     color: #c3c3c3; }
 
@@ -392,9 +395,13 @@ main.l-main {
   transition: padding 0.5s ease-in-out; }
   main.l-main .content-wrapper {
     padding: 25px;
-    height: 100%; }
+    height: 100%;
+    overflow: auto; }
   main.l-main .content-wrapper--with-bg .page-content {
-    padding: 25px; }
+    padding: 25px;
+    height: auto;
+    max-width: 1300px;
+    margin: 0 auto; }
   main.l-main .page-title {
     font-weight: 400;
     margin-top: 0;
@@ -409,12 +416,11 @@ main.l-main {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 380px;
   grid-gap: 60px;
-  max-width: 1080px;
   margin: 0 auto;
   margin-top: 60px;
   padding-bottom: 80px;
   flex: initial;
-  width: calc(100% - 40px); }
+  width: 100%; }
 
 .page-template-dashboard .dashboard-user__profile {
   display: grid;
@@ -481,7 +487,7 @@ main.l-main {
     justify-content: end; }
     .page-template-dashboard .dashboard-user__welcome .name-classroom h1 {
       color: var(--brand-purple, #5D53C0);
-      font-family: "Open Sans";
+      font-family: "Signika Negative", sans-serif;
       font-size: 32px;
       font-style: normal;
       font-weight: 700;
@@ -507,14 +513,14 @@ main.l-main {
       align-items: center; }
       .page-template-dashboard .dashboard-user__welcome .actions .action h3 {
         color: var(--text-white, #FFF);
-        font-family: "Open Sans";
+        font-family: "Signika Negative", sans-serif;
         font-size: 20px;
         font-style: normal;
         font-weight: 500;
         line-height: 140%;
         margin-bottom: 0px;
         color: var(--text-white, #FFF);
-        font-family: "Open Sans";
+        font-family: "Signika Negative", sans-serif;
         font-size: 20px;
         font-style: normal;
         font-weight: 500;
@@ -553,7 +559,7 @@ main.l-main {
     background: #ffffff;
     box-shadow: 0px 4px 10px rgba(93, 83, 192, 0.05);
     border-radius: 100px;
-    font-family: "Open Sans";
+    font-family: "Signika Negative", sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
@@ -568,3 +574,284 @@ main.l-main {
       color: #ef746f;
       background: rgba(239, 116, 111, 0.1);
       font-weight: bold; }
+
+.pickup-what-left img {
+  width: 3rem; }
+
+.pickup-what-left h3 {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: var(--brand-purple, #5D53C0); }
+
+.pickup-what-left .latest-course {
+  margin: 2rem 0 4rem 0;
+  position: relative;
+  width: fit-content;
+  min-width: 300px; }
+  .pickup-what-left .latest-course img {
+    width: 20rem;
+    height: 12rem;
+    border-radius: 15px;
+    object-fit: cover;
+    box-shadow: 0 0 5px #ececec;
+    margin-top: -1rem;
+    z-index: -1;
+    position: relative; }
+  .pickup-what-left .latest-course h4 {
+    background: #fff;
+    width: fit-content;
+    min-width: 70%;
+    text-align: center;
+    border-radius: 6px;
+    color: #ef746f;
+    margin: 0 auto;
+    z-index: 1;
+    padding: 0.3rem 2rem; }
+
+.heading-with-icon img {
+  width: 3rem;
+  height: auto;
+  object-fit: contain; }
+
+.heading-with-icon h3 {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: var(--brand-purple, #5D53C0); }
+
+.course-of-today {
+  flex: 50%;
+  background-color: #ef746f;
+  background-image: url("../images/islamic-studies.png");
+  background-repeat: no-repeat;
+  background-size: 50%;
+  background-position: right bottom;
+  padding: 2rem;
+  border-radius: 15px;
+  margin: 1rem 0;
+  min-height: 200px; }
+  .course-of-today h3 {
+    color: var(--text-white, #FFF);
+    font-size: 1.4rem; }
+  .course-of-today a {
+    color: #ef746f;
+    width: fit-content;
+    border-radius: 20px;
+    text-transform: uppercase;
+    padding: 0.5rem 2rem;
+    font-weight: bold; }
+  .course-of-today.light-blue {
+    background-color: #5f9cfd;
+    background-image: url("../images/bookclose.png");
+    background-size: auto;
+    background-position: bottom 1rem right 1rem; }
+
+.btn-light {
+  background: var(--text-white, #FFF); }
+
+.divider {
+  width: 100%;
+  height: 2px;
+  background: #ddd; }
+
+.practice-wrapper {
+  background: var(--text-white, #FFF);
+  border-radius: 15px;
+  margin: 2rem 0;
+  padding: 1rem 0;
+  box-shadow: 0 0 5px #ececec; }
+  .practice-wrapper .practice-header {
+    padding: 2rem; }
+    .practice-wrapper .practice-header .day-progress h4 {
+      font-size: 1rem;
+      text-align: center; }
+    .practice-wrapper .practice-header .day-progress .has-practice {
+      background: #2a428c;
+      width: 20px;
+      height: 20px;
+      border-radius: 100%;
+      margin-top: 1rem;
+      opacity: 0.3;
+      position: relative; }
+      .practice-wrapper .practice-header .day-progress .has-practice.active {
+        opacity: 1; }
+        .practice-wrapper .practice-header .day-progress .has-practice.active:before {
+          content: '';
+          width: 30px;
+          height: 30px;
+          border: 2px solid #2a428cc2;
+          position: absolute;
+          left: -5px;
+          top: -5px;
+          border-radius: 100%; }
+  .practice-wrapper .practice-log {
+    padding: 2rem;
+    display: flex;
+    flex-flow: column;
+    gap: 1rem; }
+    .practice-wrapper .practice-log .practice-score {
+      color: #3cd13c;
+      font-size: 1.2rem; }
+    .practice-wrapper .practice-log .progress {
+      border-radius: 25px;
+      height: 15px;
+      background: #e4f1f999; }
+      .practice-wrapper .practice-log .progress .progress-bar {
+        background: #5D53C0;
+        border-radius: inherit; }
+    .practice-wrapper .practice-log p {
+      text-align: center;
+      font-size: 1rem; }
+    .practice-wrapper .practice-log .log-practice-btn {
+      background: #3cd13c;
+      color: var(--text-white, #FFF);
+      font-weight: bold;
+      font-size: 1.2rem;
+      border-radius: 100px;
+      width: fit-content;
+      margin: 0 auto;
+      padding: 0.5rem 2rem; }
+    .practice-wrapper .practice-log .view-practice-logs {
+      margin: 0 auto;
+      font-size: 1.2rem;
+      color: #5D53C0; }
+
+.achievements-tracker .heading-with-icon h3 {
+  margin: 0; }
+
+.achievements-tracker .achievements-score {
+  font-size: 1.3rem;
+  color: #2a428c; }
+
+.achievements-tracker .achievements-wrapper {
+  background: var(--text-white, #FFF);
+  box-shadow: 0 0 5px #ececec;
+  padding: 2rem;
+  border-radius: 15px;
+  margin: 2rem 0; }
+  .achievements-tracker .achievements-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    margin-bottom: 1rem;
+    cursor: pointer; }
+    .achievements-tracker .achievements-wrapper img:hover {
+      transform: scale(1.1); }
+  .achievements-tracker .achievements-wrapper .view-all-achievements {
+    font-size: 1.1rem;
+    margin: 0 auto;
+    width: fit-content;
+    display: block;
+    margin-top: 1.5rem;
+    color: #2a428c; }
+
+.my-goals .heading-with-icon img {
+  width: 2.5rem; }
+
+.my-goals .heading-with-icon h3 {
+  margin: 0; }
+
+.my-goals .goals-score {
+  font-size: 1.3rem;
+  color: #2a428c; }
+
+.my-goals .goals-wrapper {
+  margin: 2rem 0;
+  background: var(--text-white, #FFF);
+  border-radius: 15px;
+  padding: 2rem; }
+  .my-goals .goals-wrapper ul.goals-check {
+    list-style: none;
+    padding: 0; }
+    .my-goals .goals-wrapper ul.goals-check li {
+      font-size: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid #ececec;
+      margin: 0; }
+      .my-goals .goals-wrapper ul.goals-check li > div {
+        display: flex;
+        flex-flow: row;
+        gap: 1rem;
+        align-items: center; }
+      .my-goals .goals-wrapper ul.goals-check li i {
+        background: #3cd13c;
+        color: var(--text-white, #FFF);
+        font-size: 1rem;
+        border-radius: 100%;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0.1; }
+        .my-goals .goals-wrapper ul.goals-check li i.active {
+          opacity: 1; }
+      .my-goals .goals-wrapper ul.goals-check li span {
+        min-width: 4rem;
+        display: flex;
+        gap: 0.7rem;
+        font-size: 1.1rem;
+        color: #2a428c; }
+        .my-goals .goals-wrapper ul.goals-check li span img {
+          width: 1.5rem;
+          height: 1.5rem;
+          object-fit: contain; }
+
+@media (max-width: 999px) {
+  .page-template-dashboard .dashboard-header {
+    margin: 0; }
+    .page-template-dashboard .dashboard-header .dashboard-user__profile {
+      display: flex;
+      flex-flow: column;
+      width: 100%; }
+      .page-template-dashboard .dashboard-header .dashboard-user__profile .avatar-container {
+        min-height: auto; }
+        .page-template-dashboard .dashboard-header .dashboard-user__profile .avatar-container .avatar-full {
+          width: 10rem;
+          height: 10rem;
+          padding: 1rem;
+          margin: 1rem; }
+      .page-template-dashboard .dashboard-header .dashboard-user__profile .dashboard-user__welcome .name-classroom h1 {
+        font-size: 1.5rem; }
+      .page-template-dashboard .dashboard-header .dashboard-user__profile .dashboard-user__welcome .actions {
+        display: flex;
+        flex-flow: column;
+        gap: 1rem; }
+        .page-template-dashboard .dashboard-header .dashboard-user__profile .dashboard-user__welcome .actions .assigned-tasks {
+          gap: 10px; }
+          .page-template-dashboard .dashboard-header .dashboard-user__profile .dashboard-user__welcome .actions .assigned-tasks img {
+            width: 2rem;
+            height: 2rem;
+            object-fit: contain;
+            border-radius: 0; }
+          .page-template-dashboard .dashboard-header .dashboard-user__profile .dashboard-user__welcome .actions .assigned-tasks h3 {
+            font-size: 1rem; }
+    .page-template-dashboard .dashboard-header .today-courses {
+      flex-flow: column;
+      gap: 0 !important; }
+  .page-template-dashboard .dashboard-middle-content .today-courses {
+    margin: 0 0 2rem 0;
+    flex-flow: column;
+    gap: 0 !important; }
+    .page-template-dashboard .dashboard-middle-content .today-courses .course-of-today {
+      flex: 100%;
+      min-height: 170px; }
+  .page-template-dashboard .dashboard-middle-content .practice-wrapper .practice-header {
+    padding: 1rem; }
+    .page-template-dashboard .dashboard-middle-content .practice-wrapper .practice-header * {
+      text-align: center; }
+  .page-template-dashboard .dashboard-middle-content .practice-wrapper .practice-log .header {
+    flex-flow: column;
+    gap: 0 !important; }
+  .page-template-dashboard .dashboard-footer-content {
+    margin-top: 1rem !important; }
+    .page-template-dashboard .dashboard-footer-content .my-goals .goals-wrapper {
+      padding: 1rem; }
+      .page-template-dashboard .dashboard-footer-content .my-goals .goals-wrapper ul.goals-check li i {
+        font-size: .9rem;
+        width: 25px;
+        height: 25px; }
+      .page-template-dashboard .dashboard-footer-content .my-goals .goals-wrapper ul.goals-check li:last-child {
+        border-bottom: 0; } }
+
+.heading-with-icon h3 {
+  font-size: 1.3rem; }
