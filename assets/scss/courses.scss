@@ -1,0 +1,104 @@
+.page-template-dashboard {
+  .courses-filter {
+    margin: 40px auto;
+    .searchbar {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0 auto;
+      .input-search {
+        width: 50%;
+        background: #ffffff url("../images/search.svg") no-repeat 15px center/18px;
+        border: 1px solid #e7e9ee;
+        border-radius: 10px;
+        height: 48px;
+        padding: 10px 10px 10px 46px;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: $secondary_color;
+      }
+      .filters {
+        display: flex;
+        gap: 1rem;
+        width: 50%;
+      }
+      .filter-menu {
+        width: 50%;
+        background: #ffffff url("../images/caret-down.svg") no-repeat calc(100% - 16px) center;
+        border: 1px solid #e7e9ee;
+        border-radius: 10px;
+        height: 48px;
+        font-family: $main_font_family;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        text-transform: capitalize;
+        color: $secondary_color;
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding: 10px 26px 10px 26px;
+        background: #ffffff url("../images/caret-down.svg") no-repeat calc(100% - 16px) center;
+        border: 1px solid #e7e9ee;
+        border-radius: 10px;
+        height: 48px;
+        font-family: $main_font_family;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        text-transform: capitalize;
+        color: $secondary_color;
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding: 10px 26px 10px 26px;
+        >span {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        ul {
+          display: none;
+          position: absolute;
+          top: 55px;
+          right: 0;
+          padding: 0;
+          list-style: none;
+          width: 100%;
+          background: #ffffff;
+          border: 1px solid #e7e9ee;
+          border-radius: 10px;
+          z-index: 6;
+          li.disabled {
+            color: $body_bg_color;
+            padding: 12px 20px;
+          }
+          li {
+            &:not(:last-child) {
+              border-bottom: 1px solid #e7e9ee;
+            }
+            text-align: left;
+            font-family: $main_font_family;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 24px;
+            text-transform: capitalize;
+            color: $secondary_color;
+            padding: 10px 20px;
+            &:hover{
+              background: $body_bg_color;
+              font-weight: bold;
+            }
+          }
+        }
+      }
+    }
+  }
+}
