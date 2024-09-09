@@ -46,3 +46,10 @@ var Dashboard = function () {
 
 Dashboard.init();
 //# sourceURL=pen.js
+
+
+// toggle show/hide for courses select
+jQuery('.filter-menu').on('click', function() {
+    jQuery('.filter-menu').not(this).find('ul').hide();
+    jQuery(this).find('ul').toggle();
+});

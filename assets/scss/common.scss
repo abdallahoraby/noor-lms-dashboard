@@ -37,6 +37,11 @@ h2 {
 h3 {
     font-size: 18px;
 }
+
+a{
+    color: $white;
+}
+
 .u-list {
     margin: 0;
     padding: 0;
@@ -418,15 +423,13 @@ h3 {
         }
         .c-menu__item.is-active {
             .c-menu__item__inner {
-                border-left-color: $border-left-color_1;
-                background-color: $background-color_6;
+                border-left-color: $body_bg_color;
+                background-color: $body_bg_color;
                 i {
                     color: $color_5;
                 }
                 .c-menu-item__title {
-                    span {
-                        color: $color_5;
-                    }
+                    color: $secondary_color;
                 }
                 &:before {
                     height: 36px;
@@ -777,6 +780,10 @@ main.l-main {
     .practice-header {
         padding: 2rem;
 
+        .week-progress{
+            gap: 1.5rem;
+        }
+
         .day-progress{
             h4{
                 font-size: 1rem;
@@ -931,6 +938,10 @@ main.l-main {
                 padding: 1rem 0;
                 border-bottom: 1px solid $light_gray;
                 margin: 0;
+
+                &:last-child{
+                    border-bottom: unset;
+                }
 
                 &>div{
                     display: flex;
