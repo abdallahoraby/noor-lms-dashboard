@@ -803,6 +803,98 @@ main.l-main {
           height: 1.5rem;
           object-fit: contain; }
 
+.owl-carousel {
+  width: 100%;
+  /* Ensure it takes the full width of the container */
+  max-width: 100%;
+  /* Prevent overflowing */ }
+  .owl-carousel .owl-item, .owl-carousel .owl-stage {
+    box-sizing: border-box; }
+  .owl-carousel .owl-stage {
+    width: 100% !important;
+    /* Force the owl-stage to take 100% width */
+    display: flex;
+    /* This ensures that items are flexed properly within the stage */ }
+
+.courses-slider {
+  padding: 2rem 0; }
+  .courses-slider .single-course {
+    width: 100%;
+    height: 200px;
+    background-position: center !important;
+    background-size: cover !important;
+    border-radius: 10px;
+    box-shadow: 0 0 5px #ececec;
+    overflow: hidden;
+    position: relative; }
+    .courses-slider .single-course:hover {
+      transform: scale(0.97); }
+      .courses-slider .single-course:hover a {
+        transform: translateY(0); }
+        .courses-slider .single-course:hover a i {
+          transform: scale(1); }
+    .courses-slider .single-course span {
+      position: initial;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      background: #2a428c;
+      color: var(--text-white, #FFF);
+      border-bottom-right-radius: 10px;
+      font-size: 1rem;
+      padding: 0.2rem 2rem;
+      width: max-content; }
+    .courses-slider .single-course a {
+      transition: all 0.3s ease-in-out;
+      position: absolute;
+      top: 0;
+      transform: translateY(100%);
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: var(--text-white, #FFF);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #2a428c 100%); }
+      .courses-slider .single-course a i {
+        background: #ffffffcf;
+        width: 60px;
+        height: 60px;
+        border-radius: 100%;
+        color: #2a428c;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.3rem;
+        margin: 0;
+        padding: 0;
+        transform: scale(0); }
+  .courses-slider .owl-nav {
+    display: initial !important; }
+    .courses-slider .owl-nav button {
+      background: var(--text-white, #FFF);
+      background: linear-gradient(301deg, rgba(255, 255, 255, 0) -20%, #00abbf 100%) !important;
+      width: 40px;
+      height: 40px;
+      border-radius: 100% !important;
+      display: flex !important;
+      justify-content: center;
+      align-items: center; }
+      .courses-slider .owl-nav button i {
+        font-size: 1.2rem;
+        color: var(--text-white, #FFF); }
+      .courses-slider .owl-nav button.owl-prev {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: -40px; }
+      .courses-slider .owl-nav button.owl-next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: -40px; }
+
 .page-template-dashboard .courses-filter {
   margin: 40px auto; }
   .page-template-dashboard .courses-filter .searchbar {

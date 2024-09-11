@@ -53,3 +53,31 @@ jQuery('.filter-menu').on('click', function() {
     jQuery('.filter-menu').not(this).find('ul').hide();
     jQuery(this).find('ul').toggle();
 });
+
+
+$('.courses-slider').owlCarousel({
+    loop:false,
+    items:3,
+    margin:20,
+    responsiveClass:true,
+    nav: true,
+    dots: false,
+    navText: [
+        '<i class="fas fa-chevron-left"></i>',
+        '<i class="fas fa-chevron-right"></i>'
+    ],
+    responsive:{
+        0:{
+            items:1,
+            nav:true
+        },
+        600:{
+            items:3,
+            nav:true
+        },
+        1200:{
+            items:4,
+            nav:true,
+        }
+    }
+});
