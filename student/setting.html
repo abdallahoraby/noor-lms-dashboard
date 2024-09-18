@@ -46,14 +46,9 @@
                         <span class="c-menu-item__title"> Dashboard </span>
                     </a>
                 </li>
-                <li class="c-menu__item is-active" data-toggle="tooltip" title="Courses">
+                <li class="c-menu__item " data-toggle="tooltip" title="Courses">
                     <a href="courses.html" class="c-menu__item__inner"><i class="fa fa-puzzle-piece"></i>
                         <span class="c-menu-item__title">Courses</span>
-                    </a>
-                </li>
-                <li class="c-menu__item " data-toggle="tooltip" title="Gifts">
-                    <a href="#" class="c-menu__item__inner"><i class="fa fa-gift"></i>
-                        <span class="c-menu-item__title">Gifts</span>
                     </a>
                 </li>
                 <li class="c-menu__item " data-toggle="tooltip" title="Settings">
@@ -61,7 +56,7 @@
                         <span class="c-menu-item__title">Achievements</span>
                     </a>
                 </li>
-                <li class="c-menu__item " data-toggle="tooltip" title="Settings">
+                <li class="c-menu__item is-active" data-toggle="tooltip" title="Settings">
                     <a href="setting.html" class="c-menu__item__inner"><i class="fa fa-cogs"></i>
                         <span class="c-menu-item__title">Settings</span>
                     </a>
@@ -77,130 +72,69 @@
         <div class="page-content page-template-dashboard">
             <section class="dashboard-header dashboard-wrapper">
 
-                <div class="bp-wrap bp-fullwidth-wrap" bis_skin_checked="1">
+                <!-- content here -->
 
+                <h3 class="page-title"> Settings </h3>
 
-                    <div class="bb-profile-grid" bis_skin_checked="1">
-                        <div id="item-body" class="item-body" bis_skin_checked="1">
-                            <div class="item-body-inner" bis_skin_checked="1">
-                                <div class="settings-tab-navigation" bis_skin_checked="1">
-                                    <a href="" data-target="#account-settings-tab" class="active">Account Settings</a>
-                                </div>
+                <div class="tab-settings">
+                    <ul class="nav nav-tabs nav-justified" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-tab-id="login-info" data-toggle="tab" href="#"> Login Information </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-tab-id="notifications" data-toggle="tab" href="#"> Notification Preferences </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-tab-id="account-info" data-toggle="tab" href="#"> Account Information </a>
+                        </li>
 
+                    </ul>
 
-                                <div class="settings-tabs" bis_skin_checked="1">
-                                    <div class="tab active" id="account-settings-tab" bis_skin_checked="1">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="login-info">
+                            <div class="form-container">
+                                <form action="/submit-your-form-handler" method="POST">
+                                    <fieldset>
+                                        <legend>Login Information</legend>
+                                        <label for="current-password">Current Password (required to update email or change current password)</label>
+                                        <input type="password" id="current-password" name="current-password" required>
 
-                                        <div class="bp-settings-container" bis_skin_checked="1">
+                                        <a href="#" class="password-reset">Lost your password?</a>
 
+                                        <label for="account-email">Account Email</label>
+                                        <input type="email" id="account-email" name="account-email" value="demo_wFe6@journey2jannah.com" required>
 
-                                            <nav class="bp-navs bp-subnavs no-ajax user-subnav bb-subnav-plain" id="subnav" role="navigation" aria-label="Sub Menu">
-                                                <ul class="subnav">
-
-
-                                                    <li id="general-personal-li" class="bp-personal-sub-tab current selected" data-bp-user-scope="general">
-                                                        <a href="https://demo.journey2jannah.com/members/demo_cqu3/settings/" id="general" class="">
-                                                            Login Information
-                                                        </a>
-
-                                                    </li>
-
-
-                                                    <li id="notifications-personal-li" class="bp-personal-sub-tab" data-bp-user-scope="notifications">
-                                                        <a href="https://demo.journey2jannah.com/members/demo_cqu3/settings/notifications/" id="notifications" class="notification-preferences">
-                                                            Notification Preferences
-                                                        </a>
-
-                                                    </li>
-
-
-                                                    <li id="account-information-personal-li" class="bp-personal-sub-tab" data-bp-user-scope="account-information">
-                                                        <a href="https://demo.journey2jannah.com/members/demo_cqu3/settings/account-information/" id="account-information" class="">
-                                                            Account Information
-                                                        </a>
-
-                                                    </li>
-
-
-                                                    <li id="profile-personal-li" class="bp-personal-sub-tab" data-bp-user-scope="profile">
-                                                        <a href="https://demo.journey2jannah.com/members/demo_cqu3/settings/profile/" id="profile" class="">
-                                                            Privacy
-                                                        </a>
-
-                                                    </li>
-
-
-                                                    <li id="export-personal-li" class="bp-personal-sub-tab" data-bp-user-scope="export">
-                                                        <a href="https://demo.journey2jannah.com/members/demo_cqu3/settings/export/" id="export" class="">
-                                                            Export Data
-                                                        </a>
-
-                                                    </li>
-
-
-                                                </ul>
-                                            </nav><!-- .item-list-tabs#subnav -->
-
-                                            <div class="bb-bp-settings-content" bis_skin_checked="1">
-
-                                                <h2 class="screen-heading general-settings-screen">
-                                                    Login Information</h2>
-
-                                                <p class="info email-pwd-info">
-                                                    Update your email and or password.</p>
-
-                                                <form action="https://demo.journey2jannah.com/members/demo_cqu3/settings/general" method="post" class="standard-form" id="settings-form">
-
-                                                    <div class="bb-field-wrap bb-super-admin-pass" bis_skin_checked="1">
-                                                        <label for="pwd">Current Password <span>(required to update email or change current password)</span></label>
-                                                        <div class="bb-password-wrap" bis_skin_checked="1">
-                                                            <a href="#" class="bb-toggle-password" tabindex="-1"><i class="bb-icon-l bb-icon-eye"></i></a>
-                                                            <input type="password" name="pwd" id="pwd" size="16" value="" class="settings-input small" spellcheck="false" autocomplete="off">
-                                                        </div>
-                                                        <a href="https://demo.journey2jannah.com/login/?action=lostpassword">Lost your password?</a>
-                                                    </div>
-
-                                                    <div clas="bb-field-wrap" bis_skin_checked="1">
-                                                        <label for="email">Account Email</label>
-                                                        <input type="email" name="email" id="email" value="demo_JUPS@journey2jannah.com" class="settings-input">
-                                                    </div>
-
-                                                    <div class="info bp-feedback" bis_skin_checked="1">
-                                                        <span class="bp-icon" aria-hidden="true"></span>
-                                                        <p class="text">Leave password fields blank for no change</p>
-                                                    </div>
-
-                                                    <div clas="bb-field-wrap" bis_skin_checked="1">
-                                                        <label for="pass1">Add Your New Password</label>
-                                                        <div class="bb-password-wrap" bis_skin_checked="1">
-                                                            <a href="#" class="bb-toggle-password" tabindex="-1"><i class="bb-icon-l bb-icon-eye"></i></a>
-                                                            <input type="password" name="pass1" id="pass1" size="16" value="" class="settings-input small password-entry" spellcheck="false" autocomplete="off">
-                                                        </div>
-                                                    </div>
-
-                                                    <div clas="bb-field-wrap" bis_skin_checked="1">
-                                                        <label for="pass2" class="repeated-pwd">Repeat Your New Password</label>
-                                                        <div class="bb-password-wrap" bis_skin_checked="1">
-                                                            <a href="#" class="bb-toggle-password" tabindex="-1"><i class="bb-icon-l bb-icon-eye"></i></a>
-                                                            <input type="password" name="pass2" id="pass2" size="16" value="" class="settings-input small password-entry-confirm" spellcheck="false" autocomplete="off">
-                                                        </div>
-                                                    </div>
-
-                                                    <div id="pass-strength-result" bis_skin_checked="1"></div>
-
-                                                    <div class="submit" bis_skin_checked="1"><input type="submit" name="submit" id="submit" value="Save Changes" class="auto"></div><input type="hidden" id="_wpnonce" name="_wpnonce" value="7ba899809f"><input type="hidden" name="_wp_http_referer" value="/members/demo_cqu3/settings/">
-                                                </form>
-
-                                            </div>
+                                        <div class="instruction">
+                                            <i>Leave password fields blank for no change</i>
                                         </div>
-                                    </div>
 
-                                </div>				</div>
-                        </div><!-- #item-body -->
+                                        <label for="new-password">Add Your New Password</label>
+                                        <input type="password" id="new-password" name="new-password">
 
+                                        <label for="repeat-new-password">Repeat Your New Password</label>
+                                        <input type="password" id="repeat-new-password" name="repeat-new-password">
+
+                                        <button type="submit">Save Changes</button>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="notifications">
+
+
+
+                        </div>
+
+                        <div class="tab-pane" id="account-info">
+
+                        </div>
                     </div>
 
                 </div>
+
+
+
+                <!-- end content -->
 
             </section>
         </div>

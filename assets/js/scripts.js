@@ -67,7 +67,6 @@ let splideOptions = {
     pagination: false, // Disable pagination
     arrows: true,      // Enable navigation arrows
     speed: 300,
-    height: 250,
     paginationDirection: 'ltr',
     heightRatio: 0.14,
     easing: 'cubic-bezier(0.25, 1, 0.5, 1)',
@@ -125,6 +124,35 @@ document.addEventListener('DOMContentLoaded', function () {
         }).mount();
     }
 
+    if( jQuery('.home-courses.splide').length ){
+        new Splide('.home-courses.splide', {
+            type   : 'loop',
+            perPage: 3,
+            perMove: 1,
+            autoplay: true,
+            interval: 3000,
+            gap     : '3rem',
+            pagination: true,
+            arrows: false,
+            speed: 300,
+            paginationDirection: 'ltr',
+            easing: 'cubic-bezier(0.25, 1, 0.5, 1)',
+            drag: true,
+            pauseOnHover: true,
+            lazyLoad: 'sequential',
+            breakpoints: {
+                0: {
+                    perPage: 1,
+                },
+                640: {
+                    perPage: 1,
+                },
+                1600: {
+                    perPage: 3,
+                }
+            }
+        }).mount();
+    }
 
 });
 
@@ -132,31 +160,16 @@ document.addEventListener('DOMContentLoaded', function () {
 $(function() {
     "use strict";
 
-    $('a[href*="#"]').on('click', function(event) {
-        {
-            // Figure out element to scroll to
-            var target = $(this);
-            target = target.length ? target : $('[name=' + this.slice(1) + ']');
-            // Does a scroll target exist?
-            if (target.length) {
-                // Only prevent default if animation is actually gonna happen
-                event.preventDefault();
-                $('html, body').animate({
-                    scrollTop: target.offset().top
-                }, 1000, function() {
-                    // Callback after animation
-                    // Must change focus!
-                    var $target = $(target);
-                    $target.focus();
-                    if ($target.is(":focus")) { // Checking if the target was focused
-                        return false;
-                    } else {
-                        $target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
-                        $target.focus(); // Set focus again
-                    };
-                });
-            }
-        }
+    jQuery('.nav-link').on('click', function (){
+
+        let tab_id = jQuery(this).data('tab-id');
+
+        jQuery('.tab-pane').removeClass('active');
+        jQuery('#'+tab_id).addClass('active').slideDown();
+
+        jQuery('.nav-link').removeClass('active');
+        jQuery(this).addClass('active');
+
     });
 
 }); /* End tabs function */
