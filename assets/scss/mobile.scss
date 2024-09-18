@@ -155,6 +155,24 @@
           }
         }
       }
+
+      .courses-container{
+        .courses-wrapper{
+
+          button.splide__arrow {
+            &.splide__arrow--prev {
+              left: 0rem;
+            }
+
+            &.splide__arrow--next {
+              right: 0rem;
+            }
+
+          }
+
+        }
+      }
+
     }
   }
 
