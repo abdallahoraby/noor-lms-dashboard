@@ -1,6 +1,7 @@
 html {
     height: 100%;
     width: 100%;
+    margin: 0 auto;
 }
 body {
     height: 100%;
@@ -457,7 +458,7 @@ main.l-main {
         .page-content {
             padding: 25px;
             height: auto;
-            max-width: 1300px;
+            max-width: 100%;
             margin: 0 auto;
         }
     }
@@ -985,7 +986,6 @@ main.l-main {
     }
 
 }
-
 
 
 
