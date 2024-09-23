@@ -1162,7 +1162,6 @@ p.lead {
     width: 80%;
     padding: 0 2rem; }
 
-
 .class-card {
   background-position: top;
   background-size: contain;
@@ -1377,7 +1376,7 @@ p.lead {
         align-items: center;
         gap: 0.5rem; }
 
-
+/*** tasks page ***/
 @media (min-width: 769px) and (max-width: 1200px) {
   .page-template-dashboard {
     min-width: 350px; }
