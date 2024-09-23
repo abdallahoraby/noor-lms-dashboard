@@ -173,3 +173,6 @@ $(function() {
     });
 
 }); /* End tabs function */
+
+
+let table = new DataTable('#attendance-reports-table');
