@@ -10,8 +10,7 @@
     <link href="../assets/css/bootstrap.min.css" rel='stylesheet prefetch'>
     <link href="../assets/css/animate.min.css" rel='stylesheet prefetch'>
     <link href="../assets/css/fontawesome.min.css" rel="stylesheet">
-    <link href="../assets/css/owl.carousel.min.css" rel="stylesheet">
-    <link href="../assets/css/owl.theme.default.min.css" rel="stylesheet">
+    <link href="../assets/css/splide.min.css" rel="stylesheet">
     <link href="../assets/css/styles.css" rel="stylesheet">
 </head>
 
@@ -53,11 +52,7 @@
                         <span class="c-menu-item__title">Courses</span>
                     </a>
                 </li>
-                <li class="c-menu__item " data-toggle="tooltip" title="Gifts">
-                    <a href="#" class="c-menu__item__inner"><i class="fa fa-gift"></i>
-                        <span class="c-menu-item__title">Gifts</span>
-                    </a>
-                </li>
+
                 <li class="c-menu__item " data-toggle="tooltip" title="Settings">
                     <a href="achievements.html" class="c-menu__item__inner"><i class="fa-solid fa-trophy"></i>
                         <span class="c-menu-item__title">Achievements</span>
@@ -77,6 +72,7 @@
     <div class="content-wrapper content-wrapper--with-bg">
         <div class="page-content page-template-dashboard">
             <section class="dashboard-header dashboard-wrapper">
+
                 <div class="dashboard-user" >
                     <div class="dashboard-user__profile" >
 
@@ -135,10 +131,27 @@
                                     <h2> Pickup where you left off... </h2>
                                 </div>
 
-                                <div class="latest-course">
-                                    <h4> Islamic & Quran </h4>
-                                    <img src="../assets/images/poster.png" alt="">
+                                <div class="d-flex gap-5 home-courses splide">
+                                    <div class="splide__track">
+                                        <div class="splide__list">
+                                            <div class="latest-course splide__slide">
+                                                <h4> Islamic & Quran </h4>
+                                                <img src="../assets/images/poster.png" alt="">
+                                            </div>
+
+                                            <div class="latest-course splide__slide">
+                                                <h4> Islamic & Quran 1 </h4>
+                                                <img src="../assets/images/poster.png" alt="">
+                                            </div>
+
+                                            <div class="latest-course splide__slide">
+                                                <h4> Islamic & Quran 2 </h4>
+                                                <img src="../assets/images/poster.png" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+
                             </div>
                         </div>
 
@@ -340,7 +353,7 @@
 <script src="../assets/js/jquery.min.js"></script>
 <script src="../assets/js/jquery-ui.js"></script>
 <script src="../assets/js/bootstrap.min.js"></script>
-<script src="../assets/js/owl.carousel.min.js"></script>
+<script src="../assets/js/splide.min.js"></script>
 <script src="../assets/js/scripts.js"></script>
 
 

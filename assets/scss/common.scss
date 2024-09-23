@@ -23,6 +23,7 @@ body {
     transition: all 0.3s ease-in-out;
     margin: 0;
     padding: 0;
+    outline: 0 !important;
 
     &::-webkit-input-placeholder {
         color: $color_2;
@@ -41,6 +42,10 @@ h3 {
 
 a{
     color: $white;
+}
+
+h3.page-title {
+    font-size: 2rem;
 }
 
 .u-list {
@@ -458,8 +463,9 @@ main.l-main {
         .page-content {
             padding: 25px;
             height: auto;
-            max-width: 100%;
+            max-width: 1300px;
             margin: 0 auto;
+
         }
     }
     .page-title {
@@ -479,9 +485,9 @@ main.l-main {
     .dashboard-wrapper {
         display: grid;
         grid-template-columns: minmax(0, 1fr) 380px;
-        grid-gap: 60px;
+        grid-gap: 0;
         margin: 0 auto;
-        margin-top: 60px;
+        margin-top: 0;
         padding-bottom: 80px;
         flex: initial;
         width: 100%;
@@ -988,8 +994,76 @@ main.l-main {
 }
 
 
+.splide__pagination__page{
+    &.is-active {
+        background: $primary_color;
+    }
+}
 
 
+.form-container {
+    background: $white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 100%;
+    margin: auto;
+}
+form {
+    fieldset {
+        border: none;
+    }
+    legend {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+    }
+}
+label {
+    display: block;
+    margin: 15px 0 5px;
+}
+input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    &:focus {
+        border-color: $light_gray;
+        outline: none;
+    }
+}
+input[type="email"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    &:focus {
+        border-color: $light_gray;
+        outline: none;
+    }
+}
+.password-reset {
+    display: inline-block;
+    margin-top: 5px;
+    color: $secondary_color;
+    text-decoration: none;
+}
+button {
+    padding: 10px 20px;
+    background-color: $primary_color;
+    color: $white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    &:hover {
+        background-color: $secondary_color;
+    }
+}
+.instruction {
+    font-size: 0.9em;
+    color: $color_3;
+}
 
 
 

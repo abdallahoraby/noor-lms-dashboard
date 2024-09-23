@@ -1,25 +1,9 @@
-$color_1: #8fc400;
-$color_2: #00bfff;
-$color_3: #b5a4c8;
-$color_4: #12b5e5;
-$font-family_1: 'Rubik', sans-serif;
-$background-color_1: #faf6fb;
-$background-color_2: #0a0a0a;
-$background-color_3: #FFF;
-$border-color_1: #00bfff;
-$border-color_2: #faf6fb #faf6fb #FFF;
-$border-color_3: #12b5e5 #faf6fb #FFF;
-
 /*  TABS
 ----------------------*/
-.light-bg {
-  background-color: $background-color_1;
-}
-.dark-bg {
-  background-color: $background-color_2;
+*{
+  outline: none;
 }
 p.lead {
-  color: $color_1;
   margin-bottom: 2rem;
 }
 .section {
@@ -29,24 +13,57 @@ p.lead {
   text-align: center;
   margin-bottom: 3rem;
   small {
-    color: $color_2;
+    
   }
 }
-.img-thumbnail {
-  border-color: $border-color_1;
-}
+
 .tab-content {
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
-  background-color: $background-color_3;
-  box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, 0.04);
-  padding: 3rem;
-  p {
-    line-height: 1.8;
+  background-color: transparent;
+  padding: 3rem 1rem;
+
+
+  .achievement-card {
+    background: $white;
+    box-shadow: $light_gray_shadow;
+    padding: 1rem;
+    border-radius: 15px;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    width: 45%;
+
+    img{
+      width: 6rem;
+    }
+
+    h3{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .progress {
+      height: 10px;
+      margin: 1rem 0;
+      .progress-bar {
+        background: $secondary_color;
+        border-radius: inherit;
+      }
+    }
+
+    p{
+      color: $secondary_color;
+      opacity: 0.8;
+      font-size: 1rem;
+      margin: 0;
+    }
+
   }
-  h2 {
-    margin-bottom: 0.5rem;
-  }
+
 }
 .nav-tabs {
   border-bottom: 0;
@@ -56,33 +73,30 @@ p.lead {
     text-align: center;
     .nav-link {
       padding: 1rem 1rem;
-      border-color: $border-color_2;
       font-size: 19px;
-      color: $color_3;
-      background: #f5eff7;
+      color: $secondary_color;
     }
   }
   .nav-link {
     &:focus {
       padding: 1rem 1rem;
-      border-color: $border-color_2;
       font-size: 19px;
-      color: $color_3;
-      background: #f5eff7;
+      color: $secondary_color;
     }
     &:hover {
       padding: 1rem 1rem;
-      border-color: $border-color_2;
       font-size: 19px;
-      color: $color_3;
-      background: #f5eff7;
+      color: $secondary_color;
     }
   }
-  .nav-link.active {
-    background: #FFF;
-    border-top-width: 3px;
-    border-color: $border-color_3;
-    color: $color_4;
+  .nav-link{
+    &.active {
+      background: transparent;
+      color: $secondary_color;
+      border: 0;
+      border-bottom: 3px solid;
+      border-radius: 0;
+    }
   }
 }
 
