@@ -195,6 +195,7 @@ function custom_login_form() {
                             $('.ajax-login-response').html('<p class="success">Login successful, redirecting...</p>');
                             document.location.href = '<?php echo home_url(); ?>'; // Redirect after successful login
                         } else {
+                            $('.submit_login').prop('disabled', false);
                             $('.ajax-login-response').html('<p class="error">' + response.message + '</p>');
                         }
                     },
