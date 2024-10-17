@@ -1,0 +1,37 @@
+.tab-settings {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  .nav-tabs {
+    border-bottom: 0;
+    flex-flow: column;
+    width: 20%;
+
+    .nav-item{
+      .nav-link {
+        text-align: initial;
+        position: relative;
+        padding: 0;
+        margin: 1rem 0;
+        &.active{
+          border: 0;
+          &:before {
+            width: 3px;
+            height: 100%;
+            background: $primary_color;
+            content: '';
+            position: absolute;
+            left: -1rem;
+          }
+        }
+      }
+    }
+  }
+
+  .tab-content {
+    width: 80%;
+    padding: 0 2rem;
+  }
+
+}

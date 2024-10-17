@@ -1,0 +1,19 @@
+{
+  "name": "lms-dashboard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "node-sass --include-path scss assets/scss/main.scss assets/css/styles.css",
+    "watch": "npm run build && npm run build -- -w"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^9.0.0",
+    "nodemon": "^3.1.4"
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

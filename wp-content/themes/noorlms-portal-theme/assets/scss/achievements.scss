@@ -1,0 +1,112 @@
+/*  TABS
+----------------------*/
+*{
+  outline: none;
+}
+p.lead {
+  margin-bottom: 2rem;
+}
+.section {
+  padding: 80px 0;
+}
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+  small {
+    
+  }
+}
+
+.tab-content {
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  background-color: transparent;
+  padding: 3rem 1rem;
+
+
+  .achievement-card {
+    background: $white;
+    box-shadow: $light_gray_shadow;
+    padding: 1rem;
+    border-radius: 15px;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    width: 45%;
+
+    img{
+      width: 6rem;
+    }
+
+    h3{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .progress {
+      height: 10px;
+      margin: 1rem 0;
+      .progress-bar {
+        background: $secondary_color;
+        border-radius: inherit;
+      }
+    }
+
+    p{
+      color: $secondary_color;
+      opacity: 0.8;
+      font-size: 1rem;
+      margin: 0;
+    }
+
+  }
+
+}
+.nav-tabs {
+  border-bottom: 0;
+  .nav-item {
+    flex-basis: fit-content;
+    flex-grow: inherit;
+    text-align: center;
+    .nav-link {
+      padding: 1rem 1rem;
+      font-size: 19px;
+      color: $secondary_color;
+    }
+  }
+  .nav-link {
+    &:focus {
+      padding: 1rem 1rem;
+      font-size: 19px;
+      color: $secondary_color;
+    }
+    &:hover {
+      padding: 1rem 1rem;
+      font-size: 19px;
+      color: $secondary_color;
+    }
+  }
+  .nav-link{
+    &.active {
+      background: transparent;
+      color: $secondary_color;
+      border: 0;
+      border-bottom: 3px solid;
+      border-radius: 0;
+    }
+  }
+}
+
+@media (max-width:992px) {
+  .tab-content {
+    padding: 1.5rem;
+  }
+}
+@media (max-width:650px) {
+  .nav-tabs {
+    display: block;
+  }
+}

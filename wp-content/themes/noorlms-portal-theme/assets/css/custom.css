@@ -1,0 +1,425 @@
+/*--------------------------------------------------------------
+This is your custom stylesheet.
+
+Add your own styles here to make theme updates easier.
+To override any styles from other stylesheets, simply copy them into here and edit away.
+
+Make sure to respect the media queries! Otherwise you may
+accidentally add desktop styles to the mobile layout.
+https://www.w3schools.com/css/css_rwd_mediaqueries.asp
+--------------------------------------------------------------*/
+html {
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: auto;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+div#page{
+    position: relative;
+    overflow: hidden;
+}
+
+.is-admin .l-header, .is-admin .l-sidebar {
+    top: 2rem;
+}
+
+.student-user #wpadminbar{
+    display: none !important;
+}
+
+div#content {
+    padding: 5rem;
+}
+
+/* Loader container */
+#ajax-loader {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999; /* Make sure it's on top */
+}
+
+/* Loader animation (you can customize it) */
+#ajax-loader .spinner {
+    border: 8px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 8px solid #3498db;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.ajax-loader-wrapper {
+    width: 100%;
+    height: 100%;
+    background: #0000006e;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none; /* Hidden by default */
+    z-index: 99999;
+}
+
+main.l-main .content-wrapper{
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+.single-course.splide__slide {
+    margin-right: 1rem;
+}
+
+.learn-today {
+    margin-top: 3rem;
+}
+
+.load-template-part{
+    cursor: pointer;
+}
+
+p#wpua-upload-button-existing,
+p#wpua-upload-messages-existing,
+p#wpua-thumbnail-existing,
+p#wpua-remove-button-existing,
+p#wpua-undo-button-existing,
+form#wpua-edit-2 span.description,
+form#wpua-edit-2 p.submit,
+.wpua-edit-container h3{
+    display: none;
+}
+
+form#wpua-edit-2 {
+    width: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+p#wpua-preview-existing img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: contain;
+}
+
+table.form-table th {
+    display: none;
+}
+
+p#wpua-preview-existing {
+    margin: 0;
+}
+
+div#wpua-images-existing {
+    text-align: center;
+}
+
+table.form-table td, table.form-table th, table.form-table td, table.form-table {
+    border: 0 !important;
+}
+
+.avatar-container.show-edit p#wpua-upload-button-existing,
+.avatar-container.show-edit p#wpua-upload-messages-existing,
+.avatar-container.show-edit form#wpua-edit-2 p.submit{
+    display: initial;
+}
+
+input#wpua-file-existing {
+    width: 100%;
+}
+
+button#wpua-upload-existing {
+    margin: 10px 0 10px 0;
+}
+
+
+a.wp-user-profile-avatar-link img {
+    width: 100%;
+    margin: 0;
+}
+
+a.wp-user-profile-avatar-link {
+    width: 100%;
+}
+
+.wp-user-profile-avatar {
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+    height: 100%;
+    position: relative;
+}
+
+.header-icons-group {
+    margin-right: 2rem;
+}
+
+.c-header-icon.logout a {
+    color: initial;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+
+/* Login Register Page */
+
+.login-page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99999999;
+    background-color: #fff;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../images/login-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.login-page .welcome-back {
+    background: #ffffff8f;
+    padding: 2rem;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+}
+
+.login-page button.ghost {
+    background-color: transparent;
+    border-color: #FFFFFF;
+}
+
+.login-page form {
+    background-color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 1rem;
+    height: 100%;
+    text-align: center;
+}
+
+form#login-form p,
+form#student-registration-form p{
+    width: 100%;
+    margin: 0;
+}
+
+.login-page input {
+    background-color: #eee;
+    border: none;
+    padding: 12px 15px;
+    margin: 8px 0;
+    width: 100%;
+}
+
+.login-page #login-container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.1),
+    0 10px 10px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+    width: 800px;
+    max-width: 100%;
+    min-height: 480px;
+}
+
+.login-page .welcome-back h3 {
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 2rem;
+}
+
+.login-page .form-container {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all 0.6s ease-in-out;
+}
+
+.login-page .sign-in-container {
+    left: 0;
+    width: 50%;
+    z-index: 2;
+}
+
+.login-page .right-panel-active .sign-in-container {
+    transform: translateX(100%);
+}
+
+.login-page .sign-up-container {
+    left: 0;
+    width: 50%;
+    opacity: 0;
+    z-index: 1;
+}
+
+.login-page .right-panel-active .sign-up-container {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    animation: show 0.6s;
+}
+
+@keyframes show {
+    0%, 49.99% {
+        opacity: 0;
+        z-index: 1;
+    }
+
+    50%, 100% {
+        opacity: 1;
+        z-index: 5;
+    }
+}
+
+.login-page .overlay-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.6s ease-in-out;
+    z-index: 100;
+}
+
+.login-page .right-panel-active .overlay-container{
+    transform: translateX(-100%);
+}
+
+.login-page .overlay {
+    background: #2873a9;
+    background: -webkit-linear-gradient(to right, #80d0de, #2873a9);
+    background: linear-gradient(to right, #80d0de, #2873a9);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 0;
+    color: #FFFFFF;
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+}
+
+.login-page .overlay-panel.overlay-right h1,
+.login-page .overlay-panel.overlay-left h1{
+    color: #fff;
+}
+
+form#login-form h3 {
+    margin-bottom: 1rem;
+}
+
+.login-page form#login-form  input[type="submit"],
+.login-page  form#student-registration-form input[type="submit"]{
+    background: #2e7aad;
+    border: 0;
+    width: 100%;
+}
+
+.login-page p.first-last-names {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.login-page p.gender-select {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.login-page p.gender-select label {
+    cursor: pointer;
+}
+
+.login-page .right-panel-active .overlay {
+    transform: translateX(50%);
+}
+
+.login-page .overlay-panel {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    text-align: center;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+}
+
+.login-page .overlay-left {
+    transform: translateX(-20%);
+}
+
+.login-page .right-panel-active .overlay-left {
+    transform: translateX(0);
+}
+
+.login-page .overlay-right {
+    right: 0;
+    transform: translateX(0);
+}
+
+.login-page .right-panel-active .overlay-right {
+    transform: translateX(20%);
+}
+
+.login-page .social-container {
+    margin: 20px 0;
+}
+
+.login-page .social-container a {
+    border: 1px solid #DDDDDD;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
+    height: 40px;
+    width: 40px;
+}
+
+.is-login-page div#login {
+    display: none;
+}
+
+.is-login-page div#page {
+    height: 100vh;
+}
+
+.success-login{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    gap: .5rem;
+    flex-flow: column;
+}
