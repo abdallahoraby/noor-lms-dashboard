@@ -1,5 +1,5 @@
 <?php
-
+ 
 // Register Shortcode for Student Registration Form
 function custom_student_registration_form() {
 
