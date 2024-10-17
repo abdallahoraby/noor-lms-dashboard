@@ -245,7 +245,7 @@ function is_login_page() {
 
 
 function auto_redirect_after_logout(){
-    wp_safe_redirect( home_url() . '/login-register' );
+    wp_safe_redirect( home_url() );
     exit;
 }
 add_action('wp_logout','auto_redirect_after_logout');

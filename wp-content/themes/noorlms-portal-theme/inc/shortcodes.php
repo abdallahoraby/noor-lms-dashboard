@@ -2,12 +2,12 @@
 
 // Register Shortcode for Student Registration Form
 function custom_student_registration_form() {
-    if (is_user_logged_in()) {
-        return '<p>You are already registered and logged in.</p>';
-    }
 
     ob_start(); ?>
     <form id="student-registration-form" action="<?php //echo esc_url($_SERVER['REQUEST_URI']); ?>" method="post">
+        <div class="ajax-form-loader">
+            <div class="loader"></div>
+        </div>
         <p class="first-last-names">
             <input type="text" class="userFirstName" name="userFirstName" placeholder="First Name" value="" required>
             <input type="text" class="userLastName" name="userLastName" placeholder="Last Name" value="">
@@ -38,6 +38,7 @@ function custom_student_registration_form() {
         </p>
 
         <div class="ajax-response"></div>
+        <?php wp_nonce_field('ajax-register-nonce', 'register-security'); ?>
     </form>
 
 
@@ -52,6 +53,36 @@ function custom_student_registration_form() {
                 let userEmail = $('.userEmail').val();
                 let userPassword = $('.userPassword').val();
                 let userConfirmPassword = $('.userConfirmPassword').val();
+                let security = $('#register-security').val();
+
+                // validate empty inputs
+                if(!userFirstName){
+                    $('.ajax-response').html('<p class="error">please enter your first name</p>');
+                    return false;
+                }
+
+                if(!userName){
+                    $('.ajax-response').html('<p class="error">please enter username</p>');
+                    return false;
+                }
+
+                if(!userEmail){
+                    $('.ajax-response').html('<p class="error">please enter your email</p>');
+                    return false;
+                }
+
+                if(!userPassword){
+                    $('.ajax-response').html('<p class="error">please enter your password</p>');
+                    return false;
+                }
+
+                if(!userConfirmPassword){
+                    $('.ajax-response').html('<p class="error">please confirm your password</p>');
+                    return false;
+                }
+
+                $('.ajax-form-loader').addClass('active');
+
                 $.ajax({
                     url: ajax_object.ajax_url, // AJAX URL from wp_localize_script
                     type: 'POST',
@@ -64,16 +95,29 @@ function custom_student_registration_form() {
                         'userEmail' : userEmail,
                         'userPassword' : userPassword,
                         'userConfirmPassword' : userConfirmPassword,
+                        'security' : security
                     },
                     success: function(response) {
-                        if (response.success) {
-                            $('.ajax-response').html(response.data.message);
-                            setTimeout(function() {
-                                window.location.reload();
-                            }, 3000);
+                        $('.submit_registration').prop('disabled', true);
+                        $('.ajax-form-loader').removeClass('active');
+                        response = JSON.parse(response);
+                        if (response.loggedin === true) {
+                            // do form submission
+                            $('.ajax-response').html('<p class="success">Registration is successful, redirecting to dashboard...</p>');
+                            document.location.href = '<?php echo home_url(); ?>'; // Redirect after successful login
                         } else {
-                            $('.ajax-response').html(response.data.message);
+                            $('.submit_registration').prop('disabled', false);
+                            $('.ajax-response').html('<p class="error">' + response.message + '</p>');
                         }
+                        // if (response.success) {
+                        //     $('.ajax-response').html(response.data.message);
+                        //     setTimeout(function() {
+                        //         window.location.reload();
+                        //     }, 3000);
+                        // } else {
+                        //     $('.submit_registration').prop('disabled', false);
+                        //     $('.ajax-response').html(response.data.message);
+                        // }
                     },
                     error: function() {
                         console.log('[Error]');
@@ -93,25 +137,119 @@ add_shortcode('student_registration_form', 'custom_student_registration_form');
 
 // Register Shortcode for Login Form
 function custom_login_form() {
-    if (is_user_logged_in()) {
-        return '<p>You are already logged in.</p>';
-    }
 
     ob_start(); ?>
-    <form id="login-form" action="<?php echo esc_url($_SERVER['REQUEST_URI']); ?>" method="post">
+    <form id="login-form" action="<?php //echo esc_url($_SERVER['REQUEST_URI']); ?>" method="post">
+        <div class="ajax-form-loader">
+            <div class="loader"></div>
+        </div>
         <p>
-            <input type="text" name="username" placeholder="Username or Email" required>
+            <input type="text" name="username" class="username" placeholder="Username or Email" required>
         </p>
         <p>
-            <input type="password" name="password" placeholder="Password" required>
+            <input type="password" name="password" class="password" placeholder="Password" required>
         </p>
         <p>
-            <input type="submit" name="submit_login" value="Login">
+            <input type="submit" name="submit_login" class="submit_login" value="Login">
         </p>
+
+        <div class="ajax-login-response"></div>
+        <?php wp_nonce_field('ajax-login-nonce', 'login-security'); ?>
     </form>
+
+    <script>
+        jQuery(document).ready(function($) {
+            $('.submit_login').on('click', function(e){
+                e.preventDefault();
+                let username = $('.username').val();
+                let password = $('.password').val();
+                let security = $('#login-security').val();
+
+                if( !username ){
+                    $('.ajax-login-response').html('<p class="error">Please enter your username or email.</p>');
+                    return false;
+                }
+
+                if( !password ){
+                    $('.ajax-login-response').html('<p class="error">Please enter your password.</p>');
+                    return false;
+                }
+
+                $('.ajax-form-loader').addClass('active');
+
+                $.ajax({
+                    url: ajax_object.ajax_url, // AJAX URL from wp_localize_script
+                    type: 'POST',
+                    data: {
+                        'action' : 'handle_login',
+                        'username' : username,
+                        'password' : password,
+                        'security': security
+                    },
+                    success: function(response) {
+                        $('.ajax-form-loader').removeClass('active');
+                        $('.submit_login').prop('disabled', true);
+                        response = JSON.parse(response);
+                        if (response.loggedin === true) {
+                            // do form submission
+                            $('.ajax-login-response').html('<p class="success">Login successful, redirecting...</p>');
+                            document.location.href = '<?php echo home_url(); ?>'; // Redirect after successful login
+                        } else {
+                            $('.ajax-login-response').html('<p class="error">' + response.message + '</p>');
+                        }
+                    },
+                    error: function() {
+                        $('.submit_login').prop('disabled', false);
+                        console.log('[Error]');
+                    }
+                });
+            });
+        });
+    </script>
+
     <?php
     return ob_get_clean();
 }
 
 // Add the login form shortcode
 add_shortcode('custom_login_form', 'custom_login_form');
+
+
+// Shortcode to display a logout button with AJAX
+function ajax_logout_button_shortcode() {
+    ob_start(); ?>
+
+    <a href="<?php echo wp_logout_url(); ?>" title="Logout" id="ajax-logout-btn">
+        <i class="fa fa-power-off"></i> Logout
+    </a>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $('#ajax-logout-btn').on('click', function(e) {
+                e.preventDefault();
+                $('.ajax-loader-wrapper').show();
+                $.ajax({
+                    type: 'POST',
+                    url: '<?php echo admin_url('admin-ajax.php'); ?>',
+                    data: {
+                        action: 'ajaxlogout',
+                        security: '<?php echo wp_create_nonce("ajax-logout-nonce"); ?>'
+                    },
+                    success: function(response) {
+                        $('.ajax-loader-wrapper').hide();
+                        //response = JSON.parse(response);
+                        //if (response.loggedout == true) {
+                            window.location.href = '<?php echo home_url('/login-register'); ?>'; // Change the URL to the desired redirect page
+                        //} else {
+                            //alert('Logout failed!');
+                        //}
+                    }
+                });
+            });
+        });
+    </script>
+
+    <?php
+    return ob_get_clean();
+}
+add_shortcode('ajax_logout_button', 'ajax_logout_button_shortcode');

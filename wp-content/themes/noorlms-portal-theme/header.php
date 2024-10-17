@@ -42,9 +42,7 @@
             </div>
             <div class="header-icons-group">
                 <div class="c-header-icon logout">
-                    <a href="<?php echo wp_logout_url(); ?>" title="Logout">
-                        <i class="fa fa-power-off"></i> Logout
-                    </a>
+                    <?= do_shortcode('[ajax_logout_button]') ?>
                 </div>
             </div>
         </div>

@@ -33,6 +33,10 @@ add_action( 'wp_ajax_nopriv_load_template_part', 'load_template_part_via_ajax' )
  */
 
 function handle_registration() {
+    // Check the nonce for security
+    check_ajax_referer('ajax-register-nonce', 'security');
+
+    // Sanitize and validate the user inputs
     wp_enqueue_script('lottie-script');
     $lottie_src = get_stylesheet_directory_uri(). '/assets/lotties/check-mark.json';
 
@@ -48,31 +52,19 @@ function handle_registration() {
 
     // Form validation
     if (empty($userFirstName)) {
-        wp_send_json_error(array(
-            'message' => '<p class="error"> Please enter first name </p>'
-        ));
+        echo json_encode(array('loggedin' => false, 'message' => __(' Please enter first name')));
     } elseif ( !is_email($userEmail) || empty($userEmail) ){
-        wp_send_json_error(array(
-            'message' => '<p class="error"> Please enter valid email </p>'
-        ));
+        echo json_encode(array('loggedin' => false, 'message' => __(' Please enter valid email ')));
     } elseif ( empty($userPassword) || empty($userConfirmPassword) ) {
-        wp_send_json_error(array(
-            'message' => '<p class="error">Passwords is empty or do not match.</p>'
-        ));
+        echo json_encode(array('loggedin' => false, 'message' => __('Passwords is empty or do not match.')));
     } elseif ($userPassword !== $userConfirmPassword) {
-        wp_send_json_error(array(
-            'message' => '<p class="error">Passwords do not match.</p>'
-        ));
+        echo json_encode(array('loggedin' => false, 'message' => __('Passwords do not match.')));
     } else {
 
         if ( email_exists($userEmail)) {
-            wp_send_json_error(array(
-                'message' => '<p class="error">Email already exists.</p>'
-            ));
+            echo json_encode(array('loggedin' => false, 'message' => __('Email already exists.')));
         } elseif (username_exists($userName)) {
-            wp_send_json_error(array(
-                'message' => '<p class="error">Username already exists.</p>'
-            ));
+            echo json_encode(array('loggedin' => false, 'message' => __('Username already exists.')));
         } else {
             // Register the user
             $user_id = wp_create_user($userName, $userPassword, $userEmail);
@@ -89,22 +81,94 @@ function handle_registration() {
                 );
 
                 // Auto-login after registration
-                wp_send_json_success(array(
-                    'success' => true,
-                    'message' => '<div class="success-login"> <lottie-player src="'.$lottie_src.'"  background="transparent"  speed="1"  style="width: 70px; height: 70px;"  loop autoplay></lottie-player> You are now successfully registered. Please login </div>'
-                ));
+//                wp_send_json_success(array(
+//                    'success' => true,
+//                    'message' => '<div class="success-login"> <lottie-player src="'.$lottie_src.'"  background="transparent"  speed="1"  style="width: 70px; height: 70px;"  loop autoplay></lottie-player> You are now successfully registered. Please login </div>'
+//                ));
+
+                // Get the username and password from the AJAX request
+                $info = array();
+                $info['user_login'] = $userName;
+                $info['user_password'] = $userPassword;
+                $info['remember'] = true;
+
+
+                // Attempt to sign the user in
+                $user_signon = wp_signon($info, false);
+
+                if (is_wp_error($user_signon)) {
+                    // Return an error if the login fails
+                    echo json_encode(array('loggedin' => false, 'message' => __('Wrong username or password.')));
+                } else {
+                    // Return success if login is successful
+                    echo json_encode(array('loggedin' => true, 'message' => __('Login successful.')));
+                }
+
             } else {
                 $error_string = $user_id->get_error_message();
-                wp_send_json_error(array(
-                    'message' => '<p class="error"> '.$error_string.' <br> Please try again.</p>'
-                ));
+                echo json_encode(array('loggedin' => false, 'message' => __($error_string)));
             }
         }
-
-        wp_die();
     }
 
+    wp_die();
 
 }
 add_action( 'wp_ajax_handle_registration', 'handle_registration' );
 add_action( 'wp_ajax_nopriv_handle_registration', 'handle_registration' );
+
+
+/*
+ * an AJAX action in WordPress that handle users login
+ */
+
+function handle_login() {
+    // Check the nonce for security
+    check_ajax_referer('ajax-login-nonce', 'security');
+    $username = sanitize_text_field($_POST['username']);
+    $password = sanitize_text_field($_POST['password']);
+
+    // Get the username and password from the AJAX request
+    $info = array();
+    $info['user_login'] = $username;
+    $info['user_password'] = $password;
+    $info['remember'] = true;
+
+
+    // Attempt to sign the user in
+    $user_signon = wp_signon($info, false);
+
+
+    if (is_wp_error($user_signon)) {
+        // Return an error if the login fails
+        echo json_encode(array('loggedin' => false, 'message' => __('Wrong username or password.')));
+    } else {
+        // Return success if login is successful
+        echo json_encode(array('loggedin' => true, 'message' => __('Login successful.')));
+    }
+
+    wp_die(); // Required to terminate the request
+
+
+    wp_die();
+
+
+}
+add_action( 'wp_ajax_handle_login', 'handle_login' );
+add_action( 'wp_ajax_nopriv_handle_login', 'handle_login' );
+
+
+// Handle AJAX logout request
+function ajax_logout() {
+    // Check the nonce for security
+    check_ajax_referer('ajax-logout-nonce', 'security');
+
+    // Log the user out
+    wp_logout();
+
+    // Return success response
+    //echo json_encode(array('loggedout' => true));
+
+    wp_die(); // Required to terminate immediately and properly
+}
+add_action('wp_ajax_ajaxlogout', 'ajax_logout'); // For logged-in users
