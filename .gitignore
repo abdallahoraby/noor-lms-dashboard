@@ -2,8 +2,8 @@
 .DS_Store
 
 # ignore node dependency directories
-/node_modules/
-/temp/
+/html-dashboard/node_modules/
+/html-dashboard/temp/
 
 # ignore log files and databases
 *.log
