@@ -129,78 +129,7 @@
                     </div>
 
                     <div class="col-md-4 col-sm-12 col-12 px-4">
-                        <div class="practice-tracker">
-                            <div class="heading-with-icon d-flex gap-3 align-items-center">
-                                <img src="../assets/images/book-icon.svg" alt="">
-                                <h3> Practice tracker </h3>
-                            </div>
-
-                            <div class="practice-wrapper">
-                                <div class="practice-header">
-                                    <h4> This Week Progress </h4>
-                                    <div class="week-progress d-flex align-items-center justify-content-center mt-3 mb-3">
-                                        <div class="day-progress">
-                                            <h4> S </h4>
-                                            <div class="has-practice active"></div>
-                                        </div>
-
-                                        <div class="day-progress">
-                                            <h4> S </h4>
-                                            <div class="has-practice"></div>
-                                        </div>
-
-                                        <div class="day-progress">
-                                            <h4> M </h4>
-                                            <div class="has-practice active"></div>
-                                        </div>
-
-                                        <div class="day-progress">
-                                            <h4> T </h4>
-                                            <div class="has-practice active"></div>
-                                        </div>
-
-                                        <div class="day-progress">
-                                            <h4> W </h4>
-                                            <div class="has-practice"></div>
-                                        </div>
-
-                                        <div class="day-progress">
-                                            <h4> T </h4>
-                                            <div class="has-practice"></div>
-                                        </div>
-
-                                        <div class="day-progress">
-                                            <h4> F </h4>
-                                            <div class="has-practice"></div>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                <div class="divider"></div>
-
-                                <div class="practice-log">
-
-                                    <div class="d-flex justify-content-between gap-3 header">
-                                        <h4> Your Practice Progress </h4>
-                                        <span class="practice-score"> 65/100 </span>
-                                    </div>
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" style="width: 65%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-
-                                    <p> Only 1 session left until you can unlock your next Course. Keep up the good work! </p>
-
-                                    <a href="#" class="btn log-practice-btn"> Log Your Practice </a>
-
-                                    <a href="#" class="view-practice-logs"> View Practice Logs </a>
-
-                                </div>
-
-
-                            </div>
-                        </div>
-
+                        <?php get_template_part('template-parts/template-practice-module') ?>
                     </div>
 
                 </div>

@@ -172,3 +172,29 @@ function ajax_logout() {
     wp_die(); // Required to terminate immediately and properly
 }
 add_action('wp_ajax_ajaxlogout', 'ajax_logout'); // For logged-in users
+
+
+
+
+function lms_practice_module_save_practice() {
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'lms_practices';
+
+    $user_id = get_current_user_id();
+    $practice_datetime = sanitize_text_field($_POST['practice_datetime']);
+    $number_of_practices = intval($_POST['number_of_practices']);
+
+    $wpdb->insert(
+        $table_name,
+        array(
+            'user_id' => $user_id,
+            'practice_datetime' => $practice_datetime,
+            'number_of_practices' => $number_of_practices
+        )
+    );
+
+    wp_send_json_success('Practice saved successfully!');
+}
+
+add_action('wp_ajax_save_practice', 'lms_practice_module_save_practice');
+add_action('wp_ajax_nopriv_save_practice', 'lms_practice_module_save_practice');

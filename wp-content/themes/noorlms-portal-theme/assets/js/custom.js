@@ -68,4 +68,25 @@ jQuery(document).on('ajaxComplete', function() {
         $('.avatar-container').toggleClass('show-edit');
     });
 
+    $('#save-practice').on('click', function() {
+        var practice_datetime = $('#practice_datetime').val();
+        var number_of_practices = $('#number_of_practices').val();
+
+        $.ajax({
+            url: ajax_object.ajax_url,
+            type: 'POST',
+            data: {
+                action: 'save_practice',
+                practice_datetime: practice_datetime,
+                number_of_practices: number_of_practices
+            },
+            success: function(response) {
+                if (response.success) {
+                    alert(response.data);
+                    // toastr.success('Your next practice is scheduled!');
+                }
+            }
+        });
+    });
+
 }); // Ajax Ready
