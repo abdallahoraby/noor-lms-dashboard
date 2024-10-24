@@ -133,7 +133,7 @@ function override_login_template() {
         load_template( $login_template );
     endif;
 }
-add_action( 'login_init', 'override_login_template' );
+//add_action( 'login_init', 'override_login_template' );
 
 
 function redirect_non_logged_in_users() {
