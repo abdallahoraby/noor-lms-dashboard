@@ -1,0 +1,7 @@
+#ld-profile .ld-section-heading > h3 {
+    display: none;
+}
+
+#ld-profile .ld-section-heading {
+    justify-content: flex-end;
+}

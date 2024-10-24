@@ -1,0 +1,128 @@
+#pms-invite-members p.description {
+    font-size: 90%;
+    margin-top: 2px;
+    font-style: italic;
+    margin-bottom: 12px;
+}
+
+.pms-gm-message {
+    padding: 1.5rem;
+    border-left: 5px solid #00a0d2;
+    border-radius: 3px;
+    box-shadow: 0 2px 8px 3px rgba(0,0,0,0.1);
+    margin-bottom: 32px;
+}
+
+.pms-gm-message__purchase {
+    display: none;
+}
+
+.pms-members-table__wrap {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.pms-members-table__search {
+    max-width: 255px;
+    margin-right: 16px;
+}
+
+.pms-members-table__messages {
+    font-weight: bold;
+}
+
+.pms-members-table__messages.error {
+    color: red;
+}
+
+.pms-members-table__messages.success {
+    color: green;
+}
+
+.pms-members-list__actions a:last-child {
+    white-space: nowrap;
+}
+
+.pms-members-list__actions a:not(:last-child){
+    word-break: break-all;
+    margin-right: 8px;
+}
+
+#pms-members-table .cell-1, #pms-members-table .cell-2 {
+    width: 29%;
+}
+
+#pms-members-table .cell-3 {
+    width: 15%;
+}
+
+#pms-members-table thead .cell-1, #pms-members-table thead .cell-2, #pms-members-table thead .cell-3 {
+    cursor: pointer;
+}
+
+#pms-members-table thead .cell-1:hover, #pms-members-table thead .cell-2:hover, #pms-members-table thead .cell-3:hover {
+    text-decoration: underline;
+}
+
+.pms-gm-pagination {
+    list-style: none;
+    display: flex;
+    font-size: 1.1em;
+}
+
+.pms-gm-pagination li:not(:last-child) {
+    margin-right: 6px;
+}
+
+.pms-gm-pagination li.active a, .pms-gm-pagination li a:hover {
+    opacity: 0.7;
+}
+
+.pms-group-dashboard h3 {
+    margin-top: 1.2em;
+    margin-bottom: 1em;
+}
+
+.pms-group-dashboard table .sort.desc div::after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid black;
+    margin-left: 4px;
+}
+
+.pms-group-dashboard table .sort.asc div::after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid black;
+    margin-left: 4px;
+}
+
+.pms-members-table__thwrap {
+    display: flex;
+    align-items: center;
+}
+
+.wppb-user-forms .wppb-form-field.wppb-subscription-plans .pms-group-memberships-field {
+    display: flex;
+}
+
+.wppb-user-forms .wppb-form-field.wppb-subscription-plans .pms-group-memberships-field label {
+    width: 30%;
+
+}
+
+.wppb-user-forms .wppb-form-field.wppb-subscription-plans .pms-group-memberships-field input, .wppb-user-forms .wppb-form-field.wppb-subscription-plans .pms-group-memberships-field textarea {
+    width: 70%;
+    margin-right: 0 !important;
+}
+
+.pms-group-dashboard .pms_success-messages-wrapper {
+    margin-bottom: 16px;
+}

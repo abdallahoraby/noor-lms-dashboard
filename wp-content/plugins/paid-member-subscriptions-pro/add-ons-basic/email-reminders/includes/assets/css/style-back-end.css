@@ -1,0 +1,27 @@
+/*
+ * Hide the default "Move to Trash button"
+ * Hide the "Edit" link for Email Reminder status
+ * Hide the "Save Draft" button
+ * Hide the "Status" div
+ * Hide the "Published on.." section
+ */
+body.post-type-pms-email-reminders #delete-action,
+body.post-type-pms-email-reminders .edit-post-status,
+body.post-type-pms-email-reminders #minor-publishing-actions,
+body.post-type-pms-email-reminders div.misc-pub-post-status,
+body.post-type-pms-email-reminders #misc-publishing-actions {
+    display:none;
+}
+
+body.post-type-pms-email-reminders .meta-box-sortables #pms-email-reminder-trigger,
+body.post-type-pms-email-reminders .meta-box-sortables #pms-email-reminder-trigger-unit {
+    flex-basis: 125px;
+    width: 125px;
+}
+
+body.post-type-pms-email-reminders .meta-box-sortables #pms-email-reminder-event {
+    flex-grow: 1;
+    max-width: 520px;
+    flex-basis: 250px;
+    width: 250px;
+}

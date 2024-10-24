@@ -1,0 +1,1945 @@
+/**************************************************/
+/*  CONTAINER & LAYOUT SETTINGS
+/**************************************************/
+.edit-post-visual-editor .pms-form-design-wrapper .pms-billing-details,
+.edit-post-visual-editor .pms-form-design-wrapper .pms-form-fields-wrapper {
+    max-width: 100% !important;
+}
+
+#site-content {
+    overflow: visible !important;
+}
+
+#site-content .entry-content div.elementor {
+    max-width: 100% !important;
+}
+
+.pms-block-container {
+    width: 100% !important;
+}
+
+.pms-form-design-wrapper {
+    width: 100%;
+}
+
+.pms-form-design-wrapper .pms-field.disabled-field {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+h3.pms-mspu-form-heading {
+    display: none !important;
+}
+
+.pms-form-design-wrapper * {
+    box-sizing: border-box;
+    font-family: 'Inter var', sans-serif;
+}
+
+.pms-form-design-wrapper ul {
+    margin-top: 0;
+}
+
+.pms-form-design-wrapper ul.pms-form-fields-wrapper {
+    padding: 0 !important;
+}
+
+.pms-form-design-wrapper li {
+    margin: 0;
+    list-style: none;
+}
+
+.pms-form-design-wrapper a:focus {
+    background: none;
+    outline: none;
+}
+
+.pms-form-design-wrapper .pms-upgrade__message,
+.pms-form-design-wrapper h3 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px !important;
+    line-height: 24px;
+    color: #090A0B;
+    margin-bottom: 30px;
+}
+
+.pms-form-design-wrapper h4 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #090A0B;
+    margin-bottom: 20px;
+}
+
+.pms-form-design-wrapper p.pms-field-description {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: #6E7A86;
+    padding-left: 5px;
+    word-break: break-word;
+}
+
+.pms-form-design-wrapper .pms_field-errors-wrapper p {
+    font-style: normal;
+    font-weight: 400 !important;
+    font-size: 15px !important;
+    line-height: 20px;
+    color: #C62828 !important;
+    border: none;
+    margin: 0;
+    padding: 5px 0 0 10px;
+}
+
+.pms-form-design-wrapper #pms_ppe_confirm_payment {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/**************************************************/
+/*  FORM BUTTONS
+/**************************************************/
+
+.pms-form-design-wrapper .pms-group-dashboard a.pms-group-dashboard-go-back,
+.pms-form-design-wrapper input[type="submit"],
+.pms-form-design-wrapper #pms-apply-discount,
+.pms-form-design-wrapper .pms-form-submit {
+    height: 48px;
+    border-radius: 100px !important;
+    border: none;
+    color: #FFFFFF !important;
+    text-decoration: none;
+    text-transform: none;
+    padding: 0 15px;
+    background: #554FE6;
+    font-size: 16px;
+    max-width: 100%;
+    min-width: 150px;
+}
+
+.pms-form-design-wrapper .pms-group-dashboard input[type="submit"],
+.pms-form-design-wrapper input[name="pms_edit_profile"],
+.pms-form-design-wrapper input[name="pms_confirm_retry_payment_subscription"],
+.pms-form-design-wrapper input[name="pms_change_subscription"],
+.pms-form-design-wrapper input[name="pms_renew_subscription"],
+.pms-form-design-wrapper input[name="pms_new_subscription"],
+.pms-form-design-wrapper input[name="pms_register"] {
+    width: 410px;
+    transition: none;
+}
+
+.pms-form-design-wrapper .pms-group-dashboard a.pms-group-dashboard-go-back,
+.pms-form-design-wrapper input[name="pms_redirect_back"] {
+    width: 150px;
+}
+
+.pms-form-design-wrapper input[name="pms_redirect_back"]:not(#pms-cancel-subscription-form input[name="pms_redirect_back"], #pms-abandon-subscription-form input[name="pms_redirect_back"]) {
+    margin-top: 40px;
+}
+
+.pms-form-design-wrapper .pms-group-dashboard a.pms-group-dashboard-go-back:hover,
+.pms-form-design-wrapper input[type="submit"]:hover,
+.pms-form-design-wrapper #pms-apply-discount:hover {
+    background: #6661de;
+    text-decoration: none!important;
+    color: #FFFFFF !important;
+    cursor: pointer;
+}
+
+.pms-form-design-wrapper input[type="submit"].pms-submit-disabled {
+    cursor: wait !important;
+}
+
+.pms-form-design-wrapper .pms-group-dashboard a.pms-group-dashboard-go-back:focus,
+.pms-form-design-wrapper input[type="submit"]:focus,
+.pms-form-design-wrapper #pms-apply-discount:focus {
+    outline: none;
+    box-shadow: 0 0 4px #6661de;
+    border-radius: 100px;
+    background: #6661de;
+    color: #FFFFFF !important;
+}
+
+.pms-form-design-wrapper .pms-group-dashboard a.pms-group-dashboard-go-back:disabled,
+.pms-form-design-wrapper input[type="submit"]:disabled,
+.pms-form-design-wrapper #pms-apply-discount:disabled,
+.pms-form-design-wrapper .pms-form-submit:disabled {
+    opacity: 0.7 !important;
+}
+
+/**************************************************/
+/*  TEXT INPUT & TEXTAREA FIELDS
+/**************************************************/
+
+.pms-form-design-wrapper #pms-members-table .pms-members-table__search,
+.pms-form-design-wrapper .pms-group-dashboard form#pms-invite-members,
+.pms-form-design-wrapper#pms_login p.login-username,
+.pms-form-design-wrapper#pms_login p.login-password,
+.pms-form-design-wrapper .pms-field:not(.pms-field-subscriptions, .pms-field-type-heading, .pms-gdpr-field, .beehive) {
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    padding: 0;
+    width: 100%;
+    margin: 0 auto 30px auto;
+    min-height: 56px;
+    max-width: 100%;
+}
+
+.pms-form-design-wrapper .pms-field.pms-billing-city,
+.pms-form-design-wrapper .pms-field.pms-billing-first-name,
+.pms-form-design-wrapper .pms-field.pms-first-name-field {
+    width: calc( 100% / 2 - 15px );
+    float: left;
+}
+
+.pms-form-design-wrapper .pms-field.pms-billing-zip,
+.pms-form-design-wrapper .pms-field.pms-billing-last-name,
+.pms-form-design-wrapper .pms-field.pms-last-name-field {
+    width: calc( 100% / 2 - 15px );
+    float: right;
+}
+
+.pms-form-design-wrapper .pms-field.pms-billing-country,
+.pms-form-design-wrapper .pms-field.pms-billing-email,
+.pms-form-design-wrapper .pms-field.pms-pass1-field {
+    clear: both;
+}
+
+
+.pms-form-design-wrapper #pms-subscription-plans-discount input#pms_subscription_plans_discount_code::placeholder {
+    opacity: 0;
+}
+
+.pms-form-design-wrapper .pms-group-dashboard form#pms-invite-members label,
+.pms-form-design-wrapper#pms_login p.login-username label,
+.pms-form-design-wrapper#pms_login p.login-password label,
+.pms-form-design-wrapper #pms-subscription-plans-discount label,
+.pms-form-design-wrapper .pms-field:not(.pms-field-subscriptions, .pms-gdpr-field, .pms-field-type-card_expiration_date) label {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: auto;
+    padding: 0 30px;
+    line-height: 56px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #6E7A86;
+    pointer-events: none;
+    text-indent: 0 !important;
+}
+
+.pms-form-design-wrapper .pms-group-dashboard form#pms-invite-members label.active,
+.pms-form-design-wrapper#pms_login p.login-username label.active,
+.pms-form-design-wrapper#pms_login p.login-password label.active,
+.pms-form-design-wrapper #pms-subscription-plans-discount label.active,
+.pms-form-design-wrapper .pms-field:not(.pms-field-subscriptions) label.active {
+    opacity: 0;
+    transition: all ease-in-out 300ms;
+}
+
+.pms-form-design-wrapper #pms-members-table .pms-members-table__search input,
+.pms-form-design-wrapper#pms_login p.login-username input,
+.pms-form-design-wrapper#pms_login p.login-password input,
+.pms-form-design-wrapper #pms-subscription-plans-discount input#pms_subscription_plans_discount_code,
+.pms-form-design-wrapper #pms-stripe-credit-card-details,
+.pms-form-design-wrapper .pms-field:not(.pms-field-subscriptions) input[type=text]:not(.chosen-search input),
+.pms-form-design-wrapper .pms-field input[type=password] {
+    width: 100% !important;
+    max-width: 100%;
+    background: #FFFFFF;
+    box-shadow: none;
+    outline: none;
+    border: 1px solid #CFD4DE;
+    border-radius: 100px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #090A0B;
+    height: 56px;
+}
+
+.pms-form-design-wrapper#pms_login p.login-username input,
+.pms-form-design-wrapper#pms_login p.login-password input,
+.pms-form-design-wrapper #pms-subscription-plans-discount input#pms_subscription_plans_discount_code,
+.pms-form-design-wrapper .pms-field:not(.pms-field-subscriptions) input[type=text]:not(.chosen-search input),
+.pms-form-design-wrapper .pms-field input[type=password] {
+    padding: 15px 25px !important;
+}
+
+.pms-form-design-wrapper .pms-group-dashboard form#pms-invite-members textarea,
+.pms-form-design-wrapper .pms-field textarea {
+    width: 100% !important;
+    max-width: 100%;
+    background: #FFFFFF;
+    box-shadow: none;
+    outline: none;
+    border: 1px solid #CFD4DE;
+    border-radius: 24px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #090A0B;
+    height: 150px;
+    padding: 15px 25px;
+}
+
+.pms-form-design-wrapper #pms-stripe-credit-card-details {
+    padding: 0 15px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    cursor: text;
+}
+
+.pms-form-design-wrapper #pms-stripe-credit-card-details .__PrivateStripeElement {
+    width: 100%;
+}
+
+/* discount code field */
+.pms-form-design-wrapper #pms-subscription-plans-discount {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.pms-form-design-wrapper #pms-subscription-plans-discount input#pms_subscription_plans_discount_code {
+    flex-basis: 70%;
+}
+
+.pms-form-design-wrapper #pms-subscription-plans-discount input#pms-apply-discount {
+    flex-basis: 25%;
+}
+
+.pms-form-design-wrapper #pms-subscription-plans-discount-messages-wrapper {
+    border: 1px solid #CFD4DE;
+    border-radius: 100px;
+    background-color: #FFFFFF;
+    margin-bottom: 30px;
+    padding: 10px 20px;
+}
+
+.pms-form-design-wrapper #pms-subscription-plans-discount-messages-loading,
+.pms-form-design-wrapper #pms-subscription-plans-discount-messages {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    pointer-events: none;
+    line-height: 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+.pms-form-design-wrapper #pms-subscription-plans-discount-messages-loading {
+    color: #6E7A86;
+}
+
+.pms-form-design-wrapper #pms-subscription-plans-discount-messages-loading:before {
+    content: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 24 24'><path d='M21,10.12H14.22L16.96,7.3C14.23,4.6 9.81,4.5 7.08,7.2C4.35,9.91 4.35,14.28 7.08,17C9.81,19.7 14.23,19.7 16.96,17C18.32,15.65 19,14.08 19,12.1H21C21,14.08 20.12,16.65 18.36,18.39C14.85,21.87 9.15,21.87 5.64,18.39C2.14,14.92 2.11,9.28 5.62,5.81C9.13,2.34 14.76,2.34 18.27,5.81L21,3V10.12M12.5,8V12.25L16,14.33L15.28,15.54L11,13V8H12.5Z' fill='rgb(110, 122, 134)'/></svg>");
+    height: 24px;
+}
+
+.pms-form-design-wrapper #pms-subscription-plans-discount-messages.pms-discount-success {
+    color: #558B2F;
+}
+
+.pms-form-design-wrapper #pms-subscription-plans-discount-messages.pms-discount-success:before {
+    content: url("../icons/success-icon.svg");
+    height: 24px;
+}
+
+.pms-form-design-wrapper #pms-subscription-plans-discount-messages.pms-discount-error {
+    color: #C62828;
+}
+
+.pms-form-design-wrapper #pms-subscription-plans-discount-messages.pms-discount-error:before {
+    content: url("../icons/error-icon.svg");
+    height: 24px;
+}
+
+.pms-form-design-wrapper #pms-subscription-plans-discount-messages-wrapper:has(.pms-discount-success) {
+    border-color: #558B2F;
+}
+
+.pms-form-design-wrapper #pms-subscription-plans-discount-messages-wrapper:has(.pms-discount-error) {
+    border-color: #C62828;
+}
+
+/* PWYW price input field */
+.pms-form-design-wrapper .pms-subscription-plan-price input.pms_pwyw_pricing {
+    min-width: 60px;
+    display: inline-block;
+    background: #FFFFFF;
+    box-shadow: none;
+    outline: none;
+    border: 1px solid #CFD4DE;
+    border-radius: 100px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+    color: #090A0B;
+    text-align: center;
+    padding: 0;
+    margin: 0 3px;
+    min-height: 22px !important;
+}
+
+.pms-form-design-wrapper #pms-members-table .pms-members-table__search input:hover,
+.pms-form-design-wrapper .pms-group-dashboard form#pms-invite-members textarea:hover,
+.pms-form-design-wrapper .pms-field textarea:hover,
+.pms-form-design-wrapper#pms_login p.login-username input:hover,
+.pms-form-design-wrapper#pms_login p.login-password input:hover,
+.pms-form-design-wrapper .pms-subscription-plan-price input.pms_pwyw_pricing:hover,
+.pms-form-design-wrapper #pms-subscription-plans-discount input#pms_subscription_plans_discount_code:hover,
+.pms-form-design-wrapper #pms-stripe-credit-card-details:hover,
+.pms-form-design-wrapper .pms-field:not(.pms-field-subscriptions) input[type=text]:hover,
+.pms-form-design-wrapper .pms-field input[type=password]:hover {
+    border: 1px solid #6E7A86 !important;
+}
+
+.pms-form-design-wrapper #pms-members-table .pms-members-table__search input:focus,
+.pms-form-design-wrapper .pms-group-dashboard form#pms-invite-members textarea:focus,
+.pms-form-design-wrapper .pms-field textarea:focus,
+.pms-form-design-wrapper#pms_login p.login-username input:focus,
+.pms-form-design-wrapper#pms_login p.login-password input:focus,
+.pms-form-design-wrapper .pms-subscription-plan-price input.pms_pwyw_pricing:focus,
+.pms-form-design-wrapper #pms-subscription-plans-discount input#pms_subscription_plans_discount_code:focus,
+.pms-form-design-wrapper #pms-stripe-credit-card-details:focus,
+.pms-form-design-wrapper .pms-field:not(.pms-field-subscriptions) input[type=text]:focus,
+.pms-form-design-wrapper .pms-field input[type=password]:focus {
+    border: 1px solid #554FE6 !important;
+}
+
+.pms-form-design-wrapper .pms-field.pms-field-error textarea,
+.pms-form-design-wrapper .pms-field.pms-field-error:not(.pms-field-subscriptions) input[type=text],
+.pms-form-design-wrapper .pms-field.pms-field-error input[type=password] {
+    border: 1px solid #C62828 !important;
+}
+
+.pms-form-design-wrapper .pms-field.pms-field-error:not(.pms-field-subscriptions, .pms-gdpr-field) label {
+    color: #C62828 !important;
+}
+
+.pms-form-design-wrapper #pms-members-table thead .cell-1:hover,
+.pms-form-design-wrapper #pms-members-table thead .cell-2:hover,
+.pms-form-design-wrapper #pms-members-table thead .cell-3:hover {
+    text-decoration: none;
+}
+
+
+/**************************************************/
+/*  SELECT FIELDS
+/**************************************************/
+
+.pms-form-design-wrapper #pms-credit-card-information .pms-field-type-card_expiration_date select,
+.pms-form-design-wrapper .pms-field .chosen-container .chosen-single,
+.pms-form-design-wrapper .pms-field.pms-field-type-select select,
+.pms-form-design-wrapper .pms-field.pms-field-type-select_state select {
+    background-color: #FFFFFF !important;
+    background-image: none;
+    box-shadow: none;
+    outline: none;
+    border: 1px solid #CFD4DE;
+    border-radius: 100px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #090A0B;
+    height: 56px;
+}
+
+.pms-form-design-wrapper .pms-field .chosen-container .chosen-single,
+.pms-form-design-wrapper .pms-field.pms-field-type-select select,
+.pms-form-design-wrapper .pms-field.pms-field-type-select_state select {
+    width: 100%;
+}
+
+.pms-form-design-wrapper #pms-credit-card-information .pms-field-type-card_expiration_date select#pms_card_exp_month {
+    width: 20%;
+    margin-right: 5%;
+    text-align: center;
+}
+
+.pms-form-design-wrapper #pms-credit-card-information .pms-field-type-card_expiration_date select#pms_card_exp_year {
+    width: 30%;
+    margin-left: 5%;
+    text-align: center;
+}
+
+.pms-form-design-wrapper #pms-credit-card-information .pms-field-type-card_expiration_date select:hover,
+.pms-form-design-wrapper .pms-field .chosen-container:not(.chosen-container-active) .chosen-single:hover,
+.pms-form-design-wrapper .pms-field.pms-field-type-select select:hover,
+.pms-form-design-wrapper .pms-field.pms-field-type-select_state select:hover {
+    border: 1px solid #6E7A86 !important;
+}
+
+.pms-form-design-wrapper #pms-credit-card-information .pms-field-type-card_expiration_date select:focus,
+.pms-form-design-wrapper .pms-field .chosen-container-active .chosen-single,
+.pms-form-design-wrapper .pms-field.pms-field-type-select select:focus,
+.pms-form-design-wrapper .pms-field.pms-field-type-select_state select:focus {
+    border: 1px solid #554FE6 !important;
+}
+
+.pms-form-design-wrapper .pms-field.pms-field-type-select select,
+.pms-form-design-wrapper .pms-field.pms-field-type-select_state select {
+    padding: 0 25px !important;
+}
+
+.pms-form-design-wrapper .pms-field .chosen-container .chosen-single {
+    line-height: 56px;
+    padding: 0 25px;
+}
+
+.pms-form-design-wrapper .pms-field .chosen-container-single .chosen-single div b {
+    background-position-y: 17px;
+}
+
+.pms-form-design-wrapper .pms-field .chosen-container-active.chosen-with-drop .chosen-single div b {
+    background-position: -16px 17px;
+}
+
+.pms-form-design-wrapper .pms-field.pms-field-type-select label,
+.pms-form-design-wrapper .pms-field.pms-field-type-select_state label {
+    z-index: 999;
+}
+
+.pms-form-design-wrapper .pms-field .chosen-container .chosen-single.chosen-default span {
+    display: none;
+}
+
+
+/**************************************************/
+/*  INPUTS TYPE CHECKBOX
+/**************************************************/
+
+.pms-form-design-wrapper#pms_login p.login-remember,
+.pms-form-design-wrapper .pms-gdpr-field,
+.pms-form-design-wrapper .mc4wp-checkbox-paid-member-subscriptions,
+.pms-form-design-wrapper .pms-subscription-plan-auto-renew {
+    padding-bottom: 0;
+    margin: 0 0 20px 0;
+}
+
+.pms-form-design-wrapper#pms_login p.login-remember label,
+.pms-form-design-wrapper .pms-gdpr-field label,
+.pms-form-design-wrapper .mc4wp-checkbox-paid-member-subscriptions label,
+.pms-form-design-wrapper .pms-subscription-plan-auto-renew label {
+    width: auto;
+    margin: 0 !important;
+    padding: 0 !important;
+    cursor: pointer;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #6E7A86;
+    word-break: break-word;
+}
+
+.pms-form-design-wrapper .pms-gdpr-field label a,
+.pms-form-design-wrapper .mc4wp-checkbox-paid-member-subscriptions label a {
+    font-size: 16px !important;
+}
+
+.pms-form-design-wrapper#pms_login p.login-remember input[type="checkbox"],
+.pms-form-design-wrapper .pms-gdpr-field input[type="checkbox"],
+.pms-form-design-wrapper .mc4wp-checkbox-paid-member-subscriptions input[type="checkbox"],
+.pms-form-design-wrapper .pms-subscription-plan-auto-renew input[type="checkbox"] {
+    appearance: none;
+    content: ' ';
+    box-sizing: border-box;
+    border: 2px solid #6E7A86;
+    border-radius: 2px;
+    width: 18px !important;
+    height: 18px !important;
+    min-width: 18px !important;
+}
+
+.pms-form-design-wrapper#pms_login p.login-remember input[type="checkbox"],
+.pms-form-design-wrapper .pms-subscription-plan-auto-renew input[type="checkbox"] {
+    top: 0;
+}
+
+.pms-form-design-wrapper .pms-gdpr-field input[type="checkbox"] {
+    margin-bottom: -1px;
+    margin-right: 3px;
+    padding: 0 !important;
+}
+
+.pms-form-design-wrapper .mc4wp-checkbox-paid-member-subscriptions input[type="checkbox"] {
+    margin-bottom: -1px;
+    margin-right: 7px;
+}
+
+.pms-form-design-wrapper#pms_login p.login-remember input[type="checkbox"]:checked,
+.pms-form-design-wrapper .pms-gdpr-field input[type="checkbox"]:checked,
+.pms-form-design-wrapper .mc4wp-checkbox-paid-member-subscriptions input[type="checkbox"]:checked,
+.pms-form-design-wrapper .pms-subscription-plan-auto-renew input[type="checkbox"]:checked {
+    content: url("data:image/svg+xml,<svg style='color: white' xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='currentColor' class='bi bi-check' viewBox='0 0 16 16'> <path d='M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z' fill='white'></path> </svg>");
+    background: #554FE6;
+    border: none;
+}
+
+.pms-form-design-wrapper#pms_login p.login-remember input[type="checkbox"]:hover,
+.pms-form-design-wrapper .pms-gdpr-field input[type="checkbox"]:hover,
+.pms-form-design-wrapper .mc4wp-checkbox-paid-member-subscriptions input[type="checkbox"]:hover,
+.pms-form-design-wrapper .pms-subscription-plan-auto-renew input[type="checkbox"]:hover {
+    border-color: #554FE6;
+}
+
+.pms-form-design-wrapper#pms_login p.login-remember input[type="checkbox"]:checked:disabled,
+.pms-form-design-wrapper .pms-gdpr-field input[type="checkbox"]:checked:disabled,
+.pms-form-design-wrapper .mc4wp-checkbox-paid-member-subscriptions input[type="checkbox"]:checked:disabled,
+.pms-form-design-wrapper .pms-subscription-plan-auto-renew input[type="checkbox"]:checked:disabled {
+    background: #6E7A86;
+}
+
+.pms-form-design-wrapper#pms_login p.login-remember input[type="checkbox"]:focus,
+.pms-form-design-wrapper .pms-gdpr-field input[type="checkbox"]:focus,
+.pms-form-design-wrapper .mc4wp-checkbox-paid-member-subscriptions input[type="checkbox"]:focus,
+.pms-form-design-wrapper .pms-subscription-plan-auto-renew input[type="checkbox"]:focus {
+    border-color:  #554FE6 !important;
+    outline: none;
+    box-shadow: inset 0 0 4px #554FE6, 0 0 4px #554FE6;
+}
+
+
+/**************************************************/
+/*  Subscription Plans List --> RADIO INPUTS
+/**************************************************/
+
+.pms-form-design-wrapper .pms-subscription-plan input[type="radio"] {
+    appearance: none;
+    outline: none;
+    background-color: #FFFFFF;
+    min-width: 20px !important;
+    width: 20px !important;
+    height: 20px !important;
+    border: 2px solid #6E7A86;
+    border-radius: 50%;
+    margin: 0;
+    padding: 0 !important;
+}
+
+.pms-form-design-wrapper .pms-subscription-plan input[type="radio"]:checked {
+    background: #554FE6;
+    border-color: #554FE6;
+    box-shadow: inset 0 0 0 3px #ffffff;
+}
+
+.pms-form-design-wrapper .pms-subscription-plan input[type="radio"]:checked:disabled {
+    background: #6E7A86;
+}
+
+.pms-form-design-wrapper .pms-subscription-plan input[type="radio"]:hover {
+    border-color: #554FE6;
+}
+
+.pms-form-design-wrapper .pms-subscription-plan input[type="radio"]:focus {
+    border-color: #554FE6;
+    box-shadow: inset 0 0 0 3px #ffffff, 0 0 4px #554FE6;
+}
+
+
+/**************************************************/
+/*  Subscription Plans List
+/**************************************************/
+
+.pms-form-design-wrapper .pms-subscription-plan label {
+    background: #FFFFFF;
+    border: 1px solid #CFD4DE;
+    border-radius: 50px;
+    padding: 20px 60px;
+    min-height: 62px;
+    position: relative;
+    display: flex;
+    justify-content: flex-start !important;
+    flex-wrap: wrap;
+    gap: 5px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #6E7A86;
+}
+
+.pms-form-design-wrapper .pms-subscription-plan label.selected,
+.pms-form-design-wrapper .pms-subscription-plan label:hover {
+    border-color: #554FE6;
+}
+
+/* .pms-form-design-wrapper .pms-subscription-plan label.selected {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+} */
+
+.pms-form-design-wrapper .pms-subscription-plan .pms-subscription-plan-description {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: #6E7A86;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.pms-form-design-wrapper .pms-subscription-plan label input[type="radio"] {
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    transform: translateY(-50%);
+}
+
+.pms-form-design-wrapper .pms-subscription-plan label .pms-subscription-plan-name {
+    position: absolute;
+    top: 19px;
+    left: 60px;
+}
+
+.pms-form-design-wrapper .pms-subscription-plan label .pms-subscription-plan-price {
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%);
+    text-align: right;
+}
+
+.pms-form-design-wrapper .pms-subscription-plan label .pms-subscription-plan-name,
+.pms-form-design-wrapper .pms-subscription-plan label .pms-subscription-plan-price {
+    font-weight: 500;
+    color: #090A0B;
+}
+
+.pms-form-design-wrapper .pms-subscription-plan label.selected .pms-subscription-plan-name,
+.pms-form-design-wrapper .pms-subscription-plan label.selected .pms-subscription-plan-price {
+    color: #554FE6;
+}
+
+.pms-form-design-wrapper .pms-subscription-plan-price > .pms-divider:first-child {
+    display: none;
+}
+
+.pms-form-design-wrapper .pms-subscription-plan label span:not(.pms-subscription-plan-name, .pms-subscription-plan-price, .pms-subscription-plan-price span):not(:empty) {
+    padding-top: 50px;
+}
+
+.pms-form-design-wrapper .pms-subscription-plan label > span.pms-subscription-plan-price + span:empty + span:empty + span:not(.pms-subscription-plan-name, .pms-subscription-plan-price)::first-letter,
+.pms-form-design-wrapper .pms-subscription-plan label > span.pms-subscription-plan-price + span:empty + span:not(.pms-subscription-plan-name, .pms-subscription-plan-price)::first-letter,
+.pms-form-design-wrapper .pms-subscription-plan label > span.pms-subscription-plan-price + span:not(.pms-subscription-plan-name, .pms-subscription-plan-price)::first-letter  {
+    text-transform: uppercase;
+}
+
+
+/**************************************************/
+/*  "Your Purchase" TABLE
+/**************************************************/
+
+.pms-form-design-wrapper .pms-price-breakdown__holder {
+    background: #FFFFFF;
+    border: 1px solid #CFD4DE;
+    border-radius: 10px;
+}
+
+.pms-form-design-wrapper .pms-price-breakdown__holder h3 {
+    margin-top: 0;
+}
+
+.pms-form-design-wrapper .pms-price-breakdown__holder .pms-price-breakdown table tbody tr td,
+.pms-form-design-wrapper .pms-price-breakdown__holder .pms-price-breakdown table tbody tr,
+.pms-form-design-wrapper .pms-price-breakdown__holder .pms-price-breakdown table tbody,
+.pms-form-design-wrapper .pms-price-breakdown__holder .pms-price-breakdown table {
+    border: none !important;
+}
+
+.pms-form-design-wrapper .pms-price-breakdown__holder .pms-price-breakdown table tbody tr td.pms-value {
+    text-align: right;
+}
+
+.pms-form-design-wrapper .pms-price-breakdown__holder .pms-price-breakdown table tbody tr td.pms-subtotal__value,
+.pms-form-design-wrapper .pms-price-breakdown__holder .pms-price-breakdown table tbody tr td.pms-subtotal__label,
+.pms-form-design-wrapper .pms-price-breakdown__holder .pms-price-breakdown table tbody tr td.pms-tax__value,
+.pms-form-design-wrapper .pms-price-breakdown__holder .pms-price-breakdown table tbody tr td.pms-tax__label {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #6E7A86;
+    background: #FFFFFF;
+}
+
+.pms-form-design-wrapper .pms-price-breakdown__holder .pms-price-breakdown table tbody tr td.pms-total__value,
+.pms-form-design-wrapper .pms-price-breakdown__holder .pms-price-breakdown table tbody tr td.pms-total__label {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #090A0B;
+    background: #FFFFFF;
+}
+
+.pms-form-design-wrapper .pms-price-breakdown__holder .pms-price-breakdown table tbody tr {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.pms-form-design-wrapper .pms-price-breakdown__holder .pms-price-breakdown table tbody tr:last-of-type {
+    margin-bottom: 0;
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 1px solid #CFD4DE !important;
+}
+
+.pms-form-design-wrapper .pms-price-breakdown__holder .pms-price-breakdown table {
+    margin-bottom: 0;
+    width: 100%;
+}
+
+.pms-form-design-wrapper .pms-price-breakdown__holder .pms-price-breakdown table tbody tr td {
+    padding: 0;
+}
+
+
+/**************************************************/
+/*  Payment Method Options
+/**************************************************/
+
+.pms-form-design-wrapper #pms-paygates-inner {
+    justify-content: flex-start;
+}
+
+.pms-form-design-wrapper #pms-paygates-inner > label {
+    border-radius: 50px;
+}
+
+.pms-form-design-wrapper #pms-paygates-inner input + span {
+    border-radius: 100px;
+    width: 183px;
+}
+
+.pms-form-design-wrapper #pms-paygates-inner input + span:hover,
+.pms-form-design-wrapper #pms-paygates-inner input:checked + span {
+    border-color: #554FE6;
+}
+
+
+/**************************************************/
+/*  Delete Account
+/**************************************************/
+
+.pms-form-design-wrapper .pms-field label[for="pms-delete-account"] {
+    position: inherit !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    font-weight: 500 !important;
+    font-size: 20px !important;
+    line-height: 24px !important;
+    color: #090A0B !important;
+    padding: 0 !important;
+    margin-top: 50px;
+}
+
+.pms-form-design-wrapper input#pms-delete-account {
+    background: #e76054;
+    width: 150px;
+    height: 48px;
+    border-radius: 100px !important;
+    color: #FFFFFF !important;
+    text-decoration: none;
+    text-transform: none;
+    padding: 0 15px;
+    font-size: 16px;
+    pointer-events: all;
+    cursor: pointer;
+    border: none;
+}
+.pms-form-design-wrapper input#pms-delete-account:hover {
+    background: #ec6d61;
+}
+
+.pms-form-design-wrapper input#pms-delete-account:focus {
+    background: #ec6d61;
+}
+
+
+/**************************************************/
+/*  Account --> Subscriptions
+/**************************************************/
+
+.pms-form-design-wrapper .pms-account-navigation {
+    margin-bottom: 45px;
+    position: relative;
+}
+
+.pms-form-design-wrapper .pms-account-navigation ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 40px;
+    border-bottom: 3px solid #CFD4DE;
+}
+
+.pms-form-design-wrapper .pms-account-navigation ul li {
+    padding-bottom: 10px;
+}
+
+.pms-form-design-wrapper .pms-account-navigation ul li a {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    color: #6E7A86;
+    padding-bottom: 13px;
+}
+
+.pms-form-design-wrapper .pms-account-navigation ul li.pms-account-navigation-link:not(.pms-account-navigation-link--logout) a:hover,
+.pms-form-design-wrapper .pms-account-navigation ul li a.pms-account-navigation-link--active {
+    color: #554FE6;
+    box-shadow: 0 3px 0 0 currentColor !important;
+}
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table,
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr,
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr td {
+    border: none;
+}
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table {
+    margin-bottom: 60px;
+    max-width: 640px;
+}
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table:last-of-type {
+    margin-bottom: 150px !important;
+}
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr:not(.pms-account-subscription-details-table__actions) {
+    background: #FFFFFF;
+    padding: 8px 35px;
+    border-width: 0 1px 0 1px;
+    border-style: solid;
+    border-color: #CFD4DE;
+}
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr:first-of-type {
+    padding-top: 27px;
+    border-radius: 10px 10px 0 0;
+    border-top-width: 1px;
+}
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr.last-table-row {
+    padding-bottom: 35px;
+    border-radius: 0 0 10px 10px;
+    border-bottom-width: 1px;
+}
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr td {
+    font-style: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: #090A0B;
+    background-color: #ffffff;
+}
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr td:first-of-type {
+    min-width: 180px;
+    font-weight: 400;
+}
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr td:last-of-type {
+    font-weight: 500;
+}
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr.pms-account-subscription-details-table__status td:last-of-type {
+    border-radius: 20px;
+    padding: 3px 16px;
+    font-size: 14px;
+}
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr.pms-account-subscription-details-table__status td.status-active {
+    background: rgba(104, 159, 56, 0.15);
+    border: 1px solid #558B2F;
+    color: #558B2F;
+}
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr.pms-account-subscription-details-table__status td.status-pending {
+    background: rgba(72, 114, 155, 0.15);
+    border: 1px solid #48729b;
+    color: #48729b;
+}
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr.pms-account-subscription-details-table__status td.status-canceled {
+    background: rgba(206, 124, 0, 0.15);
+    border: 1px solid #ce7c00;
+    color: #ce7c00;
+}
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr.pms-account-subscription-details-table__status td.status-expired {
+    background: rgba(198, 40, 40, 0.15);
+    border: 1px solid #C62828;
+    color: #C62828;
+}
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr td a {
+    color: #554FE6;
+    text-decoration: none;
+}
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr.pms-account-subscription-details-table__actions {
+    margin-top: 30px;
+}
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr.pms-account-subscription-details-table__actions td:first-of-type {
+    display: none;
+}
+
+.pms-form-design-wrapper .pms-account-navigation ul li.pms-account-navigation-link--logout {
+    position: absolute;
+    right: 0;
+}
+
+.pms-form-design-wrapper .pms-account-navigation ul li.pms-account-navigation-link--logout a,
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr.pms-account-subscription-details-table__actions td:last-of-type .pms-account-subscription-action-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 5px 15px;
+    height: 40px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid #554FE6 !important;
+    border-radius: 100px;
+    color: #554FE6;
+    margin: 0;
+}
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr.pms-account-subscription-details-table__actions td:last-of-type {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    background: transparent;
+}
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr.pms-account-subscription-details-table__actions td:last-of-type span.pms-account-subscription-action-link {
+    opacity: 0.5;
+}
+
+.pms-form-design-wrapper .pms-account-navigation ul li.pms-account-navigation-link--logout a:hover,
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr.pms-account-subscription-details-table__actions td:last-of-type a.pms-account-subscription-action-link:hover {
+    background: #6661de !important;
+    text-decoration: none!important;
+    border: 1px solid #6661de!important;
+    color: #FFFFFF !important;
+    cursor: pointer;
+}
+
+.pms-form-design-wrapper .pms-account-navigation ul li.pms-account-navigation-link--logout a:focus,
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr.pms-account-subscription-details-table__actions td:last-of-type a.pms-account-subscription-action-link:focus {
+    outline: none;
+    border: 1px solid #6661de !important;
+    box-shadow: 0 0 4px #6661de;
+    background: #6661de !important;
+    color: #FFFFFF !important;
+}
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr.pms-account-subscription-details-table__actions td:last-of-type .pms-account-subscription-action-link__change:before {
+    content: url("../icons/subscription-change-icon-purple.svg");
+    height: 20px;
+}
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr.pms-account-subscription-details-table__actions td:last-of-type .pms-account-subscription-action-link__renew:before {
+    content: url("../icons/subscription-renew-icon-purple.svg");
+    height: 20px;
+}
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr.pms-account-subscription-details-table__actions td:last-of-type .pms-account-subscription-action-link__retry:before {
+    content: url("../icons/subscription-retry-icon-purple.svg");
+    height: 24px;
+}
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr.pms-account-subscription-details-table__actions td:last-of-type .pms-account-subscription-action-link__cancel:before {
+    content: url("../icons/subscription-cancel-icon-purple.svg");
+    height: 21px;
+}
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr.pms-account-subscription-details-table__actions td:last-of-type .pms-account-subscription-action-link__abandon:before {
+    content: url("../icons/subscription-abandon-icon-purple.svg");
+    height: 20px;
+}
+
+.pms-form-design-wrapper .pms-account-navigation ul li.pms-account-navigation-link--logout a:before {
+    content: url("../icons/account-logout-icon-purple.svg");
+}
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr.pms-account-subscription-details-table__actions td:last-of-type a:hover:before,
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr.pms-account-subscription-details-table__actions td:last-of-type a:focus:before,
+.pms-form-design-wrapper .pms-account-navigation ul li.pms-account-navigation-link--logout a:hover:before,
+.pms-form-design-wrapper .pms-account-navigation ul li.pms-account-navigation-link--logout a:focus:before {
+    filter: grayscale(100) brightness(100);
+}
+
+/**************************************************/
+/*  Account --> Payments & Invoices
+/**************************************************/
+
+.pms-form-design-wrapper #pms-members-table table,
+.pms-form-design-wrapper table#pms-confirm-payment,
+.pms-form-design-wrapper table#pms-payment-history {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: separate;
+    border-radius: 10px;
+    border: 1px solid #CFD4DE;
+    overflow: hidden;
+
+    margin-bottom: 30px;
+}
+
+.pms-form-design-wrapper #pms-members-table table *,
+.pms-form-design-wrapper table#pms-confirm-payment *,
+.pms-form-design-wrapper table#pms-payment-history * {
+    border: none;
+}
+
+.pms-form-design-wrapper #pms-members-table table tr th,
+.pms-form-design-wrapper table#pms-confirm-payment tr th,
+.pms-form-design-wrapper table#pms-payment-history tr th {
+    text-align: left;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    color: #6E7A86;
+    border-bottom: 1px solid #CFD4DE;
+    padding-bottom: 10px;
+
+}
+
+.pms-form-design-wrapper #pms-members-table table tr td,
+.pms-form-design-wrapper table#pms-confirm-payment tr td,
+.pms-form-design-wrapper table#pms-payment-history tr td {
+    border-bottom: 1px solid #CFD4DE;
+    padding: 20px 0;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #090A0B;
+}
+
+.pms-form-design-wrapper #pms-members-table table tr td a,
+.pms-form-design-wrapper table#pms-payment-history tr td.pms-payment-invoice a {
+    color: #554FE6;
+    text-decoration: none;
+}
+
+.pms-form-design-wrapper #pms-members-table table thead tr,
+.pms-form-design-wrapper table#pms-confirm-payment thead tr,
+.pms-form-design-wrapper table#pms-payment-history thead tr {
+    background: rgba( 207, 212, 222, 0.25 );
+}
+
+.pms-form-design-wrapper #pms-members-table table tbody tr,
+.pms-form-design-wrapper table#pms-confirm-payment tbody tr,
+.pms-form-design-wrapper table#pms-payment-history tbody tr {
+    background: #FFFFFF;
+}
+
+.pms-form-design-wrapper #pms-members-table table th:first-of-type,
+.pms-form-design-wrapper #pms-members-table table td:first-of-type,
+.pms-form-design-wrapper table#pms-confirm-payment th:first-of-type,
+.pms-form-design-wrapper table#pms-confirm-payment td:first-of-type,
+.pms-form-design-wrapper table#pms-payment-history th:first-of-type,
+.pms-form-design-wrapper table#pms-payment-history td:first-of-type {
+    padding-left: 20px;
+}
+
+.pms-form-design-wrapper #pms-members-table table tr:last-of-type td,
+.pms-form-design-wrapper table#pms-confirm-payment tr:last-of-type td,
+.pms-form-design-wrapper table#pms-payment-history tr:last-of-type td {
+    border-bottom: none;
+}
+
+.pms-form-design-wrapper #pms-members-table table th:last-of-type,
+.pms-form-design-wrapper #pms-members-table table td:last-of-type,
+.pms-form-design-wrapper table#pms-confirm-payment th:last-of-type,
+.pms-form-design-wrapper table#pms-confirm-payment td:last-of-type,
+.pms-form-design-wrapper table#pms-payment-history th:last-of-type,
+.pms-form-design-wrapper table#pms-payment-history td:last-of-type {
+    padding-right: 20px;
+}
+
+.pms-form-design-wrapper table#pms-payment-history tr td.pms-payment-status.status-completed {
+    color: #558B2F;
+}
+
+.pms-form-design-wrapper table#pms-payment-history tr td.pms-payment-status.status-pending {
+    color: #F9A825;
+}
+
+.pms-form-design-wrapper table#pms-payment-history tr td.pms-payment-status.status-failed {
+    color: #C62828;
+}
+
+.pms-form-design-wrapper table#pms-payment-history tr td.pms-payment-status.status-refunded {
+    color: #48729b;
+}
+
+/* pagination */
+.pms-form-design-wrapper p#pms-payment-history {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+.pms-form-design-wrapper p#pms-payment-history .page-numbers {
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 500;
+    border: 1px solid #554FE6 !important;
+    border-radius: 10px;
+    padding: 5px 10px;
+}
+
+.pms-form-design-wrapper p#pms-payment-history a {
+    color: #554FE6;
+}
+
+.pms-form-design-wrapper p#pms-payment-history a:hover,
+.pms-form-design-wrapper p#pms-payment-history span {
+    background: #6661de !important;
+    text-decoration: none!important;
+    border: 1px solid #6661de!important;
+    color: #FFFFFF !important;
+    cursor: pointer;
+}
+
+/**************************************************/
+/*  Login
+/**************************************************/
+
+.pms-form-design-wrapper#pms_login {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.pms-form-design-wrapper#pms_new_password_form,
+.pms-form-design-wrapper#pms_recover_password_form,
+.pms-form-design-wrapper#pms_login {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.pms-form-design-wrapper#pms_recover_password_form input[type="submit"],
+.pms-form-design-wrapper#pms_login input[type="submit"] {
+    width: 200px;
+}
+
+.pms-form-design-wrapper .pms-warning-message-wrapper a,
+.pms-form-design-wrapper .pms-gdpr-field label a,
+.pms-alert a,
+.pms-form-design-wrapper p a.pms-register-page-link,
+.pms-form-design-wrapper#pms_login p.login-extra a {
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    color: #554FE6;
+    text-decoration: none;
+}
+
+.pms-form-design-wrapper .pms-warning-message-wrapper a:hover,
+.pms-form-design-wrapper table#pms-payment-history tr td.pms-payment-invoice a:hover,
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr td a.pms-account-subscription-action-link__update-payment-method:hover,
+.pms-form-design-wrapper .pms-gdpr-field label a:hover,
+.pms-alert a:hover,
+.pms-form-design-wrapper p a.pms-register-page-link:hover,
+.pms-form-design-wrapper#pms_login p.login-extra a:hover {
+    color: #6661de;
+    text-decoration: underline;
+}
+
+.pms-form-design-wrapper#pms_login p:not(.login-submit, .login-extra) {
+    flex-basis: 100%;
+}
+
+.pms-form-design-wrapper#pms_login p.login-submit {
+    flex-basis: 60%;
+    margin: 0;
+}
+
+.pms-form-design-wrapper#pms_login p.login-extra {
+    flex-basis: 40%;
+    margin: 0;
+}
+
+.pms-form-design-wrapper#pms_login p.login-username,
+.pms-form-design-wrapper#pms_login p.login-password,
+.pms-form-design-wrapper#pms_login p.login-remember {
+    margin-bottom: 24px;
+}
+
+.pms-form-design-wrapper#pms_login p.login-extra {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 3px;
+}
+
+.pms-form-design-wrapper#pms_login p.login-extra span.separator {
+    display: none;
+}
+
+@media screen and (max-width: 500px) {
+    .pms-form-design-wrapper#pms_login p.login-extra,
+    .pms-form-design-wrapper#pms_login p.login-submit {
+        flex-basis: 100%;
+    }
+
+    .pms-form-design-wrapper#pms_login p.login-extra {
+        text-align: left;
+    }
+}
+
+.pms-form-design-wrapper p {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    color: #6E7A86;
+    word-break: break-word;
+}
+
+
+/**************************************************/
+/*  Notifications
+/**************************************************/
+
+.pms-prorate-frontend-message,
+p.pms-alert,
+#pms-stripe-payment-elements:not(.StripeElement),
+.pms-gm-message,
+.pms-gm-message__purchase {
+    background: rgba(85, 79, 230, 0.1);
+    border: 1px solid #554FE6;
+    border-radius: 50px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #090A0B;
+    position: relative;
+    padding: 25px 25px 25px 70px !important;
+}
+
+#pms-stripe-payment-elements:not(.StripeElement) {
+    max-width: 100%;
+}
+
+#pms-stripe-payment-elements:not(.StripeElement) a {
+    color: #1079F3;
+}
+
+.pms-prorate-frontend-message:before,
+p.pms-alert:before,
+#pms-stripe-payment-elements:not(.StripeElement):before,
+.pms-gm-message:before,
+.pms-gm-message__purchase:before {
+    content: url("../icons/notification-icon-purple.svg");
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 25px;
+    transform: translateY(-50%);
+}
+
+.pms-warning-message-wrapper,
+.pms-form-errors-wrapper p,
+.pms-payment-error p,
+.pms_success-messages-wrapper p,
+p.pms-login-error {
+    background: #F9F9F9;
+    border: none;
+    border-radius: 45px;
+    margin: 50px 0;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #6E7A86;
+    padding: 20px 25px 20px 90px !important;
+    position: relative;
+}
+
+.pms-form-errors-wrapper p,
+.pms-payment-error p,
+.pms_success-messages-wrapper p {
+    max-width: 800px;
+    margin: 50px auto;
+    margin-bottom: 24px;
+}
+
+p.pms-alert,
+p.pms-login-error {
+    max-width: 600px;
+    margin: 50px auto;
+}
+
+.pms-warning-message-wrapper p {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #6E7A86;
+}
+
+
+.pms-form-errors-wrapper p,
+.pms-payment-error p {
+    padding: 25px 25px 25px 90px !important;
+}
+
+.pms-form-errors-wrapper,
+.pms-payment-error {
+    padding: 0 !important;
+    border: none !important;
+    background: none !important;
+    margin-bottom: 50px !important;
+}
+
+.pms-warning-message-wrapper,
+.pms-form-errors-wrapper p,
+.pms-payment-error p,
+p.pms-login-error {
+    border: 1px solid #C62828;
+    margin: 50px auto;
+}
+
+.pms_success-messages-wrapper p {
+    border: 1px solid #558B2F !important;
+}
+
+.pms-warning-message-wrapper > strong:first-of-type,
+.pms_success-messages-wrapper span.pms-notice-title,
+p.pms-login-error strong:first-of-type {
+    display: block;
+    margin-bottom: 5px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.pms-warning-message-wrapper > strong:first-of-type,
+p.pms-login-error strong:first-of-type {
+    color: #C62828;
+}
+
+.pms_success-messages-wrapper span.pms-notice-title {
+    color: #558B2F;
+}
+
+.pms-warning-message-wrapper:before,
+.pms-form-errors-wrapper p:before,
+.pms-payment-error p:before,
+.pms_success-messages-wrapper p:before,
+p.pms-login-error:before {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    padding: 18px;
+    border-radius: 45px;
+}
+
+.pms-warning-message-wrapper:before,
+.pms-form-errors-wrapper p:before,
+.pms-payment-error p:before,
+p.pms-login-error:before {
+    content: url("../icons/error-icon.svg");
+    border: 1px solid #C62828;
+    background: #FFCDD2;
+    line-height: 12px;
+}
+
+
+.pms_success-messages-wrapper p:before {
+    content: url("../icons/success-icon.svg");
+    border: 1px solid #558B2F;
+    background: #DCEDC8;
+    line-height: 12px;
+}
+
+/**************************************************/
+/*  Group Subscription Dashboard (extra styles)
+/**************************************************/
+
+.pms-form-design-wrapper #pms-invite-members,
+.pms-form-design-wrapper #pms-members-table {
+    margin-bottom: 50px !important;
+}
+
+.pms-form-design-wrapper #pms-members-table table {
+    margin-top: 0;
+}
+
+.pms-form-design-wrapper #pms-members-table .pms-members-table__wrap {
+    margin-bottom: 20px;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.pms-form-design-wrapper #pms-members-table .pms-members-table__search {
+    margin-bottom: 0;
+}
+
+.pms-form-design-wrapper #pms-members-table .pms-members-table__search input {
+    padding: 0 15px;
+}
+
+.pms-form-design-wrapper #pms-invite-members p.description {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: #6E7A86;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.pms-form-design-wrapper .pms-group-dashboard p {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    color: #6E7A86;
+    word-break: break-word;
+}
+
+.pms-form-design-wrapper .pms-group-dashboard a.pms-group-dashboard-go-back {
+    display: block;
+    line-height: 48px;
+    text-align: center;
+}
+
+
+/**************************************************/
+/*  FORM SECTIONS
+/**************************************************/
+
+.pms-form-design-wrapper #pms-credit-card-information,
+.pms-form-design-wrapper div#pms-paygates-wrapper,
+.pms-form-design-wrapper .pms-account-section-wrapper,
+.pms-form-design-wrapper .pms-field-subscriptions,
+.pms-form-design-wrapper ul.pms-billing-details {
+    background: #FFFFFF;
+    padding: 35px;
+    border: 1px solid #CFD4DE;
+    border-radius: 10px;
+}
+
+.pms-form-design-wrapper .pms-account-section-wrapper,
+.pms-form-design-wrapper .pms-field-subscriptions,
+.pms-form-design-wrapper .pms-billing-details {
+    margin-bottom: 35px;
+}
+
+.pms-form-design-wrapper .pms-register-form-top-plans .pms-field-subscriptions {
+    margin-top: 0;
+}
+
+.pms-form-design-wrapper #pms_edit-profile-form .pms-billing-details {
+    margin-bottom: 40px;
+}
+
+.pms-form-design-wrapper .pms-billing-details .pms-field-type-heading h3,
+.pms-form-design-wrapper .pms-account-section-wrapper h3,
+.pms-form-design-wrapper .pms-field-subscriptions h3 {
+    margin-top: 0;
+}
+
+/* .pms-form-design-wrapper .pms-account-section-wrapper,
+.pms-form-design-wrapper .pms-field-subscriptions {
+    padding-top: 90px;
+} */
+
+/* .pms-form-design-wrapper .pms-account-details-title,
+.pms-form-design-wrapper .pms-subscriptions-list-title {
+    margin-bottom: -95px;
+    margin-left: 35px;
+} */
+
+/**************************************************/
+/*  PASSWORD STRENGTH
+/**************************************************/
+
+.pms-form-design-wrapper #pms-pass-strength-result {
+    height: auto;
+    line-height: 40px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    color: #6E7A86;
+    border-radius: 100px;
+    pointer-events: none;
+    background-color: #F2F6FC;
+    display: block;
+}
+
+.pms-form-design-wrapper #pms-pass-strength-result.short {
+    background: #FFCDD2;
+    border-color: #C62828;
+}
+
+.pms-form-design-wrapper #pms-pass-strength-result.bad {
+    background: #EED8CA;
+    border-color: #F97625;
+}
+
+.pms-form-design-wrapper #pms-pass-strength-result.good {
+    background: #FFF9C4;
+    border-color: #F9A825;
+}
+
+.pms-form-design-wrapper #pms-pass-strength-result.strong {
+    background: #DCEDC8;
+    border-color: #689F38;
+}
+
+#pms-form-style-3-wrapper .pms-spinner {
+    border-bottom-color: #554FE6;
+}
+
+@media screen and (max-width: 1190px) {
+    .pms-block-container {
+        max-width: 900px !important;
+    }
+
+    .pms-form-design-wrapper {
+        max-width: 900px;
+    }
+
+    /* .pms-form-design-wrapper {
+        padding: 0 20px;
+    } */
+
+    .pms-form-design-wrapper #pms-credit-card-information {
+        margin-top: 50px;
+    }
+
+    .pms-form-design-wrapper .pms-price-breakdown__holder {
+        padding: 15px;
+        margin-top: 50px;
+    }
+
+    .pms-form-design-wrapper .pms-billing-details {
+        margin-bottom: 40px;
+    }
+
+    .pms-form-design-wrapper div#pms-paygates-wrapper h3 {
+        margin-top: 0;
+    }
+
+}
+
+/* Set the Payment Sidebar */
+@media screen and (min-width: 1191px) {
+
+    .pms-block-container {
+        max-width: 1190px !important;
+    }
+
+    .pms-form-design-wrapper {
+        max-width: 1190px;
+        position: relative;
+        text-align: left;
+    }
+
+    .pms-form-design-wrapper:not(.wrapper-small).pms-ec-register-form .pms-subscription-plan,
+    .pms-form-design-wrapper:not(.wrapper-small)#pms-retry-payment-subscription-form > p:first-of-type,
+    .pms-form-design-wrapper:not(.wrapper-small)#pms-retry-payment-subscription-form .pms-subscription-plan,
+    .pms-form-design-wrapper:not(.wrapper-small)#pms-retry-payment-subscription-form #pms-subscription-plans-discount,
+    .pms-form-design-wrapper:not(.wrapper-small)#pms-register-form #pms-subscription-plans-discount,
+    .pms-form-design-wrapper:not(.wrapper-small)#pms-renew-subscription-form > p:first-of-type,
+    .pms-form-design-wrapper:not(.wrapper-small)#pms-renew-subscription-form .pms-subscription-plan,
+    .pms-form-design-wrapper:not(.wrapper-small)#pms-renew-subscription-form #pms-subscription-plans-discount,
+    .pms-form-design-wrapper:not(.wrapper-small) .pms-upgrade__group--upgrade,
+    .pms-form-design-wrapper:not(.wrapper-small) .pms-upgrade__group--downgrade,
+    .pms-form-design-wrapper:not(.wrapper-small) .pms-prorate-frontend-message,
+    .pms-form-design-wrapper:not(.wrapper-small) .pms-upgrade__group--change,
+    .pms-form-design-wrapper:not(.wrapper-small) .pms-billing-details:not(#pms_edit-profile-form .pms-billing-details, #pms-update-payment-method-form .pms-billing-details),
+    .pms-form-design-wrapper:not(.wrapper-small) .pms-form-fields-wrapper:not(#pms_edit-profile-form .pms-form-fields-wrapper, #pms_recover_password_form .pms-form-fields-wrapper, #pms_new_password_form .pms-form-fields-wrapper, .pms-group-dashboard .pms-form-fields-wrapper) {
+        max-width: calc( 100% - 470px - 80px );   /* 470px - payment sidebar width | 80px - space between form and sidebar */
+    }
+
+    /* when plan position is top, billing details are inside the form fields wrapper */
+    .pms-form-design-wrapper:not(.wrapper-small) .pms-form-fields-wrapper .pms-billing-details:not(#pms_edit-profile-form .pms-billing-details, #pms-update-payment-method-form .pms-billing-details) {
+        max-width: 100%;
+    }
+
+    /* make the billing details area the last element from the wrapper */
+    .pms-form-design-wrapper:not(.wrapper-small) .pms-register-form-top-plans .pms-form-fields-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .pms-form-design-wrapper:not(.wrapper-small) .pms-register-form-top-plans .pms-form-fields-wrapper .pms-field-subscriptions {
+        order: 1;
+    }
+
+    .pms-form-design-wrapper:not(.wrapper-small) .pms-register-form-top-plans .pms-form-fields-wrapper .pms-account-section-wrapper {
+        order: 2;
+    }
+
+    .pms-form-design-wrapper:not(.wrapper-small) .pms-register-form-top-plans .pms-form-fields-wrapper .pms-billing-details:not(#pms_edit-profile-form .pms-billing-details, #pms-update-payment-method-form .pms-billing-details) {
+        order: 3;
+    }
+
+    .pms-form-design-wrapper .pms-prorate-frontend-message {
+        min-width: 620px;
+    }
+
+    .pms-form-design-wrapper:not(.wrapper-small) div#pms-paygates-wrapper,
+    .pms-form-design-wrapper .pms-price-breakdown__holder,
+    .pms-form-design-wrapper #pms-credit-card-information {
+        width: 470px !important;
+    }
+
+    .pms-form-design-wrapper:not(.wrapper-small) div#pms-paygates-wrapper,
+    .pms-form-design-wrapper:not(.wrapper-small) .pms-price-breakdown__holder,
+    .pms-form-design-wrapper:not(.wrapper-small) #pms-credit-card-information:not(#pms-update-payment-method-form #pms-credit-card-information) {
+        position: absolute;
+        opacity: 0;
+    }
+
+    .pms-form-design-wrapper:not(.wrapper-small) input[name="pms_confirm_retry_payment_subscription"],
+    .pms-form-design-wrapper:not(.wrapper-small) input[name="pms_change_subscription"],
+    .pms-form-design-wrapper:not(.wrapper-small) input[name="pms_renew_subscription"],
+    .pms-form-design-wrapper:not(.wrapper-small) input[name="pms_new_subscription"],
+    .pms-form-design-wrapper:not(.wrapper-small) input[name="pms_register"] {
+        position: absolute;
+        opacity: 0;
+    }
+
+    .pms-form-design-wrapper.wrapper-small input[name="pms_confirm_retry_payment_subscription"],
+    .pms-form-design-wrapper.wrapper-small input[name="pms_change_subscription"],
+    .pms-form-design-wrapper.wrapper-small input[name="pms_renew_subscription"],
+    .pms-form-design-wrapper.wrapper-small input[name="pms_new_subscription"],
+    .pms-form-design-wrapper.wrapper-small input[name="pms_register"] {
+        margin: 0;
+    }
+
+    .pms-form-design-wrapper div#pms-paygates-wrapper {
+        margin-bottom: 35px !important;
+    }
+
+    .pms-form-design-wrapper #pms-credit-card-information {
+        margin-bottom: 35px !important;
+    }
+
+    .pms-form-design-wrapper:not(.wrapper-small) .pms-price-breakdown__holder {
+        margin-bottom: 0 !important;
+        padding: 30px 30px 110px 30px !important;
+    }
+
+    .pms-form-design-wrapper.wrapper-small .pms-price-breakdown__holder {
+        padding: 30px !important;
+        margin: 30px 0;
+    }
+
+    .pms-form-design-wrapper div#pms-paygates-wrapper {
+        padding-top: 50px;
+    }
+
+
+    .pms-form-design-wrapper .pms-price-breakdown__holder h3,
+    .pms-form-design-wrapper #pms-credit-card-information h4,
+    .pms-form-design-wrapper div#pms-paygates-wrapper h3 {
+        margin-top: 0 !important;
+        margin-bottom: 30px;
+    }
+
+    .pms-form-design-wrapper .pms-account-navigation,
+    .pms-form-design-wrapper .pms-account-subscription-details-table {
+        min-width: 640px;
+    }
+
+    .pms-form-design-wrapper .pms-subscription-plan label .pms-subscription-plan-name {
+        max-width: 30%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .pms-form-design-wrapper .pms-subscription-plan label .pms-subscription-plan-price {
+        max-width: 50%;
+    }
+
+}
+
+/**************************************************/
+/*  Mobile
+/**************************************************/
+
+@media screen and (max-width: 480px) {
+
+    .pms-form-design-wrapper table.pms-account-subscription-details-table tr.pms-account-subscription-details-table__actions td:last-of-type .pms-account-subscription-action-link {
+        margin-bottom: 10px;
+    }
+
+    .pms-form-design-wrapper .pms-account-subscription-details-table__payment-method__wrap {
+        flex-wrap: wrap;
+    }
+
+    .pms-form-design-wrapper .pms-subscription-plan label .pms-subscription-plan-name,
+    .pms-form-design-wrapper .pms-subscription-plan label .pms-subscription-plan-price,
+    .pms-form-design-wrapper .pms-subscription-plan label input[type="radio"] {
+        position: unset;
+    }
+
+    .pms-form-design-wrapper .pms-subscription-plan label .pms-subscription-plan-name {
+        word-break: break-word;
+    }
+
+    .pms-form-design-wrapper .pms-subscription-plan label .pms-subscription-plan-name {
+        text-align: left;
+        margin-bottom: 15px;
+    }
+
+    .pms-form-design-wrapper .pms-subscription-plan label input[type="radio"] {
+        margin-right: 5px;
+    }
+
+    .pms-form-design-wrapper .pms-subscription-plan label .pms-subscription-plan-price {
+        width: 100%;
+        transform: none;
+    }
+
+    .pms-form-design-wrapper .pms-subscription-plan label {
+        padding: 30px 20px;
+        display: block;
+        text-align: center;
+        border-radius: 40px;
+    }
+
+    .pms-form-design-wrapper .pms-subscription-plan label > * {
+        width: 100%;
+        display: block;
+    }
+
+
+    .pms-form-design-wrapper .pms-field.pms-billing-zip,
+    .pms-form-design-wrapper .pms-field.pms-billing-last-name,
+    .pms-form-design-wrapper .pms-field.pms-last-name-field,
+    .pms-form-design-wrapper .pms-field.pms-billing-city,
+    .pms-form-design-wrapper .pms-field.pms-billing-first-name,
+    .pms-form-design-wrapper .pms-field.pms-first-name-field {
+        width: 100%;
+    }
+
+    .pms-form-design-wrapper .pms-account-navigation ul {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 15px;
+        border: none;
+    }
+
+    .pms-form-design-wrapper .pms-account-navigation ul li {
+        padding-bottom: 0;
+    }
+
+    .pms-form-design-wrapper .pms-account-navigation ul li a {
+        padding-bottom: 2px;
+    }
+
+    .pms-form-design-wrapper .pms-account-navigation ul li.pms-account-navigation-link--logout {
+        position: unset;
+        order: 1;
+        margin-bottom: 30px;
+    }
+
+    .pms-form-design-wrapper .pms-account-navigation ul li:not(.pms-account-navigation-link--logout) {
+        order: 2;
+    }
+
+    .pms-form-design-wrapper table#pms-payment-history {
+        width: 300%;
+        max-width: 300%;
+    }
+
+    .pms-form-design-wrapper {
+        overflow-x: scroll;
+    }
+
+    .pms-form-design-wrapper table.pms-account-subscription-details-table tr {
+        padding: 5px 10px !important;
+    }
+
+    .pms-form-design-wrapper #pms-subscription-plans-discount input#pms_subscription_plans_discount_code {
+        flex-grow: 1;
+        margin-bottom: 10px;
+    }
+
+    .pms-form-design-wrapper #pms-paygates-inner {
+        justify-content: flex-start;
+    }
+
+    .pms-form-design-wrapper #pms-subscription-plans-discount {
+        flex-wrap: wrap;
+        gap: 5%;
+    }
+
+    .pms-form-design-wrapper #pms-subscription-plans-discount input#pms_subscription_plans_discount_code,
+    .pms-form-design-wrapper #pms-subscription-plans-discount input#pms-apply-discount {
+        flex-basis: 100%;
+    }
+
+    .pms-form-design-wrapper #pms-subscription-plans-discount input#pms_subscription_plans_discount_code {
+        margin-bottom: 12px;
+    }
+
+    .pms-form-design-wrapper .pms-group-dashboard input[type="submit"],
+    .pms-form-design-wrapper input[name="pms_edit_profile"],
+    .pms-form-design-wrapper input[name="pms_confirm_retry_payment_subscription"],
+    .pms-form-design-wrapper input[name="pms_change_subscription"],
+    .pms-form-design-wrapper input[name="pms_renew_subscription"],
+    .pms-form-design-wrapper input[name="pms_new_subscription"],
+    .pms-form-design-wrapper input[name="pms_register"] {
+        width: 100%;
+        margin-right: 0;
+    }
+}

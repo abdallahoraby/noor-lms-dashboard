@@ -1,0 +1,2055 @@
+/**************************************************/
+/*  CONTAINER & LAYOUT SETTINGS
+/**************************************************/
+.edit-post-visual-editor .pms-form-design-wrapper .pms-billing-details,
+.edit-post-visual-editor .pms-form-design-wrapper .pms-form-fields-wrapper {
+    max-width: 100% !important;
+}
+
+#site-content {
+    overflow: visible !important;
+}
+
+#site-content .entry-content div.elementor {
+    max-width: 100% !important;
+}
+
+.pms-block-container {
+    width: 100% !important;
+}
+
+.pms-form-design-wrapper {
+    width: 100%;
+}
+
+.pms-form-design-wrapper .pms-field.disabled-field {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+h3.pms-mspu-form-heading {
+    display: none;
+}
+
+.pms-form-design-wrapper * {
+    box-sizing: border-box;
+    font-family: 'Inter var', sans-serif;
+}
+
+.pms-form-design-wrapper ul {
+    margin-top: 0;
+    padding: 0;
+}
+
+.pms-form-design-wrapper li {
+    margin: 0;
+    list-style: none;
+}
+
+.pms-form-design-wrapper a:focus {
+    background: none;
+    outline: none;
+}
+
+.pms-form-design-wrapper .pms-upgrade__message,
+.pms-form-design-wrapper h3 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px !important;
+    line-height: 24px;
+    color: #558B2F;
+    margin-bottom: 30px;
+}
+
+.pms-form-design-wrapper h4 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #558B2F;
+    margin-bottom: 20px;
+}
+
+.pms-form-design-wrapper h4.pms-group-details-title {
+    width: 100%;
+}
+
+.pms-form-design-wrapper p.pms-field-description {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: #6E7A86;
+    padding-left: 5px;
+    word-break: break-word;
+}
+
+.pms-form-design-wrapper .pms_field-errors-wrapper p {
+    font-style: normal;
+    font-weight: 400 !important;
+    font-size: 15px !important;
+    line-height: 20px;
+    color: #C62828 !important;
+    border: none;
+    margin: 0;
+    padding: 5px 0 0 10px;
+}
+
+.pms-form-design-wrapper #pms_ppe_confirm_payment {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/**************************************************/
+/*  FORM BUTTONS
+/**************************************************/
+
+.pms-form-design-wrapper .pms-group-dashboard a.pms-group-dashboard-go-back,
+.pms-form-design-wrapper input[type="submit"],
+.pms-form-design-wrapper #pms-apply-discount,
+.pms-form-design-wrapper .pms-form-submit {
+    height: 48px;
+    border-radius: 10px !important;
+    border: none;
+    color: #FFFFFF !important;
+    text-decoration: none;
+    text-transform: none;
+    padding: 0 15px;
+    background: #558B2F;
+    font-size: 16px;
+    max-width: 100%;
+    min-width: 150px;
+}
+
+.pms-form-design-wrapper .pms-group-dashboard input[type="submit"],
+.pms-form-design-wrapper input[name="pms_edit_profile"],
+.pms-form-design-wrapper input[name="pms_confirm_retry_payment_subscription"],
+.pms-form-design-wrapper input[name="pms_change_subscription"],
+.pms-form-design-wrapper input[name="pms_renew_subscription"],
+.pms-form-design-wrapper input[name="pms_new_subscription"],
+.pms-form-design-wrapper input[name="pms_register"] {
+    width: 410px;
+    transition: none;
+}
+
+.pms-form-design-wrapper .pms-group-dashboard a.pms-group-dashboard-go-back,
+.pms-form-design-wrapper input[name="pms_redirect_back"] {
+    width: 150px;
+}
+
+.pms-form-design-wrapper .pms-group-dashboard a.pms-group-dashboard-go-back:hover,
+.pms-form-design-wrapper input[type="submit"]:hover,
+.pms-form-design-wrapper #pms-apply-discount:hover {
+    background: #70a44c;
+    text-decoration: none !important;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.pms-form-design-wrapper input[type="submit"].pms-submit-disabled {
+    cursor: wait !important;
+}
+
+.pms-form-design-wrapper .pms-group-dashboard a.pms-group-dashboard-go-back:focus,
+.pms-form-design-wrapper input[type="submit"]:focus,
+.pms-form-design-wrapper #pms-apply-discount:focus {
+    outline: none;
+    box-shadow: 0 0 4px #70a44c;
+    border-radius: 18px;
+    background: #70a44c;
+    color: #FFFFFF;
+}
+
+.pms-form-design-wrapper .pms-group-dashboard a.pms-group-dashboard-go-back:disabled,
+.pms-form-design-wrapper input[type="submit"]:disabled,
+.pms-form-design-wrapper #pms-apply-discount:disabled,
+.pms-form-design-wrapper .pms-form-submit:disabled {
+    opacity: 0.7 !important;
+}
+
+/**************************************************/
+/*  TEXT INPUT & TEXTAREA FIELDS
+/**************************************************/
+
+.pms-form-design-wrapper #pms-members-table .pms-members-table__search,
+.pms-form-design-wrapper .pms-group-dashboard form#pms-invite-members,
+.pms-form-design-wrapper#pms_login p.login-username,
+.pms-form-design-wrapper#pms_login p.login-password,
+.pms-form-design-wrapper .pms-field:not(.pms-field-subscriptions, .pms-field-type-heading, .pms-gdpr-field, .beehive) {
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    padding: 0;
+    width: 100%;
+    margin: 0 auto 30px auto;
+    min-height: 56px;
+    max-width: 100%;
+}
+
+.pms-form-design-wrapper .pms-field.pms-billing-city,
+.pms-form-design-wrapper .pms-field.pms-billing-first-name,
+.pms-form-design-wrapper .pms-field.pms-first-name-field {
+    width: calc( 100% / 2 - 15px );
+    float: left;
+}
+
+.pms-form-design-wrapper .pms-field.pms-billing-zip,
+.pms-form-design-wrapper .pms-field.pms-billing-last-name,
+.pms-form-design-wrapper .pms-field.pms-last-name-field {
+    width: calc( 100% / 2 - 15px );
+    float: right;
+}
+
+.pms-form-design-wrapper .pms-field.pms-billing-country,
+.pms-form-design-wrapper .pms-field.pms-billing-email,
+.pms-form-design-wrapper .pms-field.pms-pass1-field {
+    clear: both;
+}
+
+
+.pms-form-design-wrapper #pms-subscription-plans-discount input#pms_subscription_plans_discount_code::placeholder {
+    opacity: 0;
+}
+
+.pms-form-design-wrapper .pms-group-dashboard form#pms-invite-members label,
+.pms-form-design-wrapper#pms_login p.login-username label,
+.pms-form-design-wrapper#pms_login p.login-password label,
+.pms-form-design-wrapper #pms-subscription-plans-discount label,
+.pms-form-design-wrapper .pms-field:not(.pms-field-subscriptions, .pms-gdpr-field, .pms-field-type-card_expiration_date) label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: auto;
+    padding: 0 15px;
+    line-height: 56px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #6E7A86;
+    pointer-events: none;
+    text-indent: 0 !important;
+}
+
+.pms-form-design-wrapper#pms_login p.login-username label,
+.pms-form-design-wrapper#pms_login p.login-password label,
+.pms-form-design-wrapper #pms-subscription-plans-discount label,
+.pms-form-design-wrapper .pms-field:not(.pms-field-subscriptions, .pms-gdpr-field, .pms-field-type-select, .pms-field.pms-field-type-select_state, .pms-group-description-field) label:not(label[for="pms-delete-account"]) {
+    left: 30px !important;
+}
+
+.pms-form-design-wrapper .pms-group-dashboard form#pms-invite-members label.active,
+.pms-form-design-wrapper#pms_login p.login-username label.active,
+.pms-form-design-wrapper#pms_login p.login-password label.active,
+.pms-form-design-wrapper #pms-subscription-plans-discount label.active,
+.pms-form-design-wrapper .pms-field:not(.pms-field-subscriptions) label.active {
+    margin: 0;
+    top: 0;
+    font-size: 12px;
+    transition: all ease-in-out 50ms;
+    line-height: 30px;
+}
+
+.pms-form-design-wrapper .pms-group-dashboard form#pms-invite-members label.focused,
+.pms-form-design-wrapper#pms_login p.login-username label.focused,
+.pms-form-design-wrapper#pms_login p.login-password label.focused,
+.pms-form-design-wrapper #pms-subscription-plans-discount label.focused,
+.pms-form-design-wrapper .pms-field:not(.pms-field-subscriptions) label.focused {
+    color: #558B2F!important;
+}
+
+.pms-form-design-wrapper #pms-members-table .pms-members-table__search input,
+.pms-form-design-wrapper#pms_login p.login-username input,
+.pms-form-design-wrapper#pms_login p.login-password input,
+.pms-form-design-wrapper #pms-subscription-plans-discount input#pms_subscription_plans_discount_code,
+.pms-form-design-wrapper #pms-stripe-credit-card-details,
+.pms-form-design-wrapper .pms-field:not(.pms-field-subscriptions) input[type=text]:not(.chosen-search input),
+.pms-form-design-wrapper .pms-field input[type=password] {
+    width: 100% !important;
+    max-width: 100%;
+    background: #F2F6FC;
+    box-shadow: none;
+    outline: none;
+    border: 1px solid transparent;
+    border-radius: 18px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #090A0B;
+    height: 56px;
+}
+
+.pms-form-design-wrapper#pms_login p.login-username input,
+.pms-form-design-wrapper#pms_login p.login-password input,
+.pms-form-design-wrapper #pms-subscription-plans-discount input#pms_subscription_plans_discount_code,
+.pms-form-design-wrapper .pms-field:not(.pms-field-subscriptions) input[type=text]:not(.chosen-search input),
+.pms-form-design-wrapper .pms-field input[type=password] {
+    padding: 15px 15px 0 45px !important;
+}
+
+.pms-form-design-wrapper .pms-group-dashboard form#pms-invite-members textarea,
+.pms-form-design-wrapper .pms-field textarea {
+    width: 100% !important;
+    max-width: 100%;
+    background: #F2F6FC;
+    box-shadow: none;
+    outline: none;
+    border: 1px solid transparent;
+    border-radius: 18px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #090A0B;
+    height: 150px;
+    padding: 25px 15px;
+}
+
+.pms-form-design-wrapper #pms-stripe-credit-card-details {
+    padding: 0 15px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    cursor: text;
+}
+
+.pms-form-design-wrapper #pms-stripe-credit-card-details .__PrivateStripeElement {
+    width: 100%;
+}
+
+/* discount code field */
+.pms-form-design-wrapper #pms-subscription-plans-discount {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.pms-form-design-wrapper #pms-subscription-plans-discount input#pms_subscription_plans_discount_code {
+    flex-basis: 70%;
+}
+
+.pms-form-design-wrapper #pms-subscription-plans-discount input#pms-apply-discount {
+    flex-basis: 25%;
+}
+
+.pms-form-design-wrapper #pms-subscription-plans-discount-messages-wrapper {
+    border: 1px solid #CFD4DE;
+    border-radius: 18px;
+    background-color: #FFFFFF;
+    margin-bottom: 30px;
+    padding: 10px 20px;
+}
+
+.pms-form-design-wrapper #pms-subscription-plans-discount-messages-loading,
+.pms-form-design-wrapper #pms-subscription-plans-discount-messages {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    pointer-events: none;
+    line-height: 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+.pms-form-design-wrapper #pms-subscription-plans-discount-messages-loading {
+    color: #6E7A86;
+}
+
+.pms-form-design-wrapper #pms-subscription-plans-discount-messages-loading:before {
+    content: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 24 24'><path d='M21,10.12H14.22L16.96,7.3C14.23,4.6 9.81,4.5 7.08,7.2C4.35,9.91 4.35,14.28 7.08,17C9.81,19.7 14.23,19.7 16.96,17C18.32,15.65 19,14.08 19,12.1H21C21,14.08 20.12,16.65 18.36,18.39C14.85,21.87 9.15,21.87 5.64,18.39C2.14,14.92 2.11,9.28 5.62,5.81C9.13,2.34 14.76,2.34 18.27,5.81L21,3V10.12M12.5,8V12.25L16,14.33L15.28,15.54L11,13V8H12.5Z' fill='rgb(110, 122, 134)'/></svg>");
+    height: 24px;
+}
+
+.pms-form-design-wrapper #pms-subscription-plans-discount-messages.pms-discount-success {
+    color: #558B2F;
+}
+
+.pms-form-design-wrapper #pms-subscription-plans-discount-messages.pms-discount-success:before {
+    content: url("../icons/success-icon.svg");
+    height: 24px;
+}
+
+.pms-form-design-wrapper #pms-subscription-plans-discount-messages.pms-discount-error {
+    color: #C62828;
+}
+
+.pms-form-design-wrapper #pms-subscription-plans-discount-messages.pms-discount-error:before {
+    content: url("../icons/error-icon.svg");
+    height: 24px;
+}
+
+.pms-form-design-wrapper #pms-subscription-plans-discount-messages-wrapper:has(.pms-discount-success) {
+    border-color: #558B2F;
+}
+
+.pms-form-design-wrapper #pms-subscription-plans-discount-messages-wrapper:has(.pms-discount-error) {
+    border-color: #C62828;
+}
+
+/* PWYW price input field */
+.pms-form-design-wrapper .pms-subscription-plan-price input.pms_pwyw_pricing {
+    min-width: 60px;
+    height: 30px;
+    display: inline-block;
+    background: #F2F6FC;
+    box-shadow: none;
+    outline: none;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+    color: #090A0B;
+    text-align: center;
+    padding: 0;
+    margin: 0 3px;
+    min-height: 22px !important;
+}
+
+.pms-form-design-wrapper #pms-members-table .pms-members-table__search input:hover,
+.pms-form-design-wrapper .pms-group-dashboard form#pms-invite-members textarea:hover,
+.pms-form-design-wrapper .pms-field textarea:hover,
+.pms-form-design-wrapper#pms_login p.login-username input:hover,
+.pms-form-design-wrapper#pms_login p.login-password input:hover,
+.pms-form-design-wrapper .pms-subscription-plan-price input.pms_pwyw_pricing:hover,
+.pms-form-design-wrapper #pms-subscription-plans-discount input#pms_subscription_plans_discount_code:hover,
+.pms-form-design-wrapper #pms-stripe-credit-card-details:hover,
+.pms-form-design-wrapper .pms-field:not(.pms-field-subscriptions) input[type=text]:hover,
+.pms-form-design-wrapper .pms-field input[type=password]:hover {
+    border: 1px solid #6E7A86 !important;
+}
+
+.pms-form-design-wrapper #pms-members-table .pms-members-table__search input:focus,
+.pms-form-design-wrapper .pms-group-dashboard form#pms-invite-members textarea:focus,
+.pms-form-design-wrapper .pms-field textarea:focus,
+.pms-form-design-wrapper#pms_login p.login-username input:focus,
+.pms-form-design-wrapper#pms_login p.login-password input:focus,
+.pms-form-design-wrapper .pms-subscription-plan-price input.pms_pwyw_pricing:focus,
+.pms-form-design-wrapper #pms-subscription-plans-discount input#pms_subscription_plans_discount_code:focus,
+.pms-form-design-wrapper #pms-stripe-credit-card-details:focus,
+.pms-form-design-wrapper .pms-field:not(.pms-field-subscriptions) input[type=text]:focus,
+.pms-form-design-wrapper .pms-field input[type=password]:focus {
+    border: 1px solid #558B2F !important;
+}
+
+.pms-form-design-wrapper .pms-field.pms-field-error textarea,
+.pms-form-design-wrapper .pms-field.pms-field-error:not(.pms-field-subscriptions) input[type=text],
+.pms-form-design-wrapper .pms-field.pms-field-error input[type=password] {
+    border: 1px solid #C62828 !important;
+}
+
+.pms-form-design-wrapper .pms-field.pms-field-error:not(.pms-field-subscriptions, .pms-gdpr-field) label {
+    color: #C62828 !important;
+}
+
+.pms-form-design-wrapper #pms-members-table thead .cell-1:hover,
+.pms-form-design-wrapper #pms-members-table thead .cell-2:hover,
+.pms-form-design-wrapper #pms-members-table thead .cell-3:hover {
+    text-decoration: none;
+}
+
+
+/**************************************************/
+/*  TEXT INPUT ICONS
+/**************************************************/
+
+.pms-form-design-wrapper#pms_recover_password_form .pms-field input,
+.pms-form-design-wrapper .login-username input {
+    background: #F2F6FC url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 24 24'><path d='M21,8V7L18,9L15,7V8L18,10M22,3H2A2,2 0 0,0 0,5V19A2,2 0 0,0 2,21H22A2,2 0 0,0 24,19V5A2,2 0 0,0 22,3M8,6A3,3 0 0,1 11,9A3,3 0 0,1 8,12A3,3 0 0,1 5,9A3,3 0 0,1 8,6M14,18H2V17C2,15 6,13.9 8,13.9C10,13.9 14,15 14,17M22,12H14V6H22' fill='rgb(110, 122, 134)'/></svg>") no-repeat 10px center !important;
+}
+.pms-form-design-wrapper#pms_recover_password_form .pms-field.pms-field-error input,
+.pms-form-design-wrapper#pms_recover_password_form .pms-field.pms-field-error input{
+    background: #F2F6FC url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 24 24'><path d='M21,8V7L18,9L15,7V8L18,10M22,3H2A2,2 0 0,0 0,5V19A2,2 0 0,0 2,21H22A2,2 0 0,0 24,19V5A2,2 0 0,0 22,3M8,6A3,3 0 0,1 11,9A3,3 0 0,1 8,12A3,3 0 0,1 5,9A3,3 0 0,1 8,6M14,18H2V17C2,15 6,13.9 8,13.9C10,13.9 14,15 14,17M22,12H14V6H22' fill='rgb(198, 40, 40)'/></svg>") no-repeat 10px center !important;
+}
+.pms-form-design-wrapper#pms_recover_password_form .pms-field input:focus,
+.pms-form-design-wrapper .login-username input:focus {
+    background: #FFFFFF url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 24 24'><path d='M21,8V7L18,9L15,7V8L18,10M22,3H2A2,2 0 0,0 0,5V19A2,2 0 0,0 2,21H22A2,2 0 0,0 24,19V5A2,2 0 0,0 22,3M8,6A3,3 0 0,1 11,9A3,3 0 0,1 8,12A3,3 0 0,1 5,9A3,3 0 0,1 8,6M14,18H2V17C2,15 6,13.9 8,13.9C10,13.9 14,15 14,17M22,12H14V6H22' fill='rgb(85, 139, 47)'/></svg>") no-repeat 10px center !important;
+}
+
+.pms-form-design-wrapper .pms-user-login-field input {
+    background: #F2F6FC url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 24 24'><path d='M8,9A2,2 0 0,1 10,11A2,2 0 0,1 8,13A2,2 0 0,1 6,11A2,2 0 0,1 8,9M12,17H4V16C4,14.67 6.67,14 8,14C9.33,14 12,14.67 12,16V17M20,8H14V10H20V8M20,12H14V14H20V12M20,16H14V18H20V16M22,4H14V6H22V20H2V6H10V4H2A2,2 0 0,0 0,6V20A2,2 0 0,0 2,22H22A2,2 0 0,0 24,20V6A2,2 0 0,0 22,4M13,6H11V2H13V6Z' fill='rgb(110, 122, 134)'/></svg>") no-repeat 10px center !important;
+}
+.pms-form-design-wrapper .pms-user-login-field.pms-field-error input {
+    background: #F2F6FC url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 24 24'><path d='M8,9A2,2 0 0,1 10,11A2,2 0 0,1 8,13A2,2 0 0,1 6,11A2,2 0 0,1 8,9M12,17H4V16C4,14.67 6.67,14 8,14C9.33,14 12,14.67 12,16V17M20,8H14V10H20V8M20,12H14V14H20V12M20,16H14V18H20V16M22,4H14V6H22V20H2V6H10V4H2A2,2 0 0,0 0,6V20A2,2 0 0,0 2,22H22A2,2 0 0,0 24,20V6A2,2 0 0,0 22,4M13,6H11V2H13V6Z' fill='rgb(198, 40, 40)'/></svg>") no-repeat 10px center !important;
+}
+.pms-form-design-wrapper .pms-user-login-field input:focus {
+    background: #FFFFFF url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 24 24'><path d='M8,9A2,2 0 0,1 10,11A2,2 0 0,1 8,13A2,2 0 0,1 6,11A2,2 0 0,1 8,9M12,17H4V16C4,14.67 6.67,14 8,14C9.33,14 12,14.67 12,16V17M20,8H14V10H20V8M20,12H14V14H20V12M20,16H14V18H20V16M22,4H14V6H22V20H2V6H10V4H2A2,2 0 0,0 0,6V20A2,2 0 0,0 2,22H22A2,2 0 0,0 24,20V6A2,2 0 0,0 22,4M13,6H11V2H13V6Z' fill='rgb(85, 139, 47)'/></svg>") no-repeat 10px center !important;
+}
+
+.pms-form-design-wrapper .pms-billing-email input,
+.pms-form-design-wrapper .pms-user-email-field input {
+    background: #F2F6FC url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 24 24'><path d='M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z' fill='rgb(110, 122, 134)'/></svg>") no-repeat 10px center !important;
+}
+.pms-form-design-wrapper .pms-billing-email.pms-field-error input,
+.pms-form-design-wrapper .pms-user-email-field.pms-field-error input {
+    background: #F2F6FC url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 24 24'><path d='M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z' fill='rgb(198, 40, 40)'/></svg>") no-repeat 10px center !important;
+}
+.pms-form-design-wrapper .pms-billing-email input:focus,
+.pms-form-design-wrapper .pms-user-email-field input:focus {
+    background: #FFFFFF url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 24 24'><path d='M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z' fill='rgb(85, 139, 47)'/></svg>") no-repeat 10px center !important;
+}
+
+.pms-form-design-wrapper .pms-billing-first-name input,
+.pms-form-design-wrapper .pms-billing-last-name input,
+.pms-form-design-wrapper .pms-first-name-field input,
+.pms-form-design-wrapper .pms-last-name-field input {
+    background: #F2F6FC url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 24 24'><path d='M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z' fill='rgb(110, 122, 134)'/></svg>") no-repeat 10px center !important;
+}
+.pms-form-design-wrapper .pms-billing-first-name.pms-field-error input,
+.pms-form-design-wrapper .pms-billing-last-name.pms-field-error input,
+.pms-form-design-wrapper .pms-first-name-field.pms-field-error input,
+.pms-form-design-wrapper .pms-last-name-field.pms-field-error input {
+    background: #F2F6FC url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 24 24'><path d='M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z' fill='rgb(198, 40, 40)'/></svg>") no-repeat 10px center !important;
+}
+.pms-form-design-wrapper .pms-billing-first-name input:focus,
+.pms-form-design-wrapper .pms-billing-last-name input:focus,
+.pms-form-design-wrapper .pms-first-name-field input:focus,
+.pms-form-design-wrapper .pms-last-name-field input:focus {
+    background: #FFFFFF url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 24 24'><path d='M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z' fill='rgb(85, 139, 47)'/></svg>") no-repeat 10px center !important;
+}
+
+.pms-form-design-wrapper#pms_new_password_form .pms-field input[type="password"],
+.pms-form-design-wrapper .login-password input,
+.pms-form-design-wrapper .pms-pass1-field input,
+.pms-form-design-wrapper .pms-pass2-field input {
+    background: #F2F6FC url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 24 24'><path d='M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z' fill='rgb(110, 122, 134)'/></svg>") no-repeat 10px center !important;
+}
+.pms-form-design-wrapper#pms_new_password_form .pms-field.pms-field-error input[type="password"],
+.pms-form-design-wrapper .login-password.pms-field-error input,
+.pms-form-design-wrapper .pms-pass1-field.pms-field-error input,
+.pms-form-design-wrapper .pms-pass2-field.pms-field-error input {
+    background: #F2F6FC url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 24 24'><path d='M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z' fill='rgb(198, 40, 40)'/></svg>") no-repeat 10px center !important;
+}
+.pms-form-design-wrapper#pms_new_password_form .pms-field input[type="password"]:focus,
+.pms-form-design-wrapper .login-password input:focus,
+.pms-form-design-wrapper .pms-pass1-field input:focus,
+.pms-form-design-wrapper .pms-pass2-field input:focus {
+    background: #FFFFFF url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 24 24'><path d='M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z' fill='rgb(85, 139, 47)'/></svg>") no-repeat 10px center !important;
+}
+
+.pms-form-design-wrapper #pms_subscription_plans_discount_code {
+    background: #F2F6FC url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 24 24'><path d='M18.5,3.5L3.5,18.5L5.5,20.5L20.5,5.5M7,4A3,3 0 0,0 4,7A3,3 0 0,0 7,10A3,3 0 0,0 10,7A3,3 0 0,0 7,4M17,14A3,3 0 0,0 14,17A3,3 0 0,0 17,20A3,3 0 0,0 20,17A3,3 0 0,0 17,14Z' fill='rgb(110, 122, 134)'/></svg>") no-repeat 10px center !important;
+}
+.pms-form-design-wrapper #pms_subscription_plans_discount_code:focus {
+    background: #FFFFFF url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 24 24'><path d='M18.5,3.5L3.5,18.5L5.5,20.5L20.5,5.5M7,4A3,3 0 0,0 4,7A3,3 0 0,0 7,10A3,3 0 0,0 10,7A3,3 0 0,0 7,4M17,14A3,3 0 0,0 14,17A3,3 0 0,0 17,20A3,3 0 0,0 20,17A3,3 0 0,0 17,14Z' fill='rgb(85, 139, 47)'/></svg>") no-repeat 10px center !important;
+}
+
+.pms-form-design-wrapper .pms-group-name-field input {
+    background: #F2F6FC url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 24 24'><path d='M12,5.5A3.5,3.5 0 0,1 15.5,9A3.5,3.5 0 0,1 12,12.5A3.5,3.5 0 0,1 8.5,9A3.5,3.5 0 0,1 12,5.5M5,8C5.56,8 6.08,8.15 6.53,8.42C6.38,9.85 6.8,11.27 7.66,12.38C7.16,13.34 6.16,14 5,14A3,3 0 0,1 2,11A3,3 0 0,1 5,8M19,8A3,3 0 0,1 22,11A3,3 0 0,1 19,14C17.84,14 16.84,13.34 16.34,12.38C17.2,11.27 17.62,9.85 17.47,8.42C17.92,8.15 18.44,8 19,8M5.5,18.25C5.5,16.18 8.41,14.5 12,14.5C15.59,14.5 18.5,16.18 18.5,18.25V20H5.5V18.25M0,20V18.5C0,17.11 1.89,15.94 4.45,15.6C3.86,16.28 3.5,17.22 3.5,18.25V20H0M24,20H20.5V18.25C20.5,17.22 20.14,16.28 19.55,15.6C22.11,15.94 24,17.11 24,18.5V20Z' fill='rgb(110, 122, 134)'/></svg>") no-repeat 10px center !important;
+}
+.pms-form-design-wrapper .pms-group-name-field.pms-field-error input {
+    background: #F2F6FC url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 24 24'><path d='M12,5.5A3.5,3.5 0 0,1 15.5,9A3.5,3.5 0 0,1 12,12.5A3.5,3.5 0 0,1 8.5,9A3.5,3.5 0 0,1 12,5.5M5,8C5.56,8 6.08,8.15 6.53,8.42C6.38,9.85 6.8,11.27 7.66,12.38C7.16,13.34 6.16,14 5,14A3,3 0 0,1 2,11A3,3 0 0,1 5,8M19,8A3,3 0 0,1 22,11A3,3 0 0,1 19,14C17.84,14 16.84,13.34 16.34,12.38C17.2,11.27 17.62,9.85 17.47,8.42C17.92,8.15 18.44,8 19,8M5.5,18.25C5.5,16.18 8.41,14.5 12,14.5C15.59,14.5 18.5,16.18 18.5,18.25V20H5.5V18.25M0,20V18.5C0,17.11 1.89,15.94 4.45,15.6C3.86,16.28 3.5,17.22 3.5,18.25V20H0M24,20H20.5V18.25C20.5,17.22 20.14,16.28 19.55,15.6C22.11,15.94 24,17.11 24,18.5V20Z' fill='rgb(198, 40, 40)'/></svg>") no-repeat 10px center !important;
+}
+.pms-form-design-wrapper .pms-group-name-field input:focus {
+    background: #FFFFFF url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 24 24'><path d='M12,5.5A3.5,3.5 0 0,1 15.5,9A3.5,3.5 0 0,1 12,12.5A3.5,3.5 0 0,1 8.5,9A3.5,3.5 0 0,1 12,5.5M5,8C5.56,8 6.08,8.15 6.53,8.42C6.38,9.85 6.8,11.27 7.66,12.38C7.16,13.34 6.16,14 5,14A3,3 0 0,1 2,11A3,3 0 0,1 5,8M19,8A3,3 0 0,1 22,11A3,3 0 0,1 19,14C17.84,14 16.84,13.34 16.34,12.38C17.2,11.27 17.62,9.85 17.47,8.42C17.92,8.15 18.44,8 19,8M5.5,18.25C5.5,16.18 8.41,14.5 12,14.5C15.59,14.5 18.5,16.18 18.5,18.25V20H5.5V18.25M0,20V18.5C0,17.11 1.89,15.94 4.45,15.6C3.86,16.28 3.5,17.22 3.5,18.25V20H0M24,20H20.5V18.25C20.5,17.22 20.14,16.28 19.55,15.6C22.11,15.94 24,17.11 24,18.5V20Z' fill='rgb(85, 139, 47)'/></svg>") no-repeat 10px center !important;
+}
+
+.pms-form-design-wrapper .pms-billing-company input {
+    background: #F2F6FC url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 24 24'><path d='M5,3V21H11V17.5H13V21H19V3H5M7,5H9V7H7V5M11,5H13V7H11V5M15,5H17V7H15V5M7,9H9V11H7V9M11,9H13V11H11V9M15,9H17V11H15V9M7,13H9V15H7V13M11,13H13V15H11V13M15,13H17V15H15V13M7,17H9V19H7V17M15,17H17V19H15V17Z' fill='rgb(110, 122, 134)'/></svg>") no-repeat 10px center !important;
+}
+.pms-form-design-wrapper .pms-billing-company.pms-field-error input {
+    background: #F2F6FC url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 24 24'><path d='M5,3V21H11V17.5H13V21H19V3H5M7,5H9V7H7V5M11,5H13V7H11V5M15,5H17V7H15V5M7,9H9V11H7V9M11,9H13V11H11V9M15,9H17V11H15V9M7,13H9V15H7V13M11,13H13V15H11V13M15,13H17V15H15V13M7,17H9V19H7V17M15,17H17V19H15V17Z' fill='rgb(198, 40, 40)'/></svg>") no-repeat 10px center !important;
+}
+.pms-form-design-wrapper .pms-billing-company input:focus {
+    background: #FFFFFF url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 24 24'><path d='M5,3V21H11V17.5H13V21H19V3H5M7,5H9V7H7V5M11,5H13V7H11V5M15,5H17V7H15V5M7,9H9V11H7V9M11,9H13V11H11V9M15,9H17V11H15V9M7,13H9V15H7V13M11,13H13V15H11V13M15,13H17V15H15V13M7,17H9V19H7V17M15,17H17V19H15V17Z' fill='rgb(85, 139, 47)'/></svg>") no-repeat 10px center !important;
+}
+
+.pms-form-design-wrapper .pms-billing-address input {
+    background: #F2F6FC url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 24 24'><path d='M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z' fill='rgb(110, 122, 134)'/></svg>") no-repeat 10px center !important;
+}
+.pms-form-design-wrapper .pms-billing-address.pms-field-error input {
+    background: #F2F6FC url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 24 24'><path d='M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z' fill='rgb(198, 40, 40)'/></svg>") no-repeat 10px center !important;
+}
+.pms-form-design-wrapper .pms-billing-address input:focus {
+    background: #FFFFFF url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 24 24'><path d='M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z' fill='rgb(85, 139, 47)'/></svg>") no-repeat 10px center !important;
+}
+
+.pms-form-design-wrapper .pms-billing-city input {
+    background: #F2F6FC url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 24 24'><path d='M19,15H17V13H19M19,19H17V17H19M13,7H11V5H13M13,11H11V9H13M13,15H11V13H13M13,19H11V17H13M7,11H5V9H7M7,15H5V13H7M7,19H5V17H7M15,11V5L12,2L9,5V7H3V21H21V11H15Z' fill='rgb(110, 122, 134)'/></svg>") no-repeat 10px center !important;
+}
+.pms-form-design-wrapper .pms-billing-city.pms-field-error input {
+    background: #F2F6FC url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 24 24'><path d='M19,15H17V13H19M19,19H17V17H19M13,7H11V5H13M13,11H11V9H13M13,15H11V13H13M13,19H11V17H13M7,11H5V9H7M7,15H5V13H7M7,19H5V17H7M15,11V5L12,2L9,5V7H3V21H21V11H15Z' fill='rgb(198, 40, 40)'/></svg>") no-repeat 10px center !important;
+}
+.pms-form-design-wrapper .pms-billing-city input:focus {
+    background: #FFFFFF url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 24 24'><path d='M19,15H17V13H19M19,19H17V17H19M13,7H11V5H13M13,11H11V9H13M13,15H11V13H13M13,19H11V17H13M7,11H5V9H7M7,15H5V13H7M7,19H5V17H7M15,11V5L12,2L9,5V7H3V21H21V11H15Z' fill='rgb(85, 139, 47)'/></svg>") no-repeat 10px center !important;
+}
+
+.pms-form-design-wrapper .pms-billing-state input.pms-billing-state__input {
+    background: #F2F6FC url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 24 24'><path d='M0,21V10L7.5,5L15,10V21H10V14H5V21H0M24,2V21H17V8.93L16,8.27V6H14V6.93L10,4.27V2H24M21,14H19V16H21V14M21,10H19V12H21V10M21,6H19V8H21V6Z' fill='rgb(110, 122, 134)'/></svg>") no-repeat 10px center !important;
+}
+.pms-form-design-wrapper .pms-billing-state.pms-field-error input.pms-billing-state__input {
+    background: #F2F6FC url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 24 24'><path d='M0,21V10L7.5,5L15,10V21H10V14H5V21H0M24,2V21H17V8.93L16,8.27V6H14V6.93L10,4.27V2H24M21,14H19V16H21V14M21,10H19V12H21V10M21,6H19V8H21V6Z' fill='rgb(198, 40, 40)'/></svg>") no-repeat 10px center !important;
+}
+.pms-form-design-wrapper .pms-billing-state input.pms-billing-state__input:focus {
+    background: #FFFFFF url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 24 24'><path d='M0,21V10L7.5,5L15,10V21H10V14H5V21H0M24,2V21H17V8.93L16,8.27V6H14V6.93L10,4.27V2H24M21,14H19V16H21V14M21,10H19V12H21V10M21,6H19V8H21V6Z' fill='rgb(85, 139, 47)'/></svg>") no-repeat 10px center !important;
+}
+
+.pms-form-design-wrapper .pms-billing-zip input {
+    background: #F2F6FC url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 24 24'><path d='M12,2C15.31,2 18,4.66 18,7.95C18,12.41 12,19 12,19C12,19 6,12.41 6,7.95C6,4.66 8.69,2 12,2M12,6A2,2 0 0,0 10,8A2,2 0 0,0 12,10A2,2 0 0,0 14,8A2,2 0 0,0 12,6M20,19C20,21.21 16.42,23 12,23C7.58,23 4,21.21 4,19C4,17.71 5.22,16.56 7.11,15.83L7.75,16.74C6.67,17.19 6,17.81 6,18.5C6,19.88 8.69,21 12,21C15.31,21 18,19.88 18,18.5C18,17.81 17.33,17.19 16.25,16.74L16.89,15.83C18.78,16.56 20,17.71 20,19Z' fill='rgb(110, 122, 134)'/></svg>") no-repeat 10px center !important;
+}
+.pms-form-design-wrapper .pms-billing-zip.pms-field-error input {
+    background: #F2F6FC url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 24 24'><path d='M12,2C15.31,2 18,4.66 18,7.95C18,12.41 12,19 12,19C12,19 6,12.41 6,7.95C6,4.66 8.69,2 12,2M12,6A2,2 0 0,0 10,8A2,2 0 0,0 12,10A2,2 0 0,0 14,8A2,2 0 0,0 12,6M20,19C20,21.21 16.42,23 12,23C7.58,23 4,21.21 4,19C4,17.71 5.22,16.56 7.11,15.83L7.75,16.74C6.67,17.19 6,17.81 6,18.5C6,19.88 8.69,21 12,21C15.31,21 18,19.88 18,18.5C18,17.81 17.33,17.19 16.25,16.74L16.89,15.83C18.78,16.56 20,17.71 20,19Z' fill='rgb(198, 40, 40)'/></svg>") no-repeat 10px center !important;
+}
+.pms-form-design-wrapper .pms-billing-zip input:focus {
+    background: #FFFFFF url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 24 24'><path d='M12,2C15.31,2 18,4.66 18,7.95C18,12.41 12,19 12,19C12,19 6,12.41 6,7.95C6,4.66 8.69,2 12,2M12,6A2,2 0 0,0 10,8A2,2 0 0,0 12,10A2,2 0 0,0 14,8A2,2 0 0,0 12,6M20,19C20,21.21 16.42,23 12,23C7.58,23 4,21.21 4,19C4,17.71 5.22,16.56 7.11,15.83L7.75,16.74C6.67,17.19 6,17.81 6,18.5C6,19.88 8.69,21 12,21C15.31,21 18,19.88 18,18.5C18,17.81 17.33,17.19 16.25,16.74L16.89,15.83C18.78,16.56 20,17.71 20,19Z' fill='rgb(85, 139, 47)'/></svg>") no-repeat 10px center !important;
+}
+
+.pms-form-design-wrapper .pms-vat-number input {
+    background: #F2F6FC url("data:image/svg+xml,<svg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'><path d='M11.8986 0.3901L13.2986 1.7901C14.9086 1.9801 16.7986 1.0501 17.9086 2.1601C19.0186 3.2701 18.0886 5.1601 18.2786 6.7701L19.6786 8.1701C20.0686 8.5601 20.0686 9.1901 19.6786 9.5801L10.4886 18.7801C10.0886 19.1701 9.45859 19.1701 9.06859 18.7801L1.28859 11.0001C0.898594 10.6101 0.898594 9.9801 1.28859 9.5801L10.4886 0.3901C10.5811 0.297397 10.691 0.223849 10.812 0.173668C10.9329 0.123486 11.0626 0.0976563 11.1936 0.0976562C11.3246 0.0976563 11.4542 0.123486 11.5752 0.173668C11.6962 0.223849 11.8061 0.297397 11.8986 0.3901ZM12.4786 2.6401L11.8986 3.2201L16.8486 8.1701L17.4286 7.5901C17.2386 6.9901 17.2286 6.3701 17.2786 5.7701C17.2986 5.4601 17.3286 5.1501 17.3686 4.8501C17.4886 3.8501 17.5486 3.2201 17.1986 2.8701C16.8486 2.5201 16.2186 2.5801 15.2186 2.7001C14.9186 2.7401 14.6086 2.7701 14.2986 2.7901C13.6986 2.8401 13.0786 2.8301 12.4786 2.6401ZM16.4986 3.5701C16.8886 3.9601 16.8886 4.6001 16.4986 4.9901C16.1086 5.3801 15.4686 5.3801 15.0786 4.9901C14.6886 4.6001 14.6886 3.9601 15.0786 3.5701C15.4686 3.1801 16.1086 3.1801 16.4986 3.5701ZM9.77859 3.9301L9.06859 4.6301L15.4386 11.0001L16.1386 10.2901L9.77859 3.9301ZM8.35859 5.3401L7.65859 6.0501L14.0186 12.4101L14.7286 11.7101L8.35859 5.3401ZM6.94859 6.7601L6.23859 7.4601L12.6086 13.8301L13.3086 13.1201L6.94859 6.7601ZM5.53859 8.1701L4.82859 8.8801L11.1886 15.2401L11.8986 14.5301L5.53859 8.1701ZM4.11859 9.5801L3.40859 10.2901L9.77859 16.6601L10.4886 15.9501L4.11859 9.5801Z' fill='rgb(110, 122, 134)'/></svg>") no-repeat 10px center !important;
+}
+.pms-form-design-wrapper .pms-vat-number.pms-field-error input {
+    background: #F2F6FC url("data:image/svg+xml,<svg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'><path d='M11.8986 0.3901L13.2986 1.7901C14.9086 1.9801 16.7986 1.0501 17.9086 2.1601C19.0186 3.2701 18.0886 5.1601 18.2786 6.7701L19.6786 8.1701C20.0686 8.5601 20.0686 9.1901 19.6786 9.5801L10.4886 18.7801C10.0886 19.1701 9.45859 19.1701 9.06859 18.7801L1.28859 11.0001C0.898594 10.6101 0.898594 9.9801 1.28859 9.5801L10.4886 0.3901C10.5811 0.297397 10.691 0.223849 10.812 0.173668C10.9329 0.123486 11.0626 0.0976563 11.1936 0.0976562C11.3246 0.0976563 11.4542 0.123486 11.5752 0.173668C11.6962 0.223849 11.8061 0.297397 11.8986 0.3901ZM12.4786 2.6401L11.8986 3.2201L16.8486 8.1701L17.4286 7.5901C17.2386 6.9901 17.2286 6.3701 17.2786 5.7701C17.2986 5.4601 17.3286 5.1501 17.3686 4.8501C17.4886 3.8501 17.5486 3.2201 17.1986 2.8701C16.8486 2.5201 16.2186 2.5801 15.2186 2.7001C14.9186 2.7401 14.6086 2.7701 14.2986 2.7901C13.6986 2.8401 13.0786 2.8301 12.4786 2.6401ZM16.4986 3.5701C16.8886 3.9601 16.8886 4.6001 16.4986 4.9901C16.1086 5.3801 15.4686 5.3801 15.0786 4.9901C14.6886 4.6001 14.6886 3.9601 15.0786 3.5701C15.4686 3.1801 16.1086 3.1801 16.4986 3.5701ZM9.77859 3.9301L9.06859 4.6301L15.4386 11.0001L16.1386 10.2901L9.77859 3.9301ZM8.35859 5.3401L7.65859 6.0501L14.0186 12.4101L14.7286 11.7101L8.35859 5.3401ZM6.94859 6.7601L6.23859 7.4601L12.6086 13.8301L13.3086 13.1201L6.94859 6.7601ZM5.53859 8.1701L4.82859 8.8801L11.1886 15.2401L11.8986 14.5301L5.53859 8.1701ZM4.11859 9.5801L3.40859 10.2901L9.77859 16.6601L10.4886 15.9501L4.11859 9.5801Z' fill='rgb(198, 40, 40)'/></svg>") no-repeat 10px center !important;
+}
+.pms-form-design-wrapper .pms-vat-number input:focus {
+    background: #FFFFFF url("data:image/svg+xml,<svg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'><path d='M11.8986 0.3901L13.2986 1.7901C14.9086 1.9801 16.7986 1.0501 17.9086 2.1601C19.0186 3.2701 18.0886 5.1601 18.2786 6.7701L19.6786 8.1701C20.0686 8.5601 20.0686 9.1901 19.6786 9.5801L10.4886 18.7801C10.0886 19.1701 9.45859 19.1701 9.06859 18.7801L1.28859 11.0001C0.898594 10.6101 0.898594 9.9801 1.28859 9.5801L10.4886 0.3901C10.5811 0.297397 10.691 0.223849 10.812 0.173668C10.9329 0.123486 11.0626 0.0976563 11.1936 0.0976562C11.3246 0.0976563 11.4542 0.123486 11.5752 0.173668C11.6962 0.223849 11.8061 0.297397 11.8986 0.3901ZM12.4786 2.6401L11.8986 3.2201L16.8486 8.1701L17.4286 7.5901C17.2386 6.9901 17.2286 6.3701 17.2786 5.7701C17.2986 5.4601 17.3286 5.1501 17.3686 4.8501C17.4886 3.8501 17.5486 3.2201 17.1986 2.8701C16.8486 2.5201 16.2186 2.5801 15.2186 2.7001C14.9186 2.7401 14.6086 2.7701 14.2986 2.7901C13.6986 2.8401 13.0786 2.8301 12.4786 2.6401ZM16.4986 3.5701C16.8886 3.9601 16.8886 4.6001 16.4986 4.9901C16.1086 5.3801 15.4686 5.3801 15.0786 4.9901C14.6886 4.6001 14.6886 3.9601 15.0786 3.5701C15.4686 3.1801 16.1086 3.1801 16.4986 3.5701ZM9.77859 3.9301L9.06859 4.6301L15.4386 11.0001L16.1386 10.2901L9.77859 3.9301ZM8.35859 5.3401L7.65859 6.0501L14.0186 12.4101L14.7286 11.7101L8.35859 5.3401ZM6.94859 6.7601L6.23859 7.4601L12.6086 13.8301L13.3086 13.1201L6.94859 6.7601ZM5.53859 8.1701L4.82859 8.8801L11.1886 15.2401L11.8986 14.5301L5.53859 8.1701ZM4.11859 9.5801L3.40859 10.2901L9.77859 16.6601L10.4886 15.9501L4.11859 9.5801Z' fill='rgb(85, 139, 47)'/></svg>") no-repeat 10px center !important;
+}
+
+.pms-form-design-wrapper .pms-credit-card-information input#pms_card_number {
+    background: #F2F6FC url("data:image/svg+xml,<svg width='20' height='20' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M20 4H4A2 2 0 0 0 2 6V18A2 2 0 0 0 4 20H20A2 2 0 0 0 22 18V6A2 2 0 0 0 20 4M20 11H4V8H20Z' fill='rgb(110, 122, 134)'/></svg>") no-repeat 10px center !important;
+}
+.pms-form-design-wrapper .pms-credit-card-information.pms-field-error input#pms_card_number {
+    background: #F2F6FC url("data:image/svg+xml,<svg width='20' height='20' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M20 4H4A2 2 0 0 0 2 6V18A2 2 0 0 0 4 20H20A2 2 0 0 0 22 18V6A2 2 0 0 0 20 4M20 11H4V8H20Z' fill='rgb(198, 40, 40)'/></svg>") no-repeat 10px center !important;
+}
+.pms-form-design-wrapper .pms-credit-card-information input#pms_card_number:focus {
+    background: #FFFFFF url("data:image/svg+xml,<svg width='20' height='20' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M20 4H4A2 2 0 0 0 2 6V18A2 2 0 0 0 4 20H20A2 2 0 0 0 22 18V6A2 2 0 0 0 20 4M20 11H4V8H20Z' fill='rgb(85, 139, 47)'/></svg>") no-repeat 10px center !important;
+}
+
+.pms-form-design-wrapper .pms-credit-card-information input#pms_card_cvv {
+    background: #F2F6FC url("data:image/svg+xml,<svg width='20' height='20' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M4,17V9H2V7H6V17H4M22,15C22,16.11 21.1,17 20,17H16V15H20V13H18V11H20V9H16V7H20A2,2 0 0,1 22,9V10.5A1.5,1.5 0 0,1 20.5,12A1.5,1.5 0 0,1 22,13.5V15M14,15V17H8V13C8,11.89 8.9,11 10,11H12V9H8V7H12A2,2 0 0,1 14,9V11C14,12.11 13.1,13 12,13H10V15H14Z' fill='rgb(110, 122, 134)'/></svg>") no-repeat 10px center !important;
+}
+.pms-form-design-wrapper .pms-credit-card-information.pms-field-error input#pms_card_cvv {
+    background: #F2F6FC url("data:image/svg+xml,<svg width='20' height='20' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M4,17V9H2V7H6V17H4M22,15C22,16.11 21.1,17 20,17H16V15H20V13H18V11H20V9H16V7H20A2,2 0 0,1 22,9V10.5A1.5,1.5 0 0,1 20.5,12A1.5,1.5 0 0,1 22,13.5V15M14,15V17H8V13C8,11.89 8.9,11 10,11H12V9H8V7H12A2,2 0 0,1 14,9V11C14,12.11 13.1,13 12,13H10V15H14Z' fill='rgb(198, 40, 40)'/></svg>") no-repeat 10px center !important;
+}
+.pms-form-design-wrapper .pms-credit-card-information input#pms_card_cvv:focus {
+    background: #FFFFFF url("data:image/svg+xml,<svg width='20' height='20' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M4,17V9H2V7H6V17H4M22,15C22,16.11 21.1,17 20,17H16V15H20V13H18V11H20V9H16V7H20A2,2 0 0,1 22,9V10.5A1.5,1.5 0 0,1 20.5,12A1.5,1.5 0 0,1 22,13.5V15M14,15V17H8V13C8,11.89 8.9,11 10,11H12V9H8V7H12A2,2 0 0,1 14,9V11C14,12.11 13.1,13 12,13H10V15H14Z' fill='rgb(85, 139, 47)'/></svg>") no-repeat 10px center !important;
+}
+
+
+/**************************************************/
+/*  SELECT FIELDS
+/**************************************************/
+
+.pms-form-design-wrapper #pms-credit-card-information .pms-field-type-card_expiration_date select,
+.pms-form-design-wrapper .pms-field .chosen-container .chosen-single,
+.pms-form-design-wrapper .pms-field.pms-field-type-select select,
+.pms-form-design-wrapper .pms-field.pms-field-type-select_state select {
+    background-color: #F2F6FC !important;
+    background-image: none;
+    box-shadow: none;
+    outline: none;
+    border: 1px solid transparent;
+    border-radius: 18px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #090A0B;
+    height: 56px;
+}
+
+.pms-form-design-wrapper .pms-field .chosen-container .chosen-single,
+.pms-form-design-wrapper .pms-field.pms-field-type-select select,
+.pms-form-design-wrapper .pms-field.pms-field-type-select_state select {
+    width: 100%;
+}
+
+.pms-form-design-wrapper #pms-credit-card-information .pms-field-type-card_expiration_date select#pms_card_exp_month {
+    width: 15%;
+    margin-right: 5%;
+    text-align: center;
+}
+
+.pms-form-design-wrapper #pms-credit-card-information .pms-field-type-card_expiration_date select#pms_card_exp_year {
+    width: 30%;
+    margin-left: 5%;
+    text-align: center;
+}
+
+.pms-form-design-wrapper #pms-credit-card-information .pms-field-type-card_expiration_date select:hover,
+.pms-form-design-wrapper .pms-field .chosen-container:not(.chosen-container-active) .chosen-single:hover,
+.pms-form-design-wrapper .pms-field.pms-field-type-select select:hover,
+.pms-form-design-wrapper .pms-field.pms-field-type-select_state select:hover {
+    border: 1px solid #6E7A86 !important;
+}
+
+.pms-form-design-wrapper #pms-credit-card-information .pms-field-type-card_expiration_date select:focus,
+.pms-form-design-wrapper .pms-field .chosen-container-active .chosen-single,
+.pms-form-design-wrapper .pms-field.pms-field-type-select select:focus,
+.pms-form-design-wrapper .pms-field.pms-field-type-select_state select:focus {
+    border: 1px solid #558B2F !important;
+    background: #FFFFFF !important;
+}
+
+.pms-form-design-wrapper .pms-field.pms-field-type-select select,
+.pms-form-design-wrapper .pms-field.pms-field-type-select_state select {
+    padding: 15px 15px 0 15px !important;
+}
+
+.pms-form-design-wrapper .pms-field .chosen-container .chosen-single {
+    line-height: 56px;
+    padding: 5px 15px 0 15px
+}
+
+.pms-form-design-wrapper .pms-field .chosen-container-single .chosen-single div b {
+    background-position-y: 17px;
+}
+
+.pms-form-design-wrapper .pms-field .chosen-container-active.chosen-with-drop .chosen-single div b {
+    background-position: -16px 17px;
+}
+
+.pms-form-design-wrapper .pms-field.pms-field-type-select label,
+.pms-form-design-wrapper .pms-field.pms-field-type-select_state label {
+    z-index: 999;
+}
+
+.pms-form-design-wrapper .pms-field .chosen-container .chosen-single.chosen-default span {
+    display: none;
+}
+
+
+/**************************************************/
+/*  INPUTS TYPE CHECKBOX
+/**************************************************/
+
+.pms-form-design-wrapper#pms_login p.login-remember,
+.pms-form-design-wrapper .pms-gdpr-field,
+.pms-form-design-wrapper .mc4wp-checkbox-paid-member-subscriptions,
+.pms-form-design-wrapper .pms-subscription-plan-auto-renew {
+    padding-bottom: 0;
+    margin: 0 0 20px 0;
+}
+
+.pms-form-design-wrapper .pms-subscription-plan-auto-renew {
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.pms-form-design-wrapper#pms_login p.login-remember label,
+.pms-form-design-wrapper .pms-gdpr-field label,
+.pms-form-design-wrapper .mc4wp-checkbox-paid-member-subscriptions label,
+.pms-form-design-wrapper .pms-subscription-plan-auto-renew label {
+    width: auto;
+    margin: 0 !important;
+    padding: 0 !important;
+    cursor: pointer;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #6E7A86;
+    word-break: break-word;
+}
+
+.pms-form-design-wrapper .pms-gdpr-field label a,
+.pms-form-design-wrapper .mc4wp-checkbox-paid-member-subscriptions label a {
+    font-size: 16px !important;
+}
+
+.pms-form-design-wrapper#pms_login p.login-remember input[type="checkbox"],
+.pms-form-design-wrapper .pms-gdpr-field input[type="checkbox"],
+.pms-form-design-wrapper .mc4wp-checkbox-paid-member-subscriptions input[type="checkbox"],
+.pms-form-design-wrapper .pms-subscription-plan-auto-renew input[type="checkbox"] {
+    appearance: none;
+    content: ' ';
+    box-sizing: border-box;
+    border: 2px solid #6E7A86;
+    border-radius: 2px;
+    width: 18px !important;
+    height: 18px !important;
+    min-width: 18px !important;
+}
+
+.pms-form-design-wrapper#pms_login p.login-remember input[type="checkbox"],
+.pms-form-design-wrapper .pms-subscription-plan-auto-renew input[type="checkbox"] {
+    top: 0;
+}
+
+.pms-form-design-wrapper .pms-gdpr-field input[type="checkbox"] {
+    margin-bottom: -1px;
+    margin-right: 3px;
+    padding: 0 !important;
+}
+
+.pms-form-design-wrapper .mc4wp-checkbox-paid-member-subscriptions input[type="checkbox"] {
+    margin-bottom: -1px;
+    margin-right: 7px;
+}
+
+.pms-form-design-wrapper#pms_login p.login-remember input[type="checkbox"]:checked,
+.pms-form-design-wrapper .pms-gdpr-field input[type="checkbox"]:checked,
+.pms-form-design-wrapper .mc4wp-checkbox-paid-member-subscriptions input[type="checkbox"]:checked,
+.pms-form-design-wrapper .pms-subscription-plan-auto-renew input[type="checkbox"]:checked {
+    content: url("data:image/svg+xml,<svg style='color: white' xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='currentColor' class='bi bi-check' viewBox='0 0 16 16'> <path d='M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z' fill='white'></path> </svg>");
+    background: #558B2F;
+    border: none;
+}
+
+.pms-form-design-wrapper#pms_login p.login-remember input[type="checkbox"]:hover,
+.pms-form-design-wrapper .pms-gdpr-field input[type="checkbox"]:hover,
+.pms-form-design-wrapper .mc4wp-checkbox-paid-member-subscriptions input[type="checkbox"]:hover,
+.pms-form-design-wrapper .pms-subscription-plan-auto-renew input[type="checkbox"]:hover {
+    border-color: #558B2F;
+}
+
+.pms-form-design-wrapper#pms_login p.login-remember input[type="checkbox"]:checked:disabled,
+.pms-form-design-wrapper .pms-gdpr-field input[type="checkbox"]:checked:disabled,
+.pms-form-design-wrapper .mc4wp-checkbox-paid-member-subscriptions input[type="checkbox"]:checked:disabled,
+.pms-form-design-wrapper .pms-subscription-plan-auto-renew input[type="checkbox"]:checked:disabled {
+    background: #6E7A86;
+}
+
+.pms-form-design-wrapper#pms_login p.login-remember input[type="checkbox"]:focus,
+.pms-form-design-wrapper .pms-gdpr-field input[type="checkbox"]:focus,
+.pms-form-design-wrapper .mc4wp-checkbox-paid-member-subscriptions input[type="checkbox"]:focus,
+.pms-form-design-wrapper .pms-subscription-plan-auto-renew input[type="checkbox"]:focus {
+    border-color:  #558B2F !important;
+    outline: none;
+    box-shadow: inset 0 0 4px #558B2F, 0 0 4px #558B2F;
+}
+
+
+/**************************************************/
+/*  Subscription Plans List --> RADIO INPUTS
+/**************************************************/
+
+.pms-form-design-wrapper .pms-subscription-plan input[type="radio"] {
+    appearance: none;
+    outline: none;
+    background-color: #FFFFFF;
+    min-width: 20px !important;
+    width: 20px !important;
+    height: 20px !important;
+    border: 2px solid #6E7A86;
+    border-radius: 50%;
+    margin: 0;
+    padding: 0 !important;
+}
+
+.pms-form-design-wrapper .pms-subscription-plan input[type="radio"]:checked {
+    background: #558B2F;
+    border-color: #558B2F;
+    box-shadow: inset 0 0 0 3px #ffffff;
+}
+
+.pms-form-design-wrapper .pms-subscription-plan input[type="radio"]:checked:disabled {
+    background: #6E7A86;
+}
+
+.pms-form-design-wrapper .pms-subscription-plan input[type="radio"]:hover {
+    border-color: #558B2F;
+}
+
+.pms-form-design-wrapper .pms-subscription-plan input[type="radio"]:focus {
+    border-color: #558B2F;
+    box-shadow: inset 0 0 0 3px #ffffff, 0 0 4px #558B2F;
+}
+
+
+/**************************************************/
+/*  Subscription Plans List
+/**************************************************/
+
+.pms-form-design-wrapper .pms-upgrade__group,
+.pms-form-design-wrapper .pms-field.pms-field-subscriptions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-bottom: 30px;
+}
+
+.pms-form-design-wrapper .pms-upgrade__message {
+    flex-basis: 100%;
+}
+
+.pms-form-design-wrapper .pms-subscription-plan {
+    width: 270px;
+    margin-bottom: 0;
+}
+
+.pms-form-design-wrapper#pms-retry-payment-subscription-form .pms-subscription-plan,
+.pms-form-design-wrapper#pms-renew-subscription-form .pms-subscription-plan {
+    margin-bottom: 30px;
+}
+
+.pms-form-design-wrapper .pms-subscription-plan label {
+    background: #FFFFFF;
+    border: 1px solid #CFD4DE;
+    border-radius: 18px;
+    padding: 45px 15px 15px 15px;
+    min-height: 155px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    color: #6E7A86;
+    margin-bottom: 0;
+}
+
+.pms-form-design-wrapper .pms-subscription-plan label.selected,
+.pms-form-design-wrapper .pms-subscription-plan label:hover {
+    border-color: #558B2F;
+}
+
+.pms-form-design-wrapper .pms-subscription-plan label.selected {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.pms-form-design-wrapper .pms-subscription-plan .pms-subscription-plan-description {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: #6E7A86;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.pms-form-design-wrapper .pms-subscription-plan label input[type="radio"] {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+}
+
+.pms-form-design-wrapper .pms-subscription-plan label .pms-subscription-plan-name {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 170px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.pms-form-design-wrapper .pms-subscription-plan label:hover .pms-subscription-plan-name {
+    text-overflow: clip;
+}
+
+.pms-form-design-wrapper .pms-subscription-plan label .pms-subscription-plan-price {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+}
+
+.pms-form-design-wrapper .pms-subscription-plan label .pms-subscription-plan-name,
+.pms-form-design-wrapper .pms-subscription-plan label .pms-subscription-plan-price .pms-subscription-plan-currency,
+.pms-form-design-wrapper .pms-subscription-plan label .pms-subscription-plan-price .pms-subscription-plan-price-value {
+    color: #558B2F;
+}
+
+.pms-form-design-wrapper .pms-subscription-plan label .pms-subscription-plan-price {
+    position: absolute;
+    width: 90%;
+    text-align: center;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.pms-form-design-wrapper .pms-subscription-plan-price > .pms-divider:first-child {
+    display: none;
+}
+
+.pms-form-design-wrapper .pms-subscription-plan label > span.pms-subscription-plan-price + span:empty + span:empty + span:not(.pms-subscription-plan-name, .pms-subscription-plan-price)::first-letter,
+.pms-form-design-wrapper .pms-subscription-plan label > span.pms-subscription-plan-price + span:empty + span:not(.pms-subscription-plan-name, .pms-subscription-plan-price)::first-letter,
+.pms-form-design-wrapper .pms-subscription-plan label > span.pms-subscription-plan-price + span:not(.pms-subscription-plan-name, .pms-subscription-plan-price)::first-letter  {
+    text-transform: uppercase;
+}
+
+
+/**************************************************/
+/*  "Your Purchase" TABLE
+/**************************************************/
+
+.pms-form-design-wrapper .pms-price-breakdown__holder {
+    background: #FFFFFF;
+    border: 1px solid #558B2F;
+    border-radius: 18px;
+}
+
+.pms-form-design-wrapper .pms-price-breakdown__holder h3 {
+    margin-top: 0;
+}
+
+.pms-form-design-wrapper .pms-price-breakdown__holder .pms-price-breakdown table tbody tr td,
+.pms-form-design-wrapper .pms-price-breakdown__holder .pms-price-breakdown table tbody tr,
+.pms-form-design-wrapper .pms-price-breakdown__holder .pms-price-breakdown table tbody,
+.pms-form-design-wrapper .pms-price-breakdown__holder .pms-price-breakdown table {
+    border: none !important;
+}
+
+.pms-form-design-wrapper .pms-price-breakdown__holder .pms-price-breakdown table tbody tr td.pms-value {
+    text-align: right;
+}
+
+.pms-form-design-wrapper .pms-price-breakdown__holder .pms-price-breakdown table tbody tr td.pms-subtotal__value,
+.pms-form-design-wrapper .pms-price-breakdown__holder .pms-price-breakdown table tbody tr td.pms-subtotal__label,
+.pms-form-design-wrapper .pms-price-breakdown__holder .pms-price-breakdown table tbody tr td.pms-tax__value,
+.pms-form-design-wrapper .pms-price-breakdown__holder .pms-price-breakdown table tbody tr td.pms-tax__label {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #6E7A86;
+    background: #FFFFFF;
+}
+
+.pms-form-design-wrapper .pms-price-breakdown__holder .pms-price-breakdown table tbody tr td.pms-total__value,
+.pms-form-design-wrapper .pms-price-breakdown__holder .pms-price-breakdown table tbody tr td.pms-total__label {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #090A0B;
+    background: #FFFFFF;
+}
+
+.pms-form-design-wrapper .pms-price-breakdown__holder .pms-price-breakdown table tbody tr {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.pms-form-design-wrapper .pms-price-breakdown__holder .pms-price-breakdown table tbody tr:last-of-type {
+    margin-bottom: 0;
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 1px solid #CFD4DE !important;
+}
+
+.pms-form-design-wrapper .pms-price-breakdown__holder .pms-price-breakdown table {
+    margin-bottom: 0;
+    width: 100%;
+}
+
+.pms-form-design-wrapper .pms-price-breakdown__holder .pms-price-breakdown table tbody tr td {
+    padding: 0;
+}
+
+
+/**************************************************/
+/*  Payment Method Options
+/**************************************************/
+
+.pms-form-design-wrapper #pms-paygates-inner {
+    justify-content: space-evenly;
+}
+
+.pms-form-design-wrapper #pms-paygates-inner > label {
+    border-radius: 18px;
+}
+
+.pms-form-design-wrapper #pms-paygates-inner input + span {
+    border-radius: 18px;
+}
+
+.pms-form-design-wrapper #pms-paygates-inner input + span:hover,
+.pms-form-design-wrapper #pms-paygates-inner input:checked + span {
+    border-color: #558B2F;
+}
+
+
+/**************************************************/
+/*  Stripe Connect
+/**************************************************/
+
+.pms-form-design-wrapper #pms-stripe-payment-elements {
+    padding: 30px !important;
+    border: 1px solid #558B2F;
+    border-radius: 18px;
+}
+
+
+/**************************************************/
+/*  Delete Account
+/**************************************************/
+
+.pms-form-design-wrapper .pms-field label[for="pms-delete-account"] {
+    position: inherit !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    font-weight: 500 !important;
+    font-size: 20px !important;
+    line-height: 24px !important;
+    color: #090A0B !important;
+    padding: 0 !important;
+    margin-top: 50px;
+}
+
+.pms-form-design-wrapper input#pms-delete-account {
+    background: #e76054;
+    width: 150px;
+    height: 48px;
+    border-radius: 10px !important;
+    color: #FFFFFF !important;
+    text-decoration: none;
+    text-transform: none;
+    padding: 0 15px;
+    font-size: 16px;
+    pointer-events: all;
+    cursor: pointer;
+    border: none;
+}
+.pms-form-design-wrapper input#pms-delete-account:hover {
+    background: #ec6d61;
+}
+
+.pms-form-design-wrapper input#pms-delete-account:focus {
+    background: #ec6d61;
+}
+
+
+/**************************************************/
+/*  Account --> Subscriptions
+/**************************************************/
+
+.pms-form-design-wrapper .pms-account-navigation {
+    margin-bottom: 45px;
+    position: relative;
+}
+
+.pms-form-design-wrapper .pms-account-navigation ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 40px;
+    border-bottom: 3px solid #CFD4DE;
+}
+
+.pms-form-design-wrapper .pms-account-navigation ul li {
+    padding-bottom: 10px;
+}
+
+.pms-form-design-wrapper .pms-account-navigation ul li a {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    color: #6E7A86;
+    padding-bottom: 13px;
+}
+
+.pms-form-design-wrapper .pms-account-navigation ul li.pms-account-navigation-link:not(.pms-account-navigation-link--logout) a:hover,
+.pms-form-design-wrapper .pms-account-navigation ul li a.pms-account-navigation-link--active {
+    color: #558B2F;
+    box-shadow: 0 3px 0 0 currentColor !important;
+}
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table,
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr,
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr td {
+    border: none;
+}
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table {
+    margin-bottom: 60px;
+}
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table:last-of-type {
+    margin-bottom: 80px;
+}
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-bottom: 15px;
+}
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr td {
+    font-style: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: #090A0B;
+
+}
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr td:first-of-type {
+    min-width: 180px;
+    font-weight: 400;
+}
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr td:last-of-type {
+    font-weight: 500;
+}
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr.pms-account-subscription-details-table__status td:last-of-type {
+    border-radius: 20px;
+    padding: 3px 16px;
+    font-size: 14px;
+}
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr.pms-account-subscription-details-table__status td.status-active {
+    background: rgba(104, 159, 56, 0.15);
+    border: 1px solid #558B2F;
+    color: #558B2F;
+}
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr.pms-account-subscription-details-table__status td.status-pending {
+    background: rgba(72, 114, 155, 0.15);
+    border: 1px solid #48729b;
+    color: #48729b;
+}
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr.pms-account-subscription-details-table__status td.status-canceled {
+    background: rgba(206, 124, 0, 0.15);
+    border: 1px solid #ce7c00;
+    color: #ce7c00;
+}
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr.pms-account-subscription-details-table__status td.status-expired {
+    background: rgba(198, 40, 40, 0.15);
+    border: 1px solid #C62828;
+    color: #C62828;
+}
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr td a {
+    color: #558B2F;
+    text-decoration: none;
+}
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr.pms-account-subscription-details-table__actions {
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid #CFD4DE;
+}
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr.pms-account-subscription-details-table__actions td:first-of-type {
+    display: none;
+}
+
+.pms-form-design-wrapper .pms-account-navigation ul li.pms-account-navigation-link--logout {
+    position: absolute;
+    right: 0;
+}
+
+.pms-form-design-wrapper .pms-account-navigation ul li.pms-account-navigation-link--logout a,
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr.pms-account-subscription-details-table__actions td:last-of-type .pms-account-subscription-action-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 5px 15px;
+    height: 40px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid #558B2F !important;
+    border-radius: 10px;
+    color: #558B2F;
+    margin: 0;
+}
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr.pms-account-subscription-details-table__actions td:last-of-type {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr.pms-account-subscription-details-table__actions td:last-of-type span.pms-account-subscription-action-link {
+    opacity: 0.5;
+}
+
+.pms-form-design-wrapper .pms-account-navigation ul li.pms-account-navigation-link--logout a:hover,
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr.pms-account-subscription-details-table__actions td:last-of-type a.pms-account-subscription-action-link:hover {
+    background: #70a44c !important;
+    text-decoration: none!important;
+    border: 1px solid #70a44c!important;
+    color: #FFFFFF !important;
+    cursor: pointer;
+}
+
+.pms-form-design-wrapper .pms-account-navigation ul li.pms-account-navigation-link--logout a:focus,
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr.pms-account-subscription-details-table__actions td:last-of-type a.pms-account-subscription-action-link:focus {
+    outline: none;
+    border: 1px solid #70a44c !important;
+    box-shadow: 0 0 4px #70a44c;
+    background: #70a44c !important;
+    color: #FFFFFF !important;
+}
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr.pms-account-subscription-details-table__actions td:last-of-type .pms-account-subscription-action-link__change:before {
+    content: url("../icons/subscription-change-icon-green.svg");
+    height: 20px;
+}
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr.pms-account-subscription-details-table__actions td:last-of-type .pms-account-subscription-action-link__renew:before {
+    content: url("../icons/subscription-renew-icon-green.svg");
+    height: 20px;
+}
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr.pms-account-subscription-details-table__actions td:last-of-type .pms-account-subscription-action-link__retry:before {
+    content: url("../icons/subscription-retry-icon-green.svg");
+    height: 24px;
+}
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr.pms-account-subscription-details-table__actions td:last-of-type .pms-account-subscription-action-link__cancel:before {
+    content: url("../icons/subscription-cancel-icon-green.svg");
+    height: 21px;
+}
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr.pms-account-subscription-details-table__actions td:last-of-type .pms-account-subscription-action-link__abandon:before {
+    content: url("../icons/subscription-abandon-icon-green.svg");
+    height: 20px;
+}
+
+.pms-form-design-wrapper .pms-account-navigation ul li.pms-account-navigation-link--logout a:before {
+    content: url("../icons/account-logout-icon-green.svg");
+}
+
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr.pms-account-subscription-details-table__actions td:last-of-type a:hover:before,
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr.pms-account-subscription-details-table__actions td:last-of-type a:focus:before,
+.pms-form-design-wrapper .pms-account-navigation ul li.pms-account-navigation-link--logout a:hover:before,
+.pms-form-design-wrapper .pms-account-navigation ul li.pms-account-navigation-link--logout a:focus:before {
+    filter: grayscale(100) brightness(100);
+}
+
+/**************************************************/
+/*  Account --> Payments & Invoices
+/**************************************************/
+
+.pms-form-design-wrapper #pms-members-table table,
+.pms-form-design-wrapper table#pms-confirm-payment,
+.pms-form-design-wrapper table#pms-payment-history {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+.pms-form-design-wrapper #pms-members-table table,
+.pms-form-design-wrapper #pms-members-table table *,
+.pms-form-design-wrapper table#pms-confirm-payment,
+.pms-form-design-wrapper table#pms-confirm-payment *,
+.pms-form-design-wrapper table#pms-payment-history,
+.pms-form-design-wrapper table#pms-payment-history * {
+    border: none;
+}
+
+.pms-form-design-wrapper #pms-members-table table tr th,
+.pms-form-design-wrapper table#pms-confirm-payment tr th,
+.pms-form-design-wrapper table#pms-payment-history tr th {
+    text-align: left;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    color: #6E7A86;
+    border-bottom: 1px solid #CFD4DE;
+    background: rgba(207, 212, 222, 0.25);
+    padding: 10px 20px;
+}
+
+.pms-form-design-wrapper #pms-members-table table tr th:first-of-type,
+.pms-form-design-wrapper table#pms-confirm-payment tr th:first-of-type,
+.pms-form-design-wrapper table#pms-payment-history tr th:first-of-type {
+    border-top-left-radius: 10px;
+}
+
+.pms-form-design-wrapper #pms-members-table table tr th:last-of-type,
+.pms-form-design-wrapper table#pms-confirm-payment tr th:last-of-type,
+.pms-form-design-wrapper table#pms-payment-history tr th:last-of-type {
+    border-top-right-radius: 10px;
+}
+
+.pms-form-design-wrapper #pms-members-table table tr td,
+.pms-form-design-wrapper table#pms-confirm-payment tr td,
+.pms-form-design-wrapper table#pms-payment-history tr td {
+    border-bottom: 1px solid #CFD4DE;
+    padding: 20px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #090A0B;
+}
+
+.pms-form-design-wrapper #pms-members-table table tr td a,
+.pms-form-design-wrapper table#pms-payment-history tr td.pms-payment-invoice a {
+    color: #558B2F;
+    text-decoration: none;
+}
+
+.pms-form-design-wrapper table#pms-payment-history tr td.pms-payment-status.status-completed {
+    color: #558B2F;
+}
+
+.pms-form-design-wrapper table#pms-payment-history tr td.pms-payment-status.status-pending {
+    color: #F9A825;
+}
+
+.pms-form-design-wrapper table#pms-payment-history tr td.pms-payment-status.status-failed {
+    color: #C62828;
+}
+
+.pms-form-design-wrapper table#pms-payment-history tr td.pms-payment-status.status-refunded {
+    color: #48729b;
+}
+
+/* pagination */
+.pms-form-design-wrapper p#pms-payment-history {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+.pms-form-design-wrapper p#pms-payment-history .page-numbers {
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 500;
+    border: 1px solid #558B2F !important;
+    border-radius: 6px;
+    padding: 5px 10px;
+}
+
+.pms-form-design-wrapper p#pms-payment-history a {
+    color: #558B2F;
+}
+
+.pms-form-design-wrapper p#pms-payment-history a:hover,
+.pms-form-design-wrapper p#pms-payment-history span {
+    background: #70a44c !important;
+    text-decoration: none!important;
+    border: 1px solid #70a44c!important;
+    color: #FFFFFF !important;
+    cursor: pointer;
+}
+
+/**************************************************/
+/*  Login
+/**************************************************/
+
+.pms-form-design-wrapper#pms_login {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.pms-form-design-wrapper#pms_new_password_form,
+.pms-form-design-wrapper#pms_recover_password_form,
+.pms-form-design-wrapper#pms_login {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.pms-form-design-wrapper#pms_recover_password_form input[type="submit"],
+.pms-form-design-wrapper#pms_login input[type="submit"] {
+    width: 200px;
+}
+
+.pms-form-design-wrapper .pms-warning-message-wrapper a,
+.pms-form-design-wrapper .pms-gdpr-field label a,
+.pms-alert a,
+.pms-form-design-wrapper p a.pms-register-page-link,
+.pms-form-design-wrapper#pms_login p.login-extra a {
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    color: #558B2F;
+    text-decoration: none;
+}
+
+.pms-form-design-wrapper .pms-warning-message-wrapper a:hover,
+.pms-form-design-wrapper table#pms-payment-history tr td.pms-payment-invoice a:hover,
+.pms-form-design-wrapper table.pms-account-subscription-details-table tr td a.pms-account-subscription-action-link__update-payment-method:hover,
+.pms-form-design-wrapper .pms-gdpr-field label a:hover,
+.pms-alert a:hover,
+.pms-form-design-wrapper p a.pms-register-page-link:hover,
+.pms-form-design-wrapper#pms_login p.login-extra a:hover {
+    color: #70a44c;
+    text-decoration: underline;
+}
+
+.pms-form-design-wrapper#pms_login p:not(.login-submit, .login-extra) {
+    flex-basis: 100%;
+}
+
+.pms-form-design-wrapper#pms_login p.login-submit {
+    flex-basis: 60%;
+}
+
+.pms-form-design-wrapper#pms_login p.login-extra {
+    flex-basis: 40%;
+}
+
+.pms-form-design-wrapper#pms_login p.login-extra {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 3px;
+}
+
+.pms-form-design-wrapper#pms_login p.login-extra span.separator {
+    display: none;
+}
+
+@media screen and (max-width: 500px) {
+    .pms-form-design-wrapper#pms_login p.login-extra,
+    .pms-form-design-wrapper#pms_login p.login-submit {
+        flex-basis: 100%;
+    }
+
+    .pms-form-design-wrapper#pms_login p.login-extra {
+        text-align: left;
+    }
+}
+
+.pms-form-design-wrapper p {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    color: #6E7A86;
+    word-break: break-word;
+}
+
+/**************************************************/
+/*  Notifications
+/**************************************************/
+
+.pms-prorate-frontend-message,
+p.pms-alert,
+#pms-stripe-payment-elements:not(.StripeElement),
+.pms-gm-message,
+.pms-gm-message__purchase {
+    background: rgba(85, 139, 47, 0.1);
+    border: 1px solid #558B2F;
+    border-radius: 18px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #090A0B;
+    position: relative;
+    padding: 25px 25px 25px 70px;
+}
+
+#pms-stripe-payment-elements:not(.StripeElement) {
+    max-width: 100%;
+}
+
+#pms-stripe-payment-elements:not(.StripeElement) a {
+    color: #1079F3;
+}
+
+.pms-prorate-frontend-message:before,
+p.pms-alert:before,
+#pms-stripe-payment-elements:not(.StripeElement):before,
+.pms-gm-message:before,
+.pms-gm-message__purchase:before {
+    content: url("../icons/notification-icon-green.svg");
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 25px;
+    transform: translateY(-50%);
+}
+
+.pms-warning-message-wrapper,
+.pms-form-errors-wrapper p,
+.pms-payment-error p,
+.pms_success-messages-wrapper p,
+p.pms-login-error {
+    background: #F9F9F9 !important;
+    border: none !important;
+    border-radius: 0 4px 4px 0;
+    margin: 50px 0;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px !important;
+    color: #6E7A86 !important;
+    padding: 20px 25px !important;
+    position: relative;
+}
+
+.pms-form-errors-wrapper p,
+.pms-payment-error p,
+.pms_success-messages-wrapper p,
+p.pms-alert,
+p.pms-login-error {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.pms-warning-message-wrapper p {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #6E7A86;
+}
+
+.pms-warning-message-wrapper,
+.pms-form-errors-wrapper p,
+.pms-payment-error p,
+p.pms-login-error {
+    border-left: 3px solid #C62828 !important;
+    margin: 50px auto;
+}
+
+.pms-form-errors-wrapper p,
+.pms-payment-error p {
+    padding-left: 60px;
+}
+
+.pms-form-errors-wrapper,
+.pms-payment-error {
+    padding: 0 !important;
+    border: none !important;
+    background: none !important;
+    margin-bottom: 50px !important;
+}
+
+.pms_success-messages-wrapper p {
+    border-left: 3px solid #558B2F !important;
+}
+
+.pms-warning-message-wrapper > strong:first-of-type,
+.pms_success-messages-wrapper span.pms-notice-title,
+p.pms-login-error strong:first-of-type {
+    display: block;
+    padding-left: 30px;
+    margin-bottom: 5px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.pms-warning-message-wrapper > strong:first-of-type,
+p.pms-login-error strong:first-of-type {
+    color: #C62828;
+}
+
+.pms_success-messages-wrapper span.pms-notice-title {
+    color: #558B2F;
+}
+
+.pms-warning-message-wrapper:before,
+.pms-form-errors-wrapper p:before,
+.pms-payment-error p:before,
+.pms_success-messages-wrapper p:before,
+p.pms-login-error:before {
+    display: block;
+    position: absolute;
+    top: 20px;
+    left: 25px;
+    height: 22px;
+}
+
+.pms-warning-message-wrapper:before,
+.pms-form-errors-wrapper p:before,
+.pms-payment-error p:before,
+p.pms-login-error:before {
+    content: url("../icons/error-icon.svg");
+}
+
+
+.pms_success-messages-wrapper p:before {
+    content: url("../icons/success-icon.svg");
+}
+
+
+/**************************************************/
+/*  Group Subscription Dashboard (extra styles)
+/**************************************************/
+
+.pms-form-design-wrapper #pms-invite-members,
+.pms-form-design-wrapper #pms-members-table {
+    margin-bottom: 50px !important;
+}
+
+.pms-form-design-wrapper #pms-members-table table {
+    margin-top: 0;
+}
+
+.pms-form-design-wrapper #pms-members-table .pms-members-table__wrap {
+    margin-bottom: 20px;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.pms-form-design-wrapper #pms-members-table .pms-members-table__search {
+    margin-bottom: 0;
+}
+
+.pms-form-design-wrapper #pms-members-table .pms-members-table__search input {
+    padding: 0 15px;
+}
+
+.pms-form-design-wrapper #pms-invite-members p.description {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: #6E7A86;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.pms-form-design-wrapper .pms-group-dashboard p {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    color: #6E7A86;
+    word-break: break-word;
+}
+
+.pms-form-design-wrapper .pms-group-dashboard a.pms-group-dashboard-go-back {
+    display: block;
+    line-height: 48px;
+    text-align: center;
+}
+
+/**************************************************/
+/*  PASSWORD STRENGTH
+/**************************************************/
+
+.pms-form-design-wrapper #pms-pass-strength-result {
+    height: auto;
+    line-height: 40px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    color: #6E7A86;
+    border-radius: 10px;
+    pointer-events: none;
+    background-color: #F2F6FC;
+    display: block;
+}
+
+.pms-form-design-wrapper #pms-pass-strength-result.short {
+    background: #FFCDD2;
+    border-color: #C62828;
+}
+
+.pms-form-design-wrapper #pms-pass-strength-result.bad {
+    background: #EED8CA;
+    border-color: #F97625;
+}
+
+.pms-form-design-wrapper #pms-pass-strength-result.good {
+    background: #FFF9C4;
+    border-color: #F9A825;
+}
+
+.pms-form-design-wrapper #pms-pass-strength-result.strong {
+    background: #DCEDC8;
+    border-color: #689F38;
+}
+
+#pms-form-style-2-wrapper .pms-spinner {
+    border-bottom-color: #558B2F;
+}
+
+@media screen and (max-width: 1190px) {
+    .pms-block-container {
+        max-width: 900px !important;
+    }
+
+    .pms-form-design-wrapper {
+        max-width: 900px;
+    }
+
+    .pms-form-design-wrapper .pms-price-breakdown__holder {
+        padding: 15px;
+        margin-top: 50px;
+    }
+
+    .pms-form-design-wrapper #pms-paygates-inner {
+        justify-content: flex-start !important;
+    }
+
+    .pms-form-design-wrapper .pms-upgrade__message,
+    .pms-form-design-wrapper h3 {
+        margin-top: 24px;
+    }
+
+    .pms-form-design-wrapper #pms-subscription-plans-discount {
+        margin-bottom: 0;
+    }
+
+}
+
+/* Set the Payment Sidebar */
+@media screen and (min-width: 1191px) {
+
+    .pms-block-container {
+        max-width: 1190px !important;
+    }
+
+    .pms-form-design-wrapper {
+        max-width: 1190px;
+        position: relative;
+        text-align: left;
+    }
+
+    /*.pms-form-design-wrapper:not(.wrapper-small) .pms-form-fields-wrapper:not(#pms_edit-profile-form .pms-form-fields-wrapper, #pms_recover_password_form .pms-form-fields-wrapper, #pms_new_password_form .pms-form-fields-wrapper, .pms-group-dashboard .pms-form-fields-wrapper) {*/
+    /*    background: tomato !important;*/
+    /*}*/
+
+    .pms-form-design-wrapper:not(.wrapper-small).pms-ec-register-form .pms-subscription-plan,
+    .pms-form-design-wrapper:not(.wrapper-small)#pms-retry-payment-subscription-form > p:first-of-type,
+    .pms-form-design-wrapper:not(.wrapper-small)#pms-retry-payment-subscription-form .pms-subscription-plan,
+    .pms-form-design-wrapper:not(.wrapper-small)#pms-retry-payment-subscription-form #pms-subscription-plans-discount,
+    .pms-form-design-wrapper:not(.wrapper-small)#pms-register-form #pms-subscription-plans-discount,
+    .pms-form-design-wrapper:not(.wrapper-small)#pms-renew-subscription-form > p:first-of-type,
+    .pms-form-design-wrapper:not(.wrapper-small)#pms-renew-subscription-form .pms-subscription-plan,
+    .pms-form-design-wrapper:not(.wrapper-small)#pms-renew-subscription-form #pms-subscription-plans-discount,
+    .pms-form-design-wrapper:not(.wrapper-small) .pms-upgrade__group--upgrade,
+    .pms-form-design-wrapper:not(.wrapper-small) .pms-upgrade__group--downgrade,
+    .pms-form-design-wrapper:not(.wrapper-small) .pms-prorate-frontend-message,
+    .pms-form-design-wrapper:not(.wrapper-small) .pms-upgrade__group--change,
+    .pms-form-design-wrapper:not(.wrapper-small) .pms-billing-details:not(#pms_edit-profile-form .pms-billing-details, #pms-update-payment-method-form .pms-billing-details),
+    .pms-form-design-wrapper:not(.wrapper-small) .pms-form-fields-wrapper:not(#pms_edit-profile-form .pms-form-fields-wrapper, #pms_recover_password_form .pms-form-fields-wrapper, #pms_new_password_form .pms-form-fields-wrapper, .pms-group-dashboard .pms-form-fields-wrapper) {
+        max-width: calc( 100% - 470px - 80px );   /* 470px - payment sidebar width | 80px - space between form and sidebar */
+    }
+
+    /* when plan position is top, billing details are inside the form fields wrapper */
+    .pms-form-design-wrapper:not(.wrapper-small) .pms-form-fields-wrapper .pms-billing-details:not(#pms_edit-profile-form .pms-billing-details, #pms-update-payment-method-form .pms-billing-details) {
+        max-width: 100%;
+    }
+
+    .pms-form-design-wrapper .pms-form-fields-wrapper .pms-subscriptions-list-title {
+        width: 100%;
+    }
+
+    .pms-form-design-wrapper#pms_new_subscription-form .pms-form-fields-wrapper .pms-subscriptions-list-title,
+    .pms-form-design-wrapper.pms-register-form-top-plans .pms-form-fields-wrapper .pms-subscriptions-list-title {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    /* make the billing details area the last element from the wrapper */
+    .pms-form-design-wrapper:not(.wrapper-small) .pms-register-form-top-plans .pms-form-fields-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .pms-form-design-wrapper:not(.wrapper-small) .pms-register-form-top-plans .pms-form-fields-wrapper .pms-field-subscriptions {
+        order: 1;
+    }
+
+    .pms-form-design-wrapper:not(.wrapper-small) .pms-register-form-top-plans .pms-form-fields-wrapper .pms-account-section-wrapper {
+        order: 2;
+    }
+
+    .pms-form-design-wrapper:not(.wrapper-small) .pms-register-form-top-plans .pms-form-fields-wrapper .pms-billing-details:not(#pms_edit-profile-form .pms-billing-details, #pms-update-payment-method-form .pms-billing-details) {
+        order: 3;
+    }
+
+    .pms-form-design-wrapper .pms-prorate-frontend-message {
+        min-width: 620px;
+    }
+
+    .pms-form-design-wrapper div#pms-paygates-wrapper,
+    .pms-form-design-wrapper .pms-price-breakdown__holder,
+    .pms-form-design-wrapper #pms-credit-card-information {
+        width: 470px !important;
+    }
+
+    .pms-form-design-wrapper:not(.wrapper-small) div#pms-paygates-wrapper,
+    .pms-form-design-wrapper:not(.wrapper-small) .pms-price-breakdown__holder,
+    .pms-form-design-wrapper:not(.wrapper-small) #pms-credit-card-information:not(#pms-update-payment-method-form #pms-credit-card-information) {
+        position: absolute;
+        opacity: 0;
+    }
+
+    .pms-form-design-wrapper:not(.wrapper-small) input[name="pms_confirm_retry_payment_subscription"],
+    .pms-form-design-wrapper:not(.wrapper-small) input[name="pms_change_subscription"],
+    .pms-form-design-wrapper:not(.wrapper-small) input[name="pms_renew_subscription"],
+    .pms-form-design-wrapper:not(.wrapper-small) input[name="pms_new_subscription"],
+    .pms-form-design-wrapper:not(.wrapper-small) input[name="pms_register"] {
+        position: absolute;
+        opacity: 0;
+    }
+
+    .pms-form-design-wrapper.wrapper-small input[name="pms_confirm_retry_payment_subscription"],
+    .pms-form-design-wrapper.wrapper-small input[name="pms_change_subscription"],
+    .pms-form-design-wrapper.wrapper-small input[name="pms_renew_subscription"],
+    .pms-form-design-wrapper.wrapper-small input[name="pms_new_subscription"],
+    .pms-form-design-wrapper.wrapper-small input[name="pms_register"] {
+        margin-left: 0;
+    }
+
+    .pms-form-design-wrapper div#pms-paygates-wrapper {
+        margin-bottom: 35px !important;
+    }
+
+    .pms-form-design-wrapper.wrapper-small div#pms-paygates-wrapper {
+        flex-basis: 100%;
+    }
+
+    .pms-form-design-wrapper.wrapper-small div#pms-paygates-wrapper #pms-paygates-inner {
+        justify-content: flex-start;
+        gap: 30px;
+    }
+
+    .pms-form-design-wrapper #pms-credit-card-information {
+        margin-bottom: 32px !important;
+    }
+
+    .pms-form-design-wrapper:not(.wrapper-small) .pms-price-breakdown__holder {
+        margin-bottom: 0 !important;
+        padding: 30px 30px 110px 30px !important;
+    }
+
+    .pms-form-design-wrapper.wrapper-small .pms-price-breakdown__holder {
+        padding: 30px !important;
+        margin-bottom: 30px;
+    }
+
+    /* .pms-form-design-wrapper div#pms-paygates-wrapper {
+        padding-top: 50px;
+    } */
+
+    .pms-form-design-wrapper .pms-price-breakdown__holder h3,
+    .pms-form-design-wrapper #pms-credit-card-information h4,
+    .pms-form-design-wrapper div#pms-paygates-wrapper h3 {
+        margin-top: 0 !important;
+        margin-bottom: 30px;
+    }
+
+    .pms-form-design-wrapper .pms-account-navigation,
+    .pms-form-design-wrapper .pms-account-subscription-details-table {
+        min-width: 640px;
+    }
+
+}
+
+
+/**************************************************/
+/*  Mobile
+/**************************************************/
+
+@media screen and (max-width: 480px) {
+
+    .pms-form-design-wrapper table.pms-account-subscription-details-table tr.pms-account-subscription-details-table__actions td:last-of-type .pms-account-subscription-action-link {
+        margin-bottom: 10px;
+    }
+
+    .pms-form-design-wrapper .pms-account-subscription-details-table__payment-method__wrap {
+        flex-wrap: wrap;
+    }
+
+    .pms-form-design-wrapper .pms-field.pms-billing-zip,
+    .pms-form-design-wrapper .pms-field.pms-billing-last-name,
+    .pms-form-design-wrapper .pms-field.pms-last-name-field,
+    .pms-form-design-wrapper .pms-field.pms-billing-city,
+    .pms-form-design-wrapper .pms-field.pms-billing-first-name,
+    .pms-form-design-wrapper .pms-field.pms-first-name-field {
+        width: 100%;
+    }
+
+    .pms-form-design-wrapper .pms-group-dashboard form#pms-invite-members label,
+    .pms-form-design-wrapper#pms_login p.login-username label,
+    .pms-form-design-wrapper#pms_login p.login-password label,
+    .pms-form-design-wrapper #pms-subscription-plans-discount label,
+    .pms-form-design-wrapper .pms-field:not(.pms-field-subscriptions):not(.pms-gdpr-field) label {
+        font-size: 14px;
+    }
+
+    .pms-form-design-wrapper .pms-field.pms-billing-zip label {
+        font-size: 12px !important;
+    }
+
+    .pms-form-design-wrapper .pms-account-navigation ul {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 15px;
+        border: none;
+    }
+
+    .pms-form-design-wrapper .pms-account-navigation ul li {
+        padding-bottom: 0;
+    }
+
+    .pms-form-design-wrapper .pms-account-navigation ul li a {
+        padding-bottom: 2px;
+    }
+
+    .pms-form-design-wrapper .pms-account-navigation ul li.pms-account-navigation-link--logout {
+        position: unset;
+        order: 1;
+        margin-bottom: 30px;
+    }
+
+    .pms-form-design-wrapper .pms-account-navigation ul li:not(.pms-account-navigation-link--logout) {
+        order: 2;
+    }
+
+    .pms-form-design-wrapper table#pms-payment-history {
+        width: 300%;
+        max-width: 300%;
+    }
+
+    .pms-form-design-wrapper {
+        overflow-x: scroll;
+    }
+
+    .pms-form-design-wrapper #pms-update-payment-method-form input[name="pms_update_payment_method"],
+    .pms-form-design-wrapper #pms-change-subscription-form input[name="pms_change_subscription"],
+    .pms-form-design-wrapper #pms-abandon-subscription-form input[name="pms_confirm_abandon_subscription"],
+    .pms-form-design-wrapper #pms-retry-payment-subscription-form input[name="pms_confirm_retry_payment_subscription"],
+    .pms-form-design-wrapper #pms-renew-subscription-form input[name="pms_renew_subscription"] {
+        margin-bottom: 30px;
+    }
+
+    .pms-form-design-wrapper #pms-subscription-plans-discount {
+        flex-wrap: wrap;
+        gap: 5%;
+    }
+
+    .pms-form-design-wrapper #pms-subscription-plans-discount input#pms_subscription_plans_discount_code,
+    .pms-form-design-wrapper #pms-subscription-plans-discount input#pms-apply-discount {
+        flex-basis: 100%;
+    }
+
+    .pms-form-design-wrapper #pms-subscription-plans-discount input#pms_subscription_plans_discount_code {
+        margin-bottom: 12px;
+    }
+
+    .pms-form-design-wrapper .pms-group-dashboard input[type="submit"],
+    .pms-form-design-wrapper input[name="pms_edit_profile"],
+    .pms-form-design-wrapper input[name="pms_confirm_retry_payment_subscription"],
+    .pms-form-design-wrapper input[name="pms_change_subscription"],
+    .pms-form-design-wrapper input[name="pms_renew_subscription"],
+    .pms-form-design-wrapper input[name="pms_new_subscription"],
+    .pms-form-design-wrapper input[name="pms_register"] {
+        width: 100%;
+        margin-right: 0;
+    }
+
+}
+

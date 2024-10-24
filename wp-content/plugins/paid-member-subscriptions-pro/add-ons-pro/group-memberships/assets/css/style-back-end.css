@@ -1,0 +1,162 @@
+#group-details-wrap .tablenav.top,
+#group-details-wrap tfoot {
+    display: none;
+}
+
+#cozmoslabs-subsection-group-info .row-actions #save {
+    display: none;
+}
+
+#cozmoslabs-subsection-group-info textarea {
+    display: none;
+}
+
+#cozmoslabs-subsection-group-info .pms-group-description .cozmoslabs-form-field-wrapper  {
+    margin: 0 !important;
+}
+
+#cozmoslabs-subsection-group-info td input {
+    display: none;
+}
+
+.cozmoslabs-wrap .pms-admin-notice {
+    display: none;
+}
+
+.cozmoslabs-wrap .pms-admin-notice.updated,
+.cozmoslabs-wrap .pms-admin-notice.error {
+    display: block;
+}
+
+#cozmoslabs-subsection-group-info .cozmoslabs-form-field-wrapper textarea {
+    flex-grow: 1;
+}
+
+#cozmoslabs-subsection-member-list td .members-list-row-actions,
+#cozmoslabs-subsection-group-info td .row-actions {
+    position: unset;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#cozmoslabs-subsection-member-list td .members-list-row-actions div.spinner {
+    order: 1
+}
+
+#cozmoslabs-subsection-member-list td .members-list-row-actions #resend {
+    order: 2
+}
+
+#cozmoslabs-subsection-member-list td .members-list-row-actions input[value="Remove"]:not(.members-list-row-actions form input[value="Remove"]),
+#cozmoslabs-subsection-member-list td .members-list-row-actions form {
+    order: 3
+}
+
+#cozmoslabs-subsection-member-list td .members-list-row-actions input[value="Remove"] {
+    border-color: #e76054;
+    color: #e76054;
+}
+
+#cozmoslabs-subsection-group-info th.column-members,
+#cozmoslabs-subsection-group-info th.column-seats {
+    width: 70px;
+}
+
+#cozmoslabs-subsection-group-info .column-members,
+#cozmoslabs-subsection-group-info .column-seats,
+#cozmoslabs-subsection-group-info th.column-actions {
+    text-align: center;
+}
+
+#cozmoslabs-subsection-group-info th.column-start_date,
+#cozmoslabs-subsection-group-info th.column-actions {
+    width: 130px;
+}
+
+#cozmoslabs-subsection-group-info th.column-next_payment {
+    width: 200px;
+}
+
+#cozmoslabs-subsection-group-info th.column-actions {
+    width: 120px;
+    text-align: center;
+}
+
+#cozmoslabs-subsection-member-list th.column-status {
+    width: 120px;
+}
+
+#cozmoslabs-subsection-member-list th.column-actions {
+    text-align: center;
+    width: 230px;
+}
+
+#cozmoslabs-form-subsection-invite-members tfoot {
+    display: none;
+}
+
+#invite-new-members {
+    border-right: 1px solid #cccccc;
+    padding: 10px 25px 10px 10px;
+}
+
+#cozmoslabs-form-subsection-invite-members label,
+#cozmoslabs-form-subsection-invite-members textarea,
+#cozmoslabs-form-subsection-invite-members .chosen-container {
+    flex-basis: 100%;
+}
+
+#cozmoslabs-form-subsection-invite-members .chosen-container .chosen-choices {
+    min-height: 100px;
+    padding: 10px;
+}
+
+#cozmoslabs-form-subsection-invite-members .chosen-container-multi .chosen-choices li.search-field {
+    line-height: 25px;
+}
+
+#cozmoslabs-form-subsection-invite-members .chosen-container-multi .chosen-choices li.search-field input[type="text"] {
+    height: 25px;
+    min-height: 25px;
+    line-height: 25px;
+}
+
+#cozmoslabs-form-subsection-invite-members .chosen-container-multi .chosen-choices li.search-field input[type="text"]:focus {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+#cozmoslabs-form-subsection-invite-members .button-secondary {
+    margin-top: 35px;
+}
+
+@media screen and (max-width: 782px) {
+    #cozmoslabs-subsection-group-info .column-members,
+    #cozmoslabs-subsection-group-info .column-seats,
+    #cozmoslabs-subsection-group-info th.column-actions {
+        text-align: left;
+    }
+
+    #cozmoslabs-subsection-group-info .wp-list-table .toggle-row,
+    #cozmoslabs-subsection-member-list .wp-list-table .toggle-row {
+        top: 15px;
+    }
+
+    #cozmoslabs-subsection-group-info td.column-actions,
+    #cozmoslabs-subsection-member-list td.column-actions {
+        margin-bottom: 10px;
+    }
+
+    #cozmoslabs-subsection-group-info td.column-actions:before,
+    #cozmoslabs-subsection-member-list td.column-actions:before {
+        line-height: 40px;
+    }
+
+    #cozmoslabs-subsection-group-info td .row-actions,
+    #cozmoslabs-subsection-member-list td .members-list-row-actions {
+        justify-content: flex-start;
+    }
+}

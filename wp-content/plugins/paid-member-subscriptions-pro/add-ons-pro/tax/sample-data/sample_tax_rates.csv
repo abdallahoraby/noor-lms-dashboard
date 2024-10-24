@@ -1,0 +1,5 @@
+Country Code,State Code,City,Rate %,Tax Name
+US,*,*,10,TAX
+US,AL,*,5,TAX
+US,AL,Montgomery,10,TAX
+US,CA,*,7.5,TAX

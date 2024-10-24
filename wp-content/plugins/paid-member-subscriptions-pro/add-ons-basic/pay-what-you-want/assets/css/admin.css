@@ -1,0 +1,10 @@
+/*
+* Styling Pay What You Want options from Subscription Plan Details metabox
+*
+*/
+
+
+/* hide PWYW options */
+div.pms-meta-box-field-wrapper-pwyw {
+    display: none;
+}

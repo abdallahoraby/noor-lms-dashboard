@@ -1,0 +1,29 @@
+{
+  "name": "pms-add-on-group-memberships",
+  "version": "1.0.0",
+  "description": "Paid Member Subscriptions add-on.",
+  "main": "index.js",
+  "scripts": {
+    "watch": "NODE_ENV=development && node node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "production": "NODE_ENV=production && node node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/cozmoslabs/pms-add-on-group-memberships.git"
+  },
+  "author": "Georgian Cocora",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/cozmoslabs/pms-add-on-group-memberships#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "browser-sync-webpack-plugin": "^2.0.1",
+    "laravel-mix": "^4.0.16",
+    "resolve-url-loader": "^2.3.1",
+    "sass": "^1.21.0",
+    "sass-loader": "^7.1.0",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "dependencies": {
+    "list.js": "^1.5.0"
+  }
+}

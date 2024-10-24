@@ -1,0 +1,252 @@
+/*
+ * Hide the default "Move to Trash button"
+ * Hide the "Edit" link for Discount Code status
+ * Hide the "Visibility" box for discount codes
+ * Hide the "Save Draft" button
+ * Hide the "Status" div
+ * Hide the "Published on.." section
+ * Hide the currency text when discount is percent (not fixed)
+
+ */
+body.post-type-pms-content-dripping #delete-action,
+body.post-type-pms-content-dripping .edit-post-status,
+body.post-type-pms-content-dripping #visibility,
+body.post-type-pms-content-dripping #minor-publishing-actions,
+body.post-type-pms-content-dripping div.misc-pub-post-status,
+body.post-type-pms-content-dripping #misc-publishing-actions {
+    display:none;
+}
+
+/*
+ * All content dripping sets page
+ *
+ */
+body.post-type-pms-content-dripping .tablenav.top .actions { display: none; }
+.pms-dp-contents-table-shortcode { min-width: 250px; background: #fff none repeat scroll 0 0 !important; border: 1px solid #e1e1e1; box-shadow: none !important; }
+
+/*
+ * Single edit screen
+ *
+ */
+#pms-content-dripping-rules {
+    width: 100%;
+    border-spacing: 0;
+}
+
+#pms-content-dripping-rules thead td {
+    padding: 0 0.5em;
+}
+
+#pms-content-dripping-rules .ui-sortable-helper {
+    display: table;
+}
+
+#pms-content-dripping-rules .ui-sortable-helper td {
+    border-top: 0;
+    background: #f7f7f7;
+}
+
+#pms-content-dripping-rules .ui-sortable-placeholder {
+    visibility: visible !important;
+    border-bottom: 1px dotted #e9e9e9;
+}
+
+.pms-content-dripping-rule {
+    position: relative;
+}
+
+.pms-content-dripping-rule h4 {
+    margin-top: 0;
+}
+
+.pms-content-dripping-rule > td {
+    padding: 1em 0.5em;
+    border-top: 1px solid #e9e9e9;
+    box-sizing: border-box;
+}
+
+.pms-content-dripping-rule > td .chosen-container {
+    width: 100% !important;
+}
+
+/* Reorder rows table cell */
+.pms-content-dripping-rule > td:first-of-type {
+    position: relative;
+    width: 50px;
+    height: 50px;
+}
+
+.pms-content-dripping-rule > td:first-of-type .pms-handle:before {
+    content: '';
+    background: url('../img/sort-icon.png') no-repeat center;
+    background-size: 75%;
+    display: block;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -28px;
+    cursor: move;
+}
+
+.pms-content-dripping-rule > td:first-of-type .spinner {
+    display: none;
+    position: relative;
+    top: -3px;
+    float: none;
+    visibility: visible;
+    opacity: 0.7;
+    margin-right: 0;
+}
+
+/* Delay table cell */
+.pms-content-dripping-rule > td:nth-child(2) {
+    width: 175px;
+}
+
+.pms-content-dripping-rule > td:nth-child(2) select:first-child {
+    margin-left: 0;
+    margin-right: 2%;
+    width: 38%;
+}
+
+.pms-content-dripping-rule > td:nth-child(2) select:last-child {
+    margin-left: 0;
+    margin-right: 0;
+    width: 60%;
+}
+
+/* Post Type table cell */
+.pms-content-dripping-rule > td:nth-child(3) {
+    width: 12%
+}
+
+/* Type table cell */
+.pms-content-dripping-rule > td:nth-child(4) {
+    width: 12%
+}
+
+/* Content table cell */
+.pms-select-content {
+    max-height: 28px;
+    opacity: 0;
+}
+
+/* Remove row table cell */
+.pms-content-dripping-rule > td:last-of-type {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+}
+
+.pms-content-dripping-rule > td:last-of-type a {
+    color: #4f4f4f;
+    opacity: 0.7;
+    text-decoration: none;
+    padding: 10px;
+    -webkit-transition: all 0.15s ease-in-out;
+    -moz-transition: all 0.15s ease-in-out;
+    -ms-transition: all 0.15s ease-in-out;
+    -o-transition: all 0.15s ease-in-out;
+    transition: all 0.15s ease-in-out;
+}
+
+.pms-content-dripping-rule > td:last-of-type a:hover {
+    opacity: 1;
+}
+
+/* Row Loading Effect */
+.pms-content-dripping-rule.loading > td {
+    opacity: 0.6;
+}
+
+.pms-content-dripping-rule.loading > td:first-of-type {
+    text-align: center;
+}
+
+.pms-content-dripping-rule.loading > td:first-of-type .pms-handle {
+    display: none;
+}
+
+.pms-content-dripping-rule.loading > td:first-of-type .spinner {
+    display: block;
+    opacity: 1;
+    margin: 0 auto;
+}
+
+/* Add New Rule Icon */
+#pms-content-dripping-add-rule {
+    margin: 0.5em 0;
+}
+
+#pms-content-dripping-add-rule .dashicons {
+    margin: 5px 5px 0 -5px;
+}
+
+
+
+@media screen and (max-width: 782px) {
+    #pms-content-dripping-rules {
+        display: flex;
+    }
+
+    #pms-content-dripping-rules tbody tr.pms-content-dripping-rule {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-bottom: 50px;
+    }
+
+    #pms-content-dripping-rules thead tr {
+        display: none;
+    }
+
+    #pms-content-dripping-rules tbody {
+        width: 100%;
+    }
+
+    #pms-content-dripping-rules tbody tr.pms-content-dripping-rule td {
+        width: 100%;
+        padding: 0;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    #pms-content-dripping-rules tbody tr.pms-content-dripping-rule td:last-of-type {
+        justify-content: flex-end;
+    }
+
+    #pms-content-dripping-rules tbody tr.pms-content-dripping-rule td:before {
+        flex-basis: 150px;
+        font-weight: 600;
+        font-size: 13px;
+        line-height: 16px;
+        color: #1E1E1E;
+    }
+
+    #pms-content-dripping-rules tbody tr.pms-content-dripping-rule td:nth-child(2):before {
+        content: 'Delay';
+    }
+
+    #pms-content-dripping-rules tbody tr.pms-content-dripping-rule td:nth-child(3):before {
+        content: 'Post Type';
+    }
+
+    #pms-content-dripping-rules tbody tr.pms-content-dripping-rule td:nth-child(4):before {
+        content: 'Type';
+    }
+
+    #pms-content-dripping-rules tbody tr.pms-content-dripping-rule td:nth-child(5):before {
+        content: 'Content';
+    }
+
+    #pms-content-dripping-rules tbody tr td .pms-select-name {
+        height: auto;
+    }
+
+}

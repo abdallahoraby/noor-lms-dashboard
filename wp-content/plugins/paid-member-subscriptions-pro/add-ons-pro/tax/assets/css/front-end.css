@@ -1,0 +1,45 @@
+.pms-price-breakdown__holder {
+    display: none;
+    margin-bottom: 24px;
+}
+
+.pms-price-breakdown .pms-label {
+    font-weight: bold;
+}
+
+.pms_field-success-wrapper p {
+    color: green;
+    font-size: 90%;
+}
+
+#pms-payment-history .pms-payment-amount {
+    cursor: pointer;
+}
+
+.pms-vat-number {
+    display: none;
+}
+
+.pms-price-breakdown__holder table {
+    margin-top: 0;
+}
+
+.wppb-form-field .pms-vat-number .pms_field-success-wrapper,
+.wppb-form-field .pms-vat-number .pms_field-errors-wrapper {
+    padding-left: 30%;
+}
+
+.pms-tax-notice {
+    font-size: 90%;
+    font-style: italic;
+    margin-top: 5px;
+    margin-bottom: 1.345em;
+}
+
+.pms-tax-notice + .pms-email-confirmation-payment-message {
+    margin-top: 16px;
+}
+
+/* .pms-ec-register-form .pms-tax-notice {
+    margin-bottom: 16px;
+} */

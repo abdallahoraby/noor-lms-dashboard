@@ -1,0 +1,14 @@
+.menu-item-settings .pms-menu-item-radio-label,
+.menu-item-settings .pms-menu-item-checkbox-label{
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.menu-item-settings .pms-options {
+    clear: both;
+    margin: 2px 0 5px 0;
+}
+
+.menu-item-settings .pms-subscription-plans {
+    margin: 2px 0 5px 0;
+}
