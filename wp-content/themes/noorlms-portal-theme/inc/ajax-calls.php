@@ -48,6 +48,7 @@ function handle_registration() {
     $userEmail = sanitize_text_field($_POST['userEmail']);
     $userPassword = sanitize_text_field($_POST['userPassword']);
     $userConfirmPassword = sanitize_text_field($_POST['userConfirmPassword']);
+    $subscription_plan = sanitize_text_field($_POST['subscription_plan']);
 
 
     // Form validation
@@ -101,7 +102,13 @@ function handle_registration() {
                     echo json_encode(array('loggedin' => false, 'message' => __('Wrong username or password.')));
                 } else {
                     // Return success if login is successful
-                    echo json_encode(array('loggedin' => true, 'message' => __('Login successful.')));
+                    echo json_encode(
+                        array(
+                            'loggedin' => true,
+                            'message' => __('Login successful.'),
+                            'subscription_plan' => $subscription_plan
+                        )
+                    );
                 }
 
             } else {
@@ -127,6 +134,8 @@ function handle_login() {
     check_ajax_referer('ajax-login-nonce', 'security');
     $username = sanitize_text_field($_POST['username']);
     $password = sanitize_text_field($_POST['password']);
+    $subscription_plan = sanitize_text_field($_POST['subscription_plan']);
+
 
     // Get the username and password from the AJAX request
     $info = array();
@@ -136,21 +145,30 @@ function handle_login() {
 
 
     // Attempt to sign the user in
-    $user_signon = wp_signon($info, false);
+    $user_signon = wp_signon($info, true);
 
 
     if (is_wp_error($user_signon)) {
         // Return an error if the login fails
-        echo json_encode(array('loggedin' => false, 'message' => __('Wrong username or password.')));
+        echo json_encode(
+            array(
+                'loggedin' => false,
+                'message' => __('Wrong username or password.')
+            )
+        );
     } else {
         // Return success if login is successful
-        echo json_encode(array('loggedin' => true, 'message' => __('Login successful.')));
+        echo json_encode(
+            array(
+                'loggedin' => true,
+                'message' => __('Login successful.'),
+                'subscription_plan' => $subscription_plan
+            )
+        );
     }
 
     wp_die(); // Required to terminate the request
 
-
-    wp_die();
 
 
 }

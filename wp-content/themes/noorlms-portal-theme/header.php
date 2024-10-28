@@ -42,7 +42,9 @@
             </div>
             <div class="header-icons-group">
                 <div class="c-header-icon logout">
-                    <?= do_shortcode('[ajax_logout_button]') ?>
+                    <?php if( is_user_logged_in() ): ?>
+                        <?= do_shortcode('[ajax_logout_button]') ?>
+                    <?php endif;?>
                 </div>
             </div>
         </div>
@@ -54,6 +56,7 @@
             </div>
         </div>
         <div class="l-sidebar__content">
+            <?php if( is_user_logged_in() ): ?>
             <nav class="c-menu js-menu">
                 <ul class="u-list">
                     <li class="c-menu__item is-active load-template-part" data-toggle="tooltip" title="Dashboard" data-template-name="student-dashboard">
@@ -72,6 +75,11 @@
                             <span class="c-menu-item__title">Achievements</span>
                         </a>
                     </li>
+                    <li class="c-menu__item" data-toggle="tooltip" title="Settings">
+                        <a href="<?= home_url() . '/account' ?>" class="c-menu__item__inner"><i class="fas fa-credit-card"></i>
+                            <span class="c-menu-item__title">My Subscriptions</span>
+                        </a>
+                    </li>
                     <li class="c-menu__item load-template-part" data-toggle="tooltip" title="Settings" data-template-name="settings">
                         <a href="#settings" class="c-menu__item__inner"><i class="fa fa-cogs"></i>
                             <span class="c-menu-item__title">Settings</span>
@@ -79,6 +87,7 @@
                     </li>
                 </ul>
             </nav>
+            <?php endif;?>
         </div>
     </div>
 
