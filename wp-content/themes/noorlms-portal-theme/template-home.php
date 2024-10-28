@@ -5,11 +5,12 @@
 ?>
 <?php get_header(); ?>
 
+
 <?php
 
     if (is_user_logged_in()):
         $user = wp_get_current_user();
-        if ( in_array('student', (array) $user->roles)):
+        if ( in_array('student', (array) $user->roles) ):
             //get_template_part('template-parts/template-student-dashboard', null);
             // load template using ajax request
             $script_data = <<<SCRIPT
@@ -46,8 +47,11 @@
             SCRIPT;
 
             echo $script_data;
-
         endif;
+    else:
+        // Redirect to the login page
+        wp_redirect(wp_login_url());
+        exit;
     endif;
 
 ?>

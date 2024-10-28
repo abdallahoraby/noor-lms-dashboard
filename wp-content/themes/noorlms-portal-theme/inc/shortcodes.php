@@ -46,6 +46,10 @@ function custom_student_registration_form() {
         jQuery(document).ready(function($) {
             $('.submit_registration').on('click', function(e){
                 e.preventDefault();
+
+                // Get the current URL
+                let url = new URL(window.location.href);
+
                 let userFirstName = $('.userFirstName').val();
                 let userLastName = $('.userLastName').val();
                 let userGender = $('.userGender:checked').val();
@@ -54,6 +58,16 @@ function custom_student_registration_form() {
                 let userPassword = $('.userPassword').val();
                 let userConfirmPassword = $('.userConfirmPassword').val();
                 let security = $('#register-security').val();
+
+                // Get all query parameters
+                let params = new URLSearchParams(url.search);
+
+                // Get a specific parameter value
+                let subscription_plan = params.get("subscription_plan");
+                if(!subscription_plan){
+                    subscription_plan = '';
+                }
+
 
                 // validate empty inputs
                 if(!userFirstName){
@@ -95,7 +109,8 @@ function custom_student_registration_form() {
                         'userEmail' : userEmail,
                         'userPassword' : userPassword,
                         'userConfirmPassword' : userConfirmPassword,
-                        'security' : security
+                        'security' : security,
+                        'subscription_plan' : subscription_plan
                     },
                     success: function(response) {
                         $('.submit_registration').prop('disabled', true);
@@ -104,7 +119,12 @@ function custom_student_registration_form() {
                         if (response.loggedin === true) {
                             // do form submission
                             $('.ajax-response').html('<p class="success">Registration is successful, redirecting to dashboard...</p>');
-                            document.location.href = '<?php echo home_url(); ?>'; // Redirect after successful login
+                            if( response.subscription_plan ){
+                                // redirect user to subscription page
+                                document.location.href = '<?php echo home_url(); ?>/register-membership/?subscription_plan='+ response.subscription_plan +'&single_plan=yes'; // Redirect to subscription page
+                            } else {
+                                document.location.href = '<?php echo home_url(); ?>'; // Redirect to Dashboard page, after successful login
+                            }
                         } else {
                             $('.submit_registration').prop('disabled', false);
                             $('.ajax-response').html('<p class="error">' + response.message + '</p>');
@@ -165,6 +185,18 @@ function custom_login_form() {
                 let password = $('.password').val();
                 let security = $('#login-security').val();
 
+                // Get the current URL
+                let url = new URL(window.location.href);
+
+                // Get all query parameters
+                let params = new URLSearchParams(url.search);
+
+                // Get a specific parameter value
+                let subscription_plan = params.get("subscription_plan");
+                if(!subscription_plan){
+                    subscription_plan = '';
+                }
+
                 if( !username ){
                     $('.ajax-login-response').html('<p class="error">Please enter your username or email.</p>');
                     return false;
@@ -184,7 +216,8 @@ function custom_login_form() {
                         'action' : 'handle_login',
                         'username' : username,
                         'password' : password,
-                        'security': security
+                        'security': security,
+                        'subscription_plan': subscription_plan
                     },
                     success: function(response) {
                         $('.ajax-form-loader').removeClass('active');
@@ -193,7 +226,12 @@ function custom_login_form() {
                         if (response.loggedin === true) {
                             // do form submission
                             $('.ajax-login-response').html('<p class="success">Login successful, redirecting...</p>');
-                            document.location.href = '<?php echo home_url(); ?>'; // Redirect after successful login
+                            if( response.subscription_plan ){
+                                // redirect user to subscription page
+                                document.location.href = '<?php echo home_url(); ?>/register-membership/?subscription_plan='+ response.subscription_plan +'&single_plan=yes'; // Redirect to subscription page
+                            } else {
+                                document.location.href = '<?php echo home_url(); ?>'; // Redirect to Dashboard page, after successful login
+                            }
                         } else {
                             $('.submit_login').prop('disabled', false);
                             $('.ajax-login-response').html('<p class="error">' + response.message + '</p>');

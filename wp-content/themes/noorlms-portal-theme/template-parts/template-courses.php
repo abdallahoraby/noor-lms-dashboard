@@ -8,7 +8,6 @@
 
 defined( 'ABSPATH' ) || exit();
 
-
 ?>
 
 <main class="l-main">
@@ -20,6 +19,8 @@ defined( 'ABSPATH' ) || exit();
                 <!-- content here -->
 
                 <h3 class="page-title"> Courses </h3>
+                
+                <?php if( pms_is_member_of_plan( array( 806,813,827,828,829,830 ) ) ): ?>
 
                 <div class="courses-main">
                     <div class="courses-filter" >
@@ -149,6 +150,16 @@ defined( 'ABSPATH' ) || exit();
 
 
                 </div>
+                
+                <?php else: ?>
+
+                <div class="d-flex flex-column justify-content-center align-items-center mt-5 mb-5">
+                    <h3 class="text-center"> Sorry, you don't have any subscriptions now. </h3>
+                    <a href="https://noorworld.com/pricing" class="button button-primary mt-3"> Subscribe NOW ! </a>
+                </div>
+
+                
+                <?php endif; ?>
 
                 <!-- end content -->
 

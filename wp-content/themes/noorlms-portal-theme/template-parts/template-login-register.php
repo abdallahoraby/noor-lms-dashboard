@@ -2,6 +2,7 @@
 
     <div id="login-container">
         <div class="form-container sign-up-container">
+
             <?php echo do_shortcode('[student_registration_form]'); ?>
         </div>
 

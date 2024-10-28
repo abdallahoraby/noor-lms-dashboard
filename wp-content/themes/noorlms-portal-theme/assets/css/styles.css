@@ -1399,4 +1399,137 @@ p.lead {
           display: flex;
           flex-flow: column;
           gap: 1rem; }
-          .page-templ
+          .page-template-dashboard .dashboard-header .dashboard-user__profile .dashboard-user__welcome .actions .assigned-tasks {
+            gap: 10px; }
+            .page-template-dashboard .dashboard-header .dashboard-user__profile .dashboard-user__welcome .actions .assigned-tasks img {
+              width: 2rem;
+              height: 2rem;
+              object-fit: contain;
+              border-radius: 0; }
+            .page-template-dashboard .dashboard-header .dashboard-user__profile .dashboard-user__welcome .actions .assigned-tasks h3 {
+              font-size: 1rem; }
+      .page-template-dashboard .dashboard-header .today-courses {
+        flex-flow: column;
+        gap: 0 !important; }
+    .page-template-dashboard .dashboard-middle-content > .row .col-md-8 {
+      width: 100%; }
+    .page-template-dashboard .dashboard-middle-content > .row .col-md-4 {
+      width: 100%; }
+    .page-template-dashboard .dashboard-middle-content .today-courses {
+      margin: 0 0 2rem 0;
+      flex-flow: column;
+      gap: 0 !important; }
+      .page-template-dashboard .dashboard-middle-content .today-courses .course-of-today {
+        flex: 100%;
+        min-height: 170px; }
+    .page-template-dashboard .dashboard-middle-content .practice-wrapper .practice-header {
+      justify-content: center !important;
+      gap: 2rem !important;
+      padding: 1rem; }
+      .page-template-dashboard .dashboard-middle-content .practice-wrapper .practice-header * {
+        text-align: center; }
+    .page-template-dashboard .dashboard-middle-content .practice-wrapper .practice-log .header {
+      flex-flow: column;
+      gap: 0 !important; }
+    .page-template-dashboard .dashboard-footer-content {
+      margin-top: 1rem !important; }
+      .page-template-dashboard .dashboard-footer-content > .row > .col-md-8 {
+        width: 100%; }
+      .page-template-dashboard .dashboard-footer-content > .row > .col-md-4 {
+        width: 100%; }
+      .page-template-dashboard .dashboard-footer-content .my-goals .goals-wrapper {
+        padding: 1rem; }
+        .page-template-dashboard .dashboard-footer-content .my-goals .goals-wrapper ul.goals-check li i {
+          font-size: .9rem;
+          width: 25px;
+          height: 25px; }
+        .page-template-dashboard .dashboard-footer-content .my-goals .goals-wrapper ul.goals-check li:last-child {
+          border-bottom: 0; }
+  .heading-with-icon h3 {
+    font-size: 1.3rem; }
+  .page-template-dashboard .courses-filter .searchbar {
+    flex-flow: column; }
+    .page-template-dashboard .courses-filter .searchbar .input-search {
+      width: 100%; }
+    .page-template-dashboard .courses-filter .searchbar .filters {
+      width: 100%; }
+      .page-template-dashboard .courses-filter .searchbar .filters .filter-menu {
+        width: 50%; } }
+
+@media (max-width: 768px) {
+  .content-wrapper {
+    padding: 0 !important; }
+    .content-wrapper .page-template-dashboard {
+      min-width: 350px; }
+      .content-wrapper .page-template-dashboard .dashboard-header {
+        margin: 0; }
+        .content-wrapper .page-template-dashboard .dashboard-header .dashboard-user__profile {
+          display: flex;
+          flex-flow: column;
+          width: 100%; }
+          .content-wrapper .page-template-dashboard .dashboard-header .dashboard-user__profile .avatar-container {
+            min-height: auto; }
+            .content-wrapper .page-template-dashboard .dashboard-header .dashboard-user__profile .avatar-container .avatar-full {
+              width: 10rem;
+              height: 10rem;
+              padding: 1rem;
+              margin: 1rem; }
+          .content-wrapper .page-template-dashboard .dashboard-header .dashboard-user__profile .dashboard-user__welcome .name-classroom h1 {
+            font-size: 1.5rem; }
+          .content-wrapper .page-template-dashboard .dashboard-header .dashboard-user__profile .dashboard-user__welcome .actions {
+            display: flex;
+            flex-flow: column;
+            gap: 1rem; }
+            .content-wrapper .page-template-dashboard .dashboard-header .dashboard-user__profile .dashboard-user__welcome .actions .assigned-tasks {
+              gap: 10px; }
+              .content-wrapper .page-template-dashboard .dashboard-header .dashboard-user__profile .dashboard-user__welcome .actions .assigned-tasks img {
+                width: 2rem;
+                height: 2rem;
+                object-fit: contain;
+                border-radius: 0; }
+              .content-wrapper .page-template-dashboard .dashboard-header .dashboard-user__profile .dashboard-user__welcome .actions .assigned-tasks h3 {
+                font-size: 1rem; }
+        .content-wrapper .page-template-dashboard .dashboard-header .today-courses {
+          flex-flow: column;
+          gap: 0 !important; }
+      .content-wrapper .page-template-dashboard .dashboard-middle-content .today-courses {
+        margin: 0 0 2rem 0;
+        flex-flow: column;
+        gap: 0 !important; }
+        .content-wrapper .page-template-dashboard .dashboard-middle-content .today-courses .course-of-today {
+          flex: 100%;
+          min-height: 170px; }
+      .content-wrapper .page-template-dashboard .dashboard-middle-content .practice-wrapper .practice-header {
+        padding: 1rem; }
+        .content-wrapper .page-template-dashboard .dashboard-middle-content .practice-wrapper .practice-header .week-progress {
+          gap: 1rem; }
+        .content-wrapper .page-template-dashboard .dashboard-middle-content .practice-wrapper .practice-header * {
+          text-align: center; }
+      .content-wrapper .page-template-dashboard .dashboard-middle-content .practice-wrapper .practice-log .header {
+        flex-flow: column;
+        gap: 0 !important; }
+      .content-wrapper .page-template-dashboard .dashboard-footer-content {
+        margin-top: 1rem !important; }
+        .content-wrapper .page-template-dashboard .dashboard-footer-content .my-goals .goals-wrapper {
+          padding: 1rem; }
+          .content-wrapper .page-template-dashboard .dashboard-footer-content .my-goals .goals-wrapper ul.goals-check li i {
+            font-size: .9rem;
+            width: 25px;
+            height: 25px; }
+          .content-wrapper .page-template-dashboard .dashboard-footer-content .my-goals .goals-wrapper ul.goals-check li:last-child {
+            border-bottom: 0; }
+    .content-wrapper .heading-with-icon h3 {
+      font-size: 1.3rem; }
+    .content-wrapper .page-template-dashboard .courses-filter .searchbar {
+      flex-flow: column; }
+      .content-wrapper .page-template-dashboard .courses-filter .searchbar .input-search {
+        width: 100%; }
+      .content-wrapper .page-template-dashboard .courses-filter .searchbar .filters {
+        width: 100%;
+        flex-flow: column; }
+        .content-wrapper .page-template-dashboard .courses-filter .searchbar .filters .filter-menu {
+          width: 100%; }
+    .content-wrapper .page-template-dashboard .courses-container .courses-wrapper button.splide__arrow.splide__arrow--prev {
+      left: 0rem; }
+    .content-wrapper .page-template-dashboard .courses-container .courses-wrapper button.splide__arrow.splide__arrow--next {
+      right: 0rem; } }

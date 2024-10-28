@@ -59,7 +59,8 @@ function buddyboss_theme_child_scripts_styles()
 
   // Javascript
   wp_enqueue_script( 'jquery-js', get_stylesheet_directory_uri().'/assets/js/jquery.min.js' );
-  wp_enqueue_script( 'bootstrap-js', get_stylesheet_directory_uri().'/assets/js/bootstrap.min.js' );
+//  wp_enqueue_script( 'bootstrap-js', get_stylesheet_directory_uri().'/assets/js/bootstrap.min.js', rand(1,100) );
+  wp_enqueue_script( 'bootstrap-bundle-js', get_stylesheet_directory_uri().'/assets/js/bootstrap.bundle.min.js', rand(1,100) );
   wp_enqueue_script( 'dataTables-js', get_stylesheet_directory_uri().'/assets/js/dataTables.min.js' );
   wp_enqueue_script( 'splide-js', get_stylesheet_directory_uri().'/assets/js/splide.min.js' );
   wp_enqueue_script( 'jquery-ui-js', get_stylesheet_directory_uri().'/assets/js/jquery-ui.js' );
@@ -104,16 +105,13 @@ function add_body_class_for_student($classes) {
         $classes[] = 'is-admin';
     endif;
 
-    if (is_user_logged_in()) {
-        $user = wp_get_current_user();
-        if ( in_array('student', (array) $user->roles) ) {
-            $classes[] = 'student-user';
-        }
-    }
+    if (is_user_logged_in() && !is_admin()):
+        $classes[] = 'hide-admin-bar';
+    endif;
 
-    if( is_login_page() ){
+    if( is_login_page() ):
         $classes[] = 'is-login-page';
-    }
+    endif;
 
     return $classes;
 }
@@ -122,9 +120,9 @@ add_filter('body_class', 'add_body_class_for_student');
 function override_login_template() {
 
     // Check if the current page is the admin panel, if so, don't redirect
-    if (is_admin()) {
+    if (is_admin()):
         return;
-    }
+    endif;
 
     // do some check and call wp_redirect if its true or whatever you wanted to do
     $login_template = locate_template('template-login-register.php');
@@ -133,16 +131,23 @@ function override_login_template() {
         load_template( $login_template );
     endif;
 }
-//add_action( 'login_init', 'override_login_template' );
+add_action( 'login_init', 'override_login_template' );
 
 
 function redirect_non_logged_in_users() {
+
     // Check if the user is not logged in and is not on the login page
-    if (!is_user_logged_in() && !is_page('login') && !is_admin()) {
+
+    // user is redirected from pricing page with a plan
+    if( isset($_GET['subscription_plan']) && !is_user_logged_in() ):
+        $url = wp_login_url() . '?subscription_plan='. $_GET['subscription_plan'];
+        wp_safe_redirect( $url );
+        exit();
+    elseif (!is_user_logged_in() && !is_page('login') && !is_admin()):
         // Redirect to the login page
         wp_redirect(wp_login_url());
         exit;
-    }
+    endif;
 }
 // Hook the function to 'template_redirect'
 add_action('template_redirect', 'redirect_non_logged_in_users');
