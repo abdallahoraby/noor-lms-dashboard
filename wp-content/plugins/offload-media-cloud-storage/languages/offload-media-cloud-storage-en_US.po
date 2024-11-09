@@ -1,0 +1,691 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=utf-8\n"
+"X-Generator: babel-plugin-makepot\n"
+
+#: src/components/Alert/index.jsx:16
+msgid "Error :"
+msgstr ""
+
+#: src/components/Alert/index.jsx:21
+msgid "Warning :"
+msgstr ""
+
+#: src/components/Alert/index.jsx:26
+msgid "Success :"
+msgstr ""
+
+#: src/components/CardLarge/index.jsx:34
+msgid "Purchase Media"
+msgstr ""
+
+#: src/components/CloseConfiguration/index.jsx:13
+msgid "Close Setup Wizard"
+msgstr ""
+
+#: src/components/CloseConfiguration/index.jsx:15
+msgid "Are you sure do you want to close the setup wizard ?"
+msgstr ""
+
+#: src/components/CloseConfiguration/index.jsx:26
+msgid "OK"
+msgstr ""
+
+#: src/components/CloseConfiguration/index.jsx:33
+msgid "Cancel"
+msgstr ""
+
+#: src/components/ConfigureFileInput/index.jsx:24
+msgid "Drag and drop file here"
+msgstr ""
+
+#: src/components/ConfigureFileInput/index.jsx:42
+msgid "Drop"
+msgstr ""
+
+#: src/components/ConfigureFileInput/index.jsx:50
+msgid "Drag and drop files here"
+msgstr ""
+
+#: src/components/ConfigureFileInput/index.jsx:93
+msgid "Upload a file"
+msgstr ""
+
+#: src/components/ConfigureFooter/index.jsx:32
+#: src/components/ConfigureVerifyFooter/index.jsx:22
+#: src/components/LicenseHeader/index.jsx:10
+#: src/components/SettingsHeader/index.jsx:10
+msgid "Back"
+msgstr ""
+
+#: src/components/ConfigureFooter/index.jsx:41
+msgid "Next"
+msgstr ""
+
+#: src/components/ConfigureHeader/index.jsx:9
+msgid "Close"
+msgstr ""
+
+#: src/components/ConfigureVerifyFooter/index.jsx:35
+msgid "Save Configuration"
+msgstr ""
+
+#: src/components/ConfirmEnable/index.jsx:14
+msgid "Are you sure to continue ?"
+msgstr ""
+
+#: src/components/ConfirmEnable/index.jsx:26
+#: src/components/ConfirmReset/index.jsx:29
+msgid "Yes"
+msgstr ""
+
+#: src/components/ConfirmEnable/index.jsx:33
+#: src/components/ConfirmReset/index.jsx:36
+msgid "No"
+msgstr ""
+
+#: src/components/ConfirmReset/index.jsx:12
+msgid "Reset to defaults ?"
+msgstr ""
+
+#: src/components/ConfirmReset/index.jsx:14
+msgid "Are you sure do you want to reset the current settings to default ?"
+msgstr ""
+
+#: src/components/Header/index.jsx:46
+msgid "CHECK PREMIUM OPTIONS"
+msgstr ""
+
+#: src/components/LicenseFooter/index.jsx:12
+#: src/components/SettingsFooter/index.jsx:14
+msgid "Reset Defaults"
+msgstr ""
+
+#: src/components/LicenseFooter/index.jsx:9
+#: src/components/SettingsFooter/index.jsx:11
+msgid "Save Changes"
+msgstr ""
+
+#: src/components/MultiStepNavigator/index.jsx:10
+msgid "Getting Started"
+msgstr ""
+
+#: src/components/MultiStepNavigator/index.jsx:18
+msgid "Verify"
+msgstr ""
+
+#: src/components/MultiStepNavigator/index.jsx:22
+msgid "Complete"
+msgstr ""
+
+#: src/components/PremiumBanner/index.jsx:10
+msgid "Premium version coming soon, get notified when we launch"
+msgstr ""
+
+#: src/components/PremiumBanner/index.jsx:18
+msgid "Learn More"
+msgstr ""
+
+#: src/components/PremiumBanner/index.jsx:9
+msgid "We are building something awesome!"
+msgstr ""
+
+#: src/components/Welcome/index.jsx:11
+msgid "Welcome to Offload Media Dashboard"
+msgstr ""
+
+#: src/components/Welcome/index.jsx:23
+msgid "Support"
+msgstr ""
+
+#: src/components/Welcome/index.jsx:9
+msgid "Hey there,"
+msgstr ""
+
+#: src/pages/Configure/ConfigureChooseService.jsx:47
+msgid "Choose the Service Provider"
+msgstr ""
+
+#: src/pages/Configure/ConfigureServiceComplete.jsx:44
+msgid "Connection failed"
+msgstr ""
+
+#: src/pages/Configure/ConfigureServiceComplete.jsx:62
+#: src/pages/Configure/ConfigureServiceVerify.jsx:103
+#: src/utils/loader.js:11
+msgid "Offload Media - Cloud Storage"
+msgstr ""
+
+#: src/pages/Configure/ConfigureServiceComplete.jsx:70
+msgid "Success!"
+msgstr ""
+
+#: src/pages/Configure/ConfigureServiceSettings.jsx:246
+#: src/pages/Dashboard.js:104
+#: src/pages/PluginSettings.js:84
+msgid "Settings"
+msgstr ""
+
+#: src/pages/Configure/ConfigureServiceWelcome.jsx:22
+msgid "Get Started with"
+msgstr ""
+
+#: src/pages/Configure/ConfigureServiceWelcome.jsx:37
+msgid "Watch Demo"
+msgstr ""
+
+#: src/pages/Configure/ConfigureServiceWelcome.jsx:47
+msgid "View Documentation"
+msgstr ""
+
+#: src/pages/Configure/ConfigureWelcome.jsx:13
+msgid "Welcome to Offload Media"
+msgstr ""
+
+#: src/pages/Configure/ConfigureWelcome.jsx:18
+msgid "Thanks for downloading Offload Media!"
+msgstr ""
+
+#: src/pages/Configure/ConfigureWelcome.jsx:20
+msgid ""
+"Offload media helps to upload your media to the cloud storage, and it can "
+"be served from the server directly."
+msgstr ""
+
+#: src/pages/Configure/ConfigureWelcome.jsx:26
+msgid ""
+"In the following screens, you can set up your service provider's basic "
+"configurations that are required to work the plugin. After the "
+"configuration, you can adjust the settings exactly as you wanted."
+msgstr ""
+
+#: src/pages/Dashboard.js:105
+msgid ""
+"Adjust your service settings to customize your storage read and write "
+"operations"
+msgstr ""
+
+#: src/pages/Dashboard.js:27
+msgid "Uploaded Media's"
+msgstr ""
+
+#: src/pages/Dashboard.js:58
+msgid "Documentation"
+msgstr ""
+
+#: src/pages/Dashboard.js:59
+msgid "You need any help with configuring the plugin, Visit our documentation page."
+msgstr ""
+
+#: src/pages/Dashboard.js:71
+msgid "Let's Get Started"
+msgstr ""
+
+#: src/pages/Dashboard.js:72
+msgid "Welcome to Offload media! To get started, configure your cloud storage."
+msgstr ""
+
+#: src/pages/Dashboard.js:84
+msgid "Configure"
+msgstr ""
+
+#: src/pages/Dashboard.js:85
+msgid "Change/Modify your cloud storage settings."
+msgstr ""
+
+#: src/pages/License.js:22
+msgid "License"
+msgstr ""
+
+#: src/pages/Page404.js:10
+msgid "404 - Page not found"
+msgstr ""
+
+#: src/pages/Page404.js:13
+msgid "Sorry!! The page you are looking for not found on this settings page"
+msgstr ""
+
+#: src/utils/fields.jsx:141
+msgid "Copy files to bucket"
+msgstr ""
+
+#: src/utils/fields.jsx:145
+msgid "Upload to bucket, when ever a file is uploaded to Media Library"
+msgstr ""
+
+#: src/utils/fields.jsx:153
+msgid "Google Cloud base path"
+msgstr ""
+
+#: src/utils/fields.jsx:157
+msgid "This is the base directory path of the media storage in Google Cloud Storage"
+msgstr ""
+
+#: src/utils/fields.jsx:17
+msgid "S3 base path"
+msgstr ""
+
+#: src/utils/fields.jsx:18
+msgid "This is the base directory path of the media storage in Amazon S3"
+msgstr ""
+
+#: src/utils/fields.jsx:280
+msgid "Copy files to Space"
+msgstr ""
+
+#: src/utils/fields.jsx:281
+msgid "Upload to space, when ever a file is uploaded to Media Library"
+msgstr ""
+
+#: src/utils/fields.jsx:289
+msgid "Digital Ocean base path"
+msgstr ""
+
+#: src/utils/fields.jsx:293
+msgid "This is the base directory path of the media storage in Digital Ocean Spaces"
+msgstr ""
+
+#: src/utils/fields.jsx:300
+msgid "Enter base path"
+msgstr ""
+
+#: src/utils/fields.jsx:307
+msgid "Year/Month Structure"
+msgstr ""
+
+#: src/utils/fields.jsx:311
+msgid ""
+"This will enable year/month directories at the end of your base path. "
+"Otherwise it will be uploaded in to the base path directly."
+msgstr ""
+
+#: src/utils/fields.jsx:319
+msgid "Object versioning"
+msgstr ""
+
+#: src/utils/fields.jsx:320
+msgid "Append a timestamp to the bucket path."
+msgstr ""
+
+#: src/utils/fields.jsx:328
+msgid "Enable CDN / Custom End Point"
+msgstr ""
+
+#: src/utils/fields.jsx:329
+msgid "Enable a CDN / Custom End Point for your bucket"
+msgstr ""
+
+#: src/utils/fields.jsx:337
+msgid "CDN / Custom End Point URL"
+msgstr ""
+
+#: src/utils/fields.jsx:338
+msgid ""
+"Configure CDN / Custom End Point URL to point the bucket. Configure a "
+"subdomain to point at your CDN to ensure SEO for site."
+msgstr ""
+
+#: src/utils/fields.jsx:347
+msgid "Enter URL"
+msgstr ""
+
+#: src/utils/fields.jsx:351
+msgid "Enable Pre-signed URL"
+msgstr ""
+
+#: src/utils/fields.jsx:355
+msgid "Enable Pre-signed url for files"
+msgstr ""
+
+#: src/utils/fields.jsx:363
+msgid "Pre-signed expires"
+msgstr ""
+
+#: src/utils/fields.jsx:364
+msgid "Pre-signed url expiry time in minutes"
+msgstr ""
+
+#: src/utils/fields.jsx:372
+msgid "Enter duration in minutes"
+msgstr ""
+
+#: src/utils/fields.jsx:384
+msgid "Remove files from server"
+msgstr ""
+
+#: src/utils/fields.jsx:388
+msgid "Use this to remove file from server, Once it is uploaded to bucket"
+msgstr ""
+
+#: src/utils/fields.jsx:394
+msgid ""
+"<p>This setting will remove the files from the server once it is uploaded "
+"to the cloud, And it can lead to issues if you deactivate our plugin, So be "
+"careful before enabling this.</p><p>There is no option to copy these files "
+"back to the server in this plugin's free version. Though you can manually "
+"download it from the cloud and upload using FTP.</p>"
+msgstr ""
+
+#: src/utils/fields.jsx:403
+msgid "Rewrite media URL's"
+msgstr ""
+
+#: src/utils/fields.jsx:404
+msgid ""
+"For media library files that have been copied to the bucket, rewrite the "
+"URLs so that they are served from the bucket or CDN instead of your server."
+msgstr ""
+
+#: src/utils/loader.js:13
+msgid "Loading please wait..."
+msgstr ""
+
+#: src/utils/variables.jsx:106
+msgid "Africa (Cape Town)"
+msgstr ""
+
+#: src/utils/variables.jsx:113
+msgid "Asia Pacific (Hong Kong)***"
+msgstr ""
+
+#: src/utils/variables.jsx:121
+msgid "Asia Pacific (Jakarta)"
+msgstr ""
+
+#: src/utils/variables.jsx:128
+msgid "Asia Pacific (Mumbai)"
+msgstr ""
+
+#: src/utils/variables.jsx:13
+msgid "Amazon S3"
+msgstr ""
+
+#: src/utils/variables.jsx:135
+msgid "Asia Pacific (Osaka)"
+msgstr ""
+
+#: src/utils/variables.jsx:142
+msgid "Asia Pacific (Seoul)"
+msgstr ""
+
+#: src/utils/variables.jsx:149
+msgid "Asia Pacific (Singapore)"
+msgstr ""
+
+#: src/utils/variables.jsx:15
+msgid ""
+"Amazon S3 or Amazon Simple Storage Service is a service offered by Amazon "
+"Web Services (AWS) that provides object storage through a web service "
+"interface."
+msgstr ""
+
+#: src/utils/variables.jsx:156
+msgid "Asia Pacific (Sydney)"
+msgstr ""
+
+#: src/utils/variables.jsx:163
+msgid "Asia Pacific (Tokyo)"
+msgstr ""
+
+#: src/utils/variables.jsx:170
+msgid "Canada (Central)"
+msgstr ""
+
+#: src/utils/variables.jsx:177
+msgid "China (Beijing)"
+msgstr ""
+
+#: src/utils/variables.jsx:184
+msgid "China (Ningxia)"
+msgstr ""
+
+#: src/utils/variables.jsx:19
+msgid ""
+"Amazon S3 is one of the commonly used object storage services. It offers "
+"industry-leading scalability, data availability, security, and performance."
+msgstr ""
+
+#: src/utils/variables.jsx:191
+msgid "Europe (Frankfurt)"
+msgstr ""
+
+#: src/utils/variables.jsx:198
+msgid "Europe (Ireland)"
+msgstr ""
+
+#: src/utils/variables.jsx:205
+msgid "Europe (London)"
+msgstr ""
+
+#: src/utils/variables.jsx:212
+msgid "Europe (Milan)"
+msgstr ""
+
+#: src/utils/variables.jsx:219
+msgid "Europe (Paris)"
+msgstr ""
+
+#: src/utils/variables.jsx:22
+msgid ""
+"In the following steps, you can configure the initial setup of the Amazon "
+"S3 cloud storage configuration for integrating your WordPress media library "
+"with the Amazon S3 service."
+msgstr ""
+
+#: src/utils/variables.jsx:226
+msgid "Europe (Stockholm)"
+msgstr ""
+
+#: src/utils/variables.jsx:233
+msgid "South America (São Paulo)"
+msgstr ""
+
+#: src/utils/variables.jsx:240
+msgid "Middle East (Bahrain)"
+msgstr ""
+
+#: src/utils/variables.jsx:247
+msgid "EAWS GovCloud (US-East)"
+msgstr ""
+
+#: src/utils/variables.jsx:254
+msgid "AWS GovCloud (US-West)"
+msgstr ""
+
+#: src/utils/variables.jsx:26
+msgid ""
+"Provide your Amazon credentials and the name of your S3 bucket to configure "
+"offload media. Clicking on Next will verify your settings."
+msgstr ""
+
+#: src/utils/variables.jsx:262
+msgid "Use Transfer Acceleration"
+msgstr ""
+
+#: src/utils/variables.jsx:266
+msgid ""
+"Enable option only if you enabled the Transfer Acceleration feature in S3 "
+"Bucket. <a "
+"href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/transfer-"
+"acceleration.html\" target=\"_blank\">Learn more</a>"
+msgstr ""
+
+#: src/utils/variables.jsx:277
+msgid "Google Cloud"
+msgstr ""
+
+#: src/utils/variables.jsx:279
+msgid ""
+"Google Cloud Storage is a RESTful online file storage web service for "
+"storing and accessing data on Google Cloud Platform infrastructure."
+msgstr ""
+
+#: src/utils/variables.jsx:283
+msgid ""
+"Google Cloud Storage allows world-wide storage and retrieval of any amount "
+"of data at any moment. It can be used for various scenarios including "
+"serving website content, storing data for archival and disaster recovery, "
+"or distributing large data objects to users via direct download."
+msgstr ""
+
+#: src/utils/variables.jsx:286
+msgid ""
+"In the following steps, you can configure the initial setup of the Google "
+"Cloud Storage configuration for integrating your WordPress media library "
+"with the Google Cloud Storage service."
+msgstr ""
+
+#: src/utils/variables.jsx:290
+msgid ""
+"Provide key file and bucketname to configure offload media. Clicking on "
+"Next will verify your settings."
+msgstr ""
+
+#: src/utils/variables.jsx:299
+msgid "Upload JSON key file"
+msgstr ""
+
+#: src/utils/variables.jsx:306
+msgid "Upload file here"
+msgstr ""
+
+#: src/utils/variables.jsx:317
+msgid "Bucket Name"
+msgstr ""
+
+#: src/utils/variables.jsx:321
+msgid "Enter bucket name"
+msgstr ""
+
+#: src/utils/variables.jsx:331
+msgid "Digital Ocean"
+msgstr ""
+
+#: src/utils/variables.jsx:333
+msgid ""
+"Digital Ocean Spaces is an S3-compatible object storage service that lets "
+"you store and serve large amounts of data."
+msgstr ""
+
+#: src/utils/variables.jsx:337
+msgid ""
+"Digital Ocean Spaces is an S3-compatible object storage service that lets "
+"you store and serve large amounts of data. Each Space is a bucket for you "
+"to store and serves files. The free, built-in Spaces CDN minimizes page "
+"load times, improves performance, and reduces bandwidth and infrastructure "
+"costs."
+msgstr ""
+
+#: src/utils/variables.jsx:340
+msgid ""
+"In the following steps, you can configure the initial setup of the Digital "
+"Ocean Spaces configuration for integrating your WordPress media library "
+"with the Digital Ocean Spaces service."
+msgstr ""
+
+#: src/utils/variables.jsx:344
+msgid ""
+"Provide your Digial Ocean Spaces credentials and the name of your cloud "
+"space to configure offload media. Clicking on Next will verify your "
+"settings."
+msgstr ""
+
+#: src/utils/variables.jsx:353
+msgid "Access Key"
+msgstr ""
+
+#: src/utils/variables.jsx:357
+msgid "Enter access key"
+msgstr ""
+
+#: src/utils/variables.jsx:365
+msgid "Secret Key"
+msgstr ""
+
+#: src/utils/variables.jsx:369
+msgid "Enter secret key"
+msgstr ""
+
+#: src/utils/variables.jsx:377
+msgid "Space Name"
+msgstr ""
+
+#: src/utils/variables.jsx:381
+msgid "Enter Space name"
+msgstr ""
+
+#: src/utils/variables.jsx:389
+msgid "Region"
+msgstr ""
+
+#: src/utils/variables.jsx:396
+msgid "New York City (NYC1), United States"
+msgstr ""
+
+#: src/utils/variables.jsx:403
+msgid "New York City (NYC2), United States"
+msgstr ""
+
+#: src/utils/variables.jsx:410
+msgid "New York City (NYC3), United States"
+msgstr ""
+
+#: src/utils/variables.jsx:417
+msgid "Amsterdam (AMS2), the Netherlands"
+msgstr ""
+
+#: src/utils/variables.jsx:424
+msgid "Amsterdam (AMS3), the Netherlands"
+msgstr ""
+
+#: src/utils/variables.jsx:431
+msgid "San Francisco (SFO1), United States"
+msgstr ""
+
+#: src/utils/variables.jsx:438
+msgid "San Francisco (SFO2), United States"
+msgstr ""
+
+#: src/utils/variables.jsx:445
+msgid "San Francisco (SFO3), United States"
+msgstr ""
+
+#: src/utils/variables.jsx:452
+msgid "Singapore (SGP1)"
+msgstr ""
+
+#: src/utils/variables.jsx:459
+msgid "London (LON1), United Kingdom"
+msgstr ""
+
+#: src/utils/variables.jsx:466
+msgid "Frankfurt (FRA1), Germany"
+msgstr ""
+
+#: src/utils/variables.jsx:473
+msgid "Toronto (TOR1), Canada"
+msgstr ""
+
+#: src/utils/variables.jsx:480
+msgid "Bangalore (BLR1), India"
+msgstr ""
+
+#: src/utils/variables.jsx:486
+msgid "Sydney, Australia (SYD1)"
+msgstr ""
+
+#: src/utils/variables.jsx:78
+msgid "US East (Ohio)"
+msgstr ""
+
+#: src/utils/variables.jsx:85
+msgid "US East (N. Virginia)"
+msgstr ""
+
+#: src/utils/variables.jsx:92
+msgid "US West (N. California)"
+msgstr ""
+
+#: src/utils/variables.jsx:99
+msgid "US West (Oregon)"
+msgstr ""
