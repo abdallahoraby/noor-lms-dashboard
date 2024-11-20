@@ -19,8 +19,15 @@ defined( 'ABSPATH' ) || exit();
                 <!-- content here -->
 
                 <h3 class="page-title"> Courses </h3>
+
+                <?php
+                    $all_subscriptions = pms_get_subscription_plans();
+                    if(!empty($all_subscriptions)):
+                        $all_subscriptions_ids = array_column($all_subscriptions, 'id');
+                    endif;
+                ?>
                 
-                <?php if( pms_is_member_of_plan( array( 806,813,827,828,829,830 ) ) ): ?>
+                <?php if( pms_is_member_of_plan( $all_subscriptions_ids ) ): ?>
 
                 <div class="courses-main">
                     <div class="courses-filter" >

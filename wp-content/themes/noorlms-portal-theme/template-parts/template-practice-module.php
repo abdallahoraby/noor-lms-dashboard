@@ -72,8 +72,8 @@
 
 
 
-<form id="practice-form">
-    <input type="datetime-local" id="practice_datetime" name="practice_datetime" required>
-    <input type="number" id="number_of_practices" name="number_of_practices" required>
-    <button type="button" id="save-practice">Save Practice</button>
-</form>
+<!--<form id="practice-form">-->
+<!--    <input type="datetime-local" id="practice_datetime" name="practice_datetime" required>-->
+<!--    <input type="number" id="number_of_practices" name="number_of_practices" required>-->
+<!--    <button type="button" id="save-practice">Save Practice</button>-->
+<!--</form>-->

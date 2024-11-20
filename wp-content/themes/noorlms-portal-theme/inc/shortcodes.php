@@ -292,3 +292,15 @@ function ajax_logout_button_shortcode() {
     return ob_get_clean();
 }
 add_shortcode('ajax_logout_button', 'ajax_logout_button_shortcode');
+
+
+// Shortcode to add custom divider using html
+function lms_divider_callback() {
+    ob_start(); ?>
+
+    <h3 class="MsoNormal" style="box-sizing: border-box; margin-top: 0px; margin-bottom: 0.5rem; font-weight: 500; line-height: 1.2; font-size: 1.75rem; color: #634aa5;"><span style="box-sizing: border-box; color: #311873;">❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖</span></h3>
+
+    <?php
+    return ob_get_clean();
+}
+add_shortcode('lms_divider', 'lms_divider_callback');

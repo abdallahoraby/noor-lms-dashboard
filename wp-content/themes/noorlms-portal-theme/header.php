@@ -75,8 +75,8 @@
                             <span class="c-menu-item__title">Achievements</span>
                         </a>
                     </li>
-                    <li class="c-menu__item" data-toggle="tooltip" title="Settings">
-                        <a href="<?= home_url() . '/account' ?>" class="c-menu__item__inner"><i class="fas fa-credit-card"></i>
+                    <li class="c-menu__item load-template-part" data-toggle="tooltip" title="Settings" data-template-name="membership">
+                        <a href="#" class="c-menu__item__inner"><i class="fas fa-credit-card"></i>
                             <span class="c-menu-item__title">My Subscriptions</span>
                         </a>
                     </li>

@@ -627,5 +627,13 @@ a.pms-account-navigation-link--active {
     font-weight: bold !important;
 }
 
+a.pms-account-subscription-action-link.pms-account-subscription-action-link__abandon {
+    display: none;
+}
+
+button.ajs-button.ajs-ok {
+    background: gray;
+}
+
 
 

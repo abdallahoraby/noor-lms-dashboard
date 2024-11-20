@@ -60,6 +60,18 @@ jQuery(document).ready(function($) {
         });
     }
 
+    // auto renew subscription input
+    jQuery('.pms-subscription-plan-auto-renew input').trigger('click');
+    jQuery('.pms-subscription-plan-auto-renew label').hide();
+    jQuery('.pms-subscription-plan-auto-renew').append('<p class="text-center"> Your subscription will be renewed automatically.  </p>');
+
+
+    jQuery('form#pms-cancel-subscription-form [name="pms_redirect_back"]').on('click', function (e){
+       e.preventDefault();
+       // load subscription template
+        jQuery('[data-template-name="membership"]').trigger('click');
+
+    });
 
 }); // Document Ready
 
@@ -93,5 +105,6 @@ jQuery(document).on('ajaxComplete', function() {
             }
         });
     });
+
 
 }); // Ajax Ready

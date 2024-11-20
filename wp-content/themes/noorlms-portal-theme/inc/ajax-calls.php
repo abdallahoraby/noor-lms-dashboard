@@ -216,3 +216,18 @@ function lms_practice_module_save_practice() {
 
 add_action('wp_ajax_save_practice', 'lms_practice_module_save_practice');
 add_action('wp_ajax_nopriv_save_practice', 'lms_practice_module_save_practice');
+
+
+
+function add_log() {
+    addLog( 'pms_cancel_subscription_log', array(
+        'user_id' => $_POST['user_id'],
+        'cancel_reason' => $_POST['cancel_reason'],
+        'cancel_comment' => $_POST['cancel_comment'],
+    ) );
+
+    wp_send_json_success('Log added successfully!');
+}
+
+add_action('wp_ajax_add_log', 'add_log');
+add_action('wp_ajax_nopriv_add_log', 'add_log');

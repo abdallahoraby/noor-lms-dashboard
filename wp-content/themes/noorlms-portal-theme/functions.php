@@ -56,6 +56,7 @@ function buddyboss_theme_child_scripts_styles()
   wp_enqueue_style( 'splide-css', get_stylesheet_directory_uri().'/assets/css/toastr.min.css' );
   wp_enqueue_style( 'styles-css', get_stylesheet_directory_uri().'/assets/css/styles.css' );
   wp_enqueue_style( 'buddyboss-child-css', get_stylesheet_directory_uri().'/assets/css/custom.css' );
+  wp_enqueue_style( 'alertify-css', get_stylesheet_directory_uri().'/assets/css/alertify.min.css' );
 
   // Javascript
   wp_enqueue_script( 'jquery-js', get_stylesheet_directory_uri().'/assets/js/jquery.min.js' );
@@ -64,7 +65,8 @@ function buddyboss_theme_child_scripts_styles()
   wp_enqueue_script( 'dataTables-js', get_stylesheet_directory_uri().'/assets/js/dataTables.min.js' );
   wp_enqueue_script( 'splide-js', get_stylesheet_directory_uri().'/assets/js/splide.min.js' );
   wp_enqueue_script( 'jquery-ui-js', get_stylesheet_directory_uri().'/assets/js/jquery-ui.js' );
-  wp_enqueue_script( 'jquery-ui-js', get_stylesheet_directory_uri().'/assets/js/toastr.min.js' );
+  wp_enqueue_script( 'jquery-toastr', get_stylesheet_directory_uri().'/assets/js/toastr.min.js' );
+  wp_enqueue_script( 'jquery-alertify', get_stylesheet_directory_uri().'/assets/js/alertify.min.js' );
   wp_enqueue_script( 'scripts-js', get_stylesheet_directory_uri().'/assets/js/scripts.js', [],rand(1,100), true );
   wp_enqueue_script( 'buddyboss-child-js', get_stylesheet_directory_uri().'/assets/js/custom.js', [], rand(1,100), true );
 
@@ -96,6 +98,58 @@ require_once get_stylesheet_directory() . '/inc/custom-functions.php';
 require_once get_stylesheet_directory() . '/inc/ajax-calls.php';
 require_once get_stylesheet_directory() . '/inc/shortcodes.php';
 
+/**
+ * Bulk inserts records into a table using WPDB.  All rows must contain the same keys.
+ * Returns number of affected (inserted) rows.
+ * @param $table string
+ * @param $rows array
+ * @return bool|int|mysqli_result|resource
+ */
+function wpdb_bulk_insert($table, $rows) {
+    global $wpdb;
+
+    // Extract column list from first row of data
+    $columns = array_keys($rows[0]);
+    asort($columns);
+    $columnList = '`' . implode('`, `', $columns) . '`';
+
+    // Start building SQL, initialise data and placeholder arrays
+    $sql = "INSERT INTO `$table` ($columnList) VALUES\n";
+    $placeholders = array();
+    $data = array();
+
+    // Build placeholders for each row, and add values to data array
+    foreach ($rows as $row) {
+        ksort($row);
+        $rowPlaceholders = array();
+
+        foreach ($row as $key => $value) {
+            $data[] = $value;
+            $rowPlaceholders[] = is_numeric($value) ? '%d' : '%s';
+        }
+
+        $placeholders[] = '(' . implode(', ', $rowPlaceholders) . ')';
+    }
+
+    // Stitch all rows together
+    $sql .= implode(",\n", $placeholders);
+
+    // Run the query.  Returns number of affected rows.
+    return $wpdb->query($wpdb->prepare($sql, $data));
+}
+
+
+/**
+ * a function to insert data into log table
+ * @param $log_data array
+ */
+function addLog($table_name, $log_data ){
+    // insert into custom log
+    global $wpdb;
+    $log_table = $wpdb->prefix . $table_name;
+    $log_data = array( $log_data );
+    wpdb_bulk_insert($log_table, $log_data);
+}
 
 function add_body_class_for_student($classes) {
 
@@ -181,6 +235,24 @@ function lms_practice_module_create_table() {
     dbDelta($sql);
 }
 
+function pms_cancel_subscription_create_table() {
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'pms_cancel_subscription_log';
+    $charset_collate = $wpdb->get_charset_collate();
+
+    $sql = "CREATE TABLE $table_name (
+        id mediumint(9) NOT NULL AUTO_INCREMENT,
+        user_id bigint(20) NOT NULL,
+        cancel_datetime datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        cancel_reason TEXT NOT NULL DEFAULT '',
+        cancel_comment TEXT NOT NULL DEFAULT '',
+        PRIMARY KEY (id)
+    ) $charset_collate;";
+
+    require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+    dbDelta($sql);
+}
+
 /*
  * add_custom_roles
  * a function that adds custom roles
@@ -205,6 +277,8 @@ function custom_theme_initialization() {
     add_custom_roles();
     // Create the custom practice module table when WordPress initializes
     lms_practice_module_create_table();
+    // Create the custom table when WordPress initializes (for cancelled subscriptions)
+    pms_cancel_subscription_create_table();
 }
 
 // Hook the function to run when WordPress initializes
@@ -290,3 +364,56 @@ function auto_redirect_after_logout(){
     exit;
 }
 add_action('wp_logout','auto_redirect_after_logout');
+
+
+
+function add_custom_shortcode_button() {
+    if ( ! current_user_can( 'edit_posts' ) && ! current_user_can( 'edit_pages' ) ) {
+        return;
+    }
+
+    if ( get_user_option( 'rich_editing' ) === 'true' ) {
+        add_filter( 'mce_external_plugins', 'register_custom_button_script' );
+        add_filter( 'mce_buttons', 'register_custom_button' );
+    }
+}
+
+add_action( 'admin_head', 'add_custom_shortcode_button' );
+
+function register_custom_button_script( $plugin_array ) {
+    $plugin_array['custom_shortcode_button'] = get_stylesheet_directory_uri() . '/assets/js/custom-shortcode-button.js';
+    return $plugin_array;
+}
+
+function register_custom_button( $buttons ) {
+    array_push( $buttons, 'custom_shortcode_button' );
+    return $buttons;
+}
+
+
+// function to cancel user subscription
+function cancel_user_subscriptions($user_id) {
+
+
+    $member_subscriptions = pms_get_member_subscriptions( array( 'user_id' => (int)$user_id ) );
+
+    if( empty( $member_subscriptions ) )
+        return;
+
+
+    foreach( $member_subscriptions as $member_subscription ) {
+
+        if( $member_subscription->status == 'active' ) {
+
+            $member_subscription->update( array( 'status' => 'canceled' ) );
+            do_action( 'pms_api_cancel_paypal_subscription', $member_subscription->payment_profile_id, $member_subscription->subscription_plan_id );
+            apply_filters( 'pms_confirm_cancel_subscription', true, $user_id, $member_subscription->subscription_plan_id );
+            pms_add_member_subscription_log( $member_subscription->id, 'subscription_canceled_user_deletion', array( 'who' => get_current_user_id() ) );
+
+        }
+
+    }
+
+    return true;
+
+}
