@@ -1,6 +1,6 @@
 <div class="login-page">
 
-    <div id="login-container">
+    <div id="login-container" class="right-panel-active">
         <div class="form-container sign-up-container">
 
             <?php echo do_shortcode('[student_registration_form]'); ?>
@@ -12,8 +12,8 @@
         <div class="overlay-container">
             <div class="overlay">
                 <div class="overlay-panel overlay-left">
-                    <h1>Welcome Back!</h1>
-                    <p>To keep connected with us please login with your personal info</p>
+                    <h1>Welcome to <br> Noor World!</h1>
+                    <p> If you already a member, please sign in here. </p>
                     <button class="ghost" id="signIn">Sign In</button>
                 </div>
                 <div class="overlay-panel overlay-right">
