@@ -363,7 +363,13 @@ function gamipress_build_shortcode_atts( $shortcode, $values ) {
 
             // If is a checkbox field, then turn value into yes or no
             if( $field['type'] === 'checkbox' ) {
-                $value = ( $values[$field_id] === 'on' ? 'yes' : 'no' );
+
+                if( is_bool( $values[$field_id] ) ) {
+                    $value = ( $values[$field_id] === true ? 'yes' : 'no' );
+                } else {
+                    $value = ( $values[$field_id] === 'on' ? 'yes' : 'no' );
+                }
+                
             }
 
             // If value is an array, setup a comma separated list of it's values

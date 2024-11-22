@@ -290,6 +290,20 @@ function gamipress_bp_new_group( $new_group_id ) {
 }
 add_action( 'groups_group_create_complete', 'gamipress_bp_new_group' );
 
+// Delete a group
+function gamipress_bp_delete_group( $group_id ) {
+
+    $user_id = bp_loggedin_user_id();
+
+    // Delete a group
+    do_action( 'gamipress_bp_delete_group', $group_id, $user_id );
+
+    // Delete a specific group
+    do_action( 'gamipress_bp_delete_specific_group', $group_id, $user_id );
+
+}
+add_action( 'groups_before_group_deleted', 'gamipress_bp_delete_group' );
+
 // Join a group and join a specific group
 function gamipress_bp_join_group( $group_id, $user_id ) {
 

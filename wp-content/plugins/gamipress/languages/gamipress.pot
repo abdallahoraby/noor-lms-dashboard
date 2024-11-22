@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gamipress\n"
 "Report-Msgid-Bugs-To: https://tsunoa.com/\n"
-"POT-Creation-Date: 2024-08-29 12:00+0200\n"
+"POT-Creation-Date: 2024-10-11 13:13+0200\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Tsunoa (https://tsunoa.com/)\n"
 "Language-Team: Tsunoa <contact@tsunoa.com>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4.4\n"
+"X-Generator: Poedit 3.5\n"
 "X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-Basepath: ..\n"
@@ -564,42 +564,42 @@ msgstr ""
 msgid "Nothing to show :)"
 msgstr ""
 
-#: includes/admin/meta-boxes.php:349
+#: includes/admin/meta-boxes.php:350
 #: includes/admin/meta-boxes/requirements-ui.php:481
 #: includes/admin/users.php:516
 msgid "Choose an achievement type"
 msgstr ""
 
-#: includes/admin/meta-boxes.php:367
+#: includes/admin/meta-boxes.php:368
 #: includes/admin/meta-boxes/requirements-ui.php:388
 #: includes/admin/tools/bulk-awards.php:25
 #: includes/admin/tools/bulk-revokes.php:25
 msgid "Choose a points type"
 msgstr ""
 
-#: includes/admin/meta-boxes.php:385
+#: includes/admin/meta-boxes.php:386
 msgid "Choose a rank type"
 msgstr ""
 
-#: includes/admin/meta-boxes.php:403
+#: includes/admin/meta-boxes.php:404
 msgid "Choose a log type"
-msgstr ""
-
-#: includes/admin/meta-boxes.php:420
-#, php-format
-msgid "After (10 %s)"
 msgstr ""
 
 #: includes/admin/meta-boxes.php:421
 #, php-format
+msgid "After (10 %s)"
+msgstr ""
+
+#: includes/admin/meta-boxes.php:422
+#, php-format
 msgid "Before (%s 10)"
 msgstr ""
 
-#: includes/admin/meta-boxes.php:436
+#: includes/admin/meta-boxes.php:437
 msgid "Choose an option"
 msgstr ""
 
-#: includes/admin/meta-boxes.php:441
+#: includes/admin/meta-boxes.php:442
 #: includes/custom-tables/user-earnings.php:440
 msgid "All"
 msgstr ""
@@ -981,7 +981,7 @@ msgid "Rank user has earned."
 msgstr ""
 
 #: includes/admin/meta-boxes/log-extra-data-ui.php:246
-#: includes/admin/settings/general.php:142
+#: includes/admin/settings/general.php:144
 #: includes/compatibility/1.2.8.php:1046 includes/custom-tables/logs.php:201
 msgid "Administrator"
 msgstr ""
@@ -2344,11 +2344,11 @@ msgstr ""
 msgid "Check this option to enable the debug mode."
 msgstr ""
 
-#: includes/admin/settings/general.php:143
+#: includes/admin/settings/general.php:145
 msgid "Editor"
 msgstr ""
 
-#: includes/admin/settings/general.php:144
+#: includes/admin/settings/general.php:146
 #: includes/shortcodes/gamipress_achievements.php:160
 msgid "Author"
 msgstr ""
@@ -7759,22 +7759,48 @@ msgstr ""
 msgid "Book an appointment for a specific service"
 msgstr ""
 
+#: integrations/ameliabooking/includes/triggers.php:25
+msgid "Cancel an appointment for any service"
+msgstr ""
+
 #: integrations/ameliabooking/includes/triggers.php:26
+msgid "Cancel an appointment for a specific service"
+msgstr ""
+
+#: integrations/ameliabooking/includes/triggers.php:28
 msgid "Book for any event"
 msgstr ""
 
-#: integrations/ameliabooking/includes/triggers.php:27
+#: integrations/ameliabooking/includes/triggers.php:29
 msgid "Book for a specific event"
 msgstr ""
 
-#: integrations/ameliabooking/includes/triggers.php:62
+#: integrations/ameliabooking/includes/triggers.php:30
+msgid "Cancel for any event"
+msgstr ""
+
+#: integrations/ameliabooking/includes/triggers.php:31
+msgid "Cancel for a specific event"
+msgstr ""
+
+#: integrations/ameliabooking/includes/triggers.php:68
 #, php-format
 msgid "Book an appointment for %s service"
 msgstr ""
 
-#: integrations/ameliabooking/includes/triggers.php:63
+#: integrations/ameliabooking/includes/triggers.php:69
 #, php-format
 msgid "Book for %s event"
+msgstr ""
+
+#: integrations/ameliabooking/includes/triggers.php:70
+#, php-format
+msgid "Cancel an appointment for %s service"
+msgstr ""
+
+#: integrations/ameliabooking/includes/triggers.php:71
+#, php-format
+msgid "Cancel for %s event"
 msgstr ""
 
 #: integrations/anspress/includes/admin.php:22
@@ -7992,6 +8018,7 @@ msgstr ""
 #: integrations/kadence-blocks/includes/triggers.php:82
 #: integrations/kali-forms/includes/triggers.php:93
 #: integrations/ninja-forms/includes/triggers.php:94
+#: integrations/qsm/includes/triggers.php:133
 #: integrations/thrive-leads/includes/triggers.php:85
 #: integrations/weforms/includes/triggers.php:95
 #: integrations/wp-forms/includes/triggers.php:94
@@ -8797,6 +8824,57 @@ msgstr ""
 #: integrations/buddyboss/includes/forums/includes/triggers.php:100
 #, php-format
 msgid "Unfavorite any topic on %s forum"
+msgstr ""
+
+#: integrations/bookingcalendar/includes/admin.php:22
+msgid "WP Booking Calendar integration"
+msgstr ""
+
+#: integrations/bookingcalendar/includes/triggers.php:22
+msgid "WP Booking Calendar"
+msgstr ""
+
+#: integrations/bookingcalendar/includes/triggers.php:23
+msgid "New booking scheduled"
+msgstr ""
+
+#: integrations/bookingcalendar/includes/triggers.php:24
+msgid "Booking is set to approved"
+msgstr ""
+
+#: integrations/bookingcalendar/includes/triggers.php:25
+msgid "Specific booking is set to approved"
+msgstr ""
+
+#: integrations/bookingcalendar/includes/triggers.php:26
+msgid "Booking is set to pending"
+msgstr ""
+
+#: integrations/bookingcalendar/includes/triggers.php:27
+msgid "Specific booking is set to pending"
+msgstr ""
+
+#: integrations/bookingcalendar/includes/triggers.php:28
+msgid "Booking is set to cancelled"
+msgstr ""
+
+#: integrations/bookingcalendar/includes/triggers.php:29
+msgid "Specific booking is set to cancelled"
+msgstr ""
+
+#: integrations/bookingcalendar/includes/triggers.php:65
+#, php-format
+msgid "%s set to approved"
+msgstr ""
+
+#: integrations/bookingcalendar/includes/triggers.php:66
+#, php-format
+msgid "%s set to pending"
+msgstr ""
+
+#: integrations/bookingcalendar/includes/triggers.php:67
+#, php-format
+msgid "%s set to cancelled"
 msgstr ""
 
 #: integrations/buddyboss/includes/community/includes/admin.php:79
@@ -10888,6 +10966,35 @@ msgstr ""
 msgid "Submit a specific field value on %s poll"
 msgstr ""
 
+#: integrations/geodirectory/includes/admin.php:22
+msgid "Geodirectory integration"
+msgstr ""
+
+#: integrations/geodirectory/includes/triggers.php:22
+msgid "Geodirectory"
+msgstr ""
+
+#: integrations/geodirectory/includes/triggers.php:23
+msgid "Add a new place"
+msgstr ""
+
+#: integrations/geodirectory/includes/triggers.php:24
+msgid "Add a new category"
+msgstr ""
+
+#: integrations/geodirectory/includes/triggers.php:25
+msgid "Add a new review on any place"
+msgstr ""
+
+#: integrations/geodirectory/includes/triggers.php:26
+msgid "Add a new review on a specific place"
+msgstr ""
+
+#: integrations/geodirectory/includes/triggers.php:59
+#, php-format
+msgid "New comment posted on %s"
+msgstr ""
+
 #: integrations/give/includes/admin.php:22
 msgid "Give integration"
 msgstr ""
@@ -11771,6 +11878,7 @@ msgid "Join any group"
 msgstr ""
 
 #: integrations/learndash/includes/triggers.php:230
+#: integrations/qsm/includes/triggers.php:91
 #: integrations/sensei/includes/triggers.php:91
 #, php-format
 msgid "Completed a quiz with a score of %d or higher"
@@ -11805,11 +11913,13 @@ msgid "Complete a quiz of the course %s with a maximum score of %d"
 msgstr ""
 
 #: integrations/learndash/includes/triggers.php:256
+#: integrations/qsm/includes/triggers.php:109
 #, php-format
 msgid "Completed a quiz with a score between %d and %d"
 msgstr ""
 
 #: integrations/learndash/includes/triggers.php:260
+#: integrations/qsm/includes/triggers.php:113
 #, php-format
 msgid "Complete the quiz %s with a score between %d and %d"
 msgstr ""
@@ -13135,6 +13245,69 @@ msgstr ""
 #: integrations/pretty-link/includes/triggers.php:59
 #, php-format
 msgid "User clicks %s"
+msgstr ""
+
+#: integrations/qsm/includes/admin.php:22
+msgid "QSM integration"
+msgstr ""
+
+#: integrations/qsm/includes/triggers.php:22
+msgid "Quiz Master Survey"
+msgstr ""
+
+#: integrations/qsm/includes/triggers.php:25
+msgid "Submit a quiz"
+msgstr ""
+
+#: integrations/qsm/includes/triggers.php:26
+msgid "Submit a specific quiz"
+msgstr ""
+
+#: integrations/qsm/includes/triggers.php:29
+msgid "Complete a quiz with a minimum amount of points"
+msgstr ""
+
+#: integrations/qsm/includes/triggers.php:30
+msgid "Complete a specific quiz with a minimum amount of points"
+msgstr ""
+
+#: integrations/qsm/includes/triggers.php:33
+msgid "Complete a quiz with a maximum amount of points"
+msgstr ""
+
+#: integrations/qsm/includes/triggers.php:34
+msgid "Complete a specific quiz with a maximum amount of points"
+msgstr ""
+
+#: integrations/qsm/includes/triggers.php:37
+msgid "Complete a quiz on a range of points"
+msgstr ""
+
+#: integrations/qsm/includes/triggers.php:38
+msgid "Complete a specific quiz on a range of points"
+msgstr ""
+
+#: integrations/qsm/includes/triggers.php:95
+#, php-format
+msgid "Completed the quiz %s with a score of %d or higher"
+msgstr ""
+
+#: integrations/qsm/includes/triggers.php:100
+#, php-format
+msgid "Completed a quiz with a maximum score of %d or higher"
+msgstr ""
+
+#: integrations/qsm/includes/triggers.php:104
+#, php-format
+msgid "Completed a quiz %s with a maximum score of %d"
+msgstr ""
+
+#: integrations/qsm/includes/triggers.php:264
+msgid "Total points"
+msgstr ""
+
+#: integrations/qsm/includes/triggers.php:265
+msgid "Total points the user got on complete this quiz."
 msgstr ""
 
 #: integrations/restrict-content-pro/includes/admin.php:22

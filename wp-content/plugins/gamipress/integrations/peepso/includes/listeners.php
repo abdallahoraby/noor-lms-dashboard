@@ -49,14 +49,14 @@ function gamipress_peepso_common_activity_listener( $post_id, $activity_id ) {
         case 'peepso_activity_after_add_post':
             do_action( 'gamipress_peepso_new_activity_post', $activity_id, $user_id, $post_id );
             break;
-        case 'peepso_activity_after_add_comment':
+        case 'peepso_after_add_comment':
             do_action( 'gamipress_peepso_new_activity_comment', $activity_id, $user_id, $post_id );
             break;
     }
 
 }
 add_action( 'peepso_activity_after_add_post', 'gamipress_peepso_common_activity_listener', 10, 2 );
-add_action( 'peepso_activity_after_add_comment', 'gamipress_peepso_common_activity_listener', 10, 2 );
+add_action( 'peepso_after_add_comment', 'gamipress_peepso_common_activity_listener', 10, 2 );
 
 /**
  * Like listener

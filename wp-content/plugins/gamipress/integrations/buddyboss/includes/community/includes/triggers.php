@@ -85,6 +85,8 @@ function gamipress_bp_activity_triggers( $triggers ) {
             'gamipress_bp_group_delete_activity'            => __( 'Remove an activity post from a group', 'gamipress' ),
             'gamipress_bp_specific_group_delete_activity'   => __( 'Remove an activity post from a specific group', 'gamipress' ),
             'gamipress_bp_new_group'                        => __( 'Create a group', 'gamipress' ),
+            'gamipress_bp_delete_group'                     => __( 'Delete a group', 'gamipress' ),
+            'gamipress_bp_delete_specific_group'            => __( 'Delete a specific group', 'gamipress' ),
             'gamipress_bp_join_group'                       => __( 'Join a group', 'gamipress' ),
             'gamipress_bp_join_specific_group'              => __( 'Join a specific group', 'gamipress' ),
             'gamipress_bp_leave_group'                      => __( 'Leave a group', 'gamipress' ),
@@ -166,6 +168,7 @@ function gamipress_bp_specific_activity_triggers( $specific_activity_triggers ) 
     $specific_activity_triggers['gamipress_bp_specific_group_reply_comment'] = array( 'bp_groups' );
     $specific_activity_triggers['gamipress_bp_specific_group_get_reply_comment'] = array( 'bp_groups' );
     $specific_activity_triggers['gamipress_bp_join_specific_group'] = array( 'bp_groups' );
+    $specific_activity_triggers['gamipress_bp_delete_specific_group'] = array( 'bp_groups' );
     $specific_activity_triggers['gamipress_bp_leave_specific_group'] = array( 'bp_groups' );
     $specific_activity_triggers['gamipress_bp_request_join_specific_private_group'] = array( 'bp_groups' );
     $specific_activity_triggers['gamipress_bp_join_specific_private_group'] = array( 'bp_groups' );
@@ -197,6 +200,7 @@ function gamipress_bp_specific_activity_trigger_label( $specific_activity_trigge
     $specific_activity_trigger_labels['gamipress_bp_leave_specific_group'] = __( 'Leave %s group', 'gamipress' );
     $specific_activity_trigger_labels['gamipress_bp_request_join_specific_private_group'] = __( 'Request to join %s group', 'gamipress' );
     $specific_activity_trigger_labels['gamipress_bp_join_specific_private_group'] = __( 'Get accepted on %s group', 'gamipress' );
+    $specific_activity_trigger_labels['gamipress_bp_delete_specific_group'] = __( 'Delete %s group', 'gamipress' );
     $specific_activity_trigger_labels['gamipress_bp_invite_user_specific_group'] = __( 'Invite someone to join %s group', 'gamipress' );
     $specific_activity_trigger_labels['gamipress_bp_promote_member_specific_group'] = __( 'Get promoted as moderator/administrator of %s group', 'gamipress' );
     $specific_activity_trigger_labels['gamipress_bp_update_profile_any_value'] = __( 'Update %s field with any value', 'gamipress' );
@@ -226,6 +230,7 @@ function gamipress_bp_specific_activity_trigger_post_title( $post_title, $specif
         case 'gamipress_bp_specific_group_reply_comment':
         case 'gamipress_bp_specific_group_get_reply_comment':
         case 'gamipress_bp_join_specific_group':
+        case 'gamipress_bp_delete_specific_group':
         case 'gamipress_bp_leave_specific_group':
         case 'gamipress_bp_request_join_specific_private_group':
         case 'gamipress_bp_join_specific_private_group':
@@ -277,6 +282,7 @@ function gamipress_bp_specific_activity_trigger_permalink( $permalink, $specific
         case 'gamipress_bp_specific_group_reply_comment':
         case 'gamipress_bp_specific_group_get_reply_comment':
         case 'gamipress_bp_join_specific_group':
+        case 'gamipress_bp_delete_specific_group':
         case 'gamipress_bp_leave_specific_group':
         case 'gamipress_bp_request_join_specific_private_group':
         case 'gamipress_bp_join_specific_private_group':
@@ -366,6 +372,8 @@ function gamipress_bp_trigger_get_user_id( $user_id, $trigger, $args ) {
         case 'gamipress_bp_specific_group_delete_activity':
         case 'gamipress_bp_join_group':
         case 'gamipress_bp_join_specific_group':
+        case 'gamipress_bp_delete_group':
+        case 'gamipress_bp_delete_specific_group':
         case 'gamipress_bp_leave_group':
         case 'gamipress_bp_leave_specific_group':
         case 'gamipress_bp_request_join_private_group':
@@ -417,6 +425,7 @@ function gamipress_bp_specific_trigger_get_id( $specific_id, $trigger = '', $arg
         case 'gamipress_bp_invite_user_specific_group':
         case 'gamipress_bp_promote_member_specific_group':
         case 'gamipress_bp_promoted_member_specific_group':
+        case 'gamipress_bp_delete_specific_group':
             $specific_id = $args[0];
             break;
         case 'gamipress_bp_update_profile_any_value':
@@ -499,6 +508,8 @@ function gamipress_bp_log_event_trigger_meta_data( $log_meta, $user_id, $trigger
             $log_meta['group_id'] = $args[3];
             break;
         case 'gamipress_bp_new_group':
+        case 'gamipress_bp_delete_group':
+        case 'gamipress_bp_delete_specific_group':
         case 'gamipress_bp_join_group':
         case 'gamipress_bp_join_specific_group':
         case 'gamipress_bp_leave_group':

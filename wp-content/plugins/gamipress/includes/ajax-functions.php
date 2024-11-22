@@ -51,6 +51,13 @@ function gamipress_ajax_get_logs() {
     unset( $atts['action'] );
     unset( $atts['page'] );
 
+	// Sanitize
+    foreach( $atts as $attr => $value ) {
+        $atts[$attr] = sanitize_text_field( $value );
+    }
+
+	$atts = shortcode_atts( gamipress_logs_shortcode_defaults(), $atts, 'gamipress_logs' );
+
 	// Send back our successful response
 	wp_send_json_success( gamipress_do_shortcode( 'gamipress_logs', $atts ) );
 
@@ -69,7 +76,7 @@ add_action( 'wp_ajax_nopriv_gamipress_get_logs', 'gamipress_ajax_get_logs' );
 function gamipress_ajax_get_user_earnings() {
     // Security check, forces to die if not security passed
     check_ajax_referer( 'gamipress', 'nonce' );
-
+	
 	// Set current page var
 	if( isset( $_REQUEST['page'] ) && absint( $_REQUEST['page'] ) > 1 ) {
 		set_query_var( 'paged', absint( $_REQUEST['page'] ) );
@@ -85,6 +92,8 @@ function gamipress_ajax_get_user_earnings() {
     foreach( $atts as $attr => $value ) {
         $atts[$attr] = sanitize_text_field( $value );
     }
+
+    $atts = shortcode_atts( gamipress_earnings_shortcode_defaults(), $atts, 'gamipress_earnings' );
 
 	// Send back our successful response
 	wp_send_json_success( gamipress_do_shortcode( 'gamipress_earnings', $atts ) );

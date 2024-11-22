@@ -560,6 +560,12 @@ add_action( 'wp_insert_comment', 'gamipress_wc_approved_review_listener', 10, 2 
  */
 function gamipress_wc_subscription_purchase_listener( $subscription ) {
 
+    $latest_renewal_order = $subscription->get_last_order( 'all', 'renewal' );
+		
+    // Bail if is a renewal
+	if ( $latest_renewal_order )
+		return;
+
     $items = $subscription->get_items();
 
     // Bail if no items purchased

@@ -246,43 +246,7 @@ function gamipress_earnings_shortcode( $atts = array(), $content = '' ) {
 
     $shortcode = 'gamipress_earnings';
 
-    $shortcode_defaults = array(
-        'current_user'                  => 'yes',
-        'user_id'                       => '0',
-        'force_responsive'              => '',
-        'limit'                         => '10',
-        'pagination'                    => 'yes',
-        'order'                         => 'DESC',
-        'include'                       => '',
-        'exclude'                       => '',
-
-        'points'                        => 'yes',
-        'points_types'                  => 'all',
-        'awards'                        => 'yes',
-        'deducts'                       => 'yes',
-
-        'achievements'                  => 'yes',
-        'achievement_types'             => 'all',
-        'steps'                         => 'yes',
-        'achievements_without_points'   => 'yes',
-
-        'ranks'                         => 'yes',
-        'rank_types'                    => 'all',
-        'rank_requirements'             => 'yes',
-    );
-
-    /**
-     * Filters shortcode defaults
-     *
-     * @since 1.0.0
-     *
-     * @param array $shortcode_defaults
-     *
-     * @return array
-     */
-    $shortcode_defaults = apply_filters( 'gamipress_earnings_shortcode_defaults', $shortcode_defaults );
-
-    $atts = shortcode_atts( $shortcode_defaults, $atts, $shortcode );
+    $atts = shortcode_atts( gamipress_earnings_shortcode_defaults(), $atts, $shortcode );
 
     gamipress_enqueue_scripts();
 
@@ -531,5 +495,38 @@ function gamipress_earnings_shortcode_query( $args = array () ) {
     ct_setup_table( 'gamipress_user_earnings' );
 
     return new CT_Query( $query_args );
+
+}
+
+/**
+ * Earnings shortcode defaults attributes values
+ *
+ * @since 7.1.6
+ *
+ * @return array
+ */
+function gamipress_earnings_shortcode_defaults() {
+
+	return apply_filters( 'gamipress_earnings_shortcode_defaults', array(
+		'current_user'                  => 'yes',
+        'user_id'                       => '0',
+        'force_responsive'              => '',
+        'limit'                         => '10',
+        'pagination'                    => 'yes',
+        'order'                         => 'DESC',
+        'include'                       => '',
+        'exclude'                       => '',
+        'points'                        => 'yes',
+        'points_types'                  => 'all',
+        'awards'                        => 'yes',
+        'deducts'                       => 'yes',
+        'achievements'                  => 'yes',
+        'achievement_types'             => 'all',
+        'steps'                         => 'yes',
+        'achievements_without_points'   => 'yes',
+        'ranks'                         => 'yes',
+        'rank_types'                    => 'all',
+        'rank_requirements'             => 'yes',
+	) );
 
 }
