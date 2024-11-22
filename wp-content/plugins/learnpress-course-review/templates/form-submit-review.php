@@ -17,10 +17,10 @@ if ( ! $user->has_course_status( $course_id, [ LP_COURSE_ENROLLED, LP_COURSE_FIN
 <div class="course-review-wrapper">
 	<div class="review-form" id="review-form">
 		<form>
-			<h3>
+			<h4>
 				<?php _e( 'Write a review', 'learnpress-course-review' ); ?>
 				<a href="" class="close"><i class="fas fa-times"></i></a>
-			</h3>
+			</h4>
 			<ul class="review-fields">
 				<?php do_action( 'learn_press_before_review_fields' ); ?>
 				<li>
@@ -36,7 +36,10 @@ if ( ! $user->has_course_status( $course_id, [ LP_COURSE_ENROLLED, LP_COURSE_FIN
 					<ul class="review-stars">
 						<?php for ( $i = 1; $i <= 5; $i ++ ) { ?>
 							<li class="review-title" title="<?php echo $i; ?>">
-								<span class="dashicons dashicons-star-empty"></span></li>
+								<span>
+									<?php echo LP_Addon_Course_Review::get_svg_star() ?>
+								</span>
+							</li>
 						<?php } ?>
 					</ul>
 				</li>

@@ -56,6 +56,7 @@ class LP_Course_Review_Cache extends LP_Cache {
 
 	/**
 	 * Clean cache rating
+	 * And calculate average rating for course
 	 *
 	 * @param $course_id
 	 *
@@ -65,5 +66,9 @@ class LP_Course_Review_Cache extends LP_Cache {
 		$this->clear( $course_id );
 		$key_cache_first = "{$this->key_group}/{$course_id}";
 		LP_Cache::cache_load_first( 'clean', $key_cache_first );
+
+		// Set average rating for course
+		$rating = LP_Addon_Course_Review_Preload::$addon->get_rating_of_course( $course_id );
+		LP_Addon_Course_Review::set_course_rating_average( $course_id, $rating['rated'] );
 	}
 }

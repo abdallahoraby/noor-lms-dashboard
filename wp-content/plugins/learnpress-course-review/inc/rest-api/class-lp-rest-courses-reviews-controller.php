@@ -1,4 +1,7 @@
 <?php
+
+use LearnPress\Models\CourseModel;
+
 if ( ! class_exists( 'LP_REST_Courses_Reviews_Controller' ) ) {
 	class LP_REST_Courses_Reviews_Controller extends LP_Abstract_REST_Controller {
 		/**
@@ -109,8 +112,7 @@ if ( ! class_exists( 'LP_REST_Courses_Reviews_Controller' ) ) {
 					throw new Exception( esc_html__( 'No Course ID param.', 'learnpress-course-review' ) );
 				}
 
-				$course = learn_press_get_course( $course_id );
-
+				$course = CourseModel::find( $course_id, true );
 				if ( ! $course ) {
 					throw new Exception( esc_html__( 'Course not found.', 'learnpress-course-review' ) );
 				}
@@ -188,15 +190,15 @@ if ( ! class_exists( 'LP_REST_Courses_Reviews_Controller' ) ) {
 				$user_id   = get_current_user_id();
 
 				if ( empty( $course_id ) ) {
-					throw new Exception( esc_html__( 'No Course ID param.', 'learnpress' ) );
+					throw new Exception( esc_html__( 'No Course ID param.', 'learnpress-course-review' ) );
 				}
 
 				if ( empty( $user_id ) ) {
-					throw new Exception( esc_html__( 'No User.', 'learnpress' ) );
+					throw new Exception( esc_html__( 'No User.', 'learnpress-course-review' ) );
 				}
 
 				if ( ! $this->check_can_review( $course_id ) ) {
-					throw new Exception( esc_html__( 'You can not submit review.', 'learnpress' ) );
+					throw new Exception( esc_html__( 'You can not submit review.', 'learnpress-course-review' ) );
 				}
 
 				$add_review = learn_press_add_course_review(
@@ -212,10 +214,10 @@ if ( ! class_exists( 'LP_REST_Courses_Reviews_Controller' ) ) {
 
 				if ( $add_review ) {
 					$response->data->comment_id = $add_review;
-					$response->message          = is_admin() ? esc_html__( 'Your review submitted successfully', 'learnpress' ) : esc_html__( 'Thank you for your review. Your review will be visible after it has been approved', 'learnpress' );
+					$response->message          = is_admin() ? esc_html__( 'Your review submitted successfully', 'learnpress-course-review' ) : esc_html__( 'Thank you for your review. Your review will be visible after it has been approved', 'learnpress-course-review' );
 					$response->status           = 'success';
 				} else {
-					throw new Exception( esc_html__( 'Cannot submit your review.', 'learnpress' ) );
+					throw new Exception( esc_html__( 'Cannot submit your review.', 'learnpress-course-review' ) );
 				}
 			} catch ( \Throwable $th ) {
 				$response->message = $th->getMessage();

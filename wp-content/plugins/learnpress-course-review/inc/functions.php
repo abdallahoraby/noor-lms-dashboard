@@ -6,26 +6,31 @@
  *
  * @author   ThimPress
  * @package  LearnPress/Course-Review/Functions
- * @version  3.0.1
+ * @version  3.0.2
  */
 
 // Prevent loading this file directly
 defined( 'ABSPATH' ) || exit;
 
 /**
- * @param int     $course_id
- * @param int     $paged
- * @param int     $per_page
+ * @param int $course_id
+ * @param int $paged
+ * @param int $per_page
  * @param boolean $force
+ *
+ * @tungnx: fix temporary, when have time will write, remove it.
  *
  * @return mixed
  */
 function learn_press_get_course_review( $course_id, $paged = 1, $per_page = LP_ADDON_COURSE_REVIEW_PER_PAGE, $force = false ) {
+	$results = array(
+		'reviews'  => array(),
+		'paged'    => $paged,
+		'total'    => 0,
+		'per_page' => $per_page,
+	);
 
-	$key = 'course-' . md5( serialize( array( $course_id, $paged, $per_page ) ) );
-
-	if ( false === ( $results = wp_cache_get( $key, 'lp-course-review' ) ) || $force ) {
-
+	try {
 		global $wpdb;
 		$per_page = absint( apply_filters( 'learn_press_course_reviews_per_page', $per_page ) );
 		$paged    = absint( $paged );
@@ -38,28 +43,20 @@ function learn_press_get_course_review( $course_id, $paged = 1, $per_page = LP_A
 			$paged = 1;
 		}
 
-		$start    = ( $paged - 1 ) * $per_page;
-		$start    = max( $start, 0 );
-		$per_page = max( $per_page, 1 );
-		$results  = array(
-			'reviews'  => array(),
-			'paged'    => $paged,
-			'total'    => 0,
-			'per_page' => $per_page,
-		);
+		$start = ( $paged - 1 ) * $per_page;
 
 		$query = $wpdb->prepare(
 			"
-	        SELECT SQL_CALC_FOUND_ROWS u.user_email, u.display_name, c.comment_ID as comment_id, cm1.meta_value as title, c.comment_content as content, cm2.meta_value as rate
-	        FROM {$wpdb->posts} p
-	        INNER JOIN {$wpdb->comments} c ON p.ID = c.comment_post_ID
-	        INNER JOIN {$wpdb->users} u ON u.ID = c.user_id
-	        INNER JOIN {$wpdb->commentmeta} cm1 ON cm1.comment_id = c.comment_ID AND cm1.meta_key = %s
-	        INNER JOIN {$wpdb->commentmeta} cm2 ON cm2.comment_id = c.comment_ID AND cm2.meta_key = %s
-	        WHERE p.ID = %d AND c.comment_type = %s AND c.comment_approved = %d
-	        ORDER BY c.comment_date DESC
-	        LIMIT %d, %d
-	    ",
+			SELECT SQL_CALC_FOUND_ROWS u.user_email, u.display_name, c.comment_ID as comment_id, cm1.meta_value as title, c.comment_content as content, cm2.meta_value as rate
+			FROM {$wpdb->posts} p
+			INNER JOIN {$wpdb->comments} c ON p.ID = c.comment_post_ID
+			INNER JOIN {$wpdb->users} u ON u.ID = c.user_id
+			INNER JOIN {$wpdb->commentmeta} cm1 ON cm1.comment_id = c.comment_ID AND cm1.meta_key = %s
+			INNER JOIN {$wpdb->commentmeta} cm2 ON cm2.comment_id = c.comment_ID AND cm2.meta_key = %s
+			WHERE p.ID = %d AND c.comment_type = %s AND c.comment_approved = %d
+			ORDER BY c.comment_date DESC
+			LIMIT %d, %d
+			",
 			'_lpr_review_title',
 			'_lpr_rating',
 			$course_id,
@@ -76,12 +73,9 @@ function learn_press_get_course_review( $course_id, $paged = 1, $per_page = LP_A
 			$results['reviews'] = $course_review;
 			$results['total']   = $ratings[ $course_id ]['total'];
 			$results['pages']   = ceil( $results['total'] / $per_page );
-			if ( $results['total'] <= $start + $per_page ) {
-				$results['finish'] = true;
-			}
 		}
+	} catch ( Throwable $e ) {
 
-		wp_cache_set( $key, $results, 'lp-course-review' );
 	}
 
 	return $results;
@@ -102,6 +96,8 @@ function _learn_press_get_ratings( $course_id ) {
 
 
 /**
+ * Get the rating info of a course
+ *
  * @param $course_id
  * @param $field
  *
@@ -127,8 +123,11 @@ function learn_press_get_course_rate_total( $course_id, $field = 'total' ) {
  * @param $user_id
  *
  * @return string
+ * @deprecated 4.1.2
  */
 function learn_press_get_user_review_title( $course_id, $user_id ) {
+	_deprecated_function( __FUNCTION__, '4.1.2' );
+	return false;
 	$course_review = get_post_meta( $course_id, '_lpr_course_review', true );
 
 	if ( $course_review && array_key_exists( $user_id, $course_review['review_title'] ) ) {
@@ -264,12 +263,15 @@ function learn_press_init_courses_review( $posts ) {
 /**
  * Get rating for a course
  *
- * @param int  $course_id
+ * @param int $course_id
  * @param bool $get_items
  *
  * @return array|string
+ * @deprecated 4.1.2
  */
 function leanr_press_get_ratings_result( $course_id = 0, $get_items = false ) {
+	_deprecated_function( __FUNCTION__, '4.1.2' );
+	return '';
 	if ( get_post_type( $course_id ) !== LP_COURSE_CPT ) {
 		return '';
 	}
@@ -305,7 +307,7 @@ function leanr_press_get_ratings_result( $course_id = 0, $get_items = false ) {
 		$avg   = 0;
 		$items = array();
 
-		for ( $i = 5; $i > 0; $i -- ) {
+		for ( $i = 5; $i > 0; $i-- ) {
 			$items[ $i ] = array(
 				'rated'   => $i,
 				'total'   => 0,
@@ -339,7 +341,7 @@ function leanr_press_get_ratings_result( $course_id = 0, $get_items = false ) {
 					$items[ $key ]['percent'] = ceil( $items[ $key ]['percent_float'] );
 
 					if ( $percent < $items[ $key ]['percent'] ) {
-						$one_hundred ++;
+						++$one_hundred;
 						if ( $one_hundred == 100 ) {
 							break;
 						}
@@ -362,26 +364,6 @@ function leanr_press_get_ratings_result( $course_id = 0, $get_items = false ) {
 
 	return $result;
 }
-
-function learn_press_course_review_loop_stars() {
-	if ( LP_COURSE_CPT !== get_post_type() ) {
-		return;
-	}
-
-	$course_rate_res = learn_press_get_course_rate( get_the_ID(), false );
-	?>
-
-	<div class="course-review">
-		<?php learn_press_course_review_template( 'rating-stars.php', array( 'rated' => $course_rate_res['rated'] ) ); ?>
-	   <div class="clearfix">
-
-	   </div>
-   </div>
-
-	<?php
-}
-
-//add_action( 'learn-press/after-courses-loop-item', 'learn_press_course_review_loop_stars' );
 
 function learn_press_course_meta_primary_review() {
 	if ( LP_COURSE_CPT !== get_post_type() ) {

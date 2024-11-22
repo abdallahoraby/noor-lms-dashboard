@@ -17,7 +17,7 @@ if ( empty( $course_review ) || empty( $course_id ) ) {
 }
 
 $reviews = $course_review['reviews'] ?? [];
-$pages   = $course_review['pages'] ?? 0;
+$pages   = (int) ( $course_review['pages'] ?? 0 );
 $paged   = $paged ?? 1;
 $total   = $course_review['total'] ?? 0;
 if ( ! $total ) {
@@ -40,7 +40,7 @@ if ( ! $total ) {
 		<?php if ( $paged === 1 ) : ?>
 	</ul>
 	<?php endif; ?>
-	<?php if ( empty( $course_review['finish'] ) && $paged === 1 ) { ?>
+	<?php if ( $paged === 1 && $pages > 1 ) { ?>
 		<button class="lp-button course-review-load-more" id="course-review-load-more"
 				data-paged="<?php echo absint( $course_review['paged'] + 1 ); ?>"
 				data-id="<?php echo $course_id; ?>"

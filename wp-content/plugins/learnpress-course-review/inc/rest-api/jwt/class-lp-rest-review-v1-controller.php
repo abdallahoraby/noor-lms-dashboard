@@ -5,6 +5,9 @@
  * @package LearnPress/JWT/RESTAPI
  * @author Nhamdv <daonham95@gmail.com>
  */
+
+use LearnPress\Models\CourseModel;
+
 if ( class_exists( 'LP_REST_Jwt_Posts_Controller' ) ) {
 	class LP_Jwt_Course_Review_V1_Controller extends LP_REST_Jwt_Controller {
 		protected $namespace = 'learnpress/v1';
@@ -107,8 +110,7 @@ if ( class_exists( 'LP_REST_Jwt_Posts_Controller' ) ) {
 					throw new Exception( esc_html__( 'No Course ID param.', 'learnpress-course-review' ) );
 				}
 
-				$course = learn_press_get_course( $course_id );
-
+				$course = CourseModel::find( $course_id, true );
 				if ( ! $course ) {
 					throw new Exception( esc_html__( 'Course not found.', 'learnpress-course-review' ) );
 				}

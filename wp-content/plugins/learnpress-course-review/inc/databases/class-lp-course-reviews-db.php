@@ -50,6 +50,7 @@ class LP_Course_Reviews_DB extends LP_Database {
 			FROM {$this->tb_comments} AS c
 			INNER JOIN {$this->tb_commentmeta} AS cm
 			ON c.comment_ID = cm.comment_id
+			INNER JOIN {$this->tb_users} u ON u.ID = c.user_id
 			WHERE c.comment_post_ID = %d
 			AND c.comment_approved = 1
 			AND cm.meta_key = '_lpr_rating'
@@ -64,4 +65,3 @@ class LP_Course_Reviews_DB extends LP_Database {
 		return $result;
 	}
 }
-

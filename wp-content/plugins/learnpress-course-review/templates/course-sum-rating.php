@@ -6,7 +6,7 @@
  *
  * @author  ThimPress
  * @package LearnPress/Course-Review/Templates
- * version  3.0.2
+ * version  3.0.3
  */
 
 // Prevent loading this file directly
@@ -16,7 +16,7 @@ if ( ! isset( $course_rate_res ) ) {
 	return;
 }
 
-$rated = $course_rate_res['rated'] ?? 0;
+$rated = $course_rate_res['rated'];
 $total = $course_rate_res['total'] ?? 0;
 ?>
 <div class="course-rate">
@@ -38,19 +38,18 @@ $total = $course_rate_res['total'] ?? 0;
 			<div class="course-rate__details-row">
 				<span class="course-rate__details-row-star">
 					<?php echo esc_html( $item['rated'] ); ?>
-					<i class="fas" style="color: #ffb60a">
-						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
-					<path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-				</svg>
-					</i>
 				</span>
+				<em class="fas lp-review-svg-star">
+					<?php echo LP_Addon_Course_Review::get_svg_star() ?>
+				</em>
 				<div class="course-rate__details-row-value">
 					<div class="rating-gray"></div>
 					<div class="rating" style="width:<?php echo $item['percent']; ?>%;"
 						title="<?php echo esc_attr( $item['percent'] ); ?>%">
 					</div>
-					<span class="rating-count"><?php echo $item['total']; ?></span>
+
 				</div>
+				<span class="rating-count"><?php echo $item['total']; ?></span>
 			</div>
 			<?php
 		endforeach;

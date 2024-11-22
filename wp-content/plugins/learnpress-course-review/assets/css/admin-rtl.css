@@ -42,7 +42,7 @@
 
 .review-stars-rated .review-star .fas {
   position: absolute;
-  left: 0;
+  right: 0;
   top: 0;
   overflow: hidden;
   color: #ffb60a;
@@ -76,5 +76,5 @@
 .review-stars-rated .review-stars.filled {
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
 }

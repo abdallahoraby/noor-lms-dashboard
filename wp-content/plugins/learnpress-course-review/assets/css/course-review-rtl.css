@@ -4,7 +4,7 @@
   margin-bottom: 50px;
 }
 .course-rate__details {
-  margin-left: 50px;
+  margin-right: 50px;
   flex: 1;
 }
 .course-rate__summary-value {
@@ -28,17 +28,17 @@
 }
 .course-rate__details-row .course-rate__details-row-star {
   flex: 0 0 45px;
-  text-align: right;
+  text-align: left;
   color: #CCC;
 }
 .course-rate__details-row .course-rate__details-row-star i {
   display: inline-block;
-  margin-left: 5px;
+  margin-right: 5px;
 }
 .course-rate__details-row .course-rate__details-row-value {
   flex: 1;
   position: relative;
-  margin: 0 30px 0 10px;
+  margin: 0 10px 0 30px;
 }
 .course-rate__details-row .course-rate__details-row-value .rating, .course-rate__details-row .course-rate__details-row-value .rating-gray {
   height: 15px;
@@ -56,8 +56,8 @@
   color: #333;
   display: inline-block;
   position: absolute;
-  right: -50px;
-  text-align: right;
+  left: -50px;
+  text-align: left;
   line-height: 1;
   margin: 5px 0;
 }
@@ -74,7 +74,7 @@
 }
 .review-stars-rated .review-star .lp-review-svg-star.fas {
   position: absolute;
-  left: 0;
+  right: 0;
   top: 0;
   overflow: hidden;
 }
@@ -96,7 +96,7 @@
 .review-stars-rated .review-star.filled {
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
 }
 .review-stars-rated.center {
   justify-content: center;
@@ -120,8 +120,8 @@
   display: none;
   position: fixed;
   top: 0;
-  left: 0;
   right: 0;
+  left: 0;
   bottom: 0;
   z-index: 999999;
   text-align: center;
@@ -134,7 +134,7 @@
 .review-overlay {
   background: #000;
   bottom: 0;
-  left: 0;
+  right: 0;
   position: fixed;
   top: 0;
   width: 100%;
@@ -149,7 +149,7 @@
   max-width: 600px;
   margin-top: 10%;
   display: inline-block;
-  text-align: left;
+  text-align: right;
 }
 .review-form h4 {
   margin: 0 0 15px;
@@ -192,7 +192,7 @@
   margin: 0 0 7px;
 }
 .review-form .review-fields > li > label .required {
-  margin-left: 5px;
+  margin-right: 5px;
 }
 .review-form .review-fields .review-actions {
   margin-bottom: 0;
@@ -202,7 +202,7 @@
   display: none;
 }
 .review-form button.submit-review.loading:before {
-  margin-right: 10px;
+  margin-left: 10px;
 }
 
 .review-stars {
@@ -245,7 +245,7 @@
 .course-review-wrapper.submitting .ajaxload {
   position: absolute;
   top: 48%;
-  left: 48%;
+  right: 48%;
 }
 .course-review-wrapper.submitting .review-form {
   position: relative;
@@ -253,7 +253,7 @@
 .course-review-wrapper.submitting .review-form .form-overlay-review {
   background: #000;
   bottom: 0;
-  left: 0;
+  right: 0;
   position: absolute;
   top: 0;
   width: 100%;
@@ -266,7 +266,7 @@
 }
 .course-rate .review-bar {
   width: calc(100% - 125px);
-  margin-right: 5px;
+  margin-left: 5px;
   height: 15px;
   background: #DDD;
   display: inline-block;
@@ -295,7 +295,7 @@
 }
 .learnpress-course-review .course-reviews-list li .review-author, .learnpress-course-review .course-reviews-list-shortcode li .review-author {
   width: 100px;
-  margin-right: 20px;
+  margin-left: 20px;
 }
 .learnpress-course-review .course-reviews-list li .review-author img, .learnpress-course-review .course-reviews-list-shortcode li .review-author img {
   width: 100%;
@@ -303,11 +303,11 @@
 }
 .learnpress-course-review .course-reviews-list li .review-text, .learnpress-course-review .course-reviews-list-shortcode li .review-text {
   width: 100%;
-  padding-left: 120px;
+  padding-right: 120px;
 }
 @media (max-width: 600px) {
   .learnpress-course-review .course-reviews-list li .review-text, .learnpress-course-review .course-reviews-list-shortcode li .review-text {
-    padding-left: 0;
+    padding-right: 0;
     padding-top: 15px;
   }
 }

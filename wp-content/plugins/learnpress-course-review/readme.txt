@@ -1,11 +1,11 @@
 === LearnPress - Course Review ===
 Contributors: thimpress
 Donate link:
-Tags: lms, elearning, e-learning, learning management system, education, course, courses, quiz, quizzes, questions, training, guru, sell courses
-Requires at least: 5.8
-Requires PHP: 7.0
-Tested up to: 6.1.1
-Stable tag: 4.0.7
+Tags: lms, education, e-learning, learning management system, review.
+Requires at least: 6.0
+Requires PHP: 7.4
+Tested up to: 6.6.1
+Stable tag: 4.1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -56,6 +56,32 @@ Check out <a href="http://docs.thimpress.com/learnpress" target="_blank">LearnPr
 1. LearnPress Course Review screenshot.
 
 == Changelog ==
+
+= 4.1.4 (2024-08-29) =
+~ Show reviews on single offline course.
+~ Use CourseModel instead of learn_press_get_course function.
+
+= 4.1.3 (2024-07-18) =
+~ Fixed: error stars on review form.
+
+= 4.1.2 (2024-05-13) =
+~ Added: feature to filter courses by star review.
+~ Added: save calculate average rating for course.
+~ Added: Course sorting by rating.
+~ Change: icon star review.
+
+= 4.1.1 (2024-02-01) =
+~ Fixed: not show list review when has cache.
+
+= 4.1.0 (2023-12-27) =
+~ Fixed: bug load more when deleted user has comment on system.
+
+= 4.0.9 (2023-12-26) =
+~ Fixed: rated stars.
+~ Tweak: style.
+
+= 4.0.8 (2023-05-03) =
+~ Fixed: Review per page change from 1 item to 5 item
 
 = 4.0.7 (2023-03-24) =
 ~ Fixed: minor bug.
