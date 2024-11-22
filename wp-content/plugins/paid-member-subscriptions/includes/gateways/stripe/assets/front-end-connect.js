@@ -124,6 +124,7 @@ jQuery( function( $ ) {
     // Payment Intents
     $(document).on( 'wppb_invisible_recaptcha_success', stripeConnectPaymentGatewayHandler )
     $(document).on( 'wppb_v3_recaptcha_success', stripeConnectPaymentGatewayHandler )
+    $(document).on( 'pms_v3_recaptcha_success', stripeConnectPaymentGatewayHandler )
 
     $(document).on('submit', '.pms-form', function (e) {
 
@@ -178,7 +179,7 @@ jQuery( function( $ ) {
         var current_button = $(this)
 
         // Current submit button can't be determined from `this` context in case of the Invisible reCaptcha handler
-        if( e.type == 'wppb_invisible_recaptcha_success' || e.type == 'wppb_v3_recaptcha_success' ){
+        if( e.type == 'wppb_invisible_recaptcha_success' || e.type == 'wppb_v3_recaptcha_success' || e.type == 'pms_v3_recaptcha_success' ){
 
             // target_button is supplied to the handler starting with version 3.5.0 of Profile Builder, we use this for backwards compatibility
             current_button = target_button == false ? $( 'input[type="submit"]', $( '.wppb-recaptcha-element' ).closest( 'form' ) ) : $( target_button )
@@ -508,6 +509,25 @@ jQuery( function( $ ) {
             if ( form_data.group_description )
                 data.group_description = form_data.group_description
 
+            // add billing details
+            if ( form_data.pms_billing_address )
+                data.pms_billing_address = form_data.pms_billing_address
+
+            if ( form_data.pms_billing_city )
+                data.pms_billing_city = form_data.pms_billing_city
+            
+            if ( form_data.pms_billing_country )
+                data.pms_billing_country = form_data.pms_billing_country
+
+            if ( form_data.pms_billing_state )
+                data.pms_billing_state = form_data.pms_billing_state
+
+            if ( form_data.pms_billing_zip )
+                data.pms_billing_zip = form_data.pms_billing_zip
+
+            if ( form_data.pms_vat_number )
+                data.pms_vat_number = form_data.pms_vat_number
+
             $.post(pms.ajax_url, data, function (response) {
 
                 response = JSON.parse(response)
@@ -665,11 +685,17 @@ jQuery( function( $ ) {
 
     function stripeResetSubmitButton( target ) {
 
+        if( !target.data || !target.data( 'original-value' ) || typeof target.data( 'original-value' ) == undefined ){
+            value = target.val()
+        } else {
+            value = target.data( 'original-value' )
+        }
+
         setTimeout( function() {
-            target.attr( 'disabled', false ).removeClass( 'pms-submit-disabled' ).val( target.data( 'original-value' ) ).blur()
+            target.attr( 'disabled', false ).removeClass( 'pms-submit-disabled' ).val( value ).blur()
 
             if ( $( target ).is('button') )
-                $( target ).text( target.data('original-value') )
+                $( target ).text( value )
 
         }, 1 )
 
@@ -924,7 +950,7 @@ jQuery( function( $ ) {
         if ( typeof selected_plan.data('trial') != 'undefined' && selected_plan.data('trial') == '1' && !$.pms_plan_has_signup_fee( selected_plan ) )
             return true
         // If a 100% discount code is used, initial amount will be 0
-        else if ( $('input[name="discount_code"]' ).length > 0 && typeof selected_plan.data('price') != 'undefined' && selected_plan.data('price') == '0' )
+        else if ( $( 'input[name="discount_code"]' ).length > 0 && $( 'input[name="discount_code"]' ).val().length > 0 && typeof selected_plan.data('price') != 'undefined' && selected_plan.data('price') == '0' )
             return true
         // Pro-rated subscriptions
         else if ( $.pms_plan_is_prorated(selected_plan) && typeof selected_plan.data('price') != 'undefined' && selected_plan.data('price') == '0' )

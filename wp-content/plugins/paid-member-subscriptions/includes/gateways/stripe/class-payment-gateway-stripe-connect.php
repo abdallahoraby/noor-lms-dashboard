@@ -383,6 +383,8 @@ Class PMS_Payment_Gateway_Stripe_Connect extends PMS_Payment_Gateway {
                     // Save card expiration info
                     $this->save_payment_method_expiration_data( $subscription_id, $intent->payment_method );
 
+                    do_action( 'pms_stripe_checkout_processed', 'setup_intent', $subscription_id, $payment->id, $form_location );
+
                     $data = array(
                         'success'      => true,
                         'redirect_url' => $this->get_success_redirect_url( $form_location ),
@@ -461,6 +463,8 @@ Class PMS_Payment_Gateway_Stripe_Connect extends PMS_Payment_Gateway {
 
                     // Save card expiration info
                     $this->save_payment_method_expiration_data( $subscription_id, $intent->payment_method );
+                    
+                    do_action( 'pms_stripe_checkout_processed', 'payment_intent', $subscription_id, $payment->id, $form_location );
 
                     $data = array(
                         'success'      => true,
@@ -1957,7 +1961,7 @@ Class PMS_Payment_Gateway_Stripe_Connect extends PMS_Payment_Gateway {
         $setup_intent = $this->create_initial_setup_intent();
 
         if( !empty( $setup_intent ) )
-            echo '<input type="hidden" name="pms_stripe_connect_setup_intent" value="'. esc_attr( $setup_intent->client_secret ) .'"/>';
+            echo '<input type="hidden" name="pms_stripe_connect_setup_intent" value="'. esc_attr( $setup_intent ) .'"/>';
 
         echo '<input type="hidden" id="pms-stripe-ajax-update-payment-method-nonce" name="stripe_ajax_update_payment_method_nonce" value="'. esc_attr( wp_create_nonce( 'pms_update_payment_method' ) ) .'"/>';
 
@@ -2192,7 +2196,7 @@ Class PMS_Payment_Gateway_Stripe_Connect extends PMS_Payment_Gateway {
         $payment->log_data( 'payment_failed', $data, $error_code );
     }
 
-    public function set_account_country(){
+    public function set_account_country( $environment ){
 
         if( empty( $this->secret_key ) )
             return false;
@@ -2213,7 +2217,7 @@ Class PMS_Payment_Gateway_Stripe_Connect extends PMS_Payment_Gateway {
         if ( empty( $account ) || empty( $account->country ) )
             return false;
 
-        update_option( 'pms_stripe_connect_account_country', $account->country );
+        update_option( 'pms_stripe_connect_account_country_' . $environment, $account->country );
 
         return $account;
 
@@ -2282,10 +2286,14 @@ Class PMS_Payment_Gateway_Stripe_Connect extends PMS_Payment_Gateway {
         // set API key
         $stripe = new \Stripe\StripeClient( $this->secret_key );
 
+        // Stripe expects a base url here without a path, so for multisite with subdirectories for example, we need to remove the directory
+        $target_url = wp_parse_url( home_url() );
+        $target_url = $target_url['scheme'] . '://' . $target_url['host'];
+
         try {
 
             $domain = $stripe->paymentMethodDomains->create( array(
-                'domain_name' => home_url(),
+                'domain_name' => $target_url,
             ) );
 
         } catch ( Exception $e ) {
