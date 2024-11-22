@@ -1,11 +1,11 @@
 === LearnPress - Course Wishlist ===
 Contributors: thimpress, tunnhn, kendy73
 Donate link:
-Tags: lms, elearning, e-learning, learning management system, education, course, courses, quiz, quizzes, questions, training, guru, sell courses
-Requires at least: 5.8
-Tested up to: 6.1.1
-Requires PHP: 7.0
-Stable tag: 4.0.5
+Tags: lms, elearning, e-learning, learning management system, education.
+Requires at least: 6.0
+Tested up to: 6.6.1
+Requires PHP: 7.4
+Stable tag: 4.0.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -55,6 +55,19 @@ Check out <a href="http://docs.thimpress.com/learnpress" target="_blank">LearnPr
 1. LearnPress Prerequisite screenshot.
 
 == Changelog ==
+
+= 4.0.8 (2024-08-29) =
+~ Fixed: param API for App.
+~ Show wishlist on single offline course.
+~ Tweak: button wishlist, api toggle wishlist.
+
+= 4.0.7 (2024-03-07) =
+~ Fixed: minor bug.
+~ Load defer js.
+
+= 4.0.6 (2023-09-15) =
+~ Fixed: icon on Profile Page.
+~ Added: widget Elementor.
 
 = 4.0.5 =
 ~ Fixed: error show list wishlist on Profile page.

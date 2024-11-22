@@ -3,7 +3,7 @@
 }
 
 .course-wishlist {
-  float: right;
+  float: left;
 }
 .course-wishlist.heartbeat {
   animation-name: course-wishlist-heartbeat;
@@ -22,7 +22,7 @@
 }
 .course-wishlist:before {
   content: "\f004";
-  margin-right: 5px;
+  margin-left: 5px;
   font-family: "lp-icon";
 }
 .course-wishlist.filled:before {
@@ -77,7 +77,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   grid-gap: 20px;
-  padding-right: 20px;
+  padding-left: 20px;
 }
 #learn-press-profile .learn-press-wishlist-courses h3 {
   font-size: 1em;
