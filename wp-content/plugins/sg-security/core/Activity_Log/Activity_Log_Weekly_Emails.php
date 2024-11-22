@@ -39,7 +39,7 @@ class Activity_Log_Weekly_Emails extends Activity_Log_Helper {
 			strtotime( 'next monday + ' . rand( 1, 360 ) . ' minutes' ),
 			array(
 				'recipients_option' => 'sg_security_notification_emails',
-				'subject'           => __( 'Weekly Activity for ', 'sg-security' ) . Helper_Service::get_site_url(),
+				'subject'           => 'Weekly Activity for ' . Helper_Service::get_site_url(),
 				'body_method'       => array( '\SG_Security\Activity_Log\Activity_Log_Weekly_Emails', 'generate_message_body' ),
 				'from_name'         => 'Security Optimizer by SiteGround',
 			)
