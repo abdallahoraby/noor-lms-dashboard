@@ -210,7 +210,11 @@ class Supercacher {
 	public static function purge_cache_request( $url, $include_child_paths = true ) {
 		// Check if the user has file cache enabled, clear the file cache and bail if the user is not hosted on SiteGround.
 		if ( Options::is_enabled( 'siteground_optimizer_file_caching' ) ) {
-			File_Cacher::get_instance()->purge_cache_request( $url, $include_child_paths );
+			if( get_home_url( null, '/' ) === $url ) {
+				File_Cacher::get_instance()->purge_everything();
+			} else {
+				File_Cacher::get_instance()->purge_cache_request( $url, $include_child_paths );
+			}
 		}
 
 		if ( ! Helper_Service::is_siteground() ) {

@@ -184,7 +184,7 @@ class File_Cacher extends Supercacher {
 			return $dir;
 		}
 
-		mkdir( $dir, 0775, true );
+		$this->wp_filesystem->mkdir( $dir, 0775 );
 
 		$this->output_directory = $dir;
 
@@ -277,7 +277,7 @@ class File_Cacher extends Supercacher {
 		$url = empty( $url ) ? self::get_current_url() : $url;
 
 		// Parse the url.
-		$parsed_url = parse_url( $url );
+		$parsed_url = wp_parse_url( $url );
 
 		// Prepare the path.
 		$path = $parsed_url['host'];
@@ -474,7 +474,7 @@ class File_Cacher extends Supercacher {
 
 		// If the file exists, delete it and call this function recursively.
 		if ( ! empty( $first_file ) ) {
-			unlink( $directory . $first_file );
+			wp_delete_file( $directory . $first_file );
 			$this->maybe_purge_cache();
 		}
 
@@ -492,6 +492,7 @@ class File_Cacher extends Supercacher {
 	 */
 	public static function purge_cache_request( $url, $include_child_paths = true ) {
 		$self = self::get_instance();
+		global $wp_filesystem;
 
 		// Check if the URL is excluded, exit early if excluded.
 		if ( $self->is_url_excluded( $url ) ) {
@@ -505,16 +506,20 @@ class File_Cacher extends Supercacher {
 			return false;
 		}
 
-		$cache_dir = scandir( $cache_dir );
+		// Scan the dir.
+		$cache_dir = $wp_filesystem->dirlist( $cache_dir );
 
-		// Bail if scandir fails to scan.
+		// Bail if dirlist fails to scan.
 		if ( ! $cache_dir ) {
 			return false;
 		}
 
-		$subdirs = array_diff( $cache_dir, array( '..', '.' ) );
+		// Extract the subdirs array.
+		foreach ( $cache_dir as $file ) {
+			$subdirs[] = $file['name'];
+		}
 
-		$path = parse_url( $url, PHP_URL_PATH );
+		$path = wp_parse_url( $url, PHP_URL_PATH );
 
 		foreach ( $subdirs as $dir ) {
 			$status = $self->purge_dir_cache( $self->get_cache_dir() . $dir . $path );
