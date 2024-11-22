@@ -39,16 +39,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
-/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
-/* eslint-disable no-mixed-spaces-and-tabs */
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__);
 
+/* eslint-disable no-mixed-spaces-and-tabs */
 
 
 
@@ -57,7 +57,7 @@ const {
   get,
   set
 } = lodash;
-class QuestionBase extends _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Component {
+class QuestionBase extends _wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Component {
   constructor(props) {
     super(...arguments);
     const {
@@ -142,7 +142,7 @@ class QuestionBase extends _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Compo
       status
     } = this.props;
     if (status !== 'started') {
-      return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('LP Error: can not set answers', 'learnpress');
+      return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('LP Error: can not set answers', 'learnpress');
     }
     const $options = this.$wrap.find('.option-check');
     const answered = [];
@@ -181,9 +181,7 @@ class QuestionBase extends _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Compo
     return this.props.supportOptions;
   };
   getWarningMessage = () => {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-      children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('The render function should be overwritten from the base.', 'learnpress')
-    });
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('The render function should be overwritten from the base.', 'learnpress'));
   };
   getOptionClass = option => {
     const {
@@ -226,7 +224,7 @@ class QuestionBase extends _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Compo
     const {
       question
     } = this.props;
-    return (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_1__.select)('learnpress/quiz').isCheckedAnswer(question.id);
+    return (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.select)('learnpress/quiz').isCheckedAnswer(question.id);
   };
   getCorrectLabel = () => {
     const {
@@ -236,54 +234,49 @@ class QuestionBase extends _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Compo
     } = this.props;
     const checker = LP.config.isQuestionCorrect[question.type] || this.isCorrect;
     const isCorrect = checker.call(this);
-    return this.maybeShowCorrectAnswer() && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-      className: `question-response` + (isCorrect ? ' correct' : ' incorrect'),
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-        className: "label",
-        children: isCorrect ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Correct', 'learnpress') : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Incorrect', 'learnpress')
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-        className: "point",
-        children: sprintf((0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('%d/%d point', 'learnpress'), isCorrect ? question.point : 0, question.point)
-      })]
-    });
+    return this.maybeShowCorrectAnswer() && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: `question-response` + (isCorrect ? ' correct' : ' incorrect')
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+      className: "label"
+    }, isCorrect ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Correct', 'learnpress') : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Incorrect', 'learnpress')), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+      className: "point"
+    }, sprintf((0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('%d/%d point', 'learnpress'), isCorrect ? question.point : 0, question.point)));
   };
   render() {
     const {
       question,
       status
     } = this.props;
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-      className: "question-answers",
-      children: [this.isDefaultType() && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("ul", {
-        id: `answer-options-${question.id}`,
-        className: "answer-options",
-        children: this.getOptions().map(option => {
-          const ID = `learn-press-answer-option-${option.uid}`;
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("li", {
-            className: this.getOptionClass(option).join(' '),
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-              type: this.getOptionType(question.type, option),
-              className: "option-check",
-              name: status === 'started' ? `learn-press-question-${question.id}` : '',
-              id: ID,
-              ref: el => {
-                this.setInputRef(el, option.value);
-              },
-              onChange: this.setAnswerChecked(),
-              disabled: this.maybeDisabledOption(option),
-              checked: this.maybeCheckedAnswer(option.value),
-              value: status === 'started' ? option.value : ''
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-              htmlFor: ID,
-              className: "option-title",
-              dangerouslySetInnerHTML: {
-                __html: option.title || option.value
-              }
-            })]
-          }, `answer-option-${option.uid}`);
-        })
-      }), !this.isDefaultType() && this.getWarningMessage(), this.getCorrectLabel()]
-    });
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "question-answers"
+    }, this.isDefaultType() && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
+      id: `answer-options-${question.id}`,
+      className: "answer-options"
+    }, this.getOptions().map(option => {
+      const ID = `learn-press-answer-option-${option.uid}`;
+      return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
+        className: this.getOptionClass(option).join(' '),
+        key: `answer-option-${option.uid}`
+      }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+        type: this.getOptionType(question.type, option),
+        className: "option-check",
+        name: status === 'started' ? `learn-press-question-${question.id}` : '',
+        id: ID,
+        ref: el => {
+          this.setInputRef(el, option.value);
+        },
+        onChange: this.setAnswerChecked(),
+        disabled: this.maybeDisabledOption(option),
+        checked: this.maybeCheckedAnswer(option.value),
+        value: status === 'started' ? option.value : ''
+      }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
+        htmlFor: ID,
+        className: "option-title",
+        dangerouslySetInnerHTML: {
+          __html: option.title || option.value
+        }
+      }));
+    })), !this.isDefaultType() && this.getWarningMessage(), this.getCorrectLabel());
   }
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (QuestionBase);
@@ -300,16 +293,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _question_base__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../question-base */ "./assets/src/apps/js/frontend/question-types/components/question-base/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _question_base__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../question-base */ "./assets/src/apps/js/frontend/question-types/components/question-base/index.js");
 
 
 
 let flagEventEnterInput = false;
-class QuestionFillInBlanks extends _question_base__WEBPACK_IMPORTED_MODULE_1__["default"] {
+class QuestionFillInBlanks extends _question_base__WEBPACK_IMPORTED_MODULE_2__["default"] {
   componentDidMount() {
     const {
       answered,
@@ -371,30 +364,25 @@ class QuestionFillInBlanks extends _question_base__WEBPACK_IMPORTED_MODULE_1__["
         getMark = mark.toFixed(2);
       }
     }
-    return this.maybeShowCorrectAnswer() && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-      className: "question-response correct",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-        className: "label",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Points', 'learnpress')
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-        className: "point",
-        children: `${getMark}/${question.point} ${(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('point', 'learnpress')}`
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
-        className: "lp-fib-note",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-          style: {
-            background: '#00adff'
-          }
-        }), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Correct', 'learnpress')]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
-        className: "lp-fib-note",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-          style: {
-            background: '#d85554'
-          }
-        }), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Incorrect', 'learnpress')]
-      })]
-    });
+    return this.maybeShowCorrectAnswer() && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "question-response correct"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+      className: "label"
+    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Points', 'learnpress')), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+      className: "point"
+    }, `${getMark}/${question.point} ${(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('point', 'learnpress')}`), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+      className: "lp-fib-note"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+      style: {
+        background: '#00adff'
+      }
+    }), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Correct', 'learnpress')), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+      className: "lp-fib-note"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+      style: {
+        background: '#d85554'
+      }
+    }), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Incorrect', 'learnpress')));
   };
   convertInputField = option => {
     const {
@@ -431,18 +419,16 @@ class QuestionFillInBlanks extends _question_base__WEBPACK_IMPORTED_MODULE_1__["
     return title;
   };
   render() {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "lp-fib-content",
-        children: this.getOptions().map(option => {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            dangerouslySetInnerHTML: {
-              __html: this.convertInputField(option) || option.value
-            }
-          }, `blank-${option.uid}`);
-        })
-      }), !this.isDefaultType() && this.getWarningMessage(), this.getCorrectLabel()]
-    });
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "lp-fib-content"
+    }, this.getOptions().map(option => {
+      return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+        key: `blank-${option.uid}`,
+        dangerouslySetInnerHTML: {
+          __html: this.convertInputField(option) || option.value
+        }
+      });
+    })), !this.isDefaultType() && this.getWarningMessage(), this.getCorrectLabel());
   }
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (QuestionFillInBlanks);
@@ -605,16 +591,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   TrueOrFalse: () => (/* reexport safe */ _components__WEBPACK_IMPORTED_MODULE_5__.TrueOrFalse),
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_compose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/compose */ "@wordpress/compose");
-/* harmony import */ var _wordpress_compose__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_compose__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
-/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_compose__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/compose */ "@wordpress/compose");
+/* harmony import */ var _wordpress_compose__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_compose__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components */ "./assets/src/apps/js/frontend/question-types/components/index.js");
 
 
@@ -622,7 +608,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-class QuestionTypes extends _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Component {
+class QuestionTypes extends _wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Component {
   getQuestion = () => {
     const {
       question
@@ -645,21 +631,19 @@ class QuestionTypes extends _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Comp
     };
     childProps.supportOptions = supportOptions.indexOf(question.type) !== -1;
     const TheQuestion = this.getQuestion() || function () {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
         className: "question-types",
         dangerouslySetInnerHTML: {
-          __html: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.sprintf)((0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Question <code>%s</code> invalid!', 'learnpress'), question.type)
+          __html: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.sprintf)((0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)('Question <code>%s</code> invalid!', 'learnpress'), question.type)
         }
       });
     };
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(TheQuestion, {
-        ...childProps
-      })
-    });
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(TheQuestion, {
+      ...childProps
+    }));
   }
 }
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_wordpress_compose__WEBPACK_IMPORTED_MODULE_1__.compose)((0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.withSelect)((select, {
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_wordpress_compose__WEBPACK_IMPORTED_MODULE_2__.compose)((0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.withSelect)((select, {
   question: {
     id
   }
@@ -675,19 +659,19 @@ class QuestionTypes extends _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Comp
     showCorrectReview: getData('showCorrectReview'),
     isReviewing: getData('mode') === 'reviewing'
   };
-}), (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.withDispatch)(() => {
+}), (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.withDispatch)(() => {
   return {};
 }))(QuestionTypes));
 
 /***/ }),
 
-/***/ "react/jsx-runtime":
-/*!**********************************!*\
-  !*** external "ReactJSXRuntime" ***!
-  \**********************************/
+/***/ "react":
+/*!************************!*\
+  !*** external "React" ***!
+  \************************/
 /***/ ((module) => {
 
-module.exports = window["ReactJSXRuntime"];
+module.exports = window["React"];
 
 /***/ }),
 

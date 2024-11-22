@@ -21,7 +21,17 @@ const AdminUtilsFunctions = {
 				},
 			},
 			onInitialize() {
+			},
+			onItemAdd( e ) {
+				// Get list without current item.
+				if ( fetchAPI ) {
+					const selectedOptions = Array.from( elTomSelect.selectedOptions );
+					const selectedValues = selectedOptions.map( ( option ) => option.value );
+					selectedValues.push( e );
+					dataSend.id_not_in = selectedValues.join( ',' );
 
+					fetchAPI( '', dataSend, callBackHandleData );
+				}
 			},
 		};
 
@@ -40,13 +50,13 @@ const AdminUtilsFunctions = {
 		}
 
 		options = { ...optionDefault, ...options };
+		const items_selected = options.options;
 		if ( options?.options?.length > 20 ) {
 			const chunkSize = 20;
 			const length = options.options.length;
 			let i = 0;
-			const optionsSlice = options.options.slice( i, chunkSize );
 			const chunkedOptions = { ...options };
-			chunkedOptions.options = optionsSlice;
+			chunkedOptions.options = items_selected.slice( i, chunkSize );
 
 			const tomSelect = new TomSelect( elTomSelect, chunkedOptions );
 			i += chunkSize;
@@ -56,8 +66,7 @@ const AdminUtilsFunctions = {
 					clearInterval( interval );
 				}
 
-				let optionsSlice = { ...options };
-				optionsSlice = options.options.slice( i, i + chunkSize );
+				const optionsSlice = items_selected.slice( i, i + chunkSize );
 				i += chunkSize;
 				tomSelect.addOptions( optionsSlice );
 				tomSelect.setValue( options.items );

@@ -751,7 +751,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _chunks_helpers_segment_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./chunks/helpers.segment.js */ "./node_modules/chart.js/dist/chunks/helpers.segment.js");
 /*!
- * Chart.js v4.4.4
+ * Chart.js v4.4.6
  * https://www.chartjs.org
  * (c) 2024 Chart.js Contributors
  * Released under the MIT License
@@ -1189,9 +1189,11 @@ function applyStack(stack, value, dsIndex, options = {}) {
     if (value === null) {
         return;
     }
+    let found = false;
     for(i = 0, ilen = keys.length; i < ilen; ++i){
         datasetIndex = +keys[i];
         if (datasetIndex === dsIndex) {
+            found = true;
             if (options.all) {
                 continue;
             }
@@ -1201,6 +1203,9 @@ function applyStack(stack, value, dsIndex, options = {}) {
         if ((0,_chunks_helpers_segment_js__WEBPACK_IMPORTED_MODULE_0__.g)(otherValue) && (singleMode || value === 0 || (0,_chunks_helpers_segment_js__WEBPACK_IMPORTED_MODULE_0__.s)(value) === (0,_chunks_helpers_segment_js__WEBPACK_IMPORTED_MODULE_0__.s)(otherValue))) {
             value += otherValue;
         }
+    }
+    if (!found && !options.all) {
+        return 0;
     }
     return value;
 }
@@ -1445,6 +1450,7 @@ class DatasetController {
         this._resyncElements(resetNewElements);
         if (stackChanged || oldStacked !== meta._stacked) {
             updateStacks(this, meta._parsed);
+            meta._stacked = isStacked(meta.vScale, meta);
         }
     }
  configure() {
@@ -6268,7 +6274,7 @@ function needContext(proxy, names) {
     return false;
 }
 
-var version = "4.4.4";
+var version = "4.4.6";
 
 const KNOWN_POSITIONS = [
     'top',
@@ -8107,6 +8113,9 @@ function containsColorsDefinitions(descriptors) {
 function containsColorsDefinition(descriptor) {
     return descriptor && (descriptor.borderColor || descriptor.backgroundColor);
 }
+function containsDefaultColorsDefenitions() {
+    return _chunks_helpers_segment_js__WEBPACK_IMPORTED_MODULE_0__.d.borderColor !== 'rgba(0,0,0,0.1)' || _chunks_helpers_segment_js__WEBPACK_IMPORTED_MODULE_0__.d.backgroundColor !== 'rgba(0,0,0,0.1)';
+}
 var plugin_colors = {
     id: 'colors',
     defaults: {
@@ -8119,7 +8128,8 @@ var plugin_colors = {
         }
         const { data: { datasets  } , options: chartOptions  } = chart.config;
         const { elements  } = chartOptions;
-        if (!options.forceOverride && (containsColorsDefinitions(datasets) || containsColorsDefinition(chartOptions) || elements && containsColorsDefinitions(elements))) {
+        const containsColorDefenition = containsColorsDefinitions(datasets) || containsColorsDefinition(chartOptions) || elements && containsColorsDefinitions(elements) || containsDefaultColorsDefenitions();
+        if (!options.forceOverride && containsColorDefenition) {
             return;
         }
         const colorizer = getColorizer(chart);
@@ -11417,7 +11427,7 @@ function drawRadiusLine(scale, gridLineOpts, radius, labelCount, borderOpts) {
     ctx.save();
     ctx.strokeStyle = color;
     ctx.lineWidth = lineWidth;
-    ctx.setLineDash(borderOpts.dash);
+    ctx.setLineDash(borderOpts.dash || []);
     ctx.lineDashOffset = borderOpts.dashOffset;
     ctx.beginPath();
     pathRadiusLine(scale, radius, circular, labelCount);
@@ -12362,7 +12372,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _kurkle_color__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @kurkle/color */ "./node_modules/@kurkle/color/dist/color.esm.js");
 /*!
- * Chart.js v4.4.4
+ * Chart.js v4.4.6
  * https://www.chartjs.org
  * (c) 2024 Chart.js Contributors
  * Released under the MIT License

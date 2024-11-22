@@ -38,7 +38,8 @@ if ('undefined' !== typeof lpData) {
   lplistAPI.frontend = {
     apiWidgets: lpData.lp_rest_url + 'lp/v1/widgets/api',
     apiCourses: lpData.lp_rest_url + 'lp/v1/courses/archive-course',
-    apiAJAX: lpData.lp_rest_url + 'lp/v1/load_content_via_ajax/'
+    apiAJAX: lpData.lp_rest_url + 'lp/v1/load_content_via_ajax/',
+    apiProfileCoverImage: lpData.lp_rest_url + 'lp/v1/profile/cover-image'
   };
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (lplistAPI);
@@ -374,6 +375,8 @@ document.addEventListener('click', e => {
           elAddonItem.classList.add('activated');
         } else if (action === 'deactivate') {
           elAddonItem.classList.remove('activated');
+        } else if (action === 'update-purchase') {
+          elItemPurchase.style.display = 'none';
         }
       }
       el.classList.remove('handling');

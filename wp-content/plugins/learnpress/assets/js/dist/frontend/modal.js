@@ -12,20 +12,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./store */ "./assets/src/apps/js/frontend/modal/store/index.js");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
-/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./store */ "./assets/src/apps/js/frontend/modal/store/index.js");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_3__);
+
 /**
  * Create Modal popup.
  * Edit: Use React Hook.
  *
  * @author Nhamdv - ThimPress.
  */
-
 
 
 
@@ -37,12 +37,12 @@ const Modal = ({
     show,
     hide,
     confirm
-  } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.dispatch)('learnpress/modal');
-  const isShow = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.useSelect)(select => {
+  } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.dispatch)('learnpress/modal');
+  const isShow = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useSelect)(select => {
     const isOpen = select('learnpress/modal').isOpen();
     return isOpen;
   });
-  const message = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.useSelect)(select => {
+  const message = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useSelect)(select => {
     const getMessage = select('learnpress/modal').getMessage();
     return getMessage;
   });
@@ -52,38 +52,26 @@ const Modal = ({
   const styles = {
     display: isShow ? 'block' : 'none'
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-        id: "lp-modal-overlay",
-        style: styles
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        id: "lp-modal-window",
-        style: styles,
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-          id: "lp-modal-content",
-          dangerouslySetInnerHTML: {
-            __html: message
-          }
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-          id: "lp-modal-buttons",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-            className: "lp-button modal-button-ok",
-            onClick: dataConfirm('yes'),
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-              children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('OK', 'learnpress')
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-            className: "lp-button modal-button-cancel",
-            onClick: dataConfirm('no'),
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-              children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Cancel', 'learnpress')
-            })
-          })]
-        })]
-      })]
-    }), children]
-  });
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    id: "lp-modal-overlay",
+    style: styles
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    id: "lp-modal-window",
+    style: styles
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    id: "lp-modal-content",
+    dangerouslySetInnerHTML: {
+      __html: message
+    }
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    id: "lp-modal-buttons"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+    className: "lp-button modal-button-ok",
+    onClick: dataConfirm('yes')
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('OK', 'learnpress'))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+    className: "lp-button modal-button-cancel",
+    onClick: dataConfirm('no')
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Cancel', 'learnpress')))))), children);
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Modal);
 
@@ -348,13 +336,13 @@ module.exports = refx;
 
 /***/ }),
 
-/***/ "react/jsx-runtime":
-/*!**********************************!*\
-  !*** external "ReactJSXRuntime" ***!
-  \**********************************/
+/***/ "react":
+/*!************************!*\
+  !*** external "React" ***!
+  \************************/
 /***/ ((module) => {
 
-module.exports = window["ReactJSXRuntime"];
+module.exports = window["React"];
 
 /***/ }),
 

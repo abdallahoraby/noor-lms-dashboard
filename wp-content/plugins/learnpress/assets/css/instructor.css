@@ -58,6 +58,14 @@
     width: 10%;
   }
 }
+:root {
+  --lp-cotainer-max-with: var(--lp-container-max-width);
+}
+
+.wp-block-group {
+  --lp-container-max-width: var(--wp--style--global--wide-size);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -80,10 +88,9 @@ input, button, select, textarea {
   outline: none;
 }
 
-html {
-  overflow-x: hidden;
-}
-
+/*html {
+	overflow-x: hidden;
+}*/
 a {
   -webkit-transition: 0.3s;
   -moz-transition: 0.3s;
@@ -93,16 +100,56 @@ a {
   text-decoration: none;
 }
 
+p {
+  margin-bottom: 1em;
+}
+p:last-child {
+  margin: 0;
+}
+
 .lp-content-area {
   max-width: var(--lp-container-max-width) !important;
   margin: 0 auto;
   padding-right: var(--lp-cotainer-padding);
   padding-left: var(--lp-cotainer-padding);
 }
+.lp-content-area.learn-press-message {
+  margin-bottom: 24px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
 
 .lp-ico svg {
   width: 20px;
   height: 20px;
+}
+
+.lp-button {
+  border: 1px solid var(--lp-border-color, #E2E0DB);
+  border-radius: var(--lp-border-radius, 5px);
+  padding: 8px 16px;
+}
+.lp-button.loading {
+  pointer-events: none;
+  opacity: 0.8;
+}
+.lp-button.loading:before {
+  display: inline-block;
+  font-family: "lp-icon";
+  content: "\f110";
+  animation: lp-rotating 1s linear infinite;
+  margin-right: 5px;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  vertical-align: middle;
+  margin-top: -2px;
+}
+
+.lp-hidden {
+  display: none !important;
 }
 
 /**

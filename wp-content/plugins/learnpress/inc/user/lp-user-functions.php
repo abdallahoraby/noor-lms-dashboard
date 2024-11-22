@@ -1,4 +1,7 @@
 <?php
+
+use LearnPress\Models\UserModel;
+
 /**
  * Common functions to process actions about user
  *
@@ -766,13 +769,15 @@ if ( ! function_exists( 'learn_press_pre_get_avatar_callback' ) ) {
 	 *
 	 * @param string $avatar
 	 * @param string $id_or_email
-	 * @param array  $size
+	 * @param array $args
 	 *
 	 * @return string
+	 * @since 1.0.0
+	 * @version 1.0.2
 	 */
-	function learn_press_pre_get_avatar_callback( $avatar, $id_or_email = '', $size = array() ) {
+	function learn_press_pre_get_avatar_callback( $avatar, $id_or_email = '', $args = array() ) {
 		try {
-			if ( ( isset( $size['gravatar'] ) && $size['gravatar'] ) || ( $size['default'] && $size['force_default'] ) ) {
+			if ( ( isset( $args['gravatar'] ) && $args['gravatar'] ) || ( $args['default'] && $args['force_default'] ) ) {
 				return $avatar;
 			}
 
@@ -801,19 +806,38 @@ if ( ! function_exists( 'learn_press_pre_get_avatar_callback' ) ) {
 				return $avatar;
 			}
 
-			$user = learn_press_get_user( $user_id );
+			$user = UserModel::find( $user_id, true );
 			if ( ! $user ) {
 				return $avatar;
 			}
 
-			return $user->get_profile_picture( '', $size['height'] ?? 32 );
+			$class = array( 'avatar', 'avatar-' . (int) $args['size'], 'photo' );
+			if ( $args['class'] ) {
+				if ( is_array( $args['class'] ) ) {
+					$class = array_merge( $class, $args['class'] );
+				} else {
+					$class[] = $args['class'];
+				}
+			}
+
+			$avatar_url = $user->get_avatar_url();
+			$html_img   = sprintf(
+				"<img src='%s' srcset='%s' class='%s' height='%d' width='%d' decoding='async'/>",
+				esc_url( $avatar_url ),
+				esc_url( $avatar_url ) . ' 2x',
+				esc_attr( implode( ' ', $class ) ),
+				(int) $args['height'],
+				(int) $args['width']
+			);
+
+			return $html_img;
 		} catch ( Throwable $e ) {
 			error_log( $e->getMessage() );
 			return $avatar;
 		}
 	}
 }
-add_filter( 'pre_get_avatar', 'learn_press_pre_get_avatar_callback', 1, 5 );
+add_filter( 'pre_get_avatar', 'learn_press_pre_get_avatar_callback', 999, 3 );
 
 
 function learn_press_user_profile_picture_upload_dir( $width_user = true ) {
@@ -1087,18 +1111,21 @@ function learn_press_update_user_profile_change_password( $wp_error = false ) {
 function learn_press_get_avatar_thumb_size() {
 	$option = LP_Settings::get_option(
 		'avatar_dimensions',
-		array(
+		[
 			'width'  => 250,
 			'height' => 250,
-		)
+		]
 	);
 
 	if ( ! isset( $option['width'] ) || ! isset( $option['height'] ) ) {
-		$option = array(
+		$option = [
 			'width'  => 250,
 			'height' => 250,
-		);
+		];
 	}
+
+	// For option get_avatar_url
+	$option['size'] = $option['width'];
 
 	return $option;
 }
@@ -1212,23 +1239,9 @@ function learn_press_remove_user_items( $user_id, $item_id, $course_id, $include
  *
  * @return mixed|string
  */
-function learn_press_user_profile_link( $user_id = 0, $tab = null ) {
+function learn_press_user_profile_link( $user_id = 0, $tab = '' ) {
 	if ( ! $user_id ) {
 		$user_id = get_current_user_id();
-	}
-	$user    = false;
-	$deleted = in_array( $user_id, LP_User_Factory::$_deleted_users );
-	if ( ! $deleted ) {
-		if ( is_numeric( $user_id ) ) {
-			$user = get_user_by( 'id', $user_id );
-		} else {
-			$user = get_user_by( 'login', urldecode( $user_id ) );
-		}
-	} else {
-		return '';
-	}
-	if ( ! $deleted && ! $user ) {
-		LP_User_Factory::$_deleted_users[] = $user_id;
 	}
 
 	$user = learn_press_get_user( $user_id );
@@ -1242,32 +1255,21 @@ function learn_press_user_profile_link( $user_id = 0, $tab = null ) {
 		'user' => $user->get_username(),
 	);
 
-	if ( isset( $args['user'] ) ) {
-		if ( '' === $tab ) {
-			//$tab = learn_press_get_current_profile_tab();
-		}
-		if ( $tab ) {
-			$args['tab'] = $tab;
-		}
-
-		/**
-		 * If no tab is selected in profile and is current user
-		 * then no need the username in profile link.
-		 */
-		if ( ( $user_id == get_current_user_id() ) && ! isset( $args['tab'] ) ) {
-			unset( $args['user'] );
-		}
+	if ( $tab ) {
+		$args['tab'] = $tab;
 	}
 
-	/*$args         = array_map(
-		function ( $string ) {
-			return preg_replace( '/\s/', '+', $string );
-		},
-		$args
-	);*/
+	/**
+	 * If no tab is selected in profile and is current user
+	 * then no need the username in profile link.
+	 */
+	if ( ( $user_id == get_current_user_id() ) && ! isset( $args['tab'] ) ) {
+		unset( $args['user'] );
+	}
+
 	$profile_link = trailingslashit( learn_press_get_page_link( 'profile' ) );
 	if ( $profile_link ) {
-		if ( get_option( 'permalink_structure' ) /*&& learn_press_get_page_id( 'profile' )*/ ) {
+		if ( get_option( 'permalink_structure' ) ) {
 			$url = trailingslashit( $profile_link . join( '/', array_values( $args ) ) );
 		} else {
 			$url = esc_url_raw( add_query_arg( $args, $profile_link ) );
@@ -1560,93 +1562,6 @@ function learn_press_user_start_quiz( $quiz_id, $user_id = 0, $course_id = 0, $w
 }
 
 /**
- * Function retake quiz.
- *
- * @param [type]  $quiz_id
- * @param integer $user_id
- * @param integer $course_id
- * @param boolean $wp_error
- * @deprecated 4.2.5
- *
- * @return void
- */
-function learn_press_user_retake_quiz( $quiz_id, $user_id = 0, $course_id = 0, $wp_error = false ) {
-	if ( ! $user_id ) {
-		$user_id = get_current_user_id();
-	}
-
-	if ( ! $course_id ) {
-		return new WP_Error( 'invalid_course_id', esc_html__( 'Invalid Course ID.', 'learnpress' ) );
-	}
-
-	global $wpdb;
-
-	$query = $wpdb->prepare(
-		"
-	    SELECT user_item_id, item_id id, item_type type
-	    FROM {$wpdb->learnpress_user_items}
-	    WHERE user_item_id = (SELECT max(user_item_id)
-	    FROM {$wpdb->learnpress_user_items}
-	    WHERE user_id = %d AND item_id = %d AND status IN ('enrolled', 'in-progress'))
-		",
-		$user_id,
-		$course_id
-	);
-
-	$parent = $wpdb->get_row( $query );
-
-	if ( ! $parent ) {
-		return new WP_Error( 'invalid_user_item', esc_html__( 'Invalid Quiz', 'learnpress' ) );
-	}
-
-	$data = learn_press_get_user_item(
-		array(
-			'item_id'   => $quiz_id,
-			'user_id'   => $user_id,
-			'parent_id' => $parent ? absint( $parent->user_item_id ) : 0,
-			'ref_type'  => $parent ? $parent->type : LP_COURSE_CPT,
-			'ref_id'    => $parent ? $parent->id : '',
-		)
-	);
-
-	$user_item = new LP_User_Item_Quiz( $data );
-
-	$ratake_count = get_post_meta( $quiz_id, '_lp_retake_count', true );
-
-	if ( $ratake_count > 0 ) {
-		$user_item->update_retake_count();
-	}
-
-	// Create new result in table learnpress_user_item_results.
-	LP_User_Items_Result_DB::instance()->insert( $data->user_item_id );
-
-	// Remove user_item_meta.
-	learn_press_delete_user_item_meta( $data->user_item_id, '_lp_question_checked' );
-
-	$user_item->set_status( LP_ITEM_STARTED )
-				->set_start_time( time() ) // Error Retake when change timezone - Nhamdv
-				->set_end_time()
-				->set_graduation( LP_COURSE_GRADUATION_IN_PROGRESS )
-				->update();
-
-	// Reset first cache
-	//$user_item->get_status( 'status', true );
-
-	// Error Retake when change timezone - Nhamdv
-	//  learn_press_update_user_item_field(
-	//      array(
-	//          'start_time' => current_time( 'mysql', true ),
-	//      ),
-	//      array(
-	//          'user_item_id' => $data->user_item_id,
-	//      )
-	//  );
-
-	return $user_item;
-}
-
-
-/**
  * Prepares list of questions for rest api.
  *
  * @param int[] $question_ids
@@ -1655,7 +1570,7 @@ function learn_press_user_retake_quiz( $quiz_id, $user_id = 0, $course_id = 0, $
  * @return array
  * @since 3.3.0
  */
-function learn_press_rest_prepare_user_questions( array $question_ids = array(), array $args = array() ) : array {
+function learn_press_rest_prepare_user_questions( array $question_ids = array(), array $args = array() ): array {
 	if ( is_numeric( $args ) ) {
 
 	} else {
@@ -1699,7 +1614,7 @@ function learn_press_rest_prepare_user_questions( array $question_ids = array(),
 				$hasExplanation = ! ! $theExplanation;
 			}
 
-			 $mark = $question->get_mark() ? $question->get_mark() : 1;
+			$mark = $question->get_mark() ? $question->get_mark() : 1;
 
 			$questionData = array(
 				'object' => $question,
@@ -2093,5 +2008,4 @@ function learnpress_get_count_by_user( $user_id = '', $post_type = 'lp_course' )
 		'publish' => count( $public ),
 		'pending' => count( $pending ),
 	);
-
 }

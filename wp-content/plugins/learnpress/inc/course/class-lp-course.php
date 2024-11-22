@@ -7,6 +7,7 @@
  * @version 4.0.1
  */
 
+use LearnPress\Models\CourseModel;
 use LearnPress\Models\CoursePostModel;
 
 defined( 'ABSPATH' ) || exit();
@@ -352,13 +353,32 @@ if ( ! class_exists( 'LP_Course' ) ) {
 		 *
 		 * @param string $type
 		 * @param bool $include_preview
+		 *
+		 * @return int
+		 * @throws Exception
+		 * @version 1.0.1
 		 * @author tungnx
 		 * @since 4.1.4.1
-		 * @version 1.0.0
-		 * @return int
 		 */
 		public function count_items( string $type = '', bool $include_preview = true ): int {
-			$course_id = $this->get_id();
+			$course_id   = $this->get_id();
+			$courseModel = CourseModel::find( $course_id, true );
+			if ( ! $courseModel ) {
+				return 0;
+			}
+
+			$total_items = $courseModel->get_total_items();
+			if ( empty( $total_items ) ) {
+				return 0;
+			}
+
+			if ( ! empty( $type ) ) {
+				if ( isset( $total_items->{$type} ) ) {
+					return $total_items->{$type};
+				}
+			} else {
+				return $total_items->count_items ?? 0;
+			}
 
 			// Get cache
 			$lp_course_cache = LP_Course_Cache::instance();
@@ -668,15 +688,15 @@ if ( ! class_exists( 'LP_Course' ) ) {
 				$filter  = apply_filters( 'lp/courses/filter', $filter );
 				$courses = LP_Course_DB::getInstance()->get_courses( $filter, $total_rows );
 
-//				$lp_courses_cache->set_cache( $key_cache, json_encode( $courses ) );
-//				$lp_courses_cache->set_cache( $key_cache_total_rows, $total_rows );
-//
-//				/**
-//				 * Save key cache to array to clear
-//				 * @see LP_Background_Single_Course::save_post() - clear cache when save post
-//				 */
-//				$lp_courses_cache->save_cache_keys_query_courses( $key_cache );
-//				$lp_courses_cache->save_cache_keys( LP_Courses_Cache::KEYS_QUERY_TOTAL_COURSES, $key_cache_total_rows );
+				//              $lp_courses_cache->set_cache( $key_cache, json_encode( $courses ) );
+				//              $lp_courses_cache->set_cache( $key_cache_total_rows, $total_rows );
+				//
+				//              /**
+				//               * Save key cache to array to clear
+				//               * @see LP_Background_Single_Course::save_post() - clear cache when save post
+				//               */
+				//              $lp_courses_cache->save_cache_keys_query_courses( $key_cache );
+				//              $lp_courses_cache->save_cache_keys( LP_Courses_Cache::KEYS_QUERY_TOTAL_COURSES, $key_cache_total_rows );
 			} catch ( Throwable $e ) {
 				$courses = [];
 				error_log( __FUNCTION__ . ': ' . $e->getMessage() );

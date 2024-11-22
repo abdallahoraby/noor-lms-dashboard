@@ -107,7 +107,7 @@ class ListCoursesRelatedTemplate {
 
 		// Handle layout
 		$html_ul_courses = [
-			'<ul class="lp-courses-related">' => '</ul>',
+			'<ul class="lp-courses-related learn-press-courses">' => '</ul>',
 		];
 
 		ob_start();
@@ -116,14 +116,14 @@ class ListCoursesRelatedTemplate {
 			if ( ! $course instanceof CourseModel ) {
 				continue;
 			}
-			echo static::render_course( $course, $settings );
+			echo ListCoursesTemplate::render_course( $course, $settings );
 		}
 		$html_courses = Template::instance()->nest_elements( $html_ul_courses, ob_get_clean() );
 
 		$sections         = apply_filters(
 			'learn-press/list-courses/related/sections',
 			[
-				'header'  => sprintf( '<h3>%s</h3>', __( 'You might be interested in' ) ),
+				'header'  => sprintf( '<h3 class="section-title">%s</h3>', __( 'You might be interested in', 'learnpress' ) ),
 				'courses' => $html_courses,
 			],
 			$course, $courses, $settings

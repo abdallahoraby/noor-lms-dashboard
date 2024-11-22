@@ -228,15 +228,16 @@ LP.Hook.addAction('lp-compatible-builder', () => {
   LP.Hook.removeAction('lp-compatible-builder');
   if (typeof elementorFrontend !== 'undefined') {
     [...document.querySelectorAll('#popup-content')][0].addEventListener('scroll', () => {
-      Waypoint.refreshAll();
+      //Waypoint.refreshAll();
       window.dispatchEvent(new Event('resize'));
     });
   }
-  if (typeof vc_js !== 'undefined' && typeof VcWaypoint !== 'undefined') {
-    [...document.querySelectorAll('#popup-content')][0].addEventListener('scroll', () => {
-      VcWaypoint.refreshAll();
-    });
-  }
+
+  /*if ( typeof vc_js !== 'undefined' && typeof VcWaypoint !== 'undefined' ) {
+  	[ ...document.querySelectorAll( '#popup-content' ) ][ 0 ].addEventListener( 'scroll', () => {
+  		VcWaypoint.refreshAll();
+  	} );
+  }*/
 });
 LP.Hook.addAction('lp-quiz-compatible-builder', () => {
   LP.Hook.removeAction('lp-quiz-compatible-builder');
@@ -541,17 +542,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_search__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/search */ "./assets/src/apps/js/frontend/single-curriculum/components/search.js");
-/* harmony import */ var _components_sidebar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/sidebar */ "./assets/src/apps/js/frontend/single-curriculum/components/sidebar.js");
-/* harmony import */ var _components_progress__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/progress */ "./assets/src/apps/js/frontend/single-curriculum/components/progress.js");
-/* harmony import */ var _components_comment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/comment */ "./assets/src/apps/js/frontend/single-curriculum/components/comment.js");
-/* harmony import */ var _components_items_progress__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/items-progress */ "./assets/src/apps/js/frontend/single-curriculum/components/items-progress.js");
-/* harmony import */ var _components_compatible__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/compatible */ "./assets/src/apps/js/frontend/single-curriculum/components/compatible.js");
-/* harmony import */ var _components_compatible__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_components_compatible__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_search__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/search */ "./assets/src/apps/js/frontend/single-curriculum/components/search.js");
+/* harmony import */ var _components_sidebar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/sidebar */ "./assets/src/apps/js/frontend/single-curriculum/components/sidebar.js");
+/* harmony import */ var _components_progress__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/progress */ "./assets/src/apps/js/frontend/single-curriculum/components/progress.js");
+/* harmony import */ var _components_comment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/comment */ "./assets/src/apps/js/frontend/single-curriculum/components/comment.js");
+/* harmony import */ var _components_items_progress__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/items-progress */ "./assets/src/apps/js/frontend/single-curriculum/components/items-progress.js");
+/* harmony import */ var _components_compatible__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/compatible */ "./assets/src/apps/js/frontend/single-curriculum/components/compatible.js");
+/* harmony import */ var _components_compatible__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_components_compatible__WEBPACK_IMPORTED_MODULE_7__);
+
 const $ = jQuery;
 
 
@@ -560,8 +562,7 @@ const $ = jQuery;
 
 
 
-
-class SingleCurriculums extends _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Component {
+class SingleCurriculums extends _wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Component {
   checkCourseDurationExpire() {
     const elCourseItemIsBlockeds = document.getElementsByName('lp-course-timestamp-remaining');
     if (elCourseItemIsBlockeds.length) {
@@ -577,17 +578,17 @@ class SingleCurriculums extends _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.
     }
   }
   render() {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {});
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null);
   }
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SingleCurriculums);
 document.addEventListener('DOMContentLoaded', () => {
   LP.Hook.doAction('lp-compatible-builder');
-  (0,_components_search__WEBPACK_IMPORTED_MODULE_1__.searchCourseContent)();
-  (0,_components_sidebar__WEBPACK_IMPORTED_MODULE_2__.Sidebar)();
-  (0,_components_progress__WEBPACK_IMPORTED_MODULE_3__.progressBar)();
+  (0,_components_search__WEBPACK_IMPORTED_MODULE_2__.searchCourseContent)();
+  (0,_components_sidebar__WEBPACK_IMPORTED_MODULE_3__.Sidebar)();
+  (0,_components_progress__WEBPACK_IMPORTED_MODULE_4__.progressBar)();
   //commentForm();
-  (0,_components_items_progress__WEBPACK_IMPORTED_MODULE_5__.itemsProgress)();
+  (0,_components_items_progress__WEBPACK_IMPORTED_MODULE_6__.itemsProgress)();
 
   // Check duration expire of course
   const singleCurriculums = new SingleCurriculums();
@@ -1057,14 +1058,14 @@ const lpModalOverlay = {
 
 /***/ }),
 
-/***/ "react/jsx-runtime":
-/*!**********************************!*\
-  !*** external "ReactJSXRuntime" ***!
-  \**********************************/
+/***/ "react":
+/*!************************!*\
+  !*** external "React" ***!
+  \************************/
 /***/ ((module) => {
 
 "use strict";
-module.exports = window["ReactJSXRuntime"];
+module.exports = window["React"];
 
 /***/ }),
 
@@ -1181,32 +1182,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
 /* harmony export */   init: () => (/* binding */ init)
 /* harmony export */ });
-/* harmony import */ var _single_curriculum_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./single-curriculum/index */ "./assets/src/apps/js/frontend/single-curriculum/index.js");
-/* harmony import */ var _show_lp_overlay_complete_item__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./show-lp-overlay-complete-item */ "./assets/src/apps/js/frontend/show-lp-overlay-complete-item.js");
-/* harmony import */ var _single_curriculum_skeleton__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./single-curriculum/skeleton */ "./assets/src/apps/js/frontend/single-curriculum/skeleton.js");
-/* harmony import */ var _material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./material */ "./assets/src/apps/js/frontend/material.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _single_curriculum_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./single-curriculum/index */ "./assets/src/apps/js/frontend/single-curriculum/index.js");
+/* harmony import */ var _show_lp_overlay_complete_item__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./show-lp-overlay-complete-item */ "./assets/src/apps/js/frontend/show-lp-overlay-complete-item.js");
+/* harmony import */ var _single_curriculum_skeleton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./single-curriculum/skeleton */ "./assets/src/apps/js/frontend/single-curriculum/skeleton.js");
+/* harmony import */ var _material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./material */ "./assets/src/apps/js/frontend/material.js");
 
 
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_single_curriculum_index__WEBPACK_IMPORTED_MODULE_0__["default"]);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_single_curriculum_index__WEBPACK_IMPORTED_MODULE_1__["default"]);
 const init = () => {
-  wp.element.render(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_single_curriculum_index__WEBPACK_IMPORTED_MODULE_0__["default"], {}), document.getElementById('learn-press-course-curriculum'));
+  wp.element.render((0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_single_curriculum_index__WEBPACK_IMPORTED_MODULE_1__["default"], null), document.getElementById('learn-press-course-curriculum'));
 };
 document.addEventListener('DOMContentLoaded', function (event) {
   LP.Hook.doAction('course-ready');
-  _show_lp_overlay_complete_item__WEBPACK_IMPORTED_MODULE_1__["default"].init();
-  (0,_material__WEBPACK_IMPORTED_MODULE_3__["default"])(true);
+  _show_lp_overlay_complete_item__WEBPACK_IMPORTED_MODULE_2__["default"].init();
+  (0,_material__WEBPACK_IMPORTED_MODULE_4__["default"])(true);
   //courseCurriculumSkeleton();
   //init();
 });
 const detectedElCurriculum = setInterval(function () {
   const elementCurriculum = document.querySelector('.learnpress-course-curriculum');
   if (elementCurriculum) {
-    (0,_single_curriculum_skeleton__WEBPACK_IMPORTED_MODULE_2__["default"])();
+    (0,_single_curriculum_skeleton__WEBPACK_IMPORTED_MODULE_3__["default"])();
     clearInterval(detectedElCurriculum);
   }
 }, 1);

@@ -10,6 +10,9 @@
 /**
  * Prevent loading this file directly
  */
+
+use LearnPress\Models\UserModel;
+
 defined( 'ABSPATH' ) || exit();
 
 if ( ! class_exists( 'LP_Order' ) ) {
@@ -464,7 +467,7 @@ if ( ! class_exists( 'LP_Order' ) ) {
 		}*/
 
 		/**
-		 * Get items of the order
+		 * Get items of the order only to show.
 		 *
 		 * @return mixed
 		 */
@@ -472,6 +475,30 @@ if ( ! class_exists( 'LP_Order' ) ) {
 			$items = $this->_curd->read_items( $this );
 
 			return apply_filters( 'learn-press/order-items', $items );
+		}
+
+		/**
+		 * Get all items of the order.
+		 * Only use for add/remove items to learn (learn_press_user_items) table.
+		 * Where call this function, must be careful, must set_time_limit( 0 );.
+		 *
+		 * @return array|object|stdClass[]|null
+		 * @version 1.0.1
+		 * @since 4.2.7.2
+		 */
+		public function get_all_items() {
+			global $wpdb;
+			$lp_order_items    = LP_Database::getInstance();
+			$table_order_items = $lp_order_items->tb_lp_order_items;
+
+			$query = $wpdb->prepare(
+				"SELECT order_item_id, order_item_name, item_id, item_type
+				From $table_order_items
+				WHERE order_id = %d",
+				$this->get_id()
+			);
+
+			return $wpdb->get_results( $query, ARRAY_A );
 		}
 
 		/**
@@ -1058,11 +1085,18 @@ if ( ! class_exists( 'LP_Order' ) ) {
 		 * @return string
 		 * @editor tungnx
 		 * @modify 4.1.3
+		 * @version 1.0.2
 		 */
 		public function get_user_email( int $user_id = 0 ): string {
-			$user = learn_press_get_user( $user_id );
-			if ( $user && ! $user instanceof LP_User_Guest ) {
+			$email = '';
+			$user  = UserModel::find( $user_id, true );
+			if ( $user instanceof UserModel ) {
 				$email = $user->get_email();
+			} elseif ( (int) $this->get_user_id() > 0 ) {
+				$user = UserModel::find( $user_id, true );
+				if ( $user instanceof UserModel ) {
+					$email = $user->get_email();
+				}
 			} else {
 				$email = $this->get_checkout_email();
 			}
@@ -1177,7 +1211,7 @@ if ( ! class_exists( 'LP_Order' ) ) {
 				$new_status = $new_status_post;
 			}
 
-			$order_id   = $this->get_id();
+			$order_id = $this->get_id();
 
 			if ( $new_status !== $old_status ) {
 				do_action( 'learn-press/order/status-' . $new_status, $order_id, $old_status );
@@ -1249,7 +1283,7 @@ if ( ! class_exists( 'LP_Order' ) ) {
 		 * @return bool
 		 */
 		public function is_completed(): bool {
-			return $this->get_status() === 'completed';
+			return $this->get_status() === LP_ORDER_COMPLETED;
 		}
 
 		/**

@@ -16,7 +16,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   lpAjaxParseJsonOld: () => (/* binding */ lpAjaxParseJsonOld),
 /* harmony export */   lpFetchAPI: () => (/* binding */ lpFetchAPI),
 /* harmony export */   lpGetCurrentURLNoParam: () => (/* binding */ lpGetCurrentURLNoParam),
-/* harmony export */   lpOnElementReady: () => (/* binding */ lpOnElementReady)
+/* harmony export */   lpOnElementReady: () => (/* binding */ lpOnElementReady),
+/* harmony export */   lpSetLoadingEl: () => (/* binding */ lpSetLoadingEl),
+/* harmony export */   lpShowHideEl: () => (/* binding */ lpShowHideEl)
 /* harmony export */ });
 /**
  * Utils functions
@@ -25,8 +27,12 @@ __webpack_require__.r(__webpack_exports__);
  * @param data
  * @param functions
  * @since 4.2.5.1
- * @version 1.0.2
+ * @version 1.0.3
  */
+const lpClassName = {
+  hidden: 'lp-hidden',
+  loading: 'loading'
+};
 const lpFetchAPI = (url, data = {}, functions = {}) => {
   if ('function' === typeof functions.before) {
     functions.before();
@@ -157,6 +163,30 @@ const lpAjaxParseJsonOld = data => {
     data = {};
   }
   return data;
+};
+
+// status 0: hide, 1: show
+const lpShowHideEl = (el, status = 0) => {
+  if (!el) {
+    return;
+  }
+  if (!status) {
+    el.classList.add(lpClassName.hidden);
+  } else {
+    el.classList.remove(lpClassName.hidden);
+  }
+};
+
+// status 0: hide, 1: show
+const lpSetLoadingEl = (el, status) => {
+  if (!el) {
+    return;
+  }
+  if (!status) {
+    el.classList.remove(lpClassName.loading);
+  } else {
+    el.classList.add(lpClassName.loading);
+  }
 };
 
 
@@ -916,6 +946,7 @@ const toggleEmails = function toggleEmails(e) {
     url: '',
     data: {
       'lp-ajax': 'update_email_status',
+      nonce: $('input[name=lp-settings-nonce]').val(),
       status
     },
     success(response) {

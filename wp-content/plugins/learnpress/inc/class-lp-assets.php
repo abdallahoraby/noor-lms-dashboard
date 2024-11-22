@@ -34,14 +34,9 @@ class LP_Assets extends LP_Abstract_Assets {
 		return apply_filters(
 			'learn-press/frontend-default-styles',
 			array(
-//				'font-awesome-5-all' => new LP_Asset_Key(
-//					self::url( 'src/css/vendor/font-awesome-5.min.css' ),
-//					array(),
-//					array()
-//				),
 				'learnpress'         => new LP_Asset_Key(
 					self::url( 'css/learnpress' . $is_rtl . self::$_min_assets . '.css' ),
-					array( ),
+					array(),
 					array(
 						LP_PAGE_COURSES,
 						LP_PAGE_SINGLE_COURSE,
@@ -134,6 +129,15 @@ class LP_Assets extends LP_Abstract_Assets {
 	 * @return array
 	 */
 	public function localize_data_global(): array {
+		$cover_image_dimensions = LP_Settings::get_option(
+			'cover_image_dimensions',
+			array(
+				'width'  => 1290,
+				'height' => 250,
+			)
+		);
+		$aspectRatio            = $cover_image_dimensions['width'] / $cover_image_dimensions['height'];
+
 		return apply_filters(
 			'learn-press/frontend/localize-data-global',
 			[
@@ -146,7 +150,18 @@ class LP_Assets extends LP_Abstract_Assets {
 				'courses_url'       => learn_press_get_page_link( 'courses' ),
 				'urlParams'         => lp_archive_skeleton_get_args(),
 				'lp_version'        => LearnPress::instance()->version,
-				'lp_rest_load_ajax' => get_rest_url( null, 'lp/v1/load_content_via_ajax/' )
+				'lp_rest_load_ajax' => get_rest_url( null, 'lp/v1/load_content_via_ajax/' ),
+				'ajaxUrl'           => admin_url( 'admin-ajax.php' ),
+				'coverImageRatio'   => $aspectRatio,
+				'toast'             => [
+					'gravity'     => 'bottom',
+					'position'    => 'center',
+					'duration'    => 3000,
+					'close'       => 1,
+					'stopOnFocus' => 1,
+					'classPrefix' => 'lp-toast',
+				],
+				'i18n'              => [],
 			]
 		);
 	}
@@ -414,7 +429,7 @@ class LP_Assets extends LP_Abstract_Assets {
 	 * @return void
 	 */
 	public function load_styles_on_head() {
-		$max_width          = LP_Settings::get_option( 'width_container', '1290px' );
+		$max_width         = LP_Settings::get_option( 'width_container', '1290px' );
 		$padding_container = apply_filters( 'learn-press/container-padding-width', '1rem' );
 		$primary_color     = LP_Settings::get_option( 'primary_color' );
 		$secondary_color   = LP_Settings::get_option( 'secondary_color' );

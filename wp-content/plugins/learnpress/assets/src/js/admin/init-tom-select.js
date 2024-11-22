@@ -97,9 +97,9 @@ const initTomSelect = ( tomSelectEl, customOptions = {}, customParams = {} ) => 
 
 	if ( tomSelectEl.classList.contains( 'loaded' ) ) {
 		return;
-	} else {
-		tomSelectEl.classList.add( 'loaded' );
 	}
+
+	tomSelectEl.classList.add( 'loaded' );
 
 	const defaultIds = tomSelectEl.dataset?.saved ? JSON.parse( tomSelectEl.dataset.saved ) : 0;
 	const dataStruct = tomSelectEl?.dataset?.struct ? JSON.parse( tomSelectEl.dataset.struct ) : '';
@@ -166,6 +166,19 @@ const initTomSelect = ( tomSelectEl, customOptions = {}, customParams = {} ) => 
 		},
 	};
 
+	// Fetch data for first load tom-select
+	// Get ids selected, and show list without ids selected with limit.
+	let idNotIn = [];
+	if ( typeof defaultIds === 'object' ) {
+		idNotIn = Object.entries( defaultIds ).map( ( [ key, value ] ) => ( { key, value } ) );
+	}
+
+	if ( dataSendApi?.id_not_in ) {
+		idNotIn = [ ...idNotIn, ...dataSendApi.id_not_in ];
+	}
+
+	customParams.id_not_in = idNotIn.join( ',' );
+
 	fetchFunction( '', customParams, callBackApi );
 };
 
@@ -187,6 +200,11 @@ const searchUserOnListPost = () => {
 	}
 
 	if ( ! elSearchPost ) {
+		return;
+	}
+
+	const selectNew = elSearchPost.querySelector( 'select#author' );
+	if ( selectNew ) {
 		return;
 	}
 

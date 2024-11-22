@@ -11,6 +11,7 @@ namespace LearnPress\Models;
 
 use Exception;
 use LearnPress\Models\UserItems\UserCourseModel;
+use LP_Cache;
 use LP_Course_DB;
 use LP_Course_Filter;
 use LP_Profile;
@@ -20,6 +21,7 @@ use LP_User_Filter;
 
 use LP_User_Items_DB;
 use LP_User_Items_Filter;
+use LP_WP_Filesystem;
 use stdClass;
 use Throwable;
 use WP_Error;
@@ -66,7 +68,9 @@ class UserModel {
 	 */
 	public $image_url = '';
 
-	const META_KEY_IMAGE = '_lp_profile_picture';
+	// Meta keys
+	const META_KEY_IMAGE       = '_lp_profile_picture';
+	const META_KEY_COVER_IMAGE = '_lp_profile_cover_image';
 
 	/**
 	 * If data get from database, map to object.
@@ -105,8 +109,8 @@ class UserModel {
 	/**
 	 * Get course by ID
 	 *
-	 * @param int $course_id
-	 * @param bool $no_cache
+	 * @param int $user_id
+	 * @param bool $check_cache
 	 *
 	 * @return false|static
 	 */
@@ -114,7 +118,7 @@ class UserModel {
 		$filter_user     = new LP_User_Filter();
 		$filter_user->ID = $user_id;
 		$key_cache       = "user-model/find/id/{$user_id}";
-		$lp_course_cache = new \LP_Cache();
+		$lp_course_cache = new LP_Cache();
 
 		// Check cache
 		if ( $check_cache ) {
@@ -171,7 +175,6 @@ class UserModel {
 	 * @throws Exception
 	 */
 	public function get_all_metadata() {
-
 	}
 
 	/**
@@ -198,6 +201,21 @@ class UserModel {
 	}
 
 	/**
+	 * Set meta value by key.
+	 *
+	 * @param string $key
+	 * @param $value
+	 *
+	 * @return void
+	 * @since 4.2.7.2
+	 * @version 1.0.0
+	 */
+	public function set_meta_value_by_key( string $key, $value ) {
+		$this->meta_data->{$key} = $value;
+		update_user_meta( $this->ID, $key, $value );
+	}
+
+	/**
 	 * Get upload profile src.
 	 *
 	 * @return string
@@ -218,10 +236,76 @@ class UserModel {
 
 			if ( file_exists( $file_path ) ) {
 				$this->image_url = $upload['baseurl'] . $profile_picture;
+			} else { // For remote url.
+				$this->image_url = $profile_picture;
 			}
 		}
 
 		return $this->image_url;
+	}
+
+	/**
+	 * Get upload cover image src.
+	 *
+	 * @return string
+	 * @since 4.2.7.2
+	 * @version 1.0.0
+	 */
+	public function get_cover_image_url(): string {
+		$cover_image = $this->get_meta_value_by_key( self::META_KEY_COVER_IMAGE, '' );
+		if ( ! empty( $cover_image ) ) {
+			// Check if hase slug / at the beginning of the path, if not add it.
+			$slash       = substr( $cover_image, 0, 1 ) === '/' ? '' : '/';
+			$cover_image = $slash . $cover_image;
+			// End check.
+			$upload    = learn_press_user_profile_picture_upload_dir();
+			$file_path = $upload['basedir'] . $cover_image;
+
+			if ( file_exists( $file_path ) ) {
+				return $upload['baseurl'] . $cover_image;
+			} else { // For remote url.
+				return $cover_image;
+			}
+		}
+
+		return '';
+	}
+
+	/**
+	 * Set cover image url.
+	 *
+	 * @param string $url
+	 *
+	 * @return void
+	 * @since 4.2.7.2
+	 * @version 1.0.0
+	 */
+	public function set_cover_image_url( string $url ) {
+		$this->set_meta_value_by_key( self::META_KEY_COVER_IMAGE, $url );
+	}
+
+	/**
+	 * Delete cover image.
+	 *
+	 * @return void
+	 * @since 4.2.7.2
+	 * @version 1.0.0
+	 */
+	public function delete_cover_image() {
+		$upload_dir = learn_press_user_profile_picture_upload_dir();
+
+		// Delete old image if exists
+		$image_path = $this->get_meta_value_by_key( UserModel::META_KEY_COVER_IMAGE, '' );
+		if ( $image_path ) {
+			$path = $upload_dir['basedir'] . '/' . $image_path;
+
+			if ( file_exists( $path ) ) {
+				LP_WP_Filesystem::instance()->unlink( $path );
+			}
+		}
+
+		// Save empty string to database.
+		$this->set_cover_image_url( '' );
 	}
 
 	/**
@@ -231,10 +315,6 @@ class UserModel {
 	 */
 	public function get_display_name(): string {
 		return $this->display_name ?? '';
-	}
-
-	public function get_profile_link(): string {
-		return '';
 	}
 
 	/**
@@ -262,17 +342,56 @@ class UserModel {
 	}
 
 	/**
-	 * Get profile picture
+	 * Get profile avatar url
+	 * 1. Get upload avatar src
+	 * 2. If not exists, get form Gravatar
+	 * 3. If not exists, get default image
 	 *
-	 * @param string $type
-	 * @param int $size
-	 * @param bool $src_only
-	 *
-	 * @move from LP_Abstract_User
 	 * @return string
+	 * @since 4.2.7.2
+	 * @version 1.0.0
 	 */
-	public function get_profile_picture( $type = '', $size = 96, $src_only = false ) {
-		return LP_Profile::instance( $this->get_id() )->get_profile_picture( $type, $size );
+	public function get_avatar_url(): string {
+		$avatar_url = $this->get_upload_avatar_src();
+		if ( empty( $avatar_url ) ) {
+			// Get form Gravatar.
+			$args       = learn_press_get_avatar_thumb_size();
+			$avatar_url = get_avatar_url( $this->get_id(), $args );
+			// If not exists, get default avatar.
+			if ( empty( $avatar_url ) ) {
+				$avatar_url = LP_PLUGIN_URL . 'assets/images/avatar-default.png';
+			}
+		}
+
+		return $avatar_url;
+	}
+
+	/**
+	 * Get upload avatar src.
+	 *
+	 * @return string
+	 * @since 4.2.7.2
+	 * @version 1.0.0
+	 * @move from get_upload_profile_src method on LP_Profile class
+	 */
+	public function get_upload_avatar_src(): string {
+		$uploaded_avatar_src = '';
+		$profile_picture     = $this->get_meta_value_by_key( self::META_KEY_IMAGE, '' );
+
+		if ( $profile_picture ) {
+			// Check if hase slug / at the beginning of the path, if not, add it.
+			$slash           = substr( $profile_picture, 0, 1 ) === '/' ? '' : '/';
+			$profile_picture = $slash . $profile_picture;
+			// End check.
+			$upload    = learn_press_user_profile_picture_upload_dir();
+			$file_path = $upload['basedir'] . $profile_picture;
+
+			if ( file_exists( $file_path ) ) {
+				$uploaded_avatar_src = $upload['baseurl'] . $profile_picture;
+			}
+		}
+
+		return apply_filters( 'learn-press/user/upload-avatar-src', $uploaded_avatar_src, $this );
 	}
 
 	/**
@@ -328,45 +447,6 @@ class UserModel {
 	}
 
 	/**
-	 * Check user can enroll course
-	 *
-	 * @param CourseModel $course
-	 *
-	 * @return mixed|object|bool
-	 */
-	public function can_enroll_course( CourseModel $course ) {
-
-	}
-
-	/**
-	 * Check user can purchase course
-	 *
-	 * @param int $course_id
-	 *
-	 * @return bool|WP_Error
-	 * @author nhamdv
-	 * @editor tungnx
-	 * @since 4.0.8
-	 * @version 1.0.5
-	 */
-	public function can_purchase_course( int $course_id = 0 ) {
-
-	}
-
-	/**
-	 * Check user can retake course.
-	 *
-	 * @param CourseModel $course
-	 *
-	 * @return int
-	 * @since 4.0.0
-	 * @author tungnx
-	 */
-	public function can_retake_course( CourseModel $course ) {
-
-	}
-
-	/**
 	 * Update data to database.
 	 *
 	 * If user_item_id is empty, insert new data, else update data.
@@ -389,6 +469,9 @@ class UserModel {
 	 */
 	public function clean_caches() {
 		// Clear cache.
+		$key_cache       = "user-model/find/id/{$this->get_id()}";
+		$lp_course_cache = new LP_Cache();
+		$lp_course_cache->clear( $key_cache );
 	}
 
 	/**
@@ -402,9 +485,33 @@ class UserModel {
 	 * Get description of user.
 	 *
 	 * @return string
+	 * @since 4.2.6.9
+	 * @version 1.0.1
 	 */
 	public function get_description(): string {
-		return wpautop( $this->get_meta_value_by_key( 'description', '' ) );
+		return get_the_author_meta( 'description', $this->get_id() );
+	}
+
+	/**
+	 * Get email of user.
+	 *
+	 * @return string
+	 * @since 4.2.7.4
+	 * @version 1.0.0
+	 */
+	public function get_email(): string {
+		return $this->user_email ?? '';
+	}
+
+	/**
+	 * Get username of user.
+	 *
+	 * @return string
+	 * @since 4.2.7.4
+	 * @version 1.0.0
+	 */
+	public function get_username(): string {
+		return $this->user_login ?? '';
 	}
 
 	/**

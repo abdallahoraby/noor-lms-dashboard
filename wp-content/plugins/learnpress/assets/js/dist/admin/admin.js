@@ -101,9 +101,8 @@ const initTomSelect = (tomSelectEl, customOptions = {}, customParams = {}) => {
   }
   if (tomSelectEl.classList.contains('loaded')) {
     return;
-  } else {
-    tomSelectEl.classList.add('loaded');
   }
+  tomSelectEl.classList.add('loaded');
   const defaultIds = tomSelectEl.dataset?.saved ? JSON.parse(tomSelectEl.dataset.saved) : 0;
   const dataStruct = tomSelectEl?.dataset?.struct ? JSON.parse(tomSelectEl.dataset.struct) : '';
   if (!dataStruct) {
@@ -160,6 +159,20 @@ const initTomSelect = (tomSelectEl, customOptions = {}, customParams = {}) => {
       handleResponse(response, tomSelectEl, dataStruct, fetchFunction, settingTomSelect, callBackApi);
     }
   };
+
+  // Fetch data for first load tom-select
+  // Get ids selected, and show list without ids selected with limit.
+  let idNotIn = [];
+  if (typeof defaultIds === 'object') {
+    idNotIn = Object.entries(defaultIds).map(([key, value]) => ({
+      key,
+      value
+    }));
+  }
+  if (dataSendApi?.id_not_in) {
+    idNotIn = [...idNotIn, ...dataSendApi.id_not_in];
+  }
+  customParams.id_not_in = idNotIn.join(',');
   fetchFunction('', customParams, callBackApi);
 };
 
@@ -178,6 +191,10 @@ const searchUserOnListPost = () => {
     elSearchPost = elPostFilter.querySelector('.search-box');
   }
   if (!elSearchPost) {
+    return;
+  }
+  const selectNew = elSearchPost.querySelector('select#author');
+  if (selectNew) {
     return;
   }
   const createSelectUserHtml = () => {
@@ -271,7 +288,17 @@ const AdminUtilsFunctions = {
           title: 'Remove this item'
         }
       },
-      onInitialize() {}
+      onInitialize() {},
+      onItemAdd(e) {
+        // Get list without current item.
+        if (fetchAPI) {
+          const selectedOptions = Array.from(elTomSelect.selectedOptions);
+          const selectedValues = selectedOptions.map(option => option.value);
+          selectedValues.push(e);
+          dataSend.id_not_in = selectedValues.join(',');
+          fetchAPI('', dataSend, callBackHandleData);
+        }
+      }
     };
     if (fetchAPI) {
       optionDefault.load = (keySearch, callbackTom) => {
@@ -285,25 +312,22 @@ const AdminUtilsFunctions = {
       ...optionDefault,
       ...options
     };
+    const items_selected = options.options;
     if (options?.options?.length > 20) {
       const chunkSize = 20;
       const length = options.options.length;
       let i = 0;
-      const optionsSlice = options.options.slice(i, chunkSize);
       const chunkedOptions = {
         ...options
       };
-      chunkedOptions.options = optionsSlice;
+      chunkedOptions.options = items_selected.slice(i, chunkSize);
       const tomSelect = new (tom_select__WEBPACK_IMPORTED_MODULE_1___default())(elTomSelect, chunkedOptions);
       i += chunkSize;
       const interval = setInterval(() => {
         if (i > length - 1) {
           clearInterval(interval);
         }
-        let optionsSlice = {
-          ...options
-        };
-        optionsSlice = options.options.slice(i, i + chunkSize);
+        const optionsSlice = items_selected.slice(i, i + chunkSize);
         i += chunkSize;
         tomSelect.addOptions(optionsSlice);
         tomSelect.setValue(options.items);
@@ -388,7 +412,8 @@ if ('undefined' !== typeof lpData) {
   lplistAPI.frontend = {
     apiWidgets: lpData.lp_rest_url + 'lp/v1/widgets/api',
     apiCourses: lpData.lp_rest_url + 'lp/v1/courses/archive-course',
-    apiAJAX: lpData.lp_rest_url + 'lp/v1/load_content_via_ajax/'
+    apiAJAX: lpData.lp_rest_url + 'lp/v1/load_content_via_ajax/',
+    apiProfileCoverImage: lpData.lp_rest_url + 'lp/v1/profile/cover-image'
   };
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (lplistAPI);
@@ -410,7 +435,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   lpAjaxParseJsonOld: () => (/* binding */ lpAjaxParseJsonOld),
 /* harmony export */   lpFetchAPI: () => (/* binding */ lpFetchAPI),
 /* harmony export */   lpGetCurrentURLNoParam: () => (/* binding */ lpGetCurrentURLNoParam),
-/* harmony export */   lpOnElementReady: () => (/* binding */ lpOnElementReady)
+/* harmony export */   lpOnElementReady: () => (/* binding */ lpOnElementReady),
+/* harmony export */   lpSetLoadingEl: () => (/* binding */ lpSetLoadingEl),
+/* harmony export */   lpShowHideEl: () => (/* binding */ lpShowHideEl)
 /* harmony export */ });
 /**
  * Utils functions
@@ -419,8 +446,12 @@ __webpack_require__.r(__webpack_exports__);
  * @param data
  * @param functions
  * @since 4.2.5.1
- * @version 1.0.2
+ * @version 1.0.3
  */
+const lpClassName = {
+  hidden: 'lp-hidden',
+  loading: 'loading'
+};
 const lpFetchAPI = (url, data = {}, functions = {}) => {
   if ('function' === typeof functions.before) {
     functions.before();
@@ -551,6 +582,30 @@ const lpAjaxParseJsonOld = data => {
     data = {};
   }
   return data;
+};
+
+// status 0: hide, 1: show
+const lpShowHideEl = (el, status = 0) => {
+  if (!el) {
+    return;
+  }
+  if (!status) {
+    el.classList.add(lpClassName.hidden);
+  } else {
+    el.classList.remove(lpClassName.hidden);
+  }
+};
+
+// status 0: hide, 1: show
+const lpSetLoadingEl = (el, status) => {
+  if (!el) {
+    return;
+  }
+  if (!status) {
+    el.classList.remove(lpClassName.loading);
+  } else {
+    el.classList.add(lpClassName.loading);
+  }
 };
 
 
@@ -6154,6 +6209,9 @@ document.addEventListener('DOMContentLoaded', () => {
 // Listen element select created on DOM.
 _utils_admin_js__WEBPACK_IMPORTED_MODULE_1__.Utils.lpOnElementReady('select.lp-tom-select', e => {
   (0,_init_tom_select_js__WEBPACK_IMPORTED_MODULE_0__.initElsTomSelect)();
+});
+_utils_admin_js__WEBPACK_IMPORTED_MODULE_1__.Utils.lpOnElementReady('#posts-filter', e => {
+  (0,_init_tom_select_js__WEBPACK_IMPORTED_MODULE_0__.searchUserOnListPost)();
 });
 window.lpFindTomSelect = _init_tom_select_js__WEBPACK_IMPORTED_MODULE_0__.initElsTomSelect;
 })();

@@ -610,8 +610,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
 /**
  * Reset course progress.
@@ -741,101 +741,66 @@ const ResetCourse = () => {
     }
     setMessage(notice);
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", {
-      children: __('Reset Course Progress', 'learnpress')
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-      className: "description",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
-        children: __('This action will reset course progress of all users who have enrolled.', 'learnpress')
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
-        children: __('Search results only show if courses have user data.', 'learnpress')
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(TextControl, {
-          placeholder: __('Search course by name', 'learnpress'),
-          value: search,
-          onChange: value => setSearch(value),
-          style: {
-            width: 300
-          }
-        })
-      })]
-    }), loading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(Spinner, {}), data.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-        className: "lp-reset-course_progress",
-        style: {
-          border: '1px solid #eee'
-        },
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-            style: {
-              background: '#eee'
-            },
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(CheckboxControl, {
-                checked: checkData.length === data.length,
-                onChange: () => {
-                  if (checkData.length === data.length) {
-                    setCheckData([]);
-                  } else {
-                    setCheckData(data.map(dt => dt.id));
-                  }
-                },
-                style: {
-                  margin: 0
-                }
-              })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-              children: __('ID', 'learnpress')
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-              children: __('Name', 'learnpress')
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-              children: __('Students', 'learnpress')
-            })]
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-          style: {
-            height: '100%',
-            maxHeight: 200,
-            overflow: 'auto'
-          },
-          children: data.map(dt => {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-              style: {
-                borderTop: '1px solid #eee'
-              },
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(CheckboxControl, {
-                  checked: checkData.includes(dt.id),
-                  onChange: () => checkItems(dt.id)
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                children: ["#", dt.id]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-                children: dt.title
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-                children: dt.students
-              })]
-            }, dt.id);
-          })
-        })]
-      }), loadingReset ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(Spinner, {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(Button, {
-        isPrimary: true,
-        onClick: () => resetCourse(),
-        style: {
-          marginTop: 10,
-          height: 30
-        },
-        children: __('Reset now', 'learnpress')
-      })]
-    }), message.length > 0 && message.map((mess, index) => {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(Notice, {
-        status: mess.status,
-        isDismissible: false,
-        children: mess.message
-      }, index);
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("style", {
-      children: '\
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, __('Reset Course Progress', 'learnpress')), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "description"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, __('This action will reset course progress of all users who have enrolled.', 'learnpress')), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, __('Search results only show if courses have user data.', 'learnpress')), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(TextControl, {
+    placeholder: __('Search course by name', 'learnpress'),
+    value: search,
+    onChange: value => setSearch(value),
+    style: {
+      width: 300
+    }
+  }))), loading && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(Spinner, null), data.length > 0 && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "lp-reset-course_progress",
+    style: {
+      border: '1px solid #eee'
+    }
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    style: {
+      background: '#eee'
+    }
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(CheckboxControl, {
+    checked: checkData.length === data.length,
+    onChange: () => {
+      if (checkData.length === data.length) {
+        setCheckData([]);
+      } else {
+        setCheckData(data.map(dt => dt.id));
+      }
+    },
+    style: {
+      margin: 0
+    }
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, __('ID', 'learnpress')), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, __('Name', 'learnpress')), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, __('Students', 'learnpress')))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    style: {
+      height: '100%',
+      maxHeight: 200,
+      overflow: 'auto'
+    }
+  }, data.map(dt => {
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      style: {
+        borderTop: '1px solid #eee'
+      },
+      key: dt.id
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(CheckboxControl, {
+      checked: checkData.includes(dt.id),
+      onChange: () => checkItems(dt.id)
+    })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, "#", dt.id), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, dt.title), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, dt.students));
+  }))), loadingReset ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(Spinner, null) : (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(Button, {
+    isPrimary: true,
+    onClick: () => resetCourse(),
+    style: {
+      marginTop: 10,
+      height: 30
+    }
+  }, __('Reset now', 'learnpress'))), message.length > 0 && message.map((mess, index) => {
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(Notice, {
+      status: mess.status,
+      key: index,
+      isDismissible: false
+    }, mess.message);
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("style", null, '\
 				.lp-reset-course_progress .components-base-control__field {\
 					margin: 0;\
 				}\
@@ -851,9 +816,7 @@ const ResetCourse = () => {
 					maegin: 0;\
 					padding: 8px 10px;\
 				}\
-				'
-    })]
-  });
+				'));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ResetCourse);
 
@@ -869,14 +832,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _course__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./course */ "./assets/src/apps/js/admin/pages/tools/reset-data/course.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _course__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./course */ "./assets/src/apps/js/admin/pages/tools/reset-data/course.js");
 
 
 const resetData = () => {
   if (document.querySelectorAll('#learn-press-reset-course-users').length > 0) {
-    wp.element.render(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_course__WEBPACK_IMPORTED_MODULE_0__["default"], {}), [...document.querySelectorAll('#learn-press-reset-course-users')][0]);
+    wp.element.render((0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_course__WEBPACK_IMPORTED_MODULE_1__["default"], null), [...document.querySelectorAll('#learn-press-reset-course-users')][0]);
   }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (resetData);
@@ -982,13 +945,13 @@ const lpModalOverlay = {
 
 /***/ }),
 
-/***/ "react/jsx-runtime":
-/*!**********************************!*\
-  !*** external "ReactJSXRuntime" ***!
-  \**********************************/
+/***/ "react":
+/*!************************!*\
+  !*** external "React" ***!
+  \************************/
 /***/ ((module) => {
 
-module.exports = window["ReactJSXRuntime"];
+module.exports = window["React"];
 
 /***/ })
 
@@ -1162,13 +1125,25 @@ __webpack_require__.r(__webpack_exports__);
     e.preventDefault();
     $('.lp-install-sample__options').toggleClass('hide-if-js');
   };
+  const formatValueInput = e => {
+    const input = $(e.target);
+    let value = input.val();
+    value = value.replace(/[^0-9]/g, '');
+    input.val(value);
+    if (parseInt(value, 10) < input.attr('min')) {
+      input.val(input.attr('min'));
+    }
+    if (parseInt(value, 10) > input.attr('max')) {
+      input.val(input.attr('max'));
+    }
+  };
   $(function () {
     (0,_tools_database_upgrade__WEBPACK_IMPORTED_MODULE_0__["default"])();
     (0,_tools_database_create_indexs__WEBPACK_IMPORTED_MODULE_1__["default"])();
     (0,_tools_database_re_upgrade_db__WEBPACK_IMPORTED_MODULE_2__["default"])();
     (0,_tools_reset_data__WEBPACK_IMPORTED_MODULE_4__["default"])();
     (0,_tools_database_clean_database__WEBPACK_IMPORTED_MODULE_3__["default"])();
-    $doc.on('click', '.lp-install-sample__install', installSampleCourse).on('click', '.lp-install-sample__uninstall', uninstallSampleCourse).on('click', '#learn-press-clear-cache', clearHardCache).on('click', 'input[name="enable_hard_cache"]', toggleHardCache).on('click', '.lp-install-sample__toggle-options', toggleOptions);
+    $doc.on('click', '.lp-install-sample__install', installSampleCourse).on('click', '.lp-install-sample__uninstall', uninstallSampleCourse).on('click', '#learn-press-clear-cache', clearHardCache).on('click', 'input[name="enable_hard_cache"]', toggleHardCache).on('click', '.lp-install-sample__toggle-options', toggleOptions).on('change', 'input[name="section-range[]"]', formatValueInput).on('change', 'input[name="item-range[]"]', formatValueInput).on('change', 'input[name="question-range[]"]', formatValueInput).on('change', 'input[name="answer-range[]"]', formatValueInput).on('change', 'input[name="course-price"]', formatValueInput);
   });
 })(jQuery);
 /******/ })()

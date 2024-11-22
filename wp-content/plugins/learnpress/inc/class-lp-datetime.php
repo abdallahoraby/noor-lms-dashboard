@@ -20,30 +20,12 @@ class LP_Datetime {
 	 * Format date time Human.
 	 */
 	const HUMAN_FORMAT = 'human';
-
-	/**
-	 * @var object
-	 */
-	protected static $gmt;
-
-	/**
-	 * @var object
-	 */
-	protected static $stz;
-
-	/**
-	 * @var DateTimeZone
-	 */
-	protected $tz;
-
 	/**
 	 * String date time.
 	 *
 	 * @var string $raw_date .
 	 */
 	protected $raw_date = null;
-
-	protected static $def_timezone = null;
 
 	/**
 	 * Constructor.
@@ -63,18 +45,6 @@ class LP_Datetime {
 		if ( empty( $this->raw_date ) ) {
 			$this->raw_date = current_time( 'mysql', 1 );
 		}
-	}
-
-	/**
-	 * Check if time is exceeded with current time
-	 *
-	 * using by Addon Content Drip.
-	 *
-	 * @since 3.0.1
-	 * @version 4.0.1
-	 */
-	public function is_exceeded(): bool {
-		return $this->getTimestamp() >= time();
 	}
 
 	/**
@@ -101,13 +71,12 @@ class LP_Datetime {
 	 * Gets the date as a formatted string.
 	 *
 	 * @param string $format Set i18n to return date in local time.
-	 * @param boolean $local .
 	 *
 	 * @return string.
-	 * @version 4.0.1
+	 * @version 4.0.2
 	 * @since 3.0.0
 	 */
-	public function format( string $format = '', bool $local = true ): string {
+	public function format( string $format = '' ): string {
 		$date_str = '';
 
 		if ( '0000-00-00 00:00:00' === $this->get_raw_date() ) {
@@ -205,9 +174,9 @@ class LP_Datetime {
 				$day_remain  = $diff->d - $week * 7;
 				$format_date = sprintf(
 					'%d %s, %d %s', $week,
-					_n( 'week', 'weeks', $week ),
+					_n( 'week', 'weeks', $week, 'learnpress' ),
 					$day_remain,
-					_n( 'day', 'days', $day_remain )
+					_n( 'day', 'days', $day_remain, 'learnpress' )
 				);
 				break;
 			}
@@ -253,19 +222,26 @@ class LP_Datetime {
 	 *
 	 * @return int
 	 */
-	public function getTimestamp( $local = true ): int {
+	public function getTimestamp(): int {
 		try {
-			if ( ! $local ) {
-				_deprecated_argument( __METHOD__, '4.2.6.6' );
-			}
-
 			$date = new DateTime( $this->get_raw_date() );
 		} catch ( Throwable $e ) {
-			error_log( $e->getMessage() );
+			error_log( __METHOD__ . ': ' . $e->getMessage() );
 			$date = new DateTime();
 		}
 
 		return $date->getTimestamp();
+	}
+
+	/**
+	 * Get timestamp of Date in local time.
+	 * Note: timestamp before handle must timezone is GMT+0
+	 *
+	 * @return int
+	 * @since 4.2.7.3
+	 */
+	public function getTimestampLocal(): int {
+		return $this->getTimestamp() + get_option( 'gmt_offset' ) * HOUR_IN_SECONDS;
 	}
 
 	/**
@@ -275,15 +251,17 @@ class LP_Datetime {
 	 * @param string $duration_type
 	 *
 	 * @return string
-	 * @version 1.0.1
+	 * @version 1.0.2
 	 * @since 4.2.3.5
 	 */
 	public static function get_string_plural_duration( float $duration_number, string $duration_type = '' ): string {
-		if ( $duration_number == 0 ) {
-			return esc_html__( 'Lifetime', 'learnpress' );
-		}
-
 		switch ( strtolower( $duration_type ) ) {
+			case 'second':
+				$duration_str = sprintf(
+					_n( '%s Second', '%s Seconds', $duration_number, 'learnpress' ),
+					$duration_number
+				);
+				break;
 			case 'minute':
 				$duration_str = sprintf(
 					_n( '%s Minute', '%s Minutes', $duration_number, 'learnpress' ),
@@ -309,9 +287,29 @@ class LP_Datetime {
 				);
 				break;
 			default:
-				$duration_str = $duration_number;
+				$duration_str = $duration_number . ' ' . $duration_type;
 		}
 
 		return $duration_str;
+	}
+
+	/**
+	 * Get timezone string
+	 *
+	 * @return string
+	 * @since 4.2.7.2
+	 * @version 1.0.0
+	 */
+	public static function get_timezone_string(): string {
+		$wp_timezone = wp_timezone_string();
+		$is_utc      = (int) $wp_timezone !== 0;
+
+		if ( $is_utc ) {
+			$wp_timezone = sprintf( '%s %s', __( 'Timezone: UTC', 'learnpress' ), $wp_timezone );
+		} else {
+			$wp_timezone = sprintf( '%s %s', __( 'Timezone:', 'learnpress' ), $wp_timezone );
+		}
+
+		return $wp_timezone;
 	}
 }
