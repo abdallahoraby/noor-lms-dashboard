@@ -110,7 +110,7 @@ if ( ! class_exists( 'LP_Addon_Import_Export' ) ) {
 		 * Admin script.
 		 */
 		public function admin_scripts() {
-			$assets = learn_press_admin_assets();
+			$assets = LP_Admin_Assets::instance();
 
 			$assets->enqueue_script( 'learn-press-import-script', $this->get_plugin_url( 'assets/js/import.js' ), array(
 				'jquery',

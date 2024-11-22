@@ -69,9 +69,13 @@ if ( ! class_exists( 'LP_Assignment_Import_Export' ) ) {
 					<?php
 					if ( ! empty( $attachment_ids ) ) {
 						foreach ( $attachment_ids as $attachment_id ) {
+							$url = wp_get_attachment_url( $attachment_id );
+							if ( ! $url ) {
+								continue;
+							}
 							?>
 						<wp:attachment_value>
-							<?php echo wp_get_attachment_url( $attachment_id ); ?>
+							<?php echo $url; ?>
 						</wp:attachment_value>
 							<?php
 						}
@@ -99,9 +103,9 @@ if ( ! class_exists( 'LP_Assignment_Import_Export' ) ) {
 			if ( isset( $wp->attachment_assingment ) ) {
 
 				foreach ( $wp->attachment_assingment as $attachment_value ) {
-					$attr = $attachment_value->attributes();
-					$id   = (int) $attr['id'];
 					if ( ! empty( $attachment_value ) ) {
+						$attr = $attachment_value->attributes();
+						$id   = (int) $attr['id'];
 						$value_item = array();
 						foreach ( $attachment_value as $att_url ) {
 							$value_item [] = ( (array) $att_url )[0];

@@ -3,6 +3,7 @@
  * Admin Import view.
  *
  * @since 3.0.0
+ * @version 1.0.1
  */
 ?>
 
@@ -15,31 +16,26 @@ if ( ! empty( $_REQUEST['import-nonce'] ) && wp_verify_nonce( $_REQUEST['import-
 ?>
 <div id="console" style="color: red;"></div>
 <form method="post" name="import-form" id="import-form"
-      action="admin.php?page=learnpress-import-export&tab=import" enctype="multipart/form-data">
-    <div id="import-form-postbox" class="postbox">
-        <h2 class="hndle"><span><?php _e( 'Import Courses', 'learnpress-import-export' ); ?></span></h2>
-        <div class="inside">
-			<?php
-			if ( isset( $_REQUEST['learnpress_import_form_server'] ) && $_REQUEST['learnpress_import_form_server'] ) {
-				do_action( 'lpie_import_from_server', $_REQUEST['learnpress_import_form_server'] );
-			} else { ?>
-                <input type="hidden" name="lpie_import_course_data" value="1"/>
-                <input type="hidden" name="step" value="<?php echo $step + 1; ?>"/>
-                <input type="hidden" name="action" value="export"/>
-                <input type="hidden" name="import-nonce"
-                       value="<?php echo wp_create_nonce( 'learnpress-import-export' ); ?>">
-				<?php if ( $step ) { ?>
-					<?php do_action( 'lpie_import_view_step_' . $step ); ?>
-				<?php } else { ?>
-                    <div id="import-uploader">
-                        <div id="import-upload-file"></div>
-                        <a id="import-uploader-select" href="javascript:;"><?php _e( 'Select file (xml)' ); ?></a>
-                        <a id="import-start-upload" class="dashicons dashicons-upload" href="javascript:;"></a>
-                    </div>
-				<?php }
-			} ?>
-        </div>
-    </div>
+		action="admin.php?page=learnpress-import-export&tab=import" enctype="multipart/form-data">
+	<div id="import-form-postbox" class="postbox">
+		<h2 class="hndle"><span><?php _e( 'Import Courses', 'learnpress-import-export' ); ?></span></h2>
+		<div class="inside">
+			<input type="hidden" name="lpie_import_course_data" value="1"/>
+			<input type="hidden" name="step" value="<?php echo $step + 1; ?>"/>
+			<input type="hidden" name="action" value="export"/>
+			<input type="hidden" name="import-nonce"
+					value="<?php echo wp_create_nonce( 'learnpress-import-export' ); ?>">
+			<?php if ( $step ) { ?>
+				<?php do_action( 'lpie_import_view_step_' . $step ); ?>
+			<?php } else { ?>
+				<div id="import-uploader">
+					<div id="import-upload-file"></div>
+					<a id="import-uploader-select" href="javascript:;"><?php _e( 'Select file (xml)' ); ?></a>
+					<a id="import-start-upload" class="dashicons dashicons-upload" href="javascript:;"></a>
+				</div>
+			<?php } ?>
+		</div>
+	</div>
 </form>
 
 <?php do_action( 'lpie_import_form', $step ); ?>

@@ -17,9 +17,9 @@
         <wp:wxr_version><?php echo LP_ADDON_IMPORT_EXPORT_VER; ?></wp:wxr_version>
         <wp:base_site_url><?php echo wxr_site_url(); ?></wp:base_site_url>
         <wp:base_blog_url><?php bloginfo_rss( 'url' ); ?></wp:base_blog_url>
-        <wp:plugin_name><?php echo $export_options['exporter']; ?></wp:plugin_name>
+        <wp:plugin_name><?php echo $export_options['exporter'] ?? ''; ?></wp:plugin_name>
         <wp:plugin_version><?php echo LP_ADDON_IMPORT_EXPORT_VER; ?></wp:plugin_version>
-		<?php wxr_authors_list( $export_options['courses'] ); ?>
-		<?php echo $items; ?>
+		<?php wxr_authors_list( $export_options['courses'] ?? [] ); ?>
+		<?php echo $items ?? ''; ?>
     </channel>
 </rss>

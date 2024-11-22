@@ -71,44 +71,14 @@ if ( ! class_exists( 'LP_Import_LearnPress_Provider' ) ) {
 		 */
 		public function __construct() {
 
-			if ( isset( $_REQUEST['lpie_import_course_data'] ) ) {
+			if ( ! empty( LP_Request::get_param('lpie_import_course_data') ) ) {
 				add_action( 'lpie_import_view_step_1', array( $this, 'step_1' ) );
 				add_action( 'lpie_import_view_step_2', array( $this, 'step_2' ) );
 				add_action( 'lpie_import_view_step_3', array( $this, 'step_3' ) );
 			}
-			add_action( 'lpie_import_from_server', array( $this, 'import_form_server_view' ) );
 
 			require_once LP_ADDON_IMPORT_EXPORT_INC . 'admin/providers/learnpress/lp-import-functions.php';
 
-		}
-
-		/**
-		 * Import from server view.
-		 *
-		 * @param $file
-		 */
-		public function import_form_server_view( $file ) {
-			?>
-            <h2><strong><?php _e( 'Course(s) found on this file', 'learnpress-import-export' ); ?></strong>
-                (<?php _e( str_replace( 'export/', '', $file ) ) ?>):</h2>
-            <table class="wp-list-table widefat fixed striped">
-				<?php
-				$file_data = $this->parse( lpie_root_path() . '/learnpress/' . $file );
-				$courses   = $file_data ['posts'];
-				foreach ( $courses as $course ) {
-					if ( $course['post_type'] == LP_COURSE_CPT ) {
-						_e( '<tr><td>' . $course['post_title'] . '</td><tr>' );
-					}
-				}
-				?>
-            </table>
-            <p>
-                <a href="<?php echo wp_nonce_url( admin_url( 'admin.php?page=learnpress-import-export&tab=import&import-file=' . $file . '&step=3' ), 'learnpress-import-export', 'import-nonce' ); ?>"
-                   class="button button-primary button-large"><?php _e( 'Confirm Import', 'learnpress-import-export' ); ?></a>
-                <a href="<?php echo admin_url( 'admin.php?page=learnpress-import-export&tab=import' ); ?>"
-                   class="button button-large"><?php _e( 'Cancel', 'learnpress-import-export' ); ?></a>
-            </p>
-			<?php
 		}
 
 		/**

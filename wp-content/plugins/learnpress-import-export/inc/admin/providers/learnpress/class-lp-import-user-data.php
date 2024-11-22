@@ -72,8 +72,8 @@ if ( ! class_exists( 'LP_Import_User_LearnPress' ) ) {
 		public function __construct() {
 
 			add_action( 'lpie_import_form', array( $this, 'add_form' ), 10, 1 );
-
-			if ( isset( $_REQUEST['lpie_import_user_data'] ) ) {
+			
+			if ( ! empty( LP_Request::get_param('lpie_import_user_data') ) ) {
 				add_action( 'lpie_import_user_step_1', array( $this, 'step_1' ) );
 				add_action( 'lpie_import_user_step_2', array( $this, 'step_2' ) );
 				add_action( 'lpie_import_user_step_3', array( $this, 'step_3' ) );

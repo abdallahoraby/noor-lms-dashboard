@@ -1,3 +1,7 @@
+<?php
+$import_form_server = LP_Request::get_param( 'learnpress_import_form_server' );
+?>
+
 <div id="error-import-user" style="color: red;"></div>
 <form method="post" name="import-user-form" id="import-user-form"
       action="admin.php?page=learnpress-import-export&tab=import" enctype="multipart/form-data">
@@ -5,8 +9,8 @@
         <h2 class="hndle"><span><?php _e( 'Import Users', 'learnpress-import-export' ); ?></span></h2>
         <div class="inside">
 			<?php
-			if ( isset( $_REQUEST['learnpress_import_form_server'] ) && $_REQUEST['learnpress_import_form_server'] ) {
-				do_action( 'lpie_import_user_from_server', $_REQUEST['learnpress_import_form_server'] );
+			if ( ! empty ( $import_form_server ) ) {
+				do_action( 'lpie_import_user_from_server', $import_form_server );
 			} else { ?>
                 <input type="hidden" name="lpie_import_user_data" value="1"/>
                 <input type="hidden" name="step" value="<?php echo $step + 1; ?>"/>

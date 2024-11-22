@@ -42,7 +42,7 @@ if ( ! class_exists( 'LP_Export_LearnPress_Provider' ) ) {
 				return;
 			}
 
-			$this->_exported_data = array_merge($this->_exported_data, $_REQUEST);
+			$this->_exported_data = array_merge( $this->_exported_data, $_REQUEST );
 
 			add_action( 'lpie_export_view_step_1', array( $this, 'step_1' ) );
 			add_action( 'lpie_export_view_step_2', array( $this, 'step_2' ) );
@@ -73,8 +73,8 @@ if ( ! class_exists( 'LP_Export_LearnPress_Provider' ) ) {
 		 * Export step 3 view.
 		 */
 		public function step_3() {
-			$this->do_export();
-			lpie_admin_view( 'learnpress/export/step-3' );
+			$data = $this->do_export();
+			lpie_admin_view( 'learnpress/export/step-3', compact( 'data' ) );
 		}
 
 		/**
@@ -83,10 +83,15 @@ if ( ! class_exists( 'LP_Export_LearnPress_Provider' ) ) {
 		public function do_export() {
 			global $wpdb, $post;
 
-			$all_courses = $_REQUEST['courses'];
-			$courses     = $wpdb->get_results(
+			$all_courses = LP_Request::get_param('courses', [], 'key' );
+			if ( empty( $all_courses ) ) {
+				return false;
+			}
+
+			$all_courses_str = esc_sql( join( ",", $all_courses ) );
+			$courses         = $wpdb->get_results(
 				$wpdb->prepare( " SELECT * FROM {$wpdb->posts}
-						WHERE ID IN(" . join( ",", $all_courses ) . ")
+						WHERE ID IN(" . $all_courses_str . ")
 						AND post_type = %s",
 					LP_COURSE_CPT )
 			);
@@ -113,7 +118,7 @@ if ( ! class_exists( 'LP_Export_LearnPress_Provider' ) ) {
 			}
 			$items = ob_get_clean();
 
-			$this->generate_exported_file( $items );
+			return $this->generate_exported_file( $items );
 		}
 
 		/**
@@ -204,22 +209,30 @@ if ( ! class_exists( 'LP_Export_LearnPress_Provider' ) ) {
 		}
 
 		public function generate_exported_file( $items ) {
+			$data           = [];
 			$export_options = $this->_exported_data;
 			ob_start();
 			require_once LP_ADDON_IMPORT_EXPORT_INC . 'admin/providers/learnpress/xml/lp-export.php';
 			$content      = ob_get_clean();
-			$xml_filename = $this->get_export_file_name( $_REQUEST['learn-press-export-file-name'] );
-			if ( $_REQUEST['save_export'] ) {
+			$file_name    = LP_Request::get_param( 'learn-press-export-file-name' );
+			$xml_filename = $this->get_export_file_name( $file_name );
+
+			if ( isset( $_REQUEST['save_export'] ) ) {
 				$xml_filename = 'learnpress/export/' . $xml_filename;
 				lpie_put_contents( $xml_filename, $content );
 			}
-			if ( $_REQUEST['download_export'] ) {
-				$download_filename = $this->get_download_export_file_name( $_REQUEST['learn-press-export-file-name'] );
+
+			if ( isset( $_REQUEST['download_export'] ) ) {
+				$download_filename = $this->get_download_export_file_name( $file_name );
 				$download_filename = 'learnpress/tmp/' . $download_filename;
 				lpie_put_contents( $download_filename, $content );
-				$_REQUEST['download_url']   = $download_filename;
-				$_REQUEST['download_alias'] = basename( $xml_filename );
+
+				$data['download_url']   = $download_filename;
+				$data['download_alias'] = basename( $xml_filename );
+				$data['download_nonce'] = wp_create_nonce( 'lpie-download-file' );
 			}
+
+			return $data;
 		}
 
 		public function get_download_export_file_name( $type = 'xml' ) {

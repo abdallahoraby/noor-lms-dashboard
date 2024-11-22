@@ -8,7 +8,7 @@
 
 <?php
 $courses     = LP_Export_LearnPress_Provider::get_courses();
-$selected    = ! empty( $_REQUEST['courses'] ) ? $_REQUEST['courses'] : array();
+$selected    = ! empty( LP_Request::get_param('courses') ) ? LP_Request::get_param('courses') : array();
 $all_courses = array();
 ?>
 
@@ -59,7 +59,7 @@ $all_courses = array();
 <?php } else { ?>
     <p><?php echo __( 'No course available to export.', 'learnpress-import-export' ); ?></p>
 <?php } ?>
-<input type="hidden" name="exporter" value="<?php echo $_REQUEST['exporter'];?>">
+<input type="hidden" name="exporter" value="<?php echo LP_Request::get_param('exporter');?>">
 <p>
     <button class="button button-primary" id="button-export-next" disabled="disabled">
 		<?php _e( 'Next', 'learnpress-import-export' ); ?>
