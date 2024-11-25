@@ -32,3 +32,39 @@
 
     }
 
+
+
+    function get_courses_by_category_slug($category_slug) {
+        $args = array(
+            'post_type' => 'lp_course',
+            'posts_per_page' => -1, // Get all courses (change number as needed)
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'course_category', // LearnPress course category taxonomy
+                    'field'    => 'slug',           // Match by slug
+                    'terms'    => $category_slug,   // The category slug you want to match
+                ),
+            ),
+        );
+
+        $query = new WP_Query($args);
+
+        // Check if courses are found
+        if ($query->have_posts()) {
+            $courses = array();
+            while ($query->have_posts()) {
+                $query->the_post();
+                $courses[] = array(
+                    'id'    => get_the_ID(),
+                    'title' => get_the_title(),
+                    'link'  => get_permalink(),
+                );
+            }
+            wp_reset_postdata(); // Reset post data
+            return $courses;
+        }
+
+        wp_reset_postdata(); // Reset post data if no courses found
+        return array();
+    }
+
