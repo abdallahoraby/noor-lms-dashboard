@@ -8,6 +8,17 @@
 
 defined( 'ABSPATH' ) || exit();
 
+    // get free trial courses
+    $category_slug = 'free-trial';
+    $free_trial_courses = get_courses_by_category_slug($category_slug);
+    if( !empty($free_trial_courses) ):
+        foreach ($free_trial_courses as $free_trial_course):
+            $free_trial_courses_ids[] = $free_trial_course['id'];
+        endforeach;
+    else:
+        $free_trial_courses_ids = [];
+    endif;
+
 ?>
 
 <main class="l-main">
@@ -25,6 +36,8 @@ defined( 'ABSPATH' ) || exit();
                     if(!empty($all_subscriptions)):
                         $all_subscriptions_ids = array_column($all_subscriptions, 'id');
                     endif;
+
+
                 ?>
                 
                 <?php if( pms_is_member_of_plan( $all_subscriptions_ids ) ): ?>
@@ -79,6 +92,8 @@ defined( 'ABSPATH' ) || exit();
                     <?php
                         $user_id = get_current_user_id();
                         $user_courses = get_user_enrolled_courses($user_id);
+                        $user_courses = array_merge($user_courses, $free_trial_courses_ids);
+                        
                     ?>
 
                     <?php if( empty($user_courses) ): ?>
