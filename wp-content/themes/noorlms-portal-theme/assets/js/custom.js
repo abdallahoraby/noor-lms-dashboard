@@ -11,8 +11,8 @@ jQuery(document).ready(function($) {
         $('.ajax-loader-wrapper').show();
         let templateName = $(this).data('template-name'); // The name of the template to load
 
-        //var templateName = 'template-part';
-        var args = { key1: 'value1', key2: 'value2' }; // Arguments to pass to the template
+        //let templateName = 'template-part';
+        let args = { key1: 'value1', key2: 'value2' }; // Arguments to pass to the template
 
         // Send the AJAX request
         $.ajax({
@@ -73,6 +73,24 @@ jQuery(document).ready(function($) {
 
     });
 
+    // get quiz score on submit
+    jQuery('div#learn-press-quiz-app button.lp-button.modal-button-ok').on('click', function (){
+
+
+        jQuery.ajax({
+            url: ajax_object.ajax_url,
+            type: 'POST',
+            data: {
+                action: 'get_quiz_score',
+            },
+            success: function(response) {
+
+            }
+        });
+
+
+    });
+
 }); // Document Ready
 
 
@@ -86,8 +104,8 @@ jQuery(document).on('ajaxComplete', function() {
     });
 
     $('#save-practice').on('click', function() {
-        var practice_datetime = $('#practice_datetime').val();
-        var number_of_practices = $('#number_of_practices').val();
+        let practice_datetime = $('#practice_datetime').val();
+        let number_of_practices = $('#number_of_practices').val();
 
         $.ajax({
             url: ajax_object.ajax_url,
@@ -105,6 +123,9 @@ jQuery(document).on('ajaxComplete', function() {
             }
         });
     });
+
+
+
 
 
 }); // Ajax Ready

@@ -73,8 +73,19 @@
                                 </div>
 
                                 <?php
+                                    // get free trial courses
+                                    $category_slug = 'free-trial';
+                                    $free_trial_courses = get_courses_by_category_slug($category_slug);
+                                    if( !empty($free_trial_courses) ):
+                                        foreach ($free_trial_courses as $free_trial_course):
+                                            $free_trial_courses_ids[] = $free_trial_course['id'];
+                                        endforeach;
+                                    else:
+                                        $free_trial_courses_ids = [];
+                                    endif;
                                     $user_id = get_current_user_id();
                                     $user_courses = get_user_enrolled_courses($user_id);
+                                    $user_courses = array_unique(array_merge($user_courses, $free_trial_courses_ids));
                                 ?>
 
                                 <?php if( empty($user_courses) ): ?>
@@ -258,7 +269,7 @@
         // splide default options
         let splideOptions = {
             type   : 'slide',  // Enable looping
-            perPage: 3,       // Show 4 items at once
+            perPage: 2,       // Show 4 items at once
             perMove: 1,
             autoplay: true, // Enable autoplay
             interval: 3000,   // Time between slides (3 seconds)
@@ -280,7 +291,7 @@
                     perPage: 1,
                 },
                 1600: {
-                    perPage: 3,
+                    perPage: 2,
                 }
             }
         };

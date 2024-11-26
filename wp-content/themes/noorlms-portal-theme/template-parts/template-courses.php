@@ -92,8 +92,8 @@ defined( 'ABSPATH' ) || exit();
                     <?php
                         $user_id = get_current_user_id();
                         $user_courses = get_user_enrolled_courses($user_id);
-                        $user_courses = array_merge($user_courses, $free_trial_courses_ids);
-                        
+                        $user_courses = array_unique(array_merge($user_courses, $free_trial_courses_ids));
+
                     ?>
 
                     <?php if( empty($user_courses) ): ?>

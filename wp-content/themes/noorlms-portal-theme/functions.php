@@ -55,8 +55,10 @@ function buddyboss_theme_child_scripts_styles()
   wp_enqueue_style( 'splide-css', get_stylesheet_directory_uri().'/assets/css/splide.min.css' );
   wp_enqueue_style( 'splide-css', get_stylesheet_directory_uri().'/assets/css/toastr.min.css' );
   wp_enqueue_style( 'styles-css', get_stylesheet_directory_uri().'/assets/css/styles.css' );
-  wp_enqueue_style( 'buddyboss-child-css', get_stylesheet_directory_uri().'/assets/css/custom.css' );
-  wp_enqueue_style( 'alertify-css', get_stylesheet_directory_uri().'/assets/css/alertify.min.css' );
+    wp_enqueue_style( 'buddyboss-child-css', get_stylesheet_directory_uri().'/assets/css/custom.css' );
+    wp_enqueue_style( 'tablet-css', get_stylesheet_directory_uri().'/assets/css/tablet-styles.css' );
+    wp_enqueue_style( 'mobile-css', get_stylesheet_directory_uri().'/assets/css/mobile-styles.css' );
+    wp_enqueue_style( 'alertify-css', get_stylesheet_directory_uri().'/assets/css/alertify.min.css' );
 
   // Javascript
   wp_enqueue_script( 'jquery-js', get_stylesheet_directory_uri().'/assets/js/jquery.min.js' );
@@ -417,3 +419,11 @@ function cancel_user_subscriptions($user_id) {
     return true;
 
 }
+
+/*
+ * Override the template of the LearnPress plugin
+ * To improve the speed as well as the quality of LearnPress ThimPress is going to have some necessary changes
+ *  in coding from LP3 to LP4. Today, we will list out those changes to help our developers get updated to the new version.
+ *  To override the template of the LearnPress plugin, you should add this code to the function.php file
+ */
+add_filter( 'learn-press/override-templates', function(){ return true; } );

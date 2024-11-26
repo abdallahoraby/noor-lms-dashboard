@@ -635,5 +635,68 @@ button.ajs-button.ajs-ok {
     background: gray;
 }
 
+.pickup-what-left .latest-course h4 {
+    width: 80%;
+    min-width: 70%;
+    font-size: 1rem;
+    min-height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pickup-what-left .latest-course img {
+    position: absolute;
+    top: 30px;
+    width: 100%;
+}
+
+.home-courses {
+    gap: 0 !important;
+}
+
+button.splide__arrow {
+    margin: 0;
+    opacity: 1;
+}
+
+div#popup-course {
+    margin-top: 2rem;
+    left: 70px;
+}
+
+div#popup-header {
+    left: 537px;
+}
+
+.quiz-buttons .button-left {
+    position: relative !important;
+    left: unset !important;
+    bottom: unset !important;
+    transform: unset !important;
+    margin: 0 !important;
+}
+
+.quiz-buttons {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.course-curriculum .course-item.has-status.status-completed .course-item-status::before {
+    background: #3bb54a;
+    color: #fff;
+    padding: 4px;
+    border-radius: 50px;
+}
+
+.course-curriculum .course-item.has-status.failed .course-item-status::before {
+    background: #f02425;
+}
+
+
+
+
+
 
 

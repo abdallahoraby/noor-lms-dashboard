@@ -231,3 +231,11 @@ function add_log() {
 
 add_action('wp_ajax_add_log', 'add_log');
 add_action('wp_ajax_nopriv_add_log', 'add_log');
+
+
+function get_quiz_score() {
+    var_dump( get_the_ID() );
+}
+
+add_action('wp_ajax_get_quiz_score', 'get_quiz_score');
+add_action('wp_ajax_nopriv_get_quiz_score', 'get_quiz_score');
