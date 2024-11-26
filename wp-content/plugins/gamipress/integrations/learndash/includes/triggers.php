@@ -84,10 +84,16 @@ function gamipress_ld_activity_triggers( $triggers ) {
             // Course taxonomies
             'gamipress_ld_fail_quiz_course_category'    => __( 'Fail a quiz of a course of a category', 'gamipress' ),
             'gamipress_ld_fail_quiz_course_tag'    => __( 'Fail a quiz of a course of a tag', 'gamipress' ),
+        
+        // Essay
+        'gamipress_ld_submit_essay_quiz'                    => __( 'Submit an essay for a quiz', 'gamipress' ),
+        'gamipress_ld_submit_essay_specific_quiz'           => __( 'Submit an essay for a specific quiz', 'gamipress' ),
 
         // Topics
         'gamipress_ld_complete_topic'                   => __( 'Complete a topic', 'gamipress' ),
         'gamipress_ld_complete_specific_topic'          => __( 'Complete a specific topic', 'gamipress' ),
+        'gamipress_ld_incomplete_topic'                  => __( 'Mark as incomplete a topic', 'gamipress' ),
+        'gamipress_ld_incomplete_specific_topic'         => __( 'Mark as incomplete a specific topic', 'gamipress' ),
             // Topic taxonomies
             'gamipress_ld_complete_topic_category'          => __( 'Complete a topic of a category', 'gamipress' ),
             'gamipress_ld_complete_topic_tag'          => __( 'Complete a topic of a tag', 'gamipress' ),
@@ -181,8 +187,11 @@ function gamipress_ld_specific_activity_triggers( $specific_activity_triggers ) 
     $specific_activity_triggers['gamipress_ld_fail_specific_quiz'] = array( 'sfwd-quiz' );
     $specific_activity_triggers['gamipress_ld_fail_quiz_specific_course'] = array( 'sfwd-courses' );
 
+    $specific_activity_triggers['gamipress_ld_submit_essay_specific_quiz'] = array( 'sfwd-quiz' );
+
     // Topics
     $specific_activity_triggers['gamipress_ld_complete_specific_topic'] = array( 'sfwd-topic' );
+    $specific_activity_triggers['gamipress_ld_incomplete_specific_topic'] = array( 'sfwd-topic' );
     $specific_activity_triggers['gamipress_ld_complete_topic_specific_course'] = array( 'sfwd-courses' );
 
     // Assignments
@@ -460,9 +469,11 @@ function gamipress_ld_specific_activity_trigger_label( $specific_activity_trigge
     $specific_activity_trigger_labels['gamipress_ld_pass_quiz_specific_course'] = __( 'Pass a quiz of the course %s', 'gamipress' );
     $specific_activity_trigger_labels['gamipress_ld_fail_specific_quiz'] = __( 'Fail the quiz %s', 'gamipress' );
     $specific_activity_trigger_labels['gamipress_ld_fail_quiz_specific_course'] = __( 'Fail a quiz of the course %s', 'gamipress' );
+    $specific_activity_trigger_labels['gamipress_ld_submit_essay_specific_quiz'] = __( 'Sumit an essay for the quiz %s', 'gamipress' );
 
     // Topics
     $specific_activity_trigger_labels['gamipress_ld_complete_specific_topic'] = __( 'Complete the topic %s', 'gamipress' );
+    $specific_activity_trigger_labels['gamipress_ld_incomplete_specific_topic'] = __( 'Mark as incomplete the topic %s', 'gamipress' );
     $specific_activity_trigger_labels['gamipress_ld_complete_topic_specific_course'] = __( 'Complete a topic of the course %s', 'gamipress' );
 
     // Assignments
@@ -519,10 +530,14 @@ function gamipress_ld_trigger_get_user_id( $user_id, $trigger, $args ) {
         case 'gamipress_ld_fail_quiz':
         case 'gamipress_ld_fail_specific_quiz':
         case 'gamipress_ld_fail_quiz_specific_course':
+        case 'gamipress_ld_submit_essay_quiz':
+        case 'gamipress_ld_submit_essay_specific_quiz':
 
         // Topics
         case 'gamipress_ld_complete_topic':
         case 'gamipress_ld_complete_specific_topic':
+        case 'gamipress_ld_incomplete_topic':
+        case 'gamipress_ld_incomplete_specific_topic':
         case 'gamipress_ld_complete_topic_specific_course':
 
         // Assignments
@@ -633,11 +648,13 @@ function gamipress_ld_specific_trigger_get_id( $specific_id, $trigger = '', $arg
         case 'gamipress_ld_pass_specific_quiz':
         case 'gamipress_ld_fail_specific_quiz':
         case 'gamipress_ld_complete_specific_topic':
+        case 'gamipress_ld_incomplete_specific_topic':
         case 'gamipress_ld_complete_specific_lesson':
         case 'gamipress_ld_incomplete_specific_lesson':
         case 'gamipress_ld_enroll_specific_course':
         case 'gamipress_ld_complete_specific_course':
         case 'gamipress_ld_join_specific_group':
+        case 'gamipress_ld_submit_essay_specific_quiz':
             $specific_id = $args[0];
             break;
         case 'gamipress_ld_complete_quiz_specific_course':
@@ -737,6 +754,11 @@ function gamipress_ld_log_event_trigger_meta_data( $log_meta, $user_id, $trigger
             $log_meta['course_id'] = $args[2];
             $log_meta['score'] = $args[3];
             break;
+        // Essay
+        case 'gamipress_ld_submit_essay_quiz':
+        case 'gamipress_ld_submit_essay_specific_quiz':
+            // Add the quiz and course IDs
+            $log_meta['quiz_id'] = $args[0];
 
         // Topics
         case 'gamipress_ld_complete_topic':
@@ -753,6 +775,11 @@ function gamipress_ld_log_event_trigger_meta_data( $log_meta, $user_id, $trigger
             $log_meta['lesson_id'] = $args[2];
             $log_meta['course_id'] = $args[3];
             break;
+        case 'gamipress_ld_incomplete_topic':
+        case 'gamipress_ld_incomplete_specific_topic':
+            // Add the topic and course IDs
+            $log_meta['topic_id'] = $args[0];
+            $log_meta['course_id'] = $args[2];
 
         // Assignments
         case 'gamipress_ld_assignment_upload':

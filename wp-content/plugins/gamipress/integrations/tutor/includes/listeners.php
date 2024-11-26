@@ -170,3 +170,28 @@ function gamipress_tutor_complete_course( $course_id ) {
 
 }
 add_action( 'tutor_course_complete_after', 'gamipress_tutor_complete_course' );
+
+/**
+ * Review course listener
+ *
+ * @since 1.0.0
+ *
+ * @param int $course_id
+ */
+function gamipress_tutor_review_course( $comment_id ) {
+
+    $user_id = get_current_user_id();
+
+    // Get the course ID
+    $review = get_comment( $comment_id );
+    $course_id = $review->comment_post_ID;
+
+    // Complete any course
+    do_action( 'gamipress_tutor_review_course', $course_id, $user_id );
+
+    // Complete specific course
+    do_action( 'gamipress_tutor_review_specific_course', $course_id, $user_id );
+
+}
+add_action( 'tutor_after_rating_placed', 'gamipress_tutor_review_course' );
+

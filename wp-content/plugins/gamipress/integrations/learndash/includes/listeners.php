@@ -347,6 +347,34 @@ function gamipress_ld_fail_quiz_listener( $quiz_data, $current_user ) {
 add_action( $quiz_submitted_hook, 'gamipress_ld_fail_quiz_listener', 10, 2 );
 
 /**
+ * Submit essay
+ *
+ * @since 1.0.0
+ *
+ * @param int   $essay_id  The new Essay ID created after essay submission.
+ * @param array $essay_args An array of essay arguments.
+ */
+function gamipress_ld_submit_essay_quiz( $essay_id, $essay_args ) {
+
+    $user_id = get_current_user_id();
+
+    // Bail if no user
+    if ( $user_id === 0 ) {
+        return;
+    }
+
+    $quiz_id = get_post_meta( $essay_id, 'quiz_post_id', true );
+       
+    // Submit essay for any quiz
+    do_action( 'gamipress_ld_submit_essay_quiz', $quiz_id, $user_id );
+
+    // Submit essay for specific lesson
+    do_action( 'gamipress_ld_submit_essay_specific_quiz', $quiz_id, $user_id );
+
+}
+add_action( 'learndash_new_essay_submitted', 'gamipress_ld_submit_essay_quiz', 10, 2 );
+
+/**
  * Complete topic
  *
  * @since 1.0.0
@@ -470,6 +498,11 @@ function gamipress_ld_incomplete_lesson( $user_id, $course_id, $lesson_id ) {
         return;
     }
 
+    // Bail if not a lesson
+    if ( get_post_type( $lesson_id ) !== 'sfwd-lessons' ) {
+        return;
+    }
+
     // Mark incomplete any lesson
     do_action( 'gamipress_ld_incomplete_lesson', $lesson_id, $user_id, $course_id );
 
@@ -478,6 +511,36 @@ function gamipress_ld_incomplete_lesson( $user_id, $course_id, $lesson_id ) {
 
 }
 add_action( 'learndash_mark_incomplete_process', 'gamipress_ld_incomplete_lesson', 10, 3 );
+
+/**
+ * Mark topic incomplete
+ *
+ * @since 1.0.0
+ *
+ * @param int $user_id      User ID.
+ * @param int $course_id    Course ID.
+ * @param int $topic_id     Topic ID.
+ */
+function gamipress_ld_incomplete_topic( $user_id, $course_id, $topic_id ) {
+
+    // Bail if course_id and topic_id have the same value
+    if ( $course_id === $topic_id ) {
+        return;
+    }
+
+    // Bail if not a topic
+    if ( get_post_type( $topic_id ) !== 'sfwd-topic' ) {
+        return;
+    }
+
+    // Mark incomplete any topic
+    do_action( 'gamipress_ld_incomplete_topic', $topic_id, $user_id, $course_id );
+
+    // Mark incomplete specific topic
+    do_action( 'gamipress_ld_incomplete_specific_topic', $topic_id, $user_id, $course_id );
+
+}
+add_action( 'learndash_mark_incomplete_process', 'gamipress_ld_incomplete_topic', 10, 3 );
 
 /**
  * Enroll course
