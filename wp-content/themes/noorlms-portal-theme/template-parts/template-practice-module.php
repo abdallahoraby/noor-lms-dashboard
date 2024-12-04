@@ -60,7 +60,7 @@
 
             <p> Only 1 session left until you can unlock your next Course. Keep up the good work! </p>
 
-            <a href="#" class="btn log-practice-btn"> Log Your Practice </a>
+            <a href="#" class="btn log-practice-btn open-practice-modal"> Log Your Practice </a>
 
             <a href="#" class="view-practice-logs"> View Practice Logs </a>
 
@@ -70,10 +70,72 @@
     </div>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="practice_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"> Log Your Practice </h5>
+            </div>
+            <div class="modal-body">
+                <form id="practice-form">
+                    <label for="practice_date"> Date of Practice? </label>
+                    <input type="date" id="practice_date" name="practice_date">
+                    <label for="practice_minutes"> How many minutes do you want to practice? </label>
+                    <div class="radio-group">
+                        <div class="radio-button">
+                            <input type="radio" id="option-5" name="practice_minutes" value="5">
+                            <label for="option-5">5</label>
+                        </div>
+                        <div class="radio-button">
+                            <input type="radio" id="option-10" name="practice_minutes" value="10">
+                            <label for="option-10">10</label>
+                        </div>
+                        <div class="radio-button">
+                            <input type="radio" id="option-15" name="practice_minutes" value="15">
+                            <label for="option-15">15</label>
+                        </div>
+                        <div class="radio-button">
+                            <input type="radio" id="option-20" name="practice_minutes" value="20">
+                            <label for="option-20">20</label>
+                        </div>
+                        <div class="radio-button">
+                            <input type="radio" id="option-25" name="practice_minutes" value="25">
+                            <label for="option-25">25</label>
+                        </div>
+                        <div class="radio-button">
+                            <input type="radio" id="option-30" name="practice_minutes" value="30">
+                            <label for="option-30">30</label>
+                        </div>
+                        <div class="radio-button">
+                            <input type="radio" id="option-45" name="practice_minutes" value="45">
+                            <label for="option-45">45</label>
+                        </div>
+                        <div class="radio-button">
+                            <input type="radio" id="option-60" name="practice_minutes" value="60">
+                            <label for="option-60">60</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary close-modal-btn" data-dismiss="modal">Close</button>
+                <button type="button" id="save-practice">Save Practice</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
-<!--<form id="practice-form">-->
-<!--    <input type="datetime-local" id="practice_datetime" name="practice_datetime" required>-->
-<!--    <input type="number" id="number_of_practices" name="number_of_practices" required>-->
-<!--    <button type="button" id="save-practice">Save Practice</button>-->
-<!--</form>-->
+<?php
+
+    $user_id = get_current_user_id();
+    $item_id = 123; // Replace with the actual item ID
+    $component_name = 'practice_tracker';
+    $component_action = 'logged_practice';
+    $notification_content = 'User logged a practice session';
+
+    push_buddyboss_notification($user_id, $item_id, $component_name, $component_action, $notification_content);
+
+?>
+

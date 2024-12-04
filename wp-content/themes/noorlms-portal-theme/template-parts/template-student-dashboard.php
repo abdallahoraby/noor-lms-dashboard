@@ -35,7 +35,7 @@
                             <div class="actions" >
 
 
-                                <div class="assigned-tasks action" >
+                                <div class="assigned-tasks action practice-btn" >
                                     <img class="action-img" src="<?= get_stylesheet_directory_uri() ?>/assets/images/book.png" alt="View Courses">
 
                                     <h3> Have you practiced today? </h3>
@@ -45,7 +45,7 @@
                                 </div>
 
 
-                                <div class="assigned-tasks load-template-part action" data-template-name="courses">
+                                <div class="assigned-tasks load-template-courses action">
                                     <img class="action-img" src="<?= get_stylesheet_directory_uri() ?>/assets/images/online-course.png" alt="View Courses">
 
                                     <h3>View your courses.</h3>
@@ -126,12 +126,12 @@
                             <div class="d-flex gap-5 justify-content-between today-courses">
                                 <div class="course-of-today d-flex flex-column gap-3 justify-content-between">
                                     <h3> Islamic Studies </h3>
-                                    <a href="#" class="btn btn-light"> Start </a>
+                                    <a href="#courses" class="btn btn-light load-template-courses"> Start </a>
                                 </div>
 
                                 <div class="course-of-today light-blue d-flex flex-column gap-3 justify-content-between">
                                     <h3> Learn to Read </h3>
-                                    <a href="#" class="btn btn-light"> Start </a>
+                                    <a href="#courses" class="btn btn-light load-template-courses" > Start </a>
                                 </div>
                             </div>
 
@@ -139,7 +139,7 @@
 
                     </div>
 
-                    <div class="col-md-4 col-sm-12 col-12 px-4">
+                    <div class="col-md-4 col-sm-12 col-12 px-4" id="practice-section">
                         <?php get_template_part('template-parts/template-practice-module') ?>
                     </div>
 
@@ -215,7 +215,7 @@
                                 </div>
                             </div>
 
-                            <div class="achievements-wrapper">
+                            <div class="achievements-wrapper load-template-part" data-template-name="achievements">
                                 <div class="row">
                                     <?php
                                         // get all achievements
@@ -260,6 +260,7 @@
         </div>
     </div>
 </main>
+
 
 
 <script>

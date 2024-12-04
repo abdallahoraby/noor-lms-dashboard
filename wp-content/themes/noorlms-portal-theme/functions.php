@@ -53,7 +53,7 @@ function buddyboss_theme_child_scripts_styles()
   wp_enqueue_style( 'fontawesome-css', get_stylesheet_directory_uri().'/assets/css/fontawesome.min.css' );
   wp_enqueue_style( 'normalize-css', get_stylesheet_directory_uri().'/assets/css/normalize.min.css' );
   wp_enqueue_style( 'splide-css', get_stylesheet_directory_uri().'/assets/css/splide.min.css' );
-  wp_enqueue_style( 'splide-css', get_stylesheet_directory_uri().'/assets/css/toastr.min.css' );
+  wp_enqueue_style( 'toastr-css', get_stylesheet_directory_uri().'/assets/css/toastr.min.css' );
   wp_enqueue_style( 'styles-css', get_stylesheet_directory_uri().'/assets/css/styles.css' );
     wp_enqueue_style( 'buddyboss-child-css', get_stylesheet_directory_uri().'/assets/css/custom.css' );
     wp_enqueue_style( 'tablet-css', get_stylesheet_directory_uri().'/assets/css/tablet-styles.css' );
@@ -63,7 +63,7 @@ function buddyboss_theme_child_scripts_styles()
   // Javascript
   wp_enqueue_script( 'jquery-js', get_stylesheet_directory_uri().'/assets/js/jquery.min.js' );
 //  wp_enqueue_script( 'bootstrap-js', get_stylesheet_directory_uri().'/assets/js/bootstrap.min.js', rand(1,100) );
-  wp_enqueue_script( 'bootstrap-bundle-js', get_stylesheet_directory_uri().'/assets/js/bootstrap.bundle.min.js', rand(1,100) );
+  wp_enqueue_script( 'bootstrap-bundle-js', get_stylesheet_directory_uri().'/assets/js/bootstrap.bundle.min.js', [], 5, true );
   wp_enqueue_script( 'dataTables-js', get_stylesheet_directory_uri().'/assets/js/dataTables.min.js' );
   wp_enqueue_script( 'splide-js', get_stylesheet_directory_uri().'/assets/js/splide.min.js' );
   wp_enqueue_script( 'jquery-ui-js', get_stylesheet_directory_uri().'/assets/js/jquery-ui.js' );
@@ -228,8 +228,8 @@ function lms_practice_module_create_table() {
     $sql = "CREATE TABLE $table_name (
         id mediumint(9) NOT NULL AUTO_INCREMENT,
         user_id bigint(20) NOT NULL,
-        practice_datetime datetime NOT NULL,
-        number_of_practices int NOT NULL,
+        practice_date datetime NOT NULL,
+        practice_minutes int NOT NULL,
         PRIMARY KEY (id)
     ) $charset_collate;";
 

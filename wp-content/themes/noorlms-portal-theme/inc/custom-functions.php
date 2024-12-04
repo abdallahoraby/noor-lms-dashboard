@@ -68,3 +68,36 @@
         return array();
     }
 
+
+
+    /**
+     * Push a new notification to a BuddyBoss user.
+     *
+     * @param int    $user_id       The ID of the user receiving the notification.
+     * @param string $item_id       A unique identifier for the notification (e.g., post ID, comment ID).
+     * @param string $component_name The name of the component triggering the notification.
+     * @param string $component_action The action performed within the component (e.g., "new_message").
+     * @param string $notification_content The notification text/content.
+     */
+    function push_buddyboss_notification($user_id, $item_id, $component_name, $component_action, $notification_content) {
+        // Check if the user exists
+        if (!get_user_by('id', $user_id)) {
+            return false;
+        }
+
+        // Add the notification
+        bp_notifications_add_notification([
+            'user_id'           => $user_id,
+            'item_id'           => $item_id,
+            'secondary_item_id' => 0, // Use if needed
+            'component_name'    => $component_name,
+            'component_action'  => $component_action,
+            'date_notified'     => bp_core_current_time(),
+            'is_new'            => 1, // Mark as a new notification
+            'content'           => $notification_content, // Optional, customize for BuddyBoss
+        ]);
+
+        return true;
+    }
+
+

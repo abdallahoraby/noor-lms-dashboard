@@ -199,17 +199,19 @@ function lms_practice_module_save_practice() {
     $table_name = $wpdb->prefix . 'lms_practices';
 
     $user_id = get_current_user_id();
-    $practice_datetime = sanitize_text_field($_POST['practice_datetime']);
-    $number_of_practices = intval($_POST['number_of_practices']);
+    $practice_date = sanitize_text_field($_POST['practice_date']);
+    $practice_minutes = intval($_POST['practice_minutes']);
 
     $wpdb->insert(
         $table_name,
         array(
             'user_id' => $user_id,
-            'practice_datetime' => $practice_datetime,
-            'number_of_practices' => $number_of_practices
+            'practice_date' => $practice_date,
+            'practice_minutes' => $practice_minutes
         )
     );
+
+
 
     wp_send_json_success('Practice saved successfully!');
 }

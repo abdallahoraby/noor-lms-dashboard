@@ -41,6 +41,43 @@
                 <input class="c-search__input u-input" placeholder="Search..." type="text"/>
             </div>
             <div class="header-icons-group">
+
+                <?php
+                if (is_user_logged_in()) {
+
+                    ?>
+                    <ul id="bp-nav-menu-notifications-default" class="bp-nav-menu-submenu">
+                        <?php
+                        $notifications = bp_notifications_get_notifications_for_user( bp_loggedin_user_id(), 'object' );
+                        $count         = ! empty( $notifications ) ? count( $notifications ) : 0;
+                        $alert_class   = (int) $count > 0 ? 'pending-count alert' : 'count no-alert';
+                        $menu_title    = '<span id="ab-pending-notifications" class="' . $alert_class . '">' . number_format_i18n( $count ) . '</span>';
+                        $menu_link     = trailingslashit( bp_loggedin_user_domain() . bp_get_notifications_slug() );
+                        if ( ! empty( $notifications ) ) {
+                            foreach ( (array) $notifications as $notification ) {
+                                ?>
+                                <li id="bp-nav-menu-notification-<?php echo $notification->id; ?>">
+                                    <a class="bp-nav-menu-item" href="<?php echo $notification->href; ?>">
+                                        <?php echo $notification->content; ?>
+                                    </a>
+                                </li>
+                                <?php
+                            }
+                        } else {
+                            ?>
+                            <li id="bp-nav-menu-no-notifications">
+                                <a class="bp-nav-menu-item" href="<?php echo $menu_link; ?>">
+                                    <?php echo __( 'No new notifications', 'buddypress' ); ?>
+                                </a>
+                            </li>
+                            <?php
+                        }
+                        ?>
+                    </ul>
+                    <?php
+                }
+                ?>
+
                 <div class="c-header-icon logout">
                     <?php if( is_user_logged_in() ): ?>
                         <?= do_shortcode('[ajax_logout_button]') ?>
@@ -51,9 +88,9 @@
     </header>
     <div class="l-sidebar">
         <div class="logo">
-            <div class="logo__txt">
+            <a href="<?= site_url() ?>" class="logo__txt">
                 <img alt="" src="<?= get_stylesheet_directory_uri() ?>/assets/images/logo.png">
-            </div>
+            </a>
         </div>
         <div class="l-sidebar__content">
             <?php if( is_user_logged_in() ): ?>

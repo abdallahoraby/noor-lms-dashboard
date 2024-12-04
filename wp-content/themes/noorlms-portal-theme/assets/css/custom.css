@@ -694,8 +694,107 @@ div#popup-header {
     background: #f02425;
 }
 
+iframe {
+    width: 100% !important;
+    min-height: 50vh;
+}
+
+.assigned-tasks.action .load-template-part {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+div#practice_modal .modal-dialog {
+    top: 50%;
+    transform: translateY(-50%);
+}
 
 
+#practice_modal .modal-header {
+    background: #5c53c0;
+    color: #fff;
+    text-align: center;
+    width: 80%;
+    display: block;
+    border-radius: 10px;
+    margin: 0 auto;
+    border: 3px solid #fff;
+    margin-top: -2rem;
+}
+
+#practice_modal .modal-footer {
+    display: flex;
+    justify-content: space-around;
+}
+
+#practice_modal .radio-group {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    gap: 10px;
+    width: 20vw;
+    margin: 0 auto;
+}
+
+#practice_modal .radio-button {
+    position: relative;
+}
+
+#practice_modal .radio-button input[type="radio"] {
+    display: none;
+}
+
+#practice_modal .radio-button label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    color: #5c4e8c;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#practice_modal .radio-button input[type="radio"]:checked + label {
+    background-color: #5c4e8c;
+    color: #fff;
+    border-color: #5c4e8c;
+    transform: scale(1.1);
+}
+
+#practice_modal .radio-button label:hover {
+    border-color: #5c4e8c;
+}
+
+#practice_modal input#practice_date {
+    width: 100%;
+}
+
+#practice_modal button#save-practice {
+    background: #3ad13c;
+    border-radius: 50px;
+    font-size: 1rem;
+    min-width: 10vw;
+}
+
+#practice_modal .close-modal-btn {
+    background: #ef746fab;
+    border-radius: 50px;
+    font-size: 1rem;
+    border: 0;
+    min-width: 10vw;
+}
+
+button.toast-close-button {
+    margin: 0;
+}
 
 
 
