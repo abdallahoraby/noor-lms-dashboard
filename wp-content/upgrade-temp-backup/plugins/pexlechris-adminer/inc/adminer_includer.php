@@ -34,5 +34,3 @@ if ( !function_exists('adminer_object') ) {
 
 // include original Adminer
 include 'adminer.php';
-
-?>

@@ -1,9 +1,9 @@
-﻿=== GamiPress - The #1 gamification plugin to reward points, achievements, badges & ranks in WordPress ===
+﻿=== GamiPress - Gamification plugin to reward points, achievements, badges & ranks in WordPress ===
 Contributors: gamipress, rubengc, eneribs, dioni00, tinocalvo, pacogon, flabernardez
 Tags: gamification, points, achievements, ranks, badges
 Requires at least: 4.4
 Tested up to: 6.7
-Stable tag: 7.1.6
+Stable tag: 7.1.7
 License: GNU AGPL v3.0
 License URI: http://www.gnu.org/licenses/agpl-3.0.html
 
@@ -339,6 +339,16 @@ No, We're unable to provide custom development services, as our focus is develop
 Also, you can check [our customize section](https://gamipress.com/customize/) where you can find a huge number of code snippets to help you customize GamiPress!
 
 == Changelog ==
+
+= 7.1.7 =
+
+* **New Features**
+* Tutor LMS: New event: Review a course.
+* Tutor LMS: New event: Review a specific course course.
+* LearnDash: New event: Submit an essay for a quiz.
+* LearnDash: New event: Submit an essay for a specific quiz.
+* LearnDash: New event: Mark as incomplete a topic.
+* LearnDash: New event: Mark as incomplete a specific topic. 
 
 = 7.1.6 =
 

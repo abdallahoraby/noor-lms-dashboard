@@ -4,13 +4,14 @@ Donate link: https://www.paypal.com/donate/?hosted_button_id=VDPQY9UE2SQRQ
 Plugin Name: Database Management tool - Adminer
 Author: Pexle Chris
 Author URI: https://www.pexlechris.dev
-Tags: Adminer, Database, sql, mysql, mariadb, Database Manager
-Version: 2.2.2
-Stable tag: 2.2.2
-Adminer version: 4.8.1
+Tags: Adminer, Database, sql, mysql, mariadb
+Version: 3.0.1
+Stable tag: 3.0.1
+Adminer version: 4.8.4
 Requires at least: 4.7.0
-Tested up to: 6.4.3
+Tested up to: 6.7.1
 Requires PHP: 5.6
+Tested up to PHP: 8.2
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,13 +21,21 @@ Manage the database from your WordPress Dashboard using Adminer.
 
 The best database management tool for the best CMS.
 
-This plugin uses the tool [Adminer 4.8.1](https://www.adminer.org/) in order to give database access to administrators directly from the Dashboard.
+This plugin uses the tool [AdminerEVO 4.8.4](https://docs.adminerevo.org/), fork of [Adminer 4.8.1](https://www.adminer.org/), in order to give database access to administrators directly from the Dashboard.
 As simple as the previous sentence!
 
 Compatible also with WordPress Multisite installations
 
+== About the fork ==
+AdminerEVO Author's Statement:
+The original Adminer was created and maintained by Jakub Vrána in the vrana/adminer repository.
+Not being maintained for more than two years and being a daily user of Adminer,
+I've tried to get in touch with the original developer to propose my help to continue the project, but without success, I got no answer.
+I have then started to search if someone would be interested in continuing the project with me and found someone who seemed to have the same interest and view on the future of this project.
+I am now starting to take over the project under a slightly different name and will try to keep compatibility with all current database engines but also to give Adminer a new features, layout, etc.
+
 == WP Adminer access positions ==
-You can access the WP Adminer from the above positions:
+You can access the WP Adminer from the below positions:
 1. WP Adminer URL in the Admin Bar
 2. WP Adminer Tools Page (Dashboard > Tools > WP Adminer)
 
@@ -129,9 +138,25 @@ You can access the WP Adminer from the above positions:
 
 
 == Changelog ==
- = 2.2. =
+ = 3.0.1 =
+* Fixes the bug introduced in version 3.0.0, where a disabled plugin named **pexlechris_adminer_avoid_conflicts_with_other_plugins.php** was displayed in the list of plugins.
+
+ = 3.0.0 =
+* New Adminer Version Included: Updated to 4.8.4, forked from the original Adminer 4.8.1 due to lack of maintenance for over two years.
+  Learn more about the fork and updates at [AdminerEVO Website](https://docs.adminerevo.org/#history).
+* Tested up to PHP: 8.2
+* Tested up to WP: 6.7.1
+* From version 2.2.0 there is a must-use plugin, that disables on the fly all other plugins to avoid conflicts.
+    From now and then the version and the mu plugins updates is controlled by option pexlechris_adminer_mu_plugin_version.
+    You can delete the option to reinstall it, or set option to 0 to ignore version updates forever
+* Fix load_plugin_textdomain file path and current language
+* Fix Notice "Function _load_textdomain_just_in_time was called incorrectly" in WP 6.7.0 and above
+* Filter pexlechris_adminer_access_capabilities can be used only in a must-use plugin!
+* Fixed deprecated notices in non-standard environments or command-line scripts for server variables when using PHP 8.2.
+* Fix errors that occur in some cases, when a user tries to load Adminer without being logged in.
+
+ = 2.2.2 =
 * Before version 2.2, if PEXLECHRIS_ADMINER_SLUG ends with a slash, WP Adminer was not working.
-If you still have this problem, try deleting the file wp-content/mu-plugins/pexlechris_adminer_avoid_conflicts_with_other_plugins.php in order to have it installed again automatically.
 
  = 2.2.1 =
 * From now on, this plugin requires WordPress version at least 4.7.0 or later. According to Wordfence, versions below 4.7.0 have a vulnerability that can allow site takeover.
