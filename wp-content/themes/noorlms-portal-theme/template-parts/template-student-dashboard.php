@@ -17,9 +17,9 @@
                 <div class="dashboard-user" >
                     <div class="dashboard-user__profile" >
 
-                        <div class="avatar-container" >
+                        <div class="avatar-container" style="background-image:url('<?php echo get_avatar_url(get_current_user_id()); ?>');background-repeat: no-repeat;background-position: center center;background-size: cover;">
                             <a href="#" class="edit-avatar"> <i class="fas fa-pen-fancy"></i> </a>
-                            <?php //bp_get_template_part( 'members/single/profile/change-avatar' ); ?>
+                            <?php // bp_get_template_part( 'members/single/profile/change-avatar' ); ?>
                         </div>
 
                         <div class="dashboard-user__welcome" >

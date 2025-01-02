@@ -211,7 +211,7 @@ function lms_practice_module_save_practice() {
         )
     );
 
-
+    
 
     wp_send_json_success('Practice saved successfully!');
 }
