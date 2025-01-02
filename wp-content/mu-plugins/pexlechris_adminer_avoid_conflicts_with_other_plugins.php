@@ -1,42 +1,26 @@
 <?php
+/**
+ * Plugin Name: pexlechris_adminer_avoid_conflicts_with_other_plugins.php
+ * Description: This mu plugin disables on the fly all other plugins to avoid conflicts.
+ * 				Version is controlled by option pexlechris_adminer_mu_plugin_version.
+ * 				Delete option to reinstall, or set option to 0 to ignore version updates forever
+ *  Version: 3.0.0
+ */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	die;
 }
 
 
-if( !defined('PEXLECHRIS_ADMINER_SLUG') ){
-	if( is_multisite() ){
-		define('PEXLECHRIS_ADMINER_SLUG', 'multisite-adminer');
-	}else{
-		define('PEXLECHRIS_ADMINER_SLUG', 'wp-adminer');
-	}
-}
 
-if( !function_exists('pexlechris_is_current_url_the_wp_adminer_url') ){
-	function pexlechris_is_current_url_the_wp_adminer_url(){
-		$REQUEST_URI = parse_url( esc_url($_SERVER["REQUEST_URI"]), PHP_URL_PATH);
-		$REQUEST_URI = untrailingslashit($REQUEST_URI);
-		if( pexlechris_adminer_ends_with($REQUEST_URI, untrailingslashit(PEXLECHRIS_ADMINER_SLUG)) ){
-			return true;
-		}else{
-			return false;
-		}
-	}
-}
+add_filter( 'option_active_plugins', function( $plugins ){
 
-if( !function_exists('pexlechris_adminer_ends_with') ) {
-	function pexlechris_adminer_ends_with( $haystack, $needle ) {
-		$length = strlen( $needle );
-		if( !$length ) {
-			return true;
-		}
-		return substr( $haystack, -$length ) === $needle;
-	}
-}
+	include_once WP_PLUGIN_DIR . '/pexlechris-adminer/pluggable-functions.php';
 
-if( pexlechris_is_current_url_the_wp_adminer_url() ){
-	add_filter( 'option_active_plugins', function( $plugins ){
+	// Only disable all other plugins, when WP Adminer will be shown
+	if( pexlechris_is_current_url_the_wp_adminer_url() && have_current_user_access_to_pexlechris_adminer() ){
 		return ['pexlechris-adminer/pexlechris-adminer.php'];
-	} );
-}
+	}
+
+	return $plugins;
+} );
