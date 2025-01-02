@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name: Database Management tool - Adminer
- * Description: Manage the database from your WordPress Dashboard using Adminer
- * Version: 3.0.1
- * Stable tag: 3.0.1
+ * Plugin Name: Database Manager - WP Adminer
+ * Description: Manage the database from your WordPress Dashboard using Adminer.
+ * Version: 3.1.1
+ * Stable tag: 3.1.1
  * Adminer version: 4.8.4
  * Author: Pexle Chris
  * Author URI: https://www.pexlechris.dev
@@ -25,9 +25,6 @@ if ( ! defined( 'ABSPATH' ) ) die;
  */
 define('PEXLECHRIS_ADMINER_DIR', __DIR__);
 
-require_once WP_PLUGIN_DIR . '/pexlechris-adminer/pluggable-functions.php';
-
-
 /**
  * PEXLECHRIS_ADMINER_MU_PLUGIN_DATA constant
  *
@@ -35,9 +32,24 @@ require_once WP_PLUGIN_DIR . '/pexlechris-adminer/pluggable-functions.php';
  */
 define('PEXLECHRIS_ADMINER_MU_PLUGIN_DATA', [
 	'file'          => 'pexlechris_adminer_avoid_conflicts_with_other_plugins.php',
-    'version'       => '3.0.0',
+	'version'       => '3.0.3',
 	'option_name'   => 'pexlechris_adminer_mu_plugin_version',
 ]);
+
+require_once WP_PLUGIN_DIR . '/pexlechris-adminer/pluggable-functions.php';
+
+
+add_filter('plugin_action_links_pexlechris-adminer/pexlechris-adminer.php', 'pexlechris_adminer_add_open_wp_adminer_link_in_plugin_action_links', 15, 2);
+function pexlechris_adminer_add_open_wp_adminer_link_in_plugin_action_links($links)
+{
+    $url = esc_url(site_url() . '/' . PEXLECHRIS_ADMINER_SLUG);
+    $anchor = '<a href="' . $url . '" target="_blank">' . __('Open WP Adminer', 'pexlechris-adminer') . '</a>';
+    $new = [$anchor];
+
+    return array_merge($new, $links);
+}
+
+
 
 
 /**
@@ -82,11 +94,15 @@ function pexlechris_adminer_copy_adminer_mu_plugin() {
  * @since 2.2.0
  */
 register_deactivation_hook(__FILE__, 'pexlechris_adminer_delete_adminer_mu_plugin');
-function pexlechris_adminer_delete_adminer_mu_plugin(){
-	$mu_plugin = WPMU_PLUGIN_DIR . '/' . 'pexlechris_adminer_avoid_conflicts_with_other_plugins.php';
+function pexlechris_adminer_delete_adminer_mu_plugin()
+{
+	extract(PEXLECHRIS_ADMINER_MU_PLUGIN_DATA);
+
+	$mu_plugin = WPMU_PLUGIN_DIR . '/' . $file;
 	if (file_exists($mu_plugin)) {
 		unlink($mu_plugin);
 	}
+	delete_option($option_name);
 }
 
 add_action( 'plugins_loaded', 'pexlechris_maybe_set_wp_admin_constant', 1 );

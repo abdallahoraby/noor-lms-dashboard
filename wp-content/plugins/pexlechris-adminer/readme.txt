@@ -1,12 +1,12 @@
-=== Database Management tool - Adminer ===
+=== Database Manager - WP Adminer ===
 Contributors: pexlechris
 Donate link: https://www.paypal.com/donate/?hosted_button_id=VDPQY9UE2SQRQ
-Plugin Name: Database Management tool - Adminer
+Plugin Name: Database Manager - WP Adminer
 Author: Pexle Chris
 Author URI: https://www.pexlechris.dev
 Tags: Adminer, Database, sql, mysql, mariadb
-Version: 3.0.1
-Stable tag: 3.0.1
+Version: 3.1.1
+Stable tag: 3.1.1
 Adminer version: 4.8.4
 Requires at least: 4.7.0
 Tested up to: 6.7.1
@@ -138,6 +138,23 @@ You can access the WP Adminer from the below positions:
 
 
 == Changelog ==
+ = 3.1.1 =
+* Bug Fix: Resolved an issue where the feature for passing the WordPress user's language setting (locale) to WP Adminer was not working correctly.
+
+ = 3.1.0 =
+* Enhancement: The plugin now sends the WordPress user's language setting (locale) to WP Adminer, but only if Adminer supports that language. Hook introduced: `pexlechris_adminer_locale`
+
+ = 3.0.3.1 =
+* New plugin name: **Database Manager - WP Adminer**
+
+ = 3.0.3 =
+* Fix bug that produced when the plugin has been deactivated but the relevant MU plugin has not been deleted. Thanks [peopleinside](https://wordpress.org/support/users/peopleinside/) for reporting
+
+ = 3.0.2 =
+* Change name from `Database Management tool - Adminer` to `Adminer for WP - The Database Management tool`
+* Add an `Open WP Adminer` link in plugin's action links
+* Improved Deactivation Behavior: Deactivating the plugin now removes the `pexlechris_adminer_mu_plugin_version option`, ensuring the MU plugin is reinstalled upon reactivation.
+
  = 3.0.1 =
 * Fixes the bug introduced in version 3.0.0, where a disabled plugin named **pexlechris_adminer_avoid_conflicts_with_other_plugins.php** was displayed in the list of plugins.
 

@@ -1,6 +1,23 @@
 <?php
 
 class Pexlechris_Adminer extends Adminer {
+
+    public function get_wp_locale()
+	{
+		$wp_user_locale = get_user_locale();
+        $expl = explode('_', $wp_user_locale);
+		$adminer_locale = $expl[0];
+
+		/**
+         * Filter the locale of Adminer UI.
+         *
+		 * @since 3.1.0
+         *
+         * @param string $adminer_locale
+		 */
+        return apply_filters('pexlechris_adminer_locale', $adminer_locale);
+	}
+
 	function credentials() {
 		// server, username and password for connecting to database
 		return array(DB_HOST, DB_USER, DB_PASSWORD);
@@ -27,14 +44,29 @@ class Pexlechris_Adminer extends Adminer {
             verifyVersion = function () {}; // Disable version checker
 
             // auto login
-            window.addEventListener('load', function(event){
-                if ( null !== document.querySelector('.pexle_loginForm') ) {
+            window.addEventListener('load', function(){
+
+                if ( null === document.querySelector('.pexle_loginForm') ) return;
+
+                var wpLocale = '<?php echo $this->get_wp_locale(); ?>';
+
+                var langExists = !!document.querySelector( '#lang option[value="' + wpLocale + '"]' );
+                var selectElement = document.querySelector('#lang select');
+
+                if( langExists && selectElement.value != wpLocale ){
+                    selectElement.value = wpLocale;
+                    var event = new Event('change', { bubbles: true });
+                    selectElement.dispatchEvent(event);
+
+                }else{
                     document.querySelector('.pexle_loginForm + p > input').click();
                 }
+
             });
 		</script>
 
 		<style>
+            #lang,
             .pexle_loginForm *,
             .pexle_loginForm + p,
             #tables a.select,
@@ -43,33 +75,42 @@ class Pexlechris_Adminer extends Adminer {
                 display: none;
             }
             .pexle_loginForm::before {
-                content: "<?php esc_html_e('You are connecting to the database...', 'pexlechris-adminer')?>";
+                content: "<?php esc_html_e('You are connecting to the database...', 'pexlechris-adminer'); ?>";
             }
-			<?php if( !defined('PEXLECHRIS_ADMINER_HAVE_ACCESS_ONLY_IN_WP_DB') || true === PEXLECHRIS_ADMINER_HAVE_ACCESS_ONLY_IN_WP_DB ){ ?>
-            #breadcrumb > a:nth-child(2){
-                width: 17px;
-                display: inline-block;
-                margin-left: -14px;
-                color: transparent;
-                background: #eee;
-                margin-right: -23px;
-                pointer-events: none;
+
+            #menu{
+                margin-top: 0;
+                top: 0
             }
-            #dbs{
-                display: none;
+            #menu > h1{
+                border-top: 0;
             }
-            .footer > div > fieldset > div > p{
-                width: 150px;
-                color: transparent;
-                display: inline-block;
-            }
-            .footer > div > fieldset > div > p > *:not([name="copy"]){
-                display: none;
-            }
-            .footer > div > fieldset > div > p > [name="copy"]{
-                float: left;
-            }
-			<?php } ?>
+
+			<?php if( !defined('PEXLECHRIS_ADMINER_HAVE_ACCESS_ONLY_IN_WP_DB') || true === PEXLECHRIS_ADMINER_HAVE_ACCESS_ONLY_IN_WP_DB ): ?>
+                #breadcrumb > a:nth-child(2){
+                    width: 17px;
+                    display: inline-block;
+                    margin-left: -14px;
+                    color: transparent;
+                    background: #eee;
+                    margin-right: -23px;
+                    pointer-events: none;
+                }
+                #dbs{
+                    display: none;
+                }
+                .footer > div > fieldset > div > p{
+                    width: 150px;
+                    color: transparent;
+                    display: inline-block;
+                }
+                .footer > div > fieldset > div > p > *:not([name="copy"]){
+                    display: none;
+                }
+                .footer > div > fieldset > div > p > [name="copy"]{
+                    float: left;
+                }
+			<?php endif; ?>
 
 		</style>
 		<?php
