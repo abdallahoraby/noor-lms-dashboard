@@ -268,7 +268,7 @@ class SingleCourseTemplate {
 			$link_instructor = sprintf(
 				'<a href="%s">%s %s</a>',
 				$instructor->get_url_instructor(),
-				$with_avatar ? UserTemplate::instance()->html_avatar( $instructor, 'instructor' ) : '',
+				$with_avatar ? UserTemplate::instance()->html_avatar( $instructor, [], 'instructor' ) : '',
 				$singleInstructorTemplate->html_display_name( $instructor )
 			);
 
@@ -413,10 +413,7 @@ class SingleCourseTemplate {
 		}
 
 		$count_student = $course->get_total_user_enrolled_or_purchased();
-		$fake_student  = $course->get_meta_value_by_key( CoursePostModel::META_KEY_STUDENTS );
-		if ( $fake_student ) {
-			$count_student += $fake_student;
-		}
+		$count_student += $course->get_fake_students();
 		$content      = sprintf( '%d %s', $count_student, _n( 'Student', 'Students', $count_student, 'learnpress' ) );
 		$html_wrapper = [
 			'<div class="course-count-student">' => '</div>',
@@ -1101,7 +1098,7 @@ class SingleCourseTemplate {
 	public function html_material( CourseModel $course, UserModel $user = null ): string {
 		$html = '';
 		if ( ! $user ) {
-			$user = UserModel::find( get_current_user_id() );
+			$user = UserModel::find( get_current_user_id(), true );
 			if ( ! $user ) {
 				return $html;
 			}

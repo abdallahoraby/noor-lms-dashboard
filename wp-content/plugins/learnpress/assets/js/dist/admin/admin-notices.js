@@ -2,10 +2,10 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./assets/src/apps/js/admin/api.js":
-/*!*****************************************!*\
-  !*** ./assets/src/apps/js/admin/api.js ***!
-  \*****************************************/
+/***/ "./assets/src/js/api.js":
+/*!******************************!*\
+  !*** ./assets/src/js/api.js ***!
+  \******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -14,13 +14,225 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /**
  * List API on backend
+ *
+ * @since 4.2.6
+ * @version 1.0.0
  */
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  apiAdminNotice: lpGlobalSettings.rest + 'lp/v1/admin/tools/admin-notices',
-  apiAdminOrderStatic: lpGlobalSettings.rest + 'lp/v1/orders/statistic',
-  apiAddons: lpGlobalSettings.rest + 'lp/v1/addon/all',
-  apiAddonAction: lpGlobalSettings.rest + 'lp/v1/addon/action'
-});
+
+const lplistAPI = {};
+if ('undefined' !== typeof lpDataAdmin) {
+  lplistAPI.admin = {
+    apiAdminNotice: lpDataAdmin.lp_rest_url + 'lp/v1/admin/tools/admin-notices',
+    apiAdminOrderStatic: lpDataAdmin.lp_rest_url + 'lp/v1/orders/statistic',
+    apiAddons: lpDataAdmin.lp_rest_url + 'lp/v1/addon/all',
+    apiAddonAction: lpDataAdmin.lp_rest_url + 'lp/v1/addon/action',
+    apiAddonsPurchase: lpDataAdmin.lp_rest_url + 'lp/v1/addon/info-addons-purchase',
+    apiSearchCourses: lpDataAdmin.lp_rest_url + 'lp/v1/admin/tools/search-course',
+    apiSearchUsers: lpDataAdmin.lp_rest_url + 'lp/v1/admin/tools/search-user',
+    apiAssignUserCourse: lpDataAdmin.lp_rest_url + 'lp/v1/admin/tools/assign-user-course',
+    apiUnAssignUserCourse: lpDataAdmin.lp_rest_url + 'lp/v1/admin/tools/unassign-user-course',
+    apiAJAX: lpDataAdmin.lp_rest_url + 'lp/v1/load_content_via_ajax/'
+  };
+}
+if ('undefined' !== typeof lpData) {
+  lplistAPI.frontend = {
+    apiWidgets: lpData.lp_rest_url + 'lp/v1/widgets/api',
+    apiCourses: lpData.lp_rest_url + 'lp/v1/courses/archive-course',
+    apiAJAX: lpData.lp_rest_url + 'lp/v1/load_content_via_ajax/',
+    apiProfileCoverImage: lpData.lp_rest_url + 'lp/v1/profile/cover-image'
+  };
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (lplistAPI);
+
+/***/ }),
+
+/***/ "./assets/src/js/utils.js":
+/*!********************************!*\
+  !*** ./assets/src/js/utils.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   listenElementCreated: () => (/* binding */ listenElementCreated),
+/* harmony export */   listenElementViewed: () => (/* binding */ listenElementViewed),
+/* harmony export */   lpAddQueryArgs: () => (/* binding */ lpAddQueryArgs),
+/* harmony export */   lpAjaxParseJsonOld: () => (/* binding */ lpAjaxParseJsonOld),
+/* harmony export */   lpFetchAPI: () => (/* binding */ lpFetchAPI),
+/* harmony export */   lpGetCurrentURLNoParam: () => (/* binding */ lpGetCurrentURLNoParam),
+/* harmony export */   lpOnElementReady: () => (/* binding */ lpOnElementReady),
+/* harmony export */   lpSetLoadingEl: () => (/* binding */ lpSetLoadingEl),
+/* harmony export */   lpShowHideEl: () => (/* binding */ lpShowHideEl)
+/* harmony export */ });
+/**
+ * Utils functions
+ *
+ * @param url
+ * @param data
+ * @param functions
+ * @since 4.2.5.1
+ * @version 1.0.3
+ */
+const lpClassName = {
+  hidden: 'lp-hidden',
+  loading: 'loading'
+};
+const lpFetchAPI = (url, data = {}, functions = {}) => {
+  if ('function' === typeof functions.before) {
+    functions.before();
+  }
+  fetch(url, {
+    method: 'GET',
+    ...data
+  }).then(response => response.json()).then(response => {
+    if ('function' === typeof functions.success) {
+      functions.success(response);
+    }
+  }).catch(err => {
+    if ('function' === typeof functions.error) {
+      functions.error(err);
+    }
+  }).finally(() => {
+    if ('function' === typeof functions.completed) {
+      functions.completed();
+    }
+  });
+};
+
+/**
+ * Get current URL without params.
+ *
+ * @since 4.2.5.1
+ */
+const lpGetCurrentURLNoParam = () => {
+  let currentUrl = window.location.href;
+  const hasParams = currentUrl.includes('?');
+  if (hasParams) {
+    currentUrl = currentUrl.split('?')[0];
+  }
+  return currentUrl;
+};
+const lpAddQueryArgs = (endpoint, args) => {
+  const url = new URL(endpoint);
+  Object.keys(args).forEach(arg => {
+    url.searchParams.set(arg, args[arg]);
+  });
+  return url;
+};
+
+/**
+ * Listen element viewed.
+ *
+ * @param el
+ * @param callback
+ * @since 4.2.5.8
+ */
+const listenElementViewed = (el, callback) => {
+  const observerSeeItem = new IntersectionObserver(function (entries) {
+    for (const entry of entries) {
+      if (entry.isIntersecting) {
+        callback(entry);
+      }
+    }
+  });
+  observerSeeItem.observe(el);
+};
+
+/**
+ * Listen element created.
+ *
+ * @param callback
+ * @since 4.2.5.8
+ */
+const listenElementCreated = callback => {
+  const observerCreateItem = new MutationObserver(function (mutations) {
+    mutations.forEach(function (mutation) {
+      if (mutation.addedNodes) {
+        mutation.addedNodes.forEach(function (node) {
+          if (node.nodeType === 1) {
+            callback(node);
+          }
+        });
+      }
+    });
+  });
+  observerCreateItem.observe(document, {
+    childList: true,
+    subtree: true
+  });
+  // End.
+};
+
+/**
+ * Listen element created.
+ *
+ * @param selector
+ * @param callback
+ * @since 4.2.7.1
+ */
+const lpOnElementReady = (selector, callback) => {
+  const element = document.querySelector(selector);
+  if (element) {
+    callback(element);
+    return;
+  }
+  const observer = new MutationObserver((mutations, obs) => {
+    const element = document.querySelector(selector);
+    if (element) {
+      obs.disconnect();
+      callback(element);
+    }
+  });
+  observer.observe(document.documentElement, {
+    childList: true,
+    subtree: true
+  });
+};
+
+// Parse JSON from string with content include LP_AJAX_START.
+const lpAjaxParseJsonOld = data => {
+  if (typeof data !== 'string') {
+    return data;
+  }
+  const m = String.raw({
+    raw: data
+  }).match(/<-- LP_AJAX_START -->(.*)<-- LP_AJAX_END -->/s);
+  try {
+    if (m) {
+      data = JSON.parse(m[1].replace(/(?:\r\n|\r|\n)/g, ''));
+    } else {
+      data = JSON.parse(data);
+    }
+  } catch (e) {
+    data = {};
+  }
+  return data;
+};
+
+// status 0: hide, 1: show
+const lpShowHideEl = (el, status = 0) => {
+  if (!el) {
+    return;
+  }
+  if (!status) {
+    el.classList.add(lpClassName.hidden);
+  } else {
+    el.classList.remove(lpClassName.hidden);
+  }
+};
+
+// status 0: hide, 1: show
+const lpSetLoadingEl = (el, status) => {
+  if (!el) {
+    return;
+  }
+  if (!status) {
+    el.classList.remove(lpClassName.loading);
+  } else {
+    el.classList.add(lpClassName.loading);
+  }
+};
+
 
 /***/ })
 
@@ -81,20 +293,21 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-/*!***************************************************!*\
-  !*** ./assets/src/apps/js/admin/admin-notices.js ***!
-  \***************************************************/
+/*!**********************************************!*\
+  !*** ./assets/src/js/admin/admin-notices.js ***!
+  \**********************************************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./api */ "./assets/src/apps/js/admin/api.js");
+/* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils.js */ "./assets/src/js/utils.js");
+/* harmony import */ var _api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../api.js */ "./assets/src/js/api.js");
 /**
  * Script handle admin notices.
  *
  * @since 4.1.7.3.2
- * @version 1.0.1
+ * @version 1.0.2
  */
 
+
 let elLPAdminNotices = null;
-let elBtnDismiss;
 let dataHtml = null;
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
@@ -137,7 +350,7 @@ const callAdminNotices = (set = '') => {
   }
   let params = tab ? `?tab=${tab}` : '';
   params += set ? (tab ? '&' : '?') + `${set}` : '';
-  fetch(_api__WEBPACK_IMPORTED_MODULE_0__["default"].apiAdminNotice + params, {
+  fetch(_api_js__WEBPACK_IMPORTED_MODULE_1__["default"].admin.apiAdminNotice + params, {
     method: 'POST',
     headers: {
       'X-WP-Nonce': lpGlobalSettings.nonce
@@ -153,8 +366,13 @@ const callAdminNotices = (set = '') => {
     if (status === 'success') {
       if ('Dismissed!' !== message) {
         dataHtml = data.content;
-        if (dataHtml.length === 0 && elLPAdminNotices) {
+        if (dataHtml.length === 0) {
           elLPAdminNotices.style.display = 'none';
+        } else {
+          elLPAdminNotices.innerHTML = dataHtml;
+          elLPAdminNotices.style.display = 'block';
+          // Handle notify addons new version.
+          notifyAddonsNewVersion();
         }
       }
     } else {
@@ -164,26 +382,11 @@ const callAdminNotices = (set = '') => {
     console.log(err);
   });
 };
-callAdminNotices();
 
-/*** DOMContentLoaded ***/
-document.addEventListener('DOMContentLoaded', () => {
+// Listen element ready
+(0,_utils_js__WEBPACK_IMPORTED_MODULE_0__.lpOnElementReady)('.lp-admin-notices', () => {
   elLPAdminNotices = document.querySelector('.lp-admin-notices');
-  elBtnDismiss = document.querySelector('.btn-lp-notice-dismiss');
-  if (!elLPAdminNotices) {
-    return;
-  }
-  const interval = setInterval(() => {
-    if (dataHtml !== null) {
-      if (dataHtml.length > 0) {
-        elLPAdminNotices.innerHTML = dataHtml;
-        elLPAdminNotices.style.display = 'block';
-        // Handle notify addons new version.
-        notifyAddonsNewVersion();
-      }
-      clearInterval(interval);
-    }
-  }, 1);
+  callAdminNotices();
 });
 
 /*** Events ***/

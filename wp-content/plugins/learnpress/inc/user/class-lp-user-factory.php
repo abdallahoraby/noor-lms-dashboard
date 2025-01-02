@@ -27,8 +27,7 @@ class LP_User_Factory {
 	 * @Todo tungnx - should write on class LP_Order
 	 */
 	public static function update_user_items( $the_id, $old_status, $new_status ) {
-		$time_limit_default = ini_get( 'max_execution_time' );
-		@set_time_limit( 0 );
+		ini_set( 'max_execution_time', HOUR_IN_SECONDS );
 		$order = learn_press_get_order( $the_id );
 		if ( ! $order ) {
 			return;
@@ -49,7 +48,7 @@ class LP_User_Factory {
 		} catch ( Exception $ex ) {
 			error_log( __METHOD__ . ': ' . $ex->getMessage() );
 		}
-		@set_time_limit( $time_limit_default );
+		ini_set( 'max_execution_time', LearnPress::$time_limit_default_of_sever );
 	}
 
 	/**
@@ -184,7 +183,7 @@ class LP_User_Factory {
 	 *
 	 * @author  tungnx
 	 * @since   4.1.3
-	 * @version 1.0.5
+	 * @version 1.0.6
 	 */
 	protected static function handle_item_order_completed( LP_Order $order, $user, $item ) {
 		$lp_user_items_db = LP_User_Items_DB::getInstance();
@@ -270,6 +269,9 @@ class LP_User_Factory {
 				}
 			} elseif ( $user_id && ( $is_in_stock || $is_no_required_enroll ) ) { // Enroll course free or No enroll requirement.
 				// Set data for create user_item
+				$user_item_data['status'] = LP_COURSE_ENROLLED;
+			} elseif ( LP_Checkout::instance()->is_enable_guest_checkout()
+				&& $auto_enroll && ( $is_in_stock || $is_no_required_enroll ) ) {
 				$user_item_data['status'] = LP_COURSE_ENROLLED;
 			} else {
 				return;

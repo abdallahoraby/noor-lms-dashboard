@@ -79,6 +79,10 @@
   background-color: #EBF8E5;
   color: #3AB500;
 }
+.learn-press-message.info {
+  background-color: rgba(0, 122, 255, 0.1019607843);
+  color: #007AFF;
+}
 .learn-press-message a {
   text-decoration: underline;
 }
@@ -1577,6 +1581,10 @@ button.learnpress_avatar__button + button {
 .lp-user-profile {
   position: relative;
   --lp-item-padding: 40px;
+}
+.lp-user-profile img {
+  max-width: 100%;
+  height: auto;
 }
 .lp-user-profile .lp-user-profile-avatar img {
   display: block;

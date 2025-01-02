@@ -3,8 +3,13 @@
  * Define common constants used by LearnPress
  */
 require_once ABSPATH . 'wp-admin/includes/plugin.php';
-$upload_dir  = wp_upload_dir();
-$plugin_info = get_plugin_data( LP_PLUGIN_FILE );
+$upload_dir = wp_upload_dir();
+
+$default_headers = array(
+	'Version'    => 'Version',
+	'TextDomain' => 'Text Domain',
+);
+$plugin_info     = get_file_data( LP_PLUGIN_FILE, $default_headers, 'plugin' );
 
 // version.
 define( 'LEARNPRESS_VERSION', $plugin_info['Version'] );
@@ -17,7 +22,7 @@ define( 'LP_TEXT_DOMAIN', $plugin_info['TextDomain'] );
 // Plugin paths and urls.
 define( 'LP_PLUGIN_PATH', plugin_dir_path( LP_PLUGIN_FILE ) );
 define( 'LP_PLUGIN_BASENAME', plugin_basename( LP_PLUGIN_FILE ) );
-define( 'LP_PLUGIN_FOLDER_NAME', str_replace( array( '/', basename( LP_PLUGIN_FILE ) ), '', LP_PLUGIN_BASENAME ) );
+define( 'LP_PLUGIN_FOLDER_NAME', dirname( LP_PLUGIN_BASENAME ) );
 const LP_TEMPLATE_PATH = LP_PLUGIN_PATH . 'templates/';
 define( 'LP_PLUGIN_URL', trailingslashit( plugins_url( '/', LP_PLUGIN_FILE ) ) );
 const LP_JS_URL  = LP_PLUGIN_URL . 'assets/js/';
@@ -106,6 +111,10 @@ const LP_ORDER_CREATED_VIA_MANUAL = 'manual';
 const LP_COURSE_GRADUATION_IN_PROGRESS = 'in-progress';
 const LP_COURSE_GRADUATION_PASSED      = 'passed';
 const LP_COURSE_GRADUATION_FAILED      = 'failed';
+// @since 4.2.7.4
+const LP_GRADUATION_IN_PROGRESS = 'in-progress';
+const LP_GRADUATION_PASSED      = 'passed';
+const LP_GRADUATION_FAILED      = 'failed';
 
 // Enable lazy-load animation placeholder.
 const LP_LAZY_LOAD_ANIMATION = true;

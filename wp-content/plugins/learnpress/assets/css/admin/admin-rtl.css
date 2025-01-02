@@ -70,6 +70,10 @@
   background-color: #EBF8E5;
   color: #3AB500;
 }
+.learn-press-message.info {
+  background-color: rgba(0, 122, 255, 0.1019607843);
+  color: #007AFF;
+}
 .learn-press-message a {
   text-decoration: underline;
 }

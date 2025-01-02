@@ -7,7 +7,7 @@
  * Another fields for query list courses faster
  *
  * @package LearnPress/Classes
- * @version 1.0.1
+ * @version 1.0.2
  * @since 4.2.6.9
  */
 
@@ -73,10 +73,6 @@ class CourseModel {
 	 */
 	public $lang = null;
 	/********** Field not on table **********/
-	/**
-	 * @var UserModel author model
-	 */
-	public $author;
 	/**
 	 * @var stdClass all meta data
 	 */
@@ -180,14 +176,8 @@ class CourseModel {
 	 * @return UserModel|false
 	 */
 	public function get_author_model() {
-		if ( isset( $this->author ) ) {
-			return $this->author;
-		}
-
-		$post         = new CoursePostModel( $this );
-		$this->author = $post->get_author_model();
-
-		return $this->author;
+		$post = new CoursePostModel( $this );
+		return $post->get_author_model();
 	}
 
 	/**
@@ -513,15 +503,13 @@ class CourseModel {
 	 *
 	 * @return array
 	 * @since 4.1.6.9
-	 * @version 1.0.1
+	 * @version 1.0.2
 	 * @author tungnx
 	 */
 	public function get_sections_and_items_course_from_db_and_sort(): array {
-		$sections_items  = [];
-		$course_id       = $this->get_id();
-		$lp_course_db    = LP_Course_DB::getInstance();
-		$lp_course_cache = LP_Course_Cache::instance();
-		$key_cache       = "$course_id/sections_items";
+		$sections_items = [];
+		$course_id      = $this->get_id();
+		$lp_course_db   = LP_Course_DB::getInstance();
 
 		try {
 			$sections_results       = $lp_course_db->get_sections( $course_id );
@@ -610,8 +598,6 @@ class CourseModel {
 					return $section1->order - $section2->order;
 				}
 			);
-
-			$lp_course_cache->set_cache( $key_cache, $sections_items );
 		} catch ( Throwable $e ) {
 			error_log( $e->getMessage() );
 		}
@@ -683,13 +669,13 @@ class CourseModel {
 	 * Get value from meta data by key
 	 *
 	 * @param string $key
-	 * @param mixed $default
+	 * @param mixed|false $default_value
 	 *
 	 * @return false|mixed
 	 * @since 4.2.6.9
 	 * @version 1.0.0
 	 */
-	public function get_meta_value_by_key( string $key, $default = false ) {
+	public function get_meta_value_by_key( string $key, $default_value = false ) {
 		if ( ! empty( $this->meta_data ) && isset( $this->meta_data->{$key} ) ) {
 			$value = $this->meta_data->{$key};
 		} else {
@@ -698,7 +684,7 @@ class CourseModel {
 		}
 
 		if ( empty( $value ) ) {
-			$value = $default;
+			$value = $default_value;
 		}
 
 		$this->meta_data->{$key} = $value;
@@ -819,6 +805,15 @@ class CourseModel {
 	}
 
 	/**
+	 * Get fake students.
+	 *
+	 * @return int
+	 */
+	public function get_fake_students(): int {
+		return (int) $this->get_meta_value_by_key( CoursePostModel::META_KEY_STUDENTS, 0 );
+	}
+
+	/**
 	 * Count number of students enrolled course.
 	 * Check global settings `enrolled_students_number`
 	 * and add the fake value if both are set.
@@ -828,7 +823,7 @@ class CourseModel {
 	 */
 	public function count_students(): int {
 		$total  = $this->get_total_user_enrolled_or_purchased();
-		$total += (int) $this->get_meta_value_by_key( CoursePostModel::META_KEY_STUDENTS, 0 );
+		$total += $this->get_fake_students();
 
 		return $total;
 	}
@@ -842,7 +837,7 @@ class CourseModel {
 	 * @since 4.2.7.3
 	 * @version 1.0.0
 	 */
-	public function count_items( $item_type ) {
+	public function count_items( $item_type ): int {
 		$count = 0;
 
 		$total_items = $this->get_total_items();
@@ -1093,9 +1088,7 @@ class CourseModel {
 				$course_model = new static( $course_obj );
 				//$course_model->json         = $course_rs->json;
 				$course_model->post_content = $course_rs->post_content;
-				if ( $course_model->author instanceof stdClass ) {
-					$course_model->author = new UserModel( $course_model->author );
-				}
+				$course_model->get_author_model();
 			}
 		} catch ( Throwable $e ) {
 			error_log( __METHOD__ . ': ' . $e->getMessage() );
@@ -1115,7 +1108,7 @@ class CourseModel {
 	public static function find( int $course_id, bool $check_cache = false ) {
 		$filter_course     = new LP_Course_JSON_Filter();
 		$filter_course->ID = $course_id;
-		$key_cache         = "course-model/find/id/{$course_id}";
+		$key_cache         = "courseModel/find/id/{$course_id}";
 		$lp_course_cache   = new LP_Course_Cache();
 
 		// Check cache
@@ -1161,6 +1154,8 @@ class CourseModel {
 	 * Save course data to table learnpress_courses.
 	 *
 	 * @throws Exception
+	 * @since 4.2.6.9
+	 * @version 1.0.1
 	 */
 	public function save(): CourseModel {
 		$lp_course_json_db = LP_Course_JSON_DB::getInstance();
@@ -1190,11 +1185,8 @@ class CourseModel {
 			$lp_course_json_db->update_data( $data );
 		}
 
-		// Set cache single course when save done.
-		$key_cache       = "course-model/find/id/{$this->ID}";
-		$lp_course_cache = new LP_Course_Cache();
-		$lp_course_cache->clear( $key_cache );
-		$lp_course_cache->set_cache( $key_cache, $this->ID );
+		// Clear cache
+		$this->clean_caches();
 
 		return $this;
 	}
@@ -1212,8 +1204,36 @@ class CourseModel {
 		$lp_course_json_db->delete_execute( $filter );
 
 		// Clear cache
-		$key_cache       = "course-model/find/id/{$this->ID}";
+		$this->clean_caches();
+	}
+
+	/**
+	 * Clean caches
+	 *
+	 * @since 4.2.7.4
+	 * @version 1.0.0
+	 * @return void
+	 */
+	public function clean_caches() {
+		$key_cache       = "courseModel/find/id/{$this->ID}";
 		$lp_course_cache = new LP_Course_Cache();
 		$lp_course_cache->clear( $key_cache );
+	}
+
+	/**
+	 * Return course's items support.
+	 * To replace learn_press_course_get_support_item_types()
+	 * Should add hook on addons before use this function.
+	 *
+	 * @return array
+	 * @since 4.2.7.4
+	 */
+	public static function item_types_support(): array {
+		$item_types = [
+			LP_LESSON_CPT,
+			LP_QUIZ_CPT,
+		];
+
+		return apply_filters( 'learn-press/course/item-types-support', $item_types );
 	}
 }

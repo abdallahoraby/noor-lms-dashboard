@@ -18,7 +18,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_1__);
 
 
-function lpMaterialsLoad(is_curriculum = false) {
+function lpMaterialsLoad() {
   // console.log('loaded');
   const Sekeleton = () => {
     const elementSkeleton = document.querySelector('.lp-material-skeleton');
@@ -31,26 +31,20 @@ function lpMaterialsLoad(is_curriculum = false) {
     getResponse(elementSkeleton);
   };
   const getResponse = async (ele, page = 1) => {
-    let itemID = 0;
-    if (is_curriculum) {
-      const elCurriculum = document.querySelector('.learnpress-course-curriculum');
-      if (!elCurriculum) {
-        return;
-      }
-      const itemId = elCurriculum.dataset.id;
-      itemID = itemId || 0;
-    } else {
-      itemID = lpGlobalSettings.post_id;
-    }
+    const course_id = parseInt(ele.dataset.courseId),
+      item_id = parseInt(ele.dataset.itemId);
     const elementMaterial = ele.querySelector('.course-material-table');
     const loadMoreBtn = document.querySelector('.lp-loadmore-material');
     const elListItems = document.querySelector('.lp-list-material');
     try {
       const response = await _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_1___default()({
-        path: (0,_wordpress_url__WEBPACK_IMPORTED_MODULE_0__.addQueryArgs)(`lp/v1/material/item-materials/${itemID}`, {
+        path: `lp/v1/material/by-item`,
+        data: {
+          course_id,
+          item_id,
           page
-        }),
-        method: 'GET'
+        },
+        method: 'POST'
       });
       const {
         data,

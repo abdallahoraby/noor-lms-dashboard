@@ -4,7 +4,7 @@
  * Plugin URI: http://thimpress.com/learnpress
  * Description: LearnPress is a WordPress complete solution for creating a Learning Management System (LMS). It can help you to create courses, lessons and quizzes.
  * Author: ThimPress
- * Version: 4.2.7.3
+ * Version: 4.2.7.4
  * Author URI: http://thimpress.com
  * Requires at least: 6.0
  * Requires PHP: 7.0
@@ -16,7 +16,9 @@
 
 use LearnPress\ExternalPlugin\Elementor\LPElementor;
 use LearnPress\ExternalPlugin\YoastSeo\LPYoastSeo;
+use LearnPress\Models\UserModel;
 use LearnPress\Shortcodes\Course\FilterCourseShortcode;
+
 //use LearnPress\Shortcodes\Course\ListCourseRecentShortcode;
 use LearnPress\Shortcodes\ListInstructorsShortcode;
 use LearnPress\Shortcodes\SingleInstructorShortcode;
@@ -35,6 +37,7 @@ use LearnPress\TemplateHooks\Profile\ProfileOrderTemplate;
 use LearnPress\TemplateHooks\Profile\ProfileStudentStatisticsTemplate;
 use LearnPress\TemplateHooks\Course\CourseMaterialTemplate;
 use LearnPress\Widgets\LPRegisterWidget;
+use LP_Addon_Co_Instructor\Hook;
 
 defined( 'ABSPATH' ) || exit();
 
@@ -146,23 +149,25 @@ if ( ! class_exists( 'LearnPress' ) ) {
 
 		public $gateways = null;
 
+		public static $time_limit_default_of_sever = 0;
+
 		/**
 		 * LearnPress constructor.
 		 */
-		public function __construct() {
+		private function __construct() {
 			/*if ( isset( $_POST['action'] ) && 'heartbeat' === $_POST['action'] ) {
 				return;
 			}*/
 
 			try {
-				if ( self::$_instance ) {
-					return;
-				}
-				self::$_instance = $this;
+				self::$time_limit_default_of_sever = ini_get( 'max_execution_time' );
 
 				// Update for case compare version of LP if LEARNPRESS_VERSION undefined
 				if ( is_admin() ) {
-					update_option( 'learnpress_version', $this->version );
+					$learn_press_version = get_option( 'learnpress_version', '' );
+					if ( $learn_press_version !== $this->version ) {
+						update_option( 'learnpress_version', $this->version );
+					}
 				}
 
 				// Define constant .
@@ -245,7 +250,7 @@ if ( ! class_exists( 'LearnPress' ) ) {
 		 * @return void
 		 */
 		private function include_files_global() {
-			include_once 'inc/class-lp-multi-language.php';
+			//include_once 'inc/class-lp-multi-language.php';
 
 			// Filter query .
 			include_once 'inc/Filters/class-lp-filter.php';
@@ -460,7 +465,6 @@ if ( ! class_exists( 'LearnPress' ) ) {
 
 			include_once 'inc/gateways/class-lp-gateway-abstract.php';
 			include_once 'inc/gateways/class-lp-gateways.php';
-			new LP_Gateways();
 		}
 
 		/**
@@ -519,7 +523,7 @@ if ( ! class_exists( 'LearnPress' ) ) {
 
 			//add_action( 'wp_loaded', array( $this, 'wp_loaded' ), 20 );
 			//add_action( 'after_setup_theme', array( $this, 'setup_theme' ) );
-			add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ), - 10 );
+			add_action( 'init', array( $this, 'plugins_loaded' ), - 10 );
 			add_action(
 				'plugin_loaded',
 				function ( $plugin ) {
@@ -563,6 +567,15 @@ if ( ! class_exists( 'LearnPress' ) ) {
 							LP_Manager_Addons::instance()->active_site( $addon_slug, $purchase_code_content );
 						}
 					}
+				}
+			);
+
+			// Clear cache UserModel when save user.
+			add_action(
+				'wp_update_user',
+				function ( $user_id ) {
+					$user = UserModel::find( $user_id, true );
+					$user->clean_caches();
 				}
 			);
 		}
@@ -611,19 +624,20 @@ if ( ! class_exists( 'LearnPress' ) ) {
 		 * @since 3.0.0
 		 * @deprecated 4.2.2
 		 */
-		public function wp_loaded() {
+		/*public function wp_loaded() {
 			_deprecated_function( __METHOD__, '4.2.2' );
 			if ( $this->is_request( 'frontend' ) ) {
 				$this->gateways = LP_Gateways::instance()->get_available_payment_gateways();
 			}
-		}
+		}*/
 
 		/**
 		 * Setup courses thumbnail.
 		 *
 		 * @since 3.0.0
+		 * @deprecated 4.1.7.1
 		 */
-		public function setup_theme() {
+		/*public function setup_theme() {
 			if ( ! current_theme_supports( 'post-thumbnails' ) ) {
 				add_theme_support( 'post-thumbnails' );
 			}
@@ -640,16 +654,17 @@ if ( ! class_exists( 'LearnPress' ) ) {
 			$size = array_values( (array) $size );
 
 			add_image_size( 'course_thumbnail', $size[0], $size[1], true );
-		}
+		}*/
 
 		/**
-		 * Trigger Learnpress loaded actions.
+		 * Trigger LearnPress loaded actions.
 		 *
 		 * @since 3.0.0
-		 * @version 1.0.3
+		 * @version 1.0.4
 		 */
 		public function plugins_loaded() {
 			try {
+				$this->load_plugin_text_domain();
 				do_action( 'learnpress/hook/before-addons-call-hook-learnpress-ready' );
 
 				// Polylang
@@ -670,7 +685,7 @@ if ( ! class_exists( 'LearnPress' ) ) {
 
 				$this->init();
 
-				include_once 'inc/lp-template-hooks.php';
+				new LP_Gateways();
 
 				/**
 				 * Check version addons valid version require.
@@ -723,9 +738,45 @@ if ( ! class_exists( 'LearnPress' ) ) {
 
 				// let third parties know that we're ready .
 				do_action( 'learn-press/ready' );
+
+				/**
+				 * Fixed temporary for emails of Announcement v4.0.6, Assignment v4.1.1 addons.
+				 * @since 4.2.7.4
+				 * When 2 addons update to new version, will remove this code.
+				 */
+				if ( class_exists( 'LP_Addon_Announcements_Preload' ) ) {
+					if ( version_compare( LP_ADDON_ANNOUNCEMENTS_VER, '4.0.6', '<=' ) ) {
+						$addon_announcement = LP_Addon_Announcements_Preload::$addon;
+						$addon_announcement->emails_setting();
+					}
+				}
+				if ( class_exists( 'LP_Addon_Assignment_Preload' ) ) {
+					if ( version_compare( LP_ADDON_ASSIGNMENT_VER, '4.1.1', '<=' ) ) {
+						$addon_assignment = LP_Addon_Assignment_Preload::$addon;
+						$addon_assignment->emails_setting();
+					}
+				}
 			} catch ( Throwable $e ) {
 				error_log( __METHOD__ . ': ' . $e->getMessage() );
 			}
+		}
+
+		/**
+		 * Handle load text domain for LearnPress.
+		 *
+		 * @since 4.2.7.4
+		 */
+		public function load_plugin_text_domain() {
+			$locale = determine_locale();
+
+			/**
+			 * Filter to adjust the LearnPress locale to use for translations.
+			 */
+			$locale = apply_filters( 'plugin_locale', $locale, 'learnpress' );
+
+			unload_textdomain( LP_TEXT_DOMAIN );
+			load_textdomain( LP_TEXT_DOMAIN, WP_LANG_DIR . '/learnpress/learnpress-' . $locale . '.mo' );
+			load_plugin_textdomain( LP_TEXT_DOMAIN, false, LP_PLUGIN_FOLDER_NAME . '/languages' );
 		}
 
 		/**
@@ -767,10 +818,10 @@ if ( ! class_exists( 'LearnPress' ) ) {
 				$this->get_cart();
 			}
 
-			// Email hook notify
-			include_once 'inc/emails/class-lp-email-hooks.php';
 			// Init emails
 			LP_Emails::instance();
+			// Email hook notify
+			include_once 'inc/emails/class-lp-email-hooks.php';
 		}
 
 		/**
@@ -945,3 +996,7 @@ function LP() {
  * Create new instance of LearnPress and put it to global
  */
 $GLOBALS['LearnPress'] = LearnPress::instance();
+
+// Load template hooks here, before theme add hooks remove.
+// Load here because this file call LearnPress::instance(), loop call.
+require_once 'inc/lp-template-hooks.php';
