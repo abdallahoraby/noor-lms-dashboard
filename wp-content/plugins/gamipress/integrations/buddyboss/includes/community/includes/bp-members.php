@@ -799,6 +799,12 @@ function gamipress_bp_user_ranks_display( $user_id, $display_options ) {
 
             $rank_type = $rank_types[$rank_type_to_show];
             $user_rank = gamipress_get_user_rank( $user_id, $rank_type_to_show );
+            
+            // To avoid display rank if not configured ranks
+            if ( $user_rank->post_type === 'page') {
+                continue;
+            }
+
             $user_rank_is_lowest = gamipress_is_lowest_priority_rank( $user_rank->ID ); ?>
             
             <?php if ( ! $rank_types_hide || ! $user_rank_is_lowest ) : ?>

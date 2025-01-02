@@ -147,3 +147,33 @@ function gamipress_bbp_delete_reply( $reply_id ) {
 
 }
 add_action( 'bbp_delete_reply', 'gamipress_bbp_delete_reply' );
+
+// Moderation reports
+function gamipress_bbp_reports( $args ) {
+
+    if ( $args->item_type === 'forum_topic' ) {
+
+        // To get topic data
+        $topic_data = bbp_get_topic( $args->item_id );
+
+        // To get the reported user
+        $reported_user = absint( $topic_data->post_author );
+
+        // Report a topic
+        do_action( 'gamipress_bbp_reported_topic', $args->item_id, $reported_user, $forum_id );    
+    }
+
+    if ( $args->item_type === 'forum_reply' ) {
+
+        // to get the reply data
+        $reply_data = bbp_get_reply( $args->item_id );
+
+        // To get the reported user
+        $reported_user = absint( $reply_data->post_author );
+
+        // Report a reply
+        do_action( 'gamipress_bbp_reported_reply', $args->item_id, $reported_user );    
+    }
+
+}
+add_action( 'bp_moderation_after_save', 'gamipress_bbp_reports' );

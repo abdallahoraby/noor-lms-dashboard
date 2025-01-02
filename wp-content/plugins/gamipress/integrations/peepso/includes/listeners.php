@@ -44,6 +44,14 @@ function gamipress_peepso_common_activity_listener( $post_id, $activity_id ) {
 
     $user_id = absint( get_post_field( 'post_author', $post_id ) );
 
+    // Get activity post data
+    $post_data = get_post($post_id);
+	$post_type = $post_data->post_type;
+	
+    // Bail if not peepso post for feed
+	if ($post_type !== 'peepso-post' )
+		return;
+
     // Trigger events depending of current filter since is a common listener
     switch( current_filter() ) {
         case 'peepso_activity_after_add_post':

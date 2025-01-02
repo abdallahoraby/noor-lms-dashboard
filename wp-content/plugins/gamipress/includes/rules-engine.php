@@ -307,7 +307,7 @@ function gamipress_user_has_access_to_points_award( $return = false, $user_id = 
             'post_id'   => absint( $points_award_id ),
             'since'     => absint( gamipress_achievement_last_user_activity( $points_award_id, $user_id ) )
         ) );
-
+        
         // Prevent user to exceed maximum earnings the same points award
         if ( $earned_times >= $maximum_earnings ) {
             $return = false;
@@ -1761,6 +1761,8 @@ function gamipress_revoke_achievement_to_user( $achievement_id = 0, $user_id = 0
 
                 foreach( $requirements as $requirement ) {
                     gamipress_revoke_achievement_to_user( $requirement->ID, $user_id );
+                    $last_interaction = current_time( 'timestamp' );
+                    update_user_meta( $user_id, '_gamipress_' . $requirement->ID . '_last_interaction_timestamp', $last_interaction );
                 }
 
             }

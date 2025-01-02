@@ -44,6 +44,10 @@ function gamipress_bbp_activity_triggers( $triggers ) {
         'gamipress_bbp_delete_forum'            => __( 'Delete a forum', 'gamipress' ),
         'gamipress_bbp_delete_topic'            => __( 'Delete a topic', 'gamipress' ),
         'gamipress_bbp_delete_reply'            => __( 'Delete a reply', 'gamipress' ),
+        
+        //Moderation
+        'gamipress_bbp_reported_topic'            => __( 'Get a topic reported', 'gamipress' ),
+        'gamipress_bbp_reported_reply'            => __( 'Get a reply in a topic reported', 'gamipress' ),
     );
 
     return $triggers;
@@ -136,6 +140,8 @@ function gamipress_bbp_trigger_get_user_id( $user_id, $trigger, $args ) {
         case 'gamipress_bbp_delete_forum':
         case 'gamipress_bbp_delete_topic':
         case 'gamipress_bbp_delete_reply':
+        case 'gamipress_bbp_reported_topic':
+        case 'gamipress_bbp_reported_reply':
             $user_id = $args[1];
             break;
     }
@@ -228,11 +234,13 @@ function gamipress_bbp_log_event_trigger_meta_data( $log_meta, $user_id, $trigge
         case 'gamipress_bbp_specific_forum_unfavorite_topic':
         case 'gamipress_bbp_get_unfavorite_topic':
         case 'gamipress_bbp_delete_topic':
+        case 'gamipress_bbp_reported_topic':
             // Add the topic and forum IDs
             $log_meta['topic_id'] = $args[0];
             $log_meta['forum_id'] = $args[2];
             break;
         case 'gamipress_bbp_delete_reply':
+        case 'gamipress_bbp_reported_reply':
             // Add the reply ID
             $log_meta['reply_id'] = $args[0];
             break;

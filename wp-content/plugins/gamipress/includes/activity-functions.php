@@ -24,8 +24,14 @@ function gamipress_achievement_last_user_activity( $achievement_id = 0, $user_id
 	// Assume the user has no history with this achievement
 	$since = 0;
 
+	$last_interaction = absint( get_user_meta($user_id, '_gamipress_' . $achievement_id . '_last_interaction_timestamp', true) );
+	
+	if ( $last_interaction ) {
+		// Return the achievement last interaction
+        $since = $last_interaction + 1;
+	}
 	// Attempt to grab the achievement earned date
-	if ( $date_earned = gamipress_get_last_earning_datetime( array( 'user_id' => $user_id, 'post_id' => $achievement_id ) ) ) {
+	else if ( $date_earned = gamipress_get_last_earning_datetime( array( 'user_id' => $user_id, 'post_id' => $achievement_id ) ) ) {
 
 		// Return the achievement date earned
         $since = $date_earned + 1;

@@ -41,10 +41,20 @@ function gamipress_bp_check_if_meets_requirements( $requirement_id, $trigger, $a
         $field_value = $args[2];
         $required_field_value = gamipress_get_post_meta( $requirement_id, '_gamipress_bp_field_value', true );
 
-        $return = (bool) (
-            $field_value !== ''
-            && $required_field_value !== ''
-            && $field_value === $required_field_value );
+        if( is_array( $field_value ) ) {
+            $return = (bool) (
+                count( $field_value )
+                && $required_field_value !== ''
+                && in_array( $required_field_value, $field_value )
+            );
+        } else {
+            $return = (bool) (
+                $field_value !== ''
+                && $required_field_value !== ''
+                && $field_value === $required_field_value 
+            );
+        }
+
     }
     
     return $return;

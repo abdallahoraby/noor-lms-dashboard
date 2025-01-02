@@ -1605,6 +1605,10 @@ function gamipress_update_user_trigger_count( $user_id, $trigger, $site_id = 0, 
 	// Get the user triggered triggers
 	$user_triggers = gamipress_get_user_triggers( $user_id, $site_id );
 
+    // Check to ensure is an array
+    if ( !is_array( $user_triggers ) )
+        return;
+
 	if( isset( $user_triggers[$site_id][$trigger] ) ) {
 		// If already have this count, just retrieve it
 		$trigger_count = absint( $user_triggers[$site_id][$trigger] );
