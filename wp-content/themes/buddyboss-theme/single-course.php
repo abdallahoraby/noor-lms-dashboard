@@ -1,38 +1,66 @@
 <?php
 /**
- * The template for displaying single course
+ * Template for displaying content of single course.
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
- *
- * @package BuddyBoss_Theme
+ * @author  ThimPress
+ * @package LearnPress/Templates
+ * @version 4.0.1
  */
 
-if ( function_exists( 'buddyboss_is_lifterlms' ) && buddyboss_is_lifterlms() ) {
-	get_template_part( 'single-llms', 'course' );
-} elseif ( function_exists( 'buddyboss_is_academy' ) && buddyboss_is_academy() ) {
-	get_template_part( 'academy/single', 'course' );
-} else {
-	// This will call for any other post type. i.e - single-course.php
-	get_header();
-	?>
+defined( 'ABSPATH' ) || exit;
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
+/**
+ * Header for page
+ */
+if ( ! wp_is_block_theme() ) {
+    do_action( 'learn-press/template-header' );
+}
 
-			<?php
+/**
+ * @since 3.0.0
+ */
+do_action( 'learn-press/before-main-content' );
+do_action( 'learn-press/before-main-content-single-course' );
 
-			while ( have_posts() ) :
-				the_post();
+// WP 6.4 with Block theme can't detect single course, so code while ( have_posts() ) not run.
+$args = array(
+    'name'        => get_query_var( LP_COURSE_CPT ),
+    'post_type'   => LP_COURSE_CPT,
+    'numberposts' => 1,
+);
 
-				get_template_part( 'template-parts/content' );
+// Fix preview course
+if ( isset( $_REQUEST['preview'] ) && isset( $_REQUEST['p'] ) ) {
+    unset( $args['name'] );
+    $args['include']     = [ (int) $_REQUEST['p'] ];
+    $args['post_status'] = 'any';
+}
 
-			endwhile; // End of the loop.
+$posts = get_posts( $args );
+$post  = $posts[0] ?? 0;
 
-			?>
+if ( $post instanceof WP_Post ) {
+    learn_press_get_template( 'content-single-course' );
+}
+/*while ( have_posts() ) {
+	the_post();
+	learn_press_get_template( 'content-single-course' );
+}*/
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+/**
+ * @since 3.0.0
+ */
+do_action( 'learn-press/after-main-content-single-course' );
+do_action( 'learn-press/after-main-content' );
 
-	<?php
-	get_footer();
+/**
+ * LP sidebar
+ */
+do_action( 'learn-press/sidebar' );
+
+/**
+ * Footer for page
+ */
+if ( ! wp_is_block_theme() ) {
+    do_action( 'learn-press/template-footer' );
 }
