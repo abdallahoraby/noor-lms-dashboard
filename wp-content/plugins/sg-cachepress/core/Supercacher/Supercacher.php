@@ -117,6 +117,8 @@ class Supercacher {
 			'edd_login_form_logged_in',
 			'create_term',
 			'delete_term',
+			'update_option_woocommerce_coming_soon',
+			'update_option_woocommerce_store_pages_only',
 		),
 	);
 

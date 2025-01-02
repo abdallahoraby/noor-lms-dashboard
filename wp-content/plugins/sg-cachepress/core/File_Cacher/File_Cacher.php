@@ -176,6 +176,13 @@ class File_Cacher extends Supercacher {
 	 * @since 7.0.0
 	 */
 	public function get_cache_dir() {
+		// Create the parent cache dir, if it does not exist for some reason.
+		$parent_cache_dir = WP_CONTENT_DIR . '/cache/';
+
+		if ( ! $this->wp_filesystem->is_dir( $parent_cache_dir ) ) {
+			$this->wp_filesystem->mkdir( $parent_cache_dir );
+		}
+
 		// Set the main cache dir.
 		$dir = WP_CONTENT_DIR . '/cache/sgo-cache/';
 

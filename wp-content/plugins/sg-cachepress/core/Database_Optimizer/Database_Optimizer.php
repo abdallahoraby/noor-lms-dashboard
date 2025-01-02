@@ -263,7 +263,7 @@ class Database_Optimizer {
 		// Loop trough and optimize table.
 		foreach ( $tables as $table ) {
 			// Check if we need to skip that specific table from the optimization.
-			if ( in_array( $table->table_name, $all_tables ) ) {
+			if ( empty( $table->table_name ) || in_array( $table->table_name, $all_tables ) ) {
 				continue;
 			}
 
