@@ -398,7 +398,7 @@ function gamipress_bp_activity_recount_activity_favorites( $response, $loop ) {
     $offset = ( $loop !== 0 ? $limit * ( $loop - 1 ) : 0 );
 
     // Get all stored users count
-    $users_count = absint( $wpdb->get_var( "SELECT COUNT(*) FROM {$wpdb->users}" ) );
+    $users_count = absint( $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM {$wpdb->users}" ) ) );
 
     // On first loop send an informational text
     if( $loop === 0 && $users_count > $limit ) {
@@ -410,7 +410,7 @@ function gamipress_bp_activity_recount_activity_favorites( $response, $loop ) {
     }
 
     // Get all stored users
-    $users = $wpdb->get_results( "SELECT ID FROM {$wpdb->users} LIMIT {$offset}, {$limit}" );
+    $users = $wpdb->get_results( $wpdb->prepare( "SELECT ID FROM {$wpdb->users} LIMIT {$offset}, {$limit}" ) );
 
     foreach( $users as $user ) {
 
@@ -466,7 +466,7 @@ function gamipress_bp_activity_recount_activity_group_published_activities( $res
     $bp = buddypress();
 
     // Get all groups count
-    $groups_count = absint( $wpdb->get_var( "SELECT COUNT(*) FROM {$bp->groups->table_name}" ) );
+    $groups_count = absint( $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM {$bp->groups->table_name}" ) ) );
 
     // On first loop send an informational text
     if( $loop === 0 && $groups_count > $limit ) {
@@ -478,12 +478,12 @@ function gamipress_bp_activity_recount_activity_group_published_activities( $res
     }
 
     // Get all groups
-    $groups = $wpdb->get_results( "SELECT id FROM {$bp->groups->table_name} LIMIT {$offset}, {$limit}" );
+    $groups = $wpdb->get_results( $wpdb->prepare( "SELECT id FROM {$bp->groups->table_name} LIMIT {$offset}, {$limit}" ) );
 
     foreach( $groups as $group ) {
 
         // Get all activities
-        $activities = $wpdb->get_results( "SELECT * FROM {$bp->activity->table_name} WHERE type = 'activity_update' AND item_id = {$group->id}" );
+        $activities = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM {$bp->activity->table_name} WHERE type = 'activity_update' AND item_id = {$group->id}" ) );
 
         foreach( $activities as $activity ) {
 
@@ -536,7 +536,7 @@ function gamipress_bp_activity_recount_activity_group_joins( $response, $loop ) 
     $bp = buddypress();
 
     // Get all groups count
-    $groups_count = absint( $wpdb->get_var( "SELECT COUNT(*) FROM {$bp->groups->table_name}" ) );
+    $groups_count = absint( $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM {$bp->groups->table_name}" ) ) );
 
     // On first loop send an informational text
     if( $loop === 0 && $groups_count > $limit ) {
@@ -548,12 +548,12 @@ function gamipress_bp_activity_recount_activity_group_joins( $response, $loop ) 
     }
 
     // Get all groups
-    $groups = $wpdb->get_results( "SELECT id FROM {$bp->groups->table_name} LIMIT {$offset}, {$limit}" );
+    $groups = $wpdb->get_results( $wpdb->prepare( "SELECT id FROM {$bp->groups->table_name} LIMIT {$offset}, {$limit}" ) );
 
     foreach( $groups as $group ) {
 
         // Get all activities
-        $activities = $wpdb->get_results( "SELECT * FROM {$bp->activity->table_name} WHERE type = 'joined_group' AND item_id = {$group->id}" );
+        $activities = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM {$bp->activity->table_name} WHERE type = 'joined_group' AND item_id = {$group->id}" ) );
 
         foreach( $activities as $activity ) {
 
@@ -606,7 +606,7 @@ function gamipress_bp_activity_recount_activity_group_promotions( $response, $lo
     $bp = buddypress();
 
     // Get all groups count
-    $groups_members_count = absint( $wpdb->get_var( "SELECT COUNT(*) FROM {$bp->groups->table_name_members}" ) );
+    $groups_members_count = absint( $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM {$bp->groups->table_name_members}" ) ) );
 
     // On first loop send an informational text
     if( $loop === 0 && $groups_members_count > $limit ) {
@@ -618,7 +618,7 @@ function gamipress_bp_activity_recount_activity_group_promotions( $response, $lo
     }
 
     // Get all groups
-    $groups_members = $wpdb->get_results( "SELECT * FROM {$bp->groups->table_name_members} LIMIT {$offset}, {$limit}" );
+    $groups_members = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM {$bp->groups->table_name_members} LIMIT {$offset}, {$limit}" ) );
 
     foreach( $groups_members as $group_member ) {
 

@@ -425,6 +425,7 @@ function gamipress_user_earnings_get_list_views( $views = array() ) {
 
     // Get the number of entries per each different field value
     $results = $wpdb->get_results( "SELECT {$field_id}, COUNT( * ) AS num_entries FROM {$ct_table->db->table_name} GROUP BY {$field_id}", ARRAY_A );
+    
     $counts  = array();
 
     // Loop them to build the counts array

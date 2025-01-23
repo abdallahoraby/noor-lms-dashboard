@@ -137,13 +137,13 @@ function gamipress_237_upgrade_size() {
         $user_earnings      = GamiPress()->db->user_earnings;
         $user_earnings_meta = GamiPress()->db->user_earnings_meta;
 
-        $upgrade_size = absint( $wpdb->get_var(
+        $upgrade_size = absint( $wpdb->get_var( $wpdb->prepare(
             "SELECT COUNT(*) 
             FROM {$user_earnings} AS ue 
             LEFT JOIN {$user_earnings_meta} uem ON ( uem.user_earning_id = ue.user_earning_id AND uem.meta_key = '_gamipress_parent_post_type'  ) 
             WHERE ue.post_type IN ( 'step', 'rank-requirement' ) 
             AND uem.meta_value IS NULL"
-        ) );
+        ) ) );
 
     }
 
@@ -204,7 +204,7 @@ function gamipress_ajax_process_237_upgrade() {
         $limit              = 50;
 
         // Retrieve all requirements without parent (ordered by post_id for performance)
-        $results = $wpdb->get_results(
+        $results = $wpdb->get_results( $wpdb->prepare(
                 "SELECT ue.user_earning_id, ue.post_id, ue.post_type
             FROM {$user_earnings} AS ue 
             LEFT JOIN {$user_earnings_meta} uem ON ( uem.user_earning_id = ue.user_earning_id AND uem.meta_key = '_gamipress_parent_post_type'  ) 
@@ -212,7 +212,7 @@ function gamipress_ajax_process_237_upgrade() {
             AND uem.meta_value IS NULL
             ORDER BY ue.post_id ASC
             LIMIT {$limit}"
-        );
+        ) );
 
         $metas = array();
         $meta_key = '_gamipress_parent_post_type';
@@ -264,13 +264,13 @@ function gamipress_ajax_process_237_upgrade() {
         // Is faster to run a single query to insert all metas instead of insert them one-by-one
         $wpdb->query( "INSERT INTO {$user_earnings_meta} (user_earning_id, meta_key, meta_value) VALUES ({$metas})" );
 
-        $count = absint( $wpdb->get_var(
+        $count = absint( $wpdb->get_var( $wpdb->prepare(
             "SELECT COUNT(*) 
             FROM {$user_earnings} AS ue 
             LEFT JOIN {$user_earnings_meta} uem ON ( uem.user_earning_id = ue.user_earning_id AND uem.meta_key = '_gamipress_parent_post_type'  ) 
             WHERE ue.post_type IN ( 'step', 'rank-requirement' ) 
             AND uem.meta_value IS NULL"
-        ) );
+        ) ) );
 
         if( $count === 0 ) {
             gamipress_set_upgrade_complete( 'update_earnings_parent_post_type_meta' );
@@ -329,14 +329,14 @@ function gamipress_upgrade_237_maybe_upgrade() {
         $user_earnings      = GamiPress()->db->user_earnings;
         $user_earnings_meta = GamiPress()->db->user_earnings_meta;
 
-        $upgrade_check = absint( $wpdb->get_var(
+        $upgrade_check = absint( $wpdb->get_var( $wpdb->prepare(
             "SELECT COUNT(*) 
             FROM {$user_earnings} AS ue 
             LEFT JOIN {$user_earnings_meta} uem ON ( uem.user_earning_id = ue.user_earning_id AND uem.meta_key = '_gamipress_parent_post_type'  ) 
             WHERE ue.post_type IN ( 'step', 'rank-requirement' ) 
             AND uem.meta_value IS NULL
             LIMIT 1"
-        ) );
+        ) ) );
 
     }
 

@@ -341,7 +341,7 @@ function gamipress_get_assigned_requirements_old( $post_id = null, $requirement_
     $p2p        = GamiPress()->db->p2p;
     $p2pmeta    = GamiPress()->db->p2pmeta;
 
-    $requirements = $wpdb->get_results( "SELECT p2p.p2p_from AS ID FROM {$p2p} AS p2p WHERE p2p.p2p_to = {$post_id} AND p2p.p2p_type = '{$requirement_type}-to-{$post_type}'" );
+    $requirements = $wpdb->get_results( $wpdb->prepare( "SELECT p2p.p2p_from AS ID FROM {$p2p} AS p2p WHERE p2p.p2p_to = {$post_id} AND p2p.p2p_type = '{$requirement_type}-to-{$post_type}'" ) );
 
     foreach( $requirements as $key => $requirement ) {
 
@@ -392,7 +392,7 @@ function gamipress_get_points_award_points_type_old( $points_award_id = 0 ) {
 
     $p2p = GamiPress()->db->p2p;
 
-    $points_type_id = absint( $wpdb->get_var( "SELECT p2p.p2p_to FROM {$p2p} AS p2p WHERE p2p.p2p_from = {$points_award_id} AND p2p.p2p_type = 'points-award-to-points-type'" ) );
+    $points_type_id = absint( $wpdb->get_var( $wpdb->prepare( "SELECT p2p.p2p_to FROM {$p2p} AS p2p WHERE p2p.p2p_from = {$points_award_id} AND p2p.p2p_type = 'points-award-to-points-type'" ) ) );
 
     if( $points_type_id !== 0 ) {
         // If has parent, return his post object
@@ -431,7 +431,7 @@ function gamipress_get_points_deduct_points_type_old( $points_deduct_id = 0 ) {
 
     $p2p = GamiPress()->db->p2p;
 
-    $points_type_id = absint( $wpdb->get_var( "SELECT p2p.p2p_to FROM {$p2p} AS p2p WHERE p2p.p2p_from = {$points_deduct_id} AND p2p.p2p_type = 'points-award-to-points-type'" ) );
+    $points_type_id = absint( $wpdb->get_var( $wpdb->prepare( "SELECT p2p.p2p_to FROM {$p2p} AS p2p WHERE p2p.p2p_from = {$points_deduct_id} AND p2p.p2p_type = 'points-award-to-points-type'" ) ) );
 
     if( $points_type_id !== 0 ) {
         // If has parent, return his post object
@@ -772,14 +772,14 @@ function gamipress_get_unassigned_requirements() {
     $posts  = GamiPress()->db->posts;
     $p2p    = GamiPress()->db->p2p;
 
-    $requirements = $wpdb->get_results( "
+    $requirements = $wpdb->get_results( $wpdb->prepare( "
         SELECT p.ID
         FROM {$posts} AS p
         LEFT JOIN {$p2p} AS p2p
         ON p2p.p2p_from = p.ID
         WHERE p.post_type IN( 'points-award', 'points-deduct', 'step', 'rank-requirement' )
         AND p2p.p2p_from IS NULL
-    ", ARRAY_A );
+    ", ARRAY_A ) );
 
     // If it has results, return them, otherwise return false
     if ( ! empty( $requirements ) )

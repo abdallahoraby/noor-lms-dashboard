@@ -97,11 +97,11 @@ function gamipress_h5p_requirement_ui_fields( $requirement_id, $post_id ) {
     global $wpdb;
 
     // Get active libraries
-    $content_types = $wpdb->get_results(
+    $content_types = $wpdb->get_results( $wpdb->prepare(
         "SELECT l.name, l.title
         FROM {$wpdb->prefix}h5p_libraries AS l
         WHERE l.runnable = 1"
-    );
+    ) );
 
     $requirement_content_type = get_post_meta( $requirement_id, '_gamipress_h5p_content_type', true ); ?>
 

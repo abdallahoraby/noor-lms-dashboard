@@ -506,7 +506,7 @@ function gamipress_h5p_log_extra_data_fields( $fields, $log_id, $type ) {
 
             // Get active libraries
             $options = array();
-            $content_types = $wpdb->get_results(
+            $content_types = $wpdb->get_results( 
                 "SELECT l.name, l.title
                 FROM {$wpdb->prefix}h5p_libraries AS l
                 WHERE l.runnable = 1"
@@ -566,7 +566,7 @@ function gamipress_h5p_log_extra_data_fields( $fields, $log_id, $type ) {
 
             // Get active libraries
             $options = array();
-            $content_types = $wpdb->get_results(
+            $content_types = $wpdb->get_results( 
                 "SELECT l.name, l.title
                     FROM {$wpdb->prefix}h5p_libraries AS l
                     WHERE l.runnable = 1"

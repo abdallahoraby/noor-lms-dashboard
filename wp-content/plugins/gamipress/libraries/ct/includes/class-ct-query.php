@@ -619,7 +619,7 @@ if ( ! class_exists( 'CT_Query' ) ) :
 
             if ( 'ids' == $q['fields'] ) {
                 if ( null === $this->results ) {
-                    $this->results = $wpdb->get_col( $this->request );
+                    $this->results = $wpdb->get_col(  $this->request );
                 }
 
                 $this->results = array_map( 'intval', $this->results );
@@ -661,7 +661,7 @@ if ( ! class_exists( 'CT_Query' ) ) :
                      */
                     $this->request = apply_filters( 'ct_query_request_ids', $this->request, $this );
 
-                    $ids = $wpdb->get_col( $this->request );
+                    $ids = $wpdb->get_col( $wpdb->prepare( $this->request ) );
 
                     if ( $ids ) {
                         $this->results = $ids;
@@ -672,7 +672,7 @@ if ( ! class_exists( 'CT_Query' ) ) :
                         $this->results = array();
                     }
                 } else {
-                    $this->results = $wpdb->get_results( $this->request );
+                    $this->results = $wpdb->get_results( $wpdb->prepare( $this->request ) );
                     $this->set_found_results( $q, $limits );
                 }
             }
@@ -1002,7 +1002,7 @@ if ( ! class_exists( 'CT_Query' ) ) :
                  * @param string   $found_posts The query to run to find the found posts.
                  * @param WP_Query &$this       The WP_Query instance (passed by reference).
                  */
-                $this->found_results = $wpdb->get_var( apply_filters_ref_array( 'ct_found_results_query', array( 'SELECT FOUND_ROWS()', &$this ) ) );
+                $this->found_results = $wpdb->get_var( $wpdb->prepare( apply_filters_ref_array( 'ct_found_results_query', array( 'SELECT FOUND_ROWS()', &$this ) ) ) );
             } else {
                 $this->found_results = count( $this->results );
             }

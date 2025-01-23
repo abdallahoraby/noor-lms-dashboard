@@ -50,7 +50,7 @@ function gamipress_lifterlms_activity_recount_quizzes( $response, $loop, $limit,
     global $wpdb;
 
     // Get all stored users count
-    $users_count = absint( $wpdb->get_var( "SELECT COUNT(*) FROM {$wpdb->users} AS u" ) );
+    $users_count = absint( $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM {$wpdb->users} AS u" ) ) );
 
     // On first loop send an informational text
     if( $loop === 0 && $users_count > $limit ) {
@@ -63,7 +63,7 @@ function gamipress_lifterlms_activity_recount_quizzes( $response, $loop, $limit,
     }
 
     // Get all stored users
-    $users = $wpdb->get_results( "SELECT u.ID FROM {$wpdb->users} AS u LIMIT {$offset}, {$limit}" );
+    $users = $wpdb->get_results( $wpdb->prepare( "SELECT u.ID FROM {$wpdb->users} AS u LIMIT {$offset}, {$limit}" ) );
 
     foreach( $users as $user ) {
 
@@ -140,7 +140,7 @@ function gamipress_lifterlms_activity_recount_lessons( $response, $loop, $limit,
     global $wpdb, $wp_current_filter;
 
     // Get all stored users count
-    $users_count = absint( $wpdb->get_var( "SELECT COUNT(*) FROM {$wpdb->users} AS u" ) );
+    $users_count = absint( $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM {$wpdb->users} AS u" ) ) );
 
     // On first loop send an informational text
     if( $loop === 0 && $users_count > $limit ) {
@@ -153,7 +153,7 @@ function gamipress_lifterlms_activity_recount_lessons( $response, $loop, $limit,
     }
 
     // Get all stored users
-    $users = $wpdb->get_results( "SELECT u.ID FROM {$wpdb->users} AS u LIMIT {$offset}, {$limit}" );
+    $users = $wpdb->get_results( $wpdb->prepare( "SELECT u.ID FROM {$wpdb->users} AS u LIMIT {$offset}, {$limit}" ) );
 
     foreach( $users as $user ) {
 
@@ -231,7 +231,7 @@ function gamipress_lifterlms_activity_recount_sections( $response, $loop, $limit
     global $wpdb, $wp_current_filter;
 
     // Get all stored users count
-    $users_count = absint( $wpdb->get_var( "SELECT COUNT(*) FROM {$wpdb->users} AS u" ) );
+    $users_count = absint( $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM {$wpdb->users} AS u" ) ) );
 
     // On first loop send an informational text
     if( $loop === 0 && $users_count > $limit ) {
@@ -244,7 +244,7 @@ function gamipress_lifterlms_activity_recount_sections( $response, $loop, $limit
     }
 
     // Get all stored users
-    $users = $wpdb->get_results( "SELECT u.ID FROM {$wpdb->users} AS u LIMIT {$offset}, {$limit}" );
+    $users = $wpdb->get_results( $wpdb->prepare( "SELECT u.ID FROM {$wpdb->users} AS u LIMIT {$offset}, {$limit}" ) );
 
     foreach( $users as $user ) {
 
@@ -322,7 +322,7 @@ function gamipress_lifterlms_activity_recount_courses( $response, $loop, $limit,
     global $wpdb, $wp_current_filter;
 
     // Get all stored users count
-    $users_count = absint( $wpdb->get_var( "SELECT COUNT(*) FROM {$wpdb->users} AS u" ) );
+    $users_count = absint( $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM {$wpdb->users} AS u" ) ) );
 
     // On first loop send an informational text
     if( $loop === 0 && $users_count > $limit ) {
@@ -335,7 +335,7 @@ function gamipress_lifterlms_activity_recount_courses( $response, $loop, $limit,
     }
 
     // Get all stored users
-    $users = $wpdb->get_results( "SELECT u.ID FROM {$wpdb->users} AS u LIMIT {$offset}, {$limit}" );
+    $users = $wpdb->get_results( $wpdb->prepare( "SELECT u.ID FROM {$wpdb->users} AS u LIMIT {$offset}, {$limit}" ) );
 
     foreach( $users as $user ) {
 

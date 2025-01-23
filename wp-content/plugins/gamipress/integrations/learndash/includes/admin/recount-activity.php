@@ -53,7 +53,7 @@ function gamipress_ld_activity_recount_quizzes( $response, $loop, $limit, $offse
     $meta_key = '_sfwd-quizzes';
 
     // Get all stored users count
-    $users_count = absint( $wpdb->get_var( "SELECT COUNT(*) FROM {$wpdb->users} AS u LEFT JOIN {$wpdb->usermeta} AS um ON um.user_id = u.ID AND um.meta_key = '{$meta_key}' WHERE um.meta_key IS NOT NULL" ) );
+    $users_count = absint( $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM {$wpdb->users} AS u LEFT JOIN {$wpdb->usermeta} AS um ON um.user_id = u.ID AND um.meta_key = '{$meta_key}' WHERE um.meta_key IS NOT NULL" ) ) );
 
     // On first loop send an informational text
     if( $loop === 0 && $users_count > $limit ) {
@@ -66,7 +66,7 @@ function gamipress_ld_activity_recount_quizzes( $response, $loop, $limit, $offse
     }
 
     // Get all stored users
-    $users = $wpdb->get_results( "SELECT u.ID FROM {$wpdb->users} AS u LEFT JOIN {$wpdb->usermeta} AS um ON um.user_id = u.ID AND um.meta_key = '{$meta_key}' WHERE um.meta_key IS NOT NULL LIMIT {$offset}, {$limit}" );
+    $users = $wpdb->get_results( $wpdb->prepare( "SELECT u.ID FROM {$wpdb->users} AS u LEFT JOIN {$wpdb->usermeta} AS um ON um.user_id = u.ID AND um.meta_key = '{$meta_key}' WHERE um.meta_key IS NOT NULL LIMIT {$offset}, {$limit}" ) );
 
     foreach( $users as $user ) {
 
@@ -157,7 +157,7 @@ function gamipress_ld_activity_recount_topics( $response, $loop, $limit, $offset
     $meta_key = '_sfwd-course_progress';
 
     // Get all stored users count
-    $users_count = absint( $wpdb->get_var( "SELECT COUNT(*) FROM {$wpdb->users} AS u LEFT JOIN {$wpdb->usermeta} AS um ON um.user_id = u.ID AND um.meta_key = '{$meta_key}' WHERE um.meta_key IS NOT NULL" ) );
+    $users_count = absint( $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM {$wpdb->users} AS u LEFT JOIN {$wpdb->usermeta} AS um ON um.user_id = u.ID AND um.meta_key = '{$meta_key}' WHERE um.meta_key IS NOT NULL" ) ) );
 
     // On first loop send an informational text
     if( $loop === 0 && $users_count > $limit ) {
@@ -170,7 +170,7 @@ function gamipress_ld_activity_recount_topics( $response, $loop, $limit, $offset
     }
 
     // Get all stored users
-    $users = $wpdb->get_results( "SELECT u.ID FROM {$wpdb->users} AS u LEFT JOIN {$wpdb->usermeta} AS um ON um.user_id = u.ID AND um.meta_key = '{$meta_key}' WHERE um.meta_key IS NOT NULL LIMIT {$offset}, {$limit}" );
+    $users = $wpdb->get_results( $wpdb->prepare( "SELECT u.ID FROM {$wpdb->users} AS u LEFT JOIN {$wpdb->usermeta} AS um ON um.user_id = u.ID AND um.meta_key = '{$meta_key}' WHERE um.meta_key IS NOT NULL LIMIT {$offset}, {$limit}" ) );
 
     foreach( $users as $user ) {
 
@@ -263,7 +263,7 @@ function gamipress_ld_activity_recount_lessons( $response, $loop, $limit, $offse
     $meta_key = '_sfwd-course_progress';
 
     // Get all stored users count
-    $users_count = absint( $wpdb->get_var( "SELECT COUNT(*) FROM {$wpdb->users} AS u LEFT JOIN {$wpdb->usermeta} AS um ON um.user_id = u.ID AND um.meta_key = '{$meta_key}' WHERE um.meta_key IS NOT NULL" ) );
+    $users_count = absint( $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM {$wpdb->users} AS u LEFT JOIN {$wpdb->usermeta} AS um ON um.user_id = u.ID AND um.meta_key = '{$meta_key}' WHERE um.meta_key IS NOT NULL" ) ) );
 
     // On first loop send an informational text
     if( $loop === 0 && $users_count > $limit ) {
@@ -276,7 +276,7 @@ function gamipress_ld_activity_recount_lessons( $response, $loop, $limit, $offse
     }
 
     // Get all stored users
-    $users = $wpdb->get_results( "SELECT u.ID FROM {$wpdb->users} AS u LEFT JOIN {$wpdb->usermeta} AS um ON um.user_id = u.ID AND um.meta_key = '{$meta_key}' WHERE um.meta_key IS NOT NULL LIMIT {$offset}, {$limit}" );
+    $users = $wpdb->get_results( $wpdb->prepare( "SELECT u.ID FROM {$wpdb->users} AS u LEFT JOIN {$wpdb->usermeta} AS um ON um.user_id = u.ID AND um.meta_key = '{$meta_key}' WHERE um.meta_key IS NOT NULL LIMIT {$offset}, {$limit}" ) );
 
     foreach( $users as $user ) {
 
@@ -357,7 +357,7 @@ function gamipress_ld_activity_recount_courses( $response, $loop, $limit, $offse
     $meta_key = '_sfwd-course_progress';
 
     // Get all stored users count
-    $users_count = absint( $wpdb->get_var( "SELECT COUNT(*) FROM {$wpdb->users} AS u LEFT JOIN {$wpdb->usermeta} AS um ON um.user_id = u.ID AND um.meta_key = '{$meta_key}' WHERE um.meta_key IS NOT NULL" ) );
+    $users_count = absint( $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM {$wpdb->users} AS u LEFT JOIN {$wpdb->usermeta} AS um ON um.user_id = u.ID AND um.meta_key = '{$meta_key}' WHERE um.meta_key IS NOT NULL" ) ) );
 
     // On first loop send an informational text
     if( $loop === 0 && $users_count > $limit ) {
@@ -370,7 +370,7 @@ function gamipress_ld_activity_recount_courses( $response, $loop, $limit, $offse
     }
 
     // Get all stored users
-    $users = $wpdb->get_results( "SELECT u.ID FROM {$wpdb->users} AS u LEFT JOIN {$wpdb->usermeta} AS um ON um.user_id = u.ID AND um.meta_key = '{$meta_key}' WHERE um.meta_key IS NOT NULL LIMIT {$offset}, {$limit}" );
+    $users = $wpdb->get_results( $wpdb->prepare( "SELECT u.ID FROM {$wpdb->users} AS u LEFT JOIN {$wpdb->usermeta} AS um ON um.user_id = u.ID AND um.meta_key = '{$meta_key}' WHERE um.meta_key IS NOT NULL LIMIT {$offset}, {$limit}" ) );
 
     foreach( $users as $user ) {
 

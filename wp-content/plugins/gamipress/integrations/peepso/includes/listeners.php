@@ -49,7 +49,7 @@ function gamipress_peepso_common_activity_listener( $post_id, $activity_id ) {
 	$post_type = $post_data->post_type;
 	
     // Bail if not peepso post for feed
-	if ($post_type !== 'peepso-post' )
+	if ( $post_type !== 'peepso-post' && $post_type !== 'peepso-comment' )
 		return;
 
     // Trigger events depending of current filter since is a common listener

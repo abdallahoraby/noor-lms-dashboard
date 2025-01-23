@@ -25,12 +25,12 @@ function gamipress_wpep_ajax_get_posts() {
         $table = $wpdb->prefix . ( defined( 'WPEP_DB_TABLE_COURSE_SECTION_LESSON' ) ? WPEP_DB_TABLE_COURSE_SECTION_LESSON : 'wpep_section_lesson' );
 
         // Try to find the lessons
-        $lessons = $wpdb->get_results(
+        $lessons = $wpdb->get_results( $wpdb->prepare(
             "SELECT *
              FROM {$table}
              " . ( ! empty( $search ) ? "WHERE ( title LIKE '%{$search}%' OR  title LIKE '{$search}%' )" : '' ) . "
              ORDER BY `post_id` ASC, `order` ASC"
-        );
+        ) );
 
         // Build the results array
         $results = array();

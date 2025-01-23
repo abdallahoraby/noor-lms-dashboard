@@ -54,6 +54,7 @@ function gamipress_ajax_get_logs() {
 	// Sanitize
     foreach( $atts as $attr => $value ) {
         $atts[$attr] = sanitize_text_field( $value );
+		$atts[$attr] = str_replace( array( '[', ']' ), '', $value);
     }
 
 	$atts = shortcode_atts( gamipress_logs_shortcode_defaults(), $atts, 'gamipress_logs' );
@@ -91,6 +92,7 @@ function gamipress_ajax_get_user_earnings() {
     // Sanitize
     foreach( $atts as $attr => $value ) {
         $atts[$attr] = sanitize_text_field( $value );
+		$atts[$attr] = str_replace( array( '[', ']' ), '', $value);
     }
 
     $atts = shortcode_atts( gamipress_earnings_shortcode_defaults(), $atts, 'gamipress_earnings' );
@@ -503,7 +505,7 @@ function gamipress_ajax_get_achievements_options() {
 	$posts    	= GamiPress()->db->posts;
 	$postmeta 	= GamiPress()->db->postmeta;
 
-	$results = $wpdb->get_results( $wpdb->prepare(
+	$results = $wpdb->get_results(
 		"SELECT {$select}
 		FROM {$posts} AS p
 		JOIN {$postmeta} AS pm
@@ -516,7 +518,7 @@ function gamipress_ajax_get_achievements_options() {
 		"%%{$search}%%",
 		"_gamipress_hidden",
 		"show"
-	) );
+	);
 
 	// Return our results
 	wp_send_json_success( $results );
@@ -705,7 +707,7 @@ function gamipress_ajax_get_ranks_options() {
 
 	$posts    	= GamiPress()->db->posts;
 
-	$ranks = $wpdb->get_results( $wpdb->prepare(
+	$ranks = $wpdb->get_results(
 		"SELECT {$select}
 		FROM {$posts} AS p
 		WHERE p.post_status IN( 'publish', 'private', 'inherit' )
@@ -713,7 +715,7 @@ function gamipress_ajax_get_ranks_options() {
 		 AND p.post_title LIKE %s
 		ORDER BY p.post_type ASC, p.menu_order DESC",
 		"%%{$search}%%"
-	) );
+	);
 
 	// Return our results
 	wp_send_json_success( $ranks );

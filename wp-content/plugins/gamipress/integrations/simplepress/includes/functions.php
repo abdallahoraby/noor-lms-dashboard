@@ -28,10 +28,10 @@ function gamipress_simplepress_ajax_get_posts() {
             $table = SPFORUMS;
 
             // Try to find the forums
-            $forums = $wpdb->get_results(
+            $forums = $wpdb->get_results( $wpdb->prepare(
                 "SELECT * FROM {$table}
                 " . ( ! empty( $search ) ? "WHERE ( forum_name LIKE '%{$search}%' OR  forum_name LIKE '{$search}%' )" : '' )
-            );
+            ) );
 
             // Build the results array
             $results = array();
@@ -55,10 +55,10 @@ function gamipress_simplepress_ajax_get_posts() {
             $table = SPTOPICS;
 
             // Try to find the topics
-            $topics = $wpdb->get_results(
+            $topics = $wpdb->get_results( $wpdb->prepare(
                 "SELECT * FROM {$table}
                  " . ( ! empty( $search ) ? "WHERE ( topic_name LIKE '%{$search}%' OR  topic_name LIKE '{$search}%' )" : '' )
-            );
+            ) );
 
             // Build the results array
             $results = array();

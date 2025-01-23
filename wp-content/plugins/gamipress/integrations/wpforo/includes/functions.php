@@ -30,15 +30,15 @@ function gamipress_wpforo_ajax_get_posts() {
             $boards = WPF()->tables->boards;
 
             // Get the boards
-            $results_boards = $wpdb->get_results( 
+            $results_boards = $wpdb->get_results( $wpdb->prepare(
                 "SELECT boardid FROM {$boards}"
-            );
+            ) );
 
             // Try to find the forums
-            $forums = $wpdb->get_results(
+            $forums = $wpdb->get_results( $wpdb->prepare(
                 "SELECT * FROM {$table}
                 " . ( ! empty( $search ) ? "WHERE ( title LIKE '%{$search}%' OR  title LIKE '{$search}%' )" : '' )
-            );
+            ) );
 
             // Build the results array
             $results = array();
@@ -58,10 +58,10 @@ function gamipress_wpforo_ajax_get_posts() {
                     if ( $board->boardid !== '0' ){
                         $table = $wpdb->prefix . 'wpforo_' . $board->boardid . '_forums';
                         // Get the forums
-                        $results_forums = $wpdb->get_results(
+                        $results_forums = $wpdb->get_results( $wpdb->prepare(
                             "SELECT * FROM {$table}
                             " . ( ! empty( $search ) ? "WHERE ( title LIKE '%{$search}%' OR  title LIKE '{$search}%' )" : '' )
-                        );
+                        ) );
                         
                         foreach ($results_forums as $forum ) {
                             $forum_id = $board->boardid . '-' . $forum->forumid;
@@ -84,15 +84,15 @@ function gamipress_wpforo_ajax_get_posts() {
             $boards = WPF()->tables->boards;
 
             // Get the boards
-            $results_boards = $wpdb->get_results( 
+            $results_boards = $wpdb->get_results( $wpdb->prepare(
                 "SELECT boardid FROM {$boards}"
-            );
+            ) );
 
             // Try to find the topics
-            $topics = $wpdb->get_results(
+            $topics = $wpdb->get_results( $wpdb->prepare(
                 "SELECT * FROM {$table}
                  " . ( ! empty( $search ) ? "WHERE ( title LIKE '%{$search}%' OR  title LIKE '{$search}%' )" : '' )
-            );
+            ) );
 
             // Build the results array
             $results = array();
@@ -113,10 +113,10 @@ function gamipress_wpforo_ajax_get_posts() {
                     if ( $board->boardid !== '0' ){
                         $table = $wpdb->prefix . 'wpforo_' . $board->boardid . '_topics';
                         // Get the topics
-                        $results_topics = $wpdb->get_results(
+                        $results_topics = $wpdb->get_results( $wpdb->prepare(
                             "SELECT * FROM {$table}
                              " . ( ! empty( $search ) ? "WHERE ( title LIKE '%{$search}%' OR  title LIKE '{$search}%' )" : '' )
-                        );
+                        ) );
                         
                         foreach ($results_topics as $topic ) {
                             $forum_id = $board->boardid . '-' . $topic->forumid;

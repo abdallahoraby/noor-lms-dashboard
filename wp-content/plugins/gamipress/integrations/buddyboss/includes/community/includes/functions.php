@@ -89,16 +89,16 @@ function gamipress_bp_ajax_get_posts() {
             ) ) );
 
         } else {
-            $profile_fields = $wpdb->get_results(
+            $profile_fields = $wpdb->get_results( $wpdb->prepare(
                 "SELECT * 
                 FROM {$prefix}bp_xprofile_fields 
                 ORDER BY field_order ASC
                 LIMIT {$offset}, {$limit}"
-            );
-
-            $count = absint( $wpdb->get_var(
-                "SELECT COUNT(*) FROM {$prefix}bp_xprofile_fields"
             ) );
+
+            $count = absint( $wpdb->get_var( $wpdb->prepare(
+                "SELECT COUNT(*) FROM {$prefix}bp_xprofile_fields"
+            ) ) );
         }
 
         if ( ! empty( $profile_fields ) ) {

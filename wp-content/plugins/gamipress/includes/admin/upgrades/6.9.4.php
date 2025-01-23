@@ -140,9 +140,9 @@ function gamipress_694_upgrade_size() {
         && gamipress_database_table_exists( GamiPress()->db->logs )
         && gamipress_database_table_has_column( GamiPress()->db->logs, 'points_type' ) ) {
 
-        $upgrade_size = absint( $wpdb->get_var(
+        $upgrade_size = absint( $wpdb->get_var( $wpdb->prepare(
             "SELECT COUNT(*) " . gamipress_upgrade_694_query()
-        ) );
+        ) ) );
 
     }
 
@@ -208,7 +208,7 @@ function gamipress_ajax_process_694_upgrade() {
         }
 
         // Retrieve all requirements without parent (ordered by post_id for performance)
-        $results = $wpdb->get_results("SELECT l.log_id " . gamipress_upgrade_694_query() . " LIMIT {$limit}" );
+        $results = $wpdb->get_results( $wpdb->prepare( "SELECT l.log_id " . gamipress_upgrade_694_query() . " LIMIT {$limit}" ) );
 
         foreach( $results as $log ) {
 
@@ -221,9 +221,9 @@ function gamipress_ajax_process_694_upgrade() {
             $current++;
         }
 
-        $count = absint( $wpdb->get_var(
+        $count = absint( $wpdb->get_var( $wpdb->prepare(
             "SELECT COUNT(*) " . gamipress_upgrade_694_query()
-        ) );
+        ) ) );
 
         if( $count === 0 ) {
             gamipress_set_upgrade_complete( 'update_logs_points_types' );
@@ -280,7 +280,7 @@ function gamipress_upgrade_694_maybe_upgrade() {
         && gamipress_database_table_exists( GamiPress()->db->logs )
         && gamipress_database_table_has_column( GamiPress()->db->logs, 'points_type' )) {
 
-        $upgrade_check = absint( $wpdb->get_var( "SELECT COUNT(*) " . gamipress_upgrade_694_query() . " LIMIT 1" ) );
+        $upgrade_check = absint( $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) " . gamipress_upgrade_694_query() . " LIMIT 1" ) ) );
 
     }
 

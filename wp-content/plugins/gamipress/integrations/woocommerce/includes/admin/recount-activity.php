@@ -43,7 +43,7 @@ function gamipress_wc_activity_recount_purchases( $response, $loop, $limit, $off
     global $wpdb;
 
     // Get all stored users count
-    $users_count = absint( $wpdb->get_var( "SELECT COUNT(*) FROM {$wpdb->users}" ) );
+    $users_count = absint( $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM {$wpdb->users}" ) ) );
 
     // On first loop send an informational text
     if( $loop === 0 && $users_count > $limit ) {
@@ -55,7 +55,7 @@ function gamipress_wc_activity_recount_purchases( $response, $loop, $limit, $off
     }
 
     // Get all stored users
-    $users = $wpdb->get_results( "SELECT {$wpdb->users}.ID FROM {$wpdb->users} LIMIT {$offset}, {$limit}" );
+    $users = $wpdb->get_results( $wpdb->prepare( "SELECT {$wpdb->users}.ID FROM {$wpdb->users} LIMIT {$offset}, {$limit}" ) );
 
     foreach( $users as $user ) {
         // Get all completed orders
@@ -100,7 +100,7 @@ function gamipress_wc_activity_recount_reviews( $response, $loop, $limit, $offse
     global $wpdb;
 
     // Get all stored users count
-    $users_count = absint( $wpdb->get_var( "SELECT COUNT(*) FROM {$wpdb->users}" ) );
+    $users_count = absint( $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM {$wpdb->users}" ) ) );
 
     // On first loop send an informational text
     if( $loop === 0 && $users_count > $limit ) {
@@ -112,7 +112,7 @@ function gamipress_wc_activity_recount_reviews( $response, $loop, $limit, $offse
     }
 
     // Get all stored users
-    $users = $wpdb->get_results( "SELECT {$wpdb->users}.ID FROM {$wpdb->users} LIMIT {$offset}, {$limit}" );
+    $users = $wpdb->get_results( $wpdb->prepare( "SELECT {$wpdb->users}.ID FROM {$wpdb->users} LIMIT {$offset}, {$limit}" ) );
 
     foreach( $users as $user ) {
         // Get all user approved reviews

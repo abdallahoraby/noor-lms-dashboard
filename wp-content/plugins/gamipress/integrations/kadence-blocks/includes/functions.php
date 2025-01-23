@@ -56,7 +56,7 @@ function gamipress_kadence_blocks_get_forms( ) {
 
     $all_forms = array();
 
-    $forms = $wpdb->get_results("select id,post_title,post_content from {$wpdb->posts} where post_content like '%<!-- wp:kadence/form%' and post_status = 'publish'");
+    $forms = $wpdb->get_results( "select id,post_title,post_content from {$wpdb->posts} where post_content like '%<!-- wp:kadence/form%' and post_status = 'publish'" );
     
     foreach ($forms as $post) {
         $form_id = $post->id;

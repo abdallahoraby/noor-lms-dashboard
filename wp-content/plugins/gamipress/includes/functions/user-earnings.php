@@ -246,7 +246,7 @@ function gamipress_get_last_earning_id( $query = array() ) {
 
     $user_earnings = GamiPress()->db->user_earnings;
 
-    return $wpdb->get_var( "SELECT ue.user_earning_id FROM {$user_earnings} AS ue WHERE {$where} ORDER BY ue.date DESC LIMIT 1" );
+    return $wpdb->get_var( $wpdb->prepare( "SELECT ue.user_earning_id FROM {$user_earnings} AS ue WHERE {$where} ORDER BY ue.date DESC LIMIT 1" ) );
 
 }
 

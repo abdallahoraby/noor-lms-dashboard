@@ -52,7 +52,7 @@ function gamipress_bbp_activity_recount_activities( $response, $loop, $limit, $o
     );
 
     // Get all stored posts count
-    $posts_count = absint( $wpdb->get_var( "SELECT COUNT(*) FROM $wpdb->posts AS p WHERE p.post_type IN ('" . implode( "', '", $post_types ) . "') AND p.post_status = 'publish'" ) );
+    $posts_count = absint( $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM $wpdb->posts AS p WHERE p.post_type IN ('" . implode( "', '", $post_types ) . "') AND p.post_status = 'publish'" ) ) );
 
     // On first loop send an informational text
     if( $loop === 0 && $posts_count > $limit ) {
@@ -65,9 +65,9 @@ function gamipress_bbp_activity_recount_activities( $response, $loop, $limit, $o
     }
 
     // Get all published forums, topics and replies
-    $posts = $wpdb->get_results(
+    $posts = $wpdb->get_results( $wpdb->prepare(
         "SELECT p.ID, p.post_type, p.post_author, p.post_parent FROM $wpdb->posts AS p WHERE p.post_type IN ('" . implode( "', '", $post_types ) . "') AND p.post_status = 'publish' LIMIT {$offset}, {$limit}"
-    );
+    ) );
 
     foreach( $posts as $post ) {
 
@@ -144,7 +144,7 @@ function gamipress_bbp_activity_recount_favorites( $response, $loop, $limit, $of
     global $wpdb;
 
     // Get all stored users count
-    $users_count = absint( $wpdb->get_var( "SELECT COUNT(*) FROM {$wpdb->users} AS u" ) );
+    $users_count = absint( $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM {$wpdb->users} AS u" ) ) );
 
     // On first loop send an informational text
     if( $loop === 0 && $users_count > $limit ) {
@@ -157,7 +157,7 @@ function gamipress_bbp_activity_recount_favorites( $response, $loop, $limit, $of
     }
 
     // Get all stored users
-    $users = $wpdb->get_results( "SELECT u.ID FROM {$wpdb->users} AS u LIMIT {$offset}, {$limit}" );
+    $users = $wpdb->get_results( $wpdb->prepare( "SELECT u.ID FROM {$wpdb->users} AS u LIMIT {$offset}, {$limit}" ) );
 
     foreach( $users as $user ) {
 
