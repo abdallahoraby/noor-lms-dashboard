@@ -30,7 +30,7 @@
     </div>
 
 
-    <header class="l-header">
+    <header class="l-header"><!-- header.php -->
         <div class="l-header__inner clearfix">
             <div class="c-header-icon js-hamburger">
                 <div class="hamburger-toggle"><span class="bar-top"></span><span class="bar-mid"></span><span
@@ -86,7 +86,7 @@
             </div>
         </div>
     </header>
-    <div class="l-sidebar">
+    <div class="l-sidebar"><!-- header.php -->
         <div class="logo">
             <a href="<?= site_url() ?>" class="logo__txt">
                 <img alt="" src="<?= get_stylesheet_directory_uri() ?>/assets/images/logo.png">
@@ -96,9 +96,14 @@
             <?php if( is_user_logged_in() ): ?>
             <nav class="c-menu js-menu">
                 <ul class="u-list">
-                    <li class="c-menu__item is-active load-template-part" data-toggle="tooltip" title="Dashboard" data-template-name="student-dashboard">
+                    <li class="c-menu__item load-template-part" data-toggle="tooltip" title="Dashboard" data-template-name="student-dashboard">
                         <a href="#dashboard" class="c-menu__item__inner"><i class="fa fa-home"></i>
-                            <span class="c-menu-item__title"> Dashboard </span>
+                            <span class="c-menu-item__title">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="c-menu__item load-template-part" data-toggle="tooltip" title="Practices" data-template-name="practice-module">
+                        <a href="#practices" class="c-menu__item__inner"><i class="fa fa-calendar"></i>
+                            <span class="c-menu-item__title">Practices</span>
                         </a>
                     </li>
                     <li class="c-menu__item load-template-part" data-toggle="tooltip" title="Courses" data-template-name="courses">

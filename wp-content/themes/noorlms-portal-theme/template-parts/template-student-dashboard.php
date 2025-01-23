@@ -1,12 +1,9 @@
 <?php
-
     $user = get_user_by('id', get_current_user_id());
     $role_name = '';
     if( in_array('student', (array) $user->roles) ):
         $role_name = 'Student';
     endif;
-
-
 ?>
 
 <main class="l-main">
@@ -44,7 +41,6 @@
                                     </a>
                                 </div>
 
-
                                 <div class="assigned-tasks load-template-courses action">
                                     <img class="action-img" src="<?= get_stylesheet_directory_uri() ?>/assets/images/online-course.png" alt="View Courses">
 
@@ -53,10 +49,8 @@
                                         <i class="fas fa-check"></i>
                                     </a>
                                 </div>
-
-
+                                
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -269,14 +263,14 @@
 
         // splide default options
         let splideOptions = {
-            type   : 'slide',  // Enable looping
-            perPage: 2,       // Show 4 items at once
+            type   : 'slide',       // Enable looping
+            perPage: 2,             // Show 4 items at once
             perMove: 1,
-            autoplay: true, // Enable autoplay
-            interval: 3000,   // Time between slides (3 seconds)
-            gap     : '1rem', // Space between slides
-            pagination: true, // Disable pagination
-            arrows: true,      // Enable navigation arrows
+            autoplay: true,         // Enable autoplay
+            interval: 3000,         // Time between slides (3 seconds)
+            gap     : '1rem',       // Space between slides
+            pagination: true,       // Disable pagination
+            arrows: true,           // Enable navigation arrows
             speed: 300,
             paginationDirection: 'ltr',
             heightRatio: 0.14,
@@ -297,11 +291,9 @@
             }
         };
 
-
         if (jQuery('.splide').length) {
             new Splide('.splide', splideOptions).mount();
         }
-
 
     });
 </script>

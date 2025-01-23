@@ -1,3 +1,4 @@
+<!-- template-parts/template-practice-module.php -->
 <div class="practice-tracker">
     <div class="heading-with-icon d-flex gap-3 align-items-center">
         <img src="../assets/images/book-icon.svg" alt="">
@@ -9,37 +10,37 @@
             <h4> This Week Progress </h4>
             <div class="week-progress d-flex align-items-center justify-content-center mt-3 mb-3">
                 <div class="day-progress">
-                    <h4> S </h4>
+                    <h4> Sat </h4>
                     <div class="has-practice active"></div>
                 </div>
 
                 <div class="day-progress">
-                    <h4> S </h4>
+                    <h4> Sun </h4>
                     <div class="has-practice"></div>
                 </div>
 
                 <div class="day-progress">
-                    <h4> M </h4>
+                    <h4> Mon </h4>
                     <div class="has-practice active"></div>
                 </div>
 
                 <div class="day-progress">
-                    <h4> T </h4>
+                    <h4> Tue </h4>
                     <div class="has-practice active"></div>
                 </div>
 
                 <div class="day-progress">
-                    <h4> W </h4>
+                    <h4> Wed </h4>
                     <div class="has-practice"></div>
                 </div>
 
                 <div class="day-progress">
-                    <h4> T </h4>
+                    <h4> Thu </h4>
                     <div class="has-practice"></div>
                 </div>
 
                 <div class="day-progress">
-                    <h4> F </h4>
+                    <h4> Fri </h4>
                     <div class="has-practice"></div>
                 </div>
 

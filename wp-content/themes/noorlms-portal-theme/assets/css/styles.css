@@ -395,7 +395,7 @@ h3.page-title {
 main.l-main {
   width: 100%;
   height: 100%;
-  padding: 70px 0 0 70px;
+  /* padding: 70px 0 0 70px; */
   -webkit-transition: padding 0.5s ease-in-out;
   -moz-transition: padding 0.5s ease-in-out;
   -ms-transition: padding 0.5s ease-in-out;

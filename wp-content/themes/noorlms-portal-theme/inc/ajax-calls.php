@@ -81,7 +81,7 @@ function handle_registration() {
                     )
                 );
 
-                // Auto-login after registration
+// Auto-login after registration
 //                wp_send_json_success(array(
 //                    'success' => true,
 //                    'message' => '<div class="success-login"> <lottie-player src="'.$lottie_src.'"  background="transparent"  speed="1"  style="width: 70px; height: 70px;"  loop autoplay></lottie-player> You are now successfully registered. Please login </div>'
@@ -191,17 +191,12 @@ function ajax_logout() {
 }
 add_action('wp_ajax_ajaxlogout', 'ajax_logout'); // For logged-in users
 
-
-
-
 function lms_practice_module_save_practice() {
     global $wpdb;
     $table_name = $wpdb->prefix . 'lms_practices';
-
     $user_id = get_current_user_id();
     $practice_date = sanitize_text_field($_POST['practice_date']);
     $practice_minutes = intval($_POST['practice_minutes']);
-
     $wpdb->insert(
         $table_name,
         array(
@@ -210,16 +205,10 @@ function lms_practice_module_save_practice() {
             'practice_minutes' => $practice_minutes
         )
     );
-
-    
-
     wp_send_json_success('Practice saved successfully!');
 }
-
 add_action('wp_ajax_save_practice', 'lms_practice_module_save_practice');
 add_action('wp_ajax_nopriv_save_practice', 'lms_practice_module_save_practice');
-
-
 
 function add_log() {
     addLog( 'pms_cancel_subscription_log', array(
@@ -230,7 +219,6 @@ function add_log() {
 
     wp_send_json_success('Log added successfully!');
 }
-
 add_action('wp_ajax_add_log', 'add_log');
 add_action('wp_ajax_nopriv_add_log', 'add_log');
 
@@ -238,6 +226,5 @@ add_action('wp_ajax_nopriv_add_log', 'add_log');
 function get_quiz_score() {
     var_dump( get_the_ID() );
 }
-
 add_action('wp_ajax_get_quiz_score', 'get_quiz_score');
 add_action('wp_ajax_nopriv_get_quiz_score', 'get_quiz_score');

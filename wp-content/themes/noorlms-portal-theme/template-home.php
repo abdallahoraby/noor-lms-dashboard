@@ -23,7 +23,7 @@
                                 data: {
                                     action: 'load_template_part', // The AJAX action we defined in PHP
                                     template_name: 'student-dashboard',
-                                    security: ajax_object.nonce // Security nonce
+                                    security: ajax_object.nonce // Security nonce ZZZZ
                                 },
                                 success: function(response) {
                                     if (response.success) {

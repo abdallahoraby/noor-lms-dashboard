@@ -198,7 +198,6 @@ jQuery(document).on('ajaxComplete', function() {
 
     });
 
-
     // Trigger the AJAX call when needed (e.g., on button click)
     $('.load-template-part').on('click', function(e) {
         let btn_data = $(this);

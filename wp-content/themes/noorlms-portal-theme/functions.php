@@ -427,3 +427,13 @@ function cancel_user_subscriptions($user_id) {
  *  To override the template of the LearnPress plugin, you should add this code to the function.php file
  */
 add_filter( 'learn-press/override-templates', function(){ return true; } );
+
+
+/**
+ * Added By MiWi
+ */
+function custom_format_buddypress_notifications( $action, $item_id, $secondary_item_id, $total_items, $format = 'string' ) 
+{
+
+}
+add_filter( 'bp_notifications_get_notifications_for_user', 'custom_format_buddypress_notifications', 10, 5 );
