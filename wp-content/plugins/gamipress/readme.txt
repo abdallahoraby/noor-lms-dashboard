@@ -3,7 +3,7 @@ Contributors: gamipress, rubengc, eneribs, dioni00, tinocalvo, pacogon, flaberna
 Tags: gamification, points, achievements, ranks, badges
 Requires at least: 4.4
 Tested up to: 6.7
-Stable tag: 7.2.4
+Stable tag: 7.2.7
 License: GNU AGPL v3.0
 License URI: http://www.gnu.org/licenses/agpl-3.0.html
 
@@ -121,6 +121,7 @@ GamiPress integrates with a large number of plugins allowing you to add gamifica
 * [WishList Member](https://gamipress.com/add-ons/wishlist-member-integration/)
 * [wpDiscuz](https://gamipress.com/add-ons/wpdiscuz-integration/)
 * [ARMember](https://gamipress.com/add-ons/armember-integration/)
+* [FluentCommunity](https://gamipress.com/add-ons/fluentcommunity-integration/)
 
 = Other integrations =
 
@@ -171,6 +172,7 @@ GamiPress integrates with a large number of plugins allowing you to add gamifica
 * [QSM](https://gamipress.com/add-ons/qsm-integration/)
 * [GeoDirectory](https://gamipress.com/add-ons/geodirectory-integration/)
 * [WP Booking Calendar](https://gamipress.com/add-ons/wp-booking-calendar-integration/)
+* [Paid Membership Subscriptions](https://gamipress.com/add-ons/paid-membership-subscriptions-integration/)
 
 [View all integrations](https://gamipress.com/integrations/)
 
@@ -339,6 +341,63 @@ No, We're unable to provide custom development services, as our focus is develop
 Also, you can check [our customize section](https://gamipress.com/customize/) where you can find a huge number of code snippets to help you customize GamiPress!
 
 == Changelog ==
+
+= 7.2.7 =
+
+* **Improvements**
+* Fixed related to textdomain notices.
+
+= 7.2.6 =
+
+* **New Features**
+* New integration: FluentCommunity.
+* FluentCommunity: Publish a post in any space.
+* FluentCommunity: Publish a post in a specific space.
+* FluentCommunity: Remove a post from any space.
+* FluentCommunity: Remove a post from a specific space.
+* FluentCommunity: React a post of any space.
+* FluentCommunity: React a post of specific space.
+* FluentCommunity: Request to join any space.
+* FluentCommunity: Request to join specific space.
+* FluentCommunity: Join any space.
+* FluentCommunity: Join a specific space.
+* FluentCommunity: Leave any space.
+* FluentCommunity: Leave a specific space.
+* FluentCommunity: Add a comment in any space.
+* FluentCommunity: Add a comment in a specific space.
+* FluentCommunity: Delete a comment in any space.
+* FluentCommunity: Delete a comment in a specific space.
+* FluentCommunity: Create a space.
+* FluentCommunity: Delete any space.
+* FluentCommunity: Delete a specific space.
+* FluentCommunity: Complete any course.
+* FluentCommunity: Complete a specific course.
+* FluentCommunity: Enroll in any course.
+* FluentCommunity: Enroll in a specific course.
+* FluentCommunity: Unroll from any course.
+* FluentCommunity: Unroll from a specific course.
+* FluentCommunity: Create a course.
+* FluentCommunity: Delete any course.
+* FluentCommunity: Delete a specific course.
+* New integration: Paid Membership Subscriptions.
+* Paid Membership Subscriptions: Purchase a subscription.
+* Paid Membership Subscriptions: Purchase a specific subscription.
+* Paid Membership Subscriptions: Pay a subscription.
+* Paid Membership Subscriptions: Pay a specific subscription.
+* Paid Membership Subscriptions: Renew a subscription.
+* Paid Membership Subscriptions: Renew a specific subscription.
+* Paid Membership Subscriptions: Change a subscription.
+* Paid Membership Subscriptions: Change a specific subscription.
+* Paid Membership Subscriptions: Cancel a subscription.
+* Paid Membership Subscriptions: Cancel a specific subscription.
+* Paid Membership Subscriptions: Abandon a subscription.
+* Paid Membership Subscriptions: Abandon a specific subscription.
+
+= 7.2.5 =
+
+* **Improvements**
+* Improved texts for user earnings registration.
+* WP Courseware: Support to latest version.
 
 = 7.2.4 =
 

@@ -41,10 +41,12 @@ add_action( 'wpcw_user_completed_unit', 'gamipress_wpcw_complete_unit', 10, 3 );
  * @since 1.0.0
  *
  * @param integer $user_id
- * @param integer $module_id
+ * @param integer $unit_id
  * @param object $parent stdClass // TODO: Need to check in docs
  */
-function gamipress_wpcw_complete_module( $user_id, $module_id, $parent ) {
+function gamipress_wpcw_complete_module( $user_id, $unit_id, $parent ) {
+
+    $module_id = $parent->module_id;
 
     // Complete any module
     do_action( 'gamipress_wpcw_complete_module', $module_id, $user_id );

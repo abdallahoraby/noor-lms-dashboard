@@ -46,58 +46,41 @@ function gamipress_wpcw_specific_activity_triggers( $specific_activity_triggers 
 
     $specific_activity_triggers['gamipress_wpcw_complete_specific_unit'] = array( 'course_unit' );
     $specific_activity_triggers['gamipress_wpcw_complete_specific_module'] = array( 'wpcw_modules' );
-    $specific_activity_triggers['gamipress_wpcw_complete_specific_course'] = array( 'wpcw_courses' );
+    //$specific_activity_triggers['gamipress_wpcw_complete_specific_course'] = array( 'wpcw_courses' );
+    $specific_activity_triggers['gamipress_wpcw_complete_specific_course'] = array( 'wpcw_course' );
 
     return $specific_activity_triggers;
 }
 add_filter( 'gamipress_specific_activity_triggers', 'gamipress_wpcw_specific_activity_triggers' );
 
 /**
- * Build custom activity trigger label
+ * Get plugin specific activity trigger post title
  *
- * @param string    $title
- * @param integer   $requirement_id
- * @param array     $requirement
+ * @since  1.0.0
+ *
+ * @param  string   $post_title
+ * @param  integer  $specific_id
+ * @param  string   $trigger_type
  *
  * @return string
  */
-function gamipress_wpcw_activity_trigger_label( $title, $requirement_id, $requirement ) {
+function gamipress_wpcw_specific_activity_trigger_post_title( $post_title, $specific_id, $trigger_type ) {
 
-    global $wpdb;
-
-    $achievement_post_id = absint( $requirement['achievement_post'] );
-
-    switch( $requirement['trigger_type'] ) {
-// TODO: Deprecated, Units are now CPT posts with post_type as 'course_unit'
-//        case 'gamipress_wpcw_complete_specific_unit':
-//            $unit_title = $wpdb->get_var( $wpdb->prepare(
-//                "SELECT unit_title FROM {$wpdb->prefix}wpcw_units WHERE unit_id = %d",
-//                $achievement_post_id
-//            ) );
-//
-//            return sprintf( __( 'Complete the unit %s', 'gamipress' ), $unit_title );
-//            break;
+    switch( $trigger_type ) {
         case 'gamipress_wpcw_complete_specific_module':
-            $module_title = $wpdb->get_var( $wpdb->prepare(
-                "SELECT module_title FROM {$wpdb->prefix}wpcw_modules WHERE module_id = %d",
-                $achievement_post_id
-            ) );
+            if( absint( $specific_id ) !== 0 ) {
+                // Get the module title
+                $module_title = gamipress_wpcw_get_module_title( $specific_id );
 
-            return sprintf( __( 'Complete the module %s', 'gamipress' ), $module_title );
-            break;
-        case 'gamipress_wpcw_complete_specific_course':
-            $course_title = $wpdb->get_var( $wpdb->prepare(
-                "SELECT course_title FROM {$wpdb->prefix}wpcw_courses WHERE course_id = %d",
-                $achievement_post_id
-            ) );
-
-            return sprintf( __( 'Complete the course %s', 'gamipress' ), $course_title );
+                $post_title = $module_title;
+            }
             break;
     }
 
-    return $title;
+    return $post_title;
+
 }
-add_filter( 'gamipress_activity_trigger_label', 'gamipress_wpcw_activity_trigger_label', 10, 3 );
+add_filter( 'gamipress_specific_activity_trigger_post_title', 'gamipress_wpcw_specific_activity_trigger_post_title', 10, 3 );
 
 /**
  * Register WP Courseware specific activity triggers labels
@@ -197,13 +180,11 @@ function gamipress_wpcw_log_event_trigger_meta_data( $log_meta, $user_id, $trigg
         case 'gamipress_wpcw_complete_specific_module':
             // Add the module IDs
             $log_meta['module_id'] = $args[0];
-            $log_meta['course_id'] = $args[2];
             break;
         case 'gamipress_wpcw_complete_course':
         case 'gamipress_wpcw_complete_specific_course':
             // Add the course IDs
             $log_meta['course_id'] = $args[0];
-            $log_meta['course_id'] = $args[2];
             break;
     }
 

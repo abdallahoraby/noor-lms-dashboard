@@ -9,7 +9,7 @@
  * Text Domain:           gamipress-buddyboss-integration
  * Domain Path:           /languages/
  * Requires at least:     4.4
- * Tested up to:          6.4
+ * Tested up to:          6.7
  * License:               GNU AGPL v3.0 (http://www.gnu.org/licenses/agpl.txt)
  *
  * @package               GamiPress\BuddyBoss

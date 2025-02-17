@@ -103,7 +103,7 @@ function gamipress_ajax_profile_update_user_points() {
 
     $points             = absint( $_POST['points'] );
     $register_movement  = ( bool ) $_POST['register_movement'];
-    $earnings_text      = sanitize_text_field( $_POST['earnings_text'] );
+    $earnings_text      = stripslashes( sanitize_text_field( $_POST['earnings_text'] ) );
     $points_type        = sanitize_text_field( $_POST['points_type'] );
     $user_id            = absint( $_POST['user_id'] );
 

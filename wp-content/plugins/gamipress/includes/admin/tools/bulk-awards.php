@@ -436,7 +436,7 @@ function gamipress_ajax_bulk_awards_tool() {
            gamipress_award_points_to_user( $user->ID, $user_points + $points_to_award, $points_type_to_award, array( 'admin_id' => get_current_user_id() ) );
 
             $register_movement = isset( $_POST['bulk_award_points_register_movement'] ) ? true : false;
-            $earnings_text = isset( $_POST['bulk_award_points_earnings_text'] ) ? sanitize_text_field( $_POST['bulk_award_points_earnings_text'] ) : '';
+            $earnings_text = isset( $_POST['bulk_award_points_earnings_text'] ) ? stripslashes( sanitize_text_field( $_POST['bulk_award_points_earnings_text'] ) ) : '';
 
             if( $register_movement ) {
 

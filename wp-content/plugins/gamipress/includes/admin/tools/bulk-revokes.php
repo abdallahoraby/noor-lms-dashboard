@@ -434,7 +434,7 @@ function gamipress_ajax_bulk_revokes_tool() {
            gamipress_deduct_points_to_user( $user->ID, $user_points - $points_to_revoke, $points_type_to_revoke, array( 'admin_id' => get_current_user_id() ) );
 
             $register_movement = isset( $_POST['bulk_revoke_points_register_movement'] ) ? true : false;
-            $earnings_text = isset( $_POST['bulk_revoke_points_earnings_text'] ) ? sanitize_text_field( $_POST['bulk_revoke_points_earnings_text'] ) : '';
+            $earnings_text = isset( $_POST['bulk_revoke_points_earnings_text'] ) ? stripslashes( sanitize_text_field( $_POST['bulk_revoke_points_earnings_text'] ) ) : '';
 
             if( $register_movement ) {
 
